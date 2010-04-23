@@ -1,0 +1,6 @@
+#!/bin/bash
+git push ${1:-origin} $(git branch | sed -ne 's/^\*\ \(.*\)$/\1/p')
+
+# Put this file somewhere in your PATH, call it 'git-up', make it +x,
+# and then you can call "git up" to push to origin, or "git up foo"
+# to push to 'foo'

@@ -1,0 +1,17 @@
+[ui]
+username = Markus Prinz <markus.prinz@nuclearsquid.com>
+ssh = ssh -C
+
+[defaults]
+annotate = --user --changeset
+# suppress noisy extdiff header message
+cdiff = -q
+
+[extdiff]
+cmd.cdiff = colordiff
+opts.cdiff = -uprN
+
+[extensions]
+#fetch = 
+#hgext.mq = 
+#transplant = 

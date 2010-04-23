@@ -1,0 +1,17 @@
+# minute (0-59), 
+# |     hour (0-23), 
+# |     |       day of the month (1-31), 
+# |     |       |       month of the year (1-12), 
+# |     |       |       |       day of the week (0-7 with 0=7=Sunday). 
+# |     |       |       |       |       command(s)
+# |     |       |       |       |       |
+
+# Special strings:
+# @reboot execution at boot
+# @yearly execution once a year, "0 0 1 1 *"
+# @annually execution once a year, "0 0 1 1 *"
+# @monthly  execution onnce a month, "0 0 1 * *"
+# @weekly execution once a week, "0 0 * * 0"
+# @daily  execution once a day, "0 0 * * *"
+# @midnight execution once a day, "0 0 * * *"
+# @hourly execution once an hour, "0 * * * *"

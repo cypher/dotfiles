@@ -1,0 +1,5 @@
+--- 
+ignore: 
+- mac_clipboard
+- pastie
+- rails_finder_shortcut

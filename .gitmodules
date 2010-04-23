@@ -1,0 +1,60 @@
+[submodule "emacs.d/clojure-mode"]
+	path = emacs.d/clojure-mode
+	url = git://github.com/jochu/clojure-mode.git
+[submodule "emacs.d/swank-clojure"]
+	path = emacs.d/swank-clojure
+	url = git://github.com/jochu/swank-clojure.git
+[submodule "emacs.d/slime"]
+	path = emacs.d/slime
+	url = git://git.boinkor.net/slime.git
+[submodule "vimbundles/vim-rails"]
+	path = vimbundles/vim-rails
+	url = git://github.com/tpope/vim-rails.git
+[submodule "vimbundles/vim-cucumber"]
+	path = vimbundles/vim-cucumber
+	url = git://github.com/tpope/vim-cucumber.git
+[submodule "vimbundles/vim-vividchalk"]
+	path = vimbundles/vim-vividchalk
+	url = git://github.com/tpope/vim-vividchalk.git
+[submodule "vimbundles/vim-haml"]
+	path = vimbundles/vim-haml
+	url = git://github.com/tpope/vim-haml.git
+[submodule "vimbundles/vim-endwise"]
+	path = vimbundles/vim-endwise
+	url = git://github.com/tpope/vim-endwise.git
+[submodule "vimbundles/vim-surround"]
+	path = vimbundles/vim-surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "vimbundles/vim-unimpaired"]
+	path = vimbundles/vim-unimpaired
+	url = git://github.com/tpope/vim-unimpaired.git
+[submodule "vimbundles/vim-abolish"]
+	path = vimbundles/vim-abolish
+	url = git://github.com/tpope/vim-abolish.git
+[submodule "vimbundles/vim-repeat"]
+	path = vimbundles/vim-repeat
+	url = git://github.com/tpope/vim-repeat.git
+[submodule "vimbundles/nerdtree"]
+	path = vimbundles/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "vimbundles/nerdcommenter"]
+	path = vimbundles/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "vimbundles/vim-markdown"]
+	path = vimbundles/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git
+[submodule "vimbundles/vim-fugitive"]
+	path = vimbundles/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "vimbundles/vim-speeddating"]
+	path = vimbundles/vim-speeddating
+	url = git://github.com/tpope/vim-speeddating.git
+[submodule "vimbundles/vim-space"]
+	path = vimbundles/vim-space
+	url = git://github.com/tpope/vim-space.git
+[submodule "vimbundles/vim-liquid"]
+	path = vimbundles/vim-liquid
+	url = git://github.com/tpope/vim-liquid.git
+[submodule "emacs.d"]
+	path = emacs.d
+	url = git://github.com/technomancy/emacs-starter-kit.git

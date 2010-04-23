@@ -1,0 +1,58 @@
+# Pilfered & modified from ~rtomayko/.screenrc
+
+# -------------------------------------------------------------------
+# Settings
+# -------------------------------------------------------------------
+crlf off                        # No Microsoft linebreaks
+startup_message off             # bypass GPL notice (we're aware)
+defscrollback 15000             # big scrollback
+shell zsh                       # don't start login shells
+shelltitle ""                   # no title by default - set in PS1
+defmonitor on                   # turn on monitoring
+activity "<%n>"                 # let you know when stuff happens!
+silencewait 15                  # notify when window goes silent
+bell_msg "DING! (%n)"
+vbell_msg "DING! (%n)"
+vbell on
+nethack off                     # makes error messages cryptic.
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+autodetach on
+defutf8 on
+
+# minimal status line with clock flush right
+hardstatus alwayslastline "%{=b}%{G} : %{b}%w %=%{kG}%C%A"
+
+# copy screen clipboard to mac clipboard
+bind b eval "writebuf" "exec sh -c 'pbcopy < /tmp/screen-exchange'"
+
+# enable bold
+attrcolor b ".I"
+
+# allow 256 colors
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+# xterm understands both im/ic and doesn't have a status line.
+# Note: Do not specify im and ic in the real termcap/info file as
+# some programs (e.g. vi) will not work anymore.
+termcap  xterm 'hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l'
+terminfo xterm 'hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l'
+termcap  xterm-color 'hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l'
+terminfo xterm-color 'hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l'
+
+# this makes backspace sane on debian systems
+termcapinfo xterm 'bc@:bs@'
+termcapinfo xterm-color 'bc@:bs@'
+
+# 80/132 column switching must be enabled for ^AW to work
+# change init sequence to not switch width
+termcapinfo  xterm 'Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+termcapinfo  xterm-color 'Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+
+# tell screen that xterm can switch to dark background and has function
+# keys.
+termcapinfo xterm 'VR=\E[?5h:VN=\E[?5l'
+termcapinfo xterm 'k1=\E[11~:k2=\E[12~:k3=\E[13~:k4=\E[14~'
+termcapinfo xterm 'kh=\EOH:kI=\E[2~:kD=\E[3~:kH=\EOF:kP=\E[5~:kN=\E[6~'
+termcapinfo xterm-color 'VR=\E[?5h:VN=\E[?5l'
+termcapinfo xterm-color 'k1=\E[11~:k2=\E[12~:k3=\E[13~:k4=\E[14~'
+termcapinfo xterm-color 'kh=\EOH:kI=\E[2~:kD=\E[3~:kH=\EOF:kP=\E[5~:kN=\E[6~'

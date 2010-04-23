@@ -1,0 +1,3 @@
+# Block certain hosts, and redirect them to a warning page
+66.135.33.106   www.techcrunch.com
+

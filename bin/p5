@@ -1,0 +1,73 @@
+#!/usr/bin/env ruby
+#
+# Released under MIT License
+# Copyright (c) 2009 Markus Prinz
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+
+require 'shellwords'
+
+# Update Java Classpath
+CLASSPATH = ENV["CLASSPATH"] ? ENV["CLASSPATH"].split(':') : []
+
+custom_classes_path = File.expand_path("~/classes")
+
+Dir[File.join(custom_classes_path, "*.jar")].each do |jar|
+  CLASSPATH << jar unless CLASSPATH.include?(jar)
+end if Dir.exists?(custom_classes_path)
+
+# Add processing stuff, if it is installed
+PROCESSING_DIR = "/Applications/Processing.app/Contents/Resources/Java"
+processing_available = false
+
+if Dir.exists?(PROCESSING_DIR)
+  %w(
+    core.jar
+    libraries/opengl/library/gluegen-rt.jar
+    libraries/opengl/library/jogl.jar
+    libraries/opengl/library/opengl.jar
+  ).each do |jar_name|
+    jar = File.join(PROCESSING_DIR, jar_name)
+    CLASSPATH << jar if File.exists?(jar) && !CLASSPATH.include?(jar)
+  end
+  processing_available = true
+end
+
+CLOJURE_DIR = File.expand_path("~/Code/clojure")
+CLOJURE_JAR = File.join(CLOJURE_DIR, "clojure.jar")
+CLOJURE_CONTRIB_DIR = File.expand_path("~/Code/clojure-contrib")
+CLOJURE_CONTRIB_JAR = File.join(CLOJURE_CONTRIB_DIR, "clojure-contrib.jar")
+CLJ_PROCESSING_DIR = File.expand_path("~/Code/clj-processing")
+CLJ_PROCESSING_JAR = File.join(CLJ_PROCESSING_DIR, 'rosado.processing.jar')
+
+run_clojure = "java "
+run_clojure << "-Djava.library.path=#{PROCESSING_DIR}/libraries/opengl/library "
+run_clojure << "-cp #{CLOJURE_JAR}:#{CLOJURE_CONTRIB_JAR}:#{CLJ_PROCESSING_JAR}:#{CLASSPATH.join(":")} "
+
+if ARGV.empty?
+  run_repl = ""
+
+  run_repl << run_clojure
+  run_clojure << "jline.ConsoleRunner " if CLASSPATH.find{ |jar| jar =~ /jline-\d+\.\d+\.\d+\.jar/ }
+  run_repl << "clojure.main"
+
+  exec run_repl
+else
+  exec "#{run_clojure} clojure.lang.Script #{ARGV[0]} -- #{ARGV[1..-1].shelljoin}"
+end

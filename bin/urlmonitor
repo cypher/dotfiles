@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+# urlmonitor - print out the URLs requested system wide on the main network interface
+
+# Accept a network interface name as an optional argument
+iface = ARGV.first
+
+# No interface specified? Try to guess which one is king..
+unless iface
+  `ifconfig -l`.split.each do |iface|
+    next if iface =~ /^lo/
+    break if `ifconfig #{iface}` =~ /inet (0|1|2)/
+  end
+end
+
+# Get tcpdump running, grep out relevant HTTP headers and build them
+# in to URLs
+STDOUT.sync = true
+IO.popen(%{sudo tcpdump -i #{iface} -n -s 0 -w - | grep -a --line-buffered -E "Host\: .*|GET \/.*"}, 'r') do |pipe|
+  pipe.sync = true
+  while line = pipe.gets
+    path = $1.chomp and host = nil if line =~ /GET (.*?)\s/
+    host = $1.chomp if line =~ /Host: (.*)/
+    if path && host
+      puts "http://#{host}#{path}"
+      path = host = nil
+    end
+  end
+end

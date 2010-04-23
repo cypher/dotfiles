@@ -1,0 +1,126 @@
+[user]
+	name = Markus Prinz
+	email = markus.prinz@nuclearsquid.com
+
+[alias]
+	c = commit
+	ca = commit --amend
+	co = checkout
+	s = status
+	d = diff
+	wd = diff --color-words
+	m = merge
+	ms = merge --squash
+	mm = merge --no-ff
+	b = branch
+	l = log
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	sl = shortlog
+	h = help
+	st = stash
+	stl = stash list
+	stc = stash clear
+	stp = stash pop
+	ds = diff --staged
+	wds = diff --color-words --staged
+	dt = difftool
+	dm = "!git_merge_diff() { git diff head...\"$1\"; }; git_merge_diff"
+	both = diff HEAD
+	changes = diff --name-status -r
+	r = remote
+	ru = remote update --prune
+	a = add
+	ap = add --patch
+	ai = add --interactive
+	au = add --update
+	ae = add --edit
+	sm = submodule
+	sma = submodule add
+	smu = submodule update --init
+	rb = rebase
+	irb = rebase --interactive
+	rbc = rebase --continue
+	rba = rebase --abort
+	rbs = rebase --skip
+	undo = reset --hard HEAD@{1}
+	prb = pull --rebase
+	svnrb = svn rebase
+	svnf = svn fetch
+	c-p = cherry-pick
+	p = cherry-pick -s
+	pending = log origin/master..master
+	missing = rev-list --pretty=oneline --reverse "^HEAD" origin
+	unpushed = log origin..HEAD
+	rh = reset --hard
+	rbprune = "!for remote in `git remote`; do git remote prune $remote; done"
+	up = "!git_up() { git push ${1:-origin} $(git branch | sed -ne 's/^\\*\\ \\(.*\\)$/\\1/p'); }; git_up"
+	upf = "!git_up() { git push -f ${1:-origin} $(git branch | sed -ne 's/^\\*\\ \\(.*\\)$/\\1/p'); }; git_up"
+	retrack = "!retrack() {\n  if [[ -n \"$2\" ]]\n  then\n    branch=$1\n    remote=$2\n  else\n    branch=$(git branch | sed -ne \"s/^\\*\\ \\(.*\\)$/\\1/p\")\n    remote=$1\n  fi\n\n  git config \"branch.$branch.remote\" $(dirname \"$remote\")\n  git config \"branch.$branch.merge\" \"refs/heads/$(basename \"$remote\")\"\n}\n retrack"
+	track = ! track() {\n  branch=$(git branch | sed -ne \"s/^\\*\\ \\(.*\\)$/\\1/p\")\n  remote=$1\n\n  git config \"branch.$branch.remote\" $(dirname \"$remote\")\n  git config \"branch.$branch.merge\" \"refs/heads/$(basename \"$remote\")\"\n}\n\ntrack
+	msg = commit --allow-empty -m
+	w = wip
+	wl = wip log --pretty
+	wi = wip info
+	deploy = ! git checkout soup-production && git merge soup && git checkout soup && git push && cap production deploy:fast
+	datetag = !git tag `git name-rev --name-only HEAD`-`date \"+%Y%m%d%H%M\"`
+	ls-ignored = ls-files --exclude-standard --ignored --others
+
+[advice]
+	pushNonFastForward = false
+	statusHints = false
+
+[apply]
+	whitespace = nowarn
+
+[diff]
+	renames = true
+	mnemonicprefix = true
+
+[difftool]
+	prompt = false
+
+[pager]
+	color = true 
+
+[branch]
+	autosetupmerge = true
+
+[color]
+	ui = auto
+	
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+	
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+	
+[format]
+	numbered = auto
+
+[svn]
+	brokenSymlinkWorkaround = false
+
+[push]
+	default = tracking
+
+[help]
+	autocorrect = 0
+
+[core]
+	excludesfile = ~/.gitignore
+
+[rerere]
+	enabled = 1
+
+[git-tmbundle]
+	gitx-path = /usr/local/bin/gitx

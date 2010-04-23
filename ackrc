@@ -1,0 +1,28 @@
+# lexically sort filenames
+--sort-files
+
+# Pipe the output through a pager by default
+# --pager=less
+
+# Highlight the matching text
+--color
+
+# Print 1 line of output context
+--context=1
+
+# Follow symlinks
+--follow
+
+# Print a filename heading above each file's results and
+# print a break between results from different files
+--group
+
+# All file types searched
+--all-types
+
+# add rake extension to ack's notion of Ruby files
+--type-add=ruby=rake
+
+# Introduce Haml to ack
+--type-set=haml=.haml
+
