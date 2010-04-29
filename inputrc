@@ -7,10 +7,10 @@ set output-meta on
 # do not make noise
 set bell-style none
 
-set editing-mode vi
-tab: complete
-set completion-ignore-case on
-set blink-matching-paren on
+# set editing-mode vi
+# tab: complete
+# set completion-ignore-case on
+# set blink-matching-paren on
 
 # By default up/down are bound to previous-history
 # and next-history respectively. The following does the
