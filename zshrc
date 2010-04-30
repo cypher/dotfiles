@@ -360,6 +360,12 @@ fi
 
 alias httpdump='sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E "Host\: .*|GET \/.*"'
 
+# mkdir, cd into it (via http://onethingwell.org/post/561049890/mkcd)
+mkcd() {
+    mkdir $1
+    cd $1
+}
+
 #########################################################################################
 # Ruby aliases/functions
 
