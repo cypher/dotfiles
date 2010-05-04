@@ -7,7 +7,7 @@
 - http://gems.github.com
 :update_sources: true
 :verbose: true
-gem: --no-ri
-install: --no-ri
+gem: --no-ri --no-rdoc
+install: --no-ri --no-rdoc
 rdoc: --line-numbers
 search: --details --both
