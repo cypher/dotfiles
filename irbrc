@@ -31,3 +31,6 @@ Sketches.config :editor => 'mate'
 # Awesome print: http://www.rubyinside.com/awesome_print-a-new-pretty-printer-for-your-ruby-objects-3208.html
 gem 'awesome_print'
 require 'ap'
+
+# Debug Print: http://github.com/niclasnilsson/dp
+require 'dp'
