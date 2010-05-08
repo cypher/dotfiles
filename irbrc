@@ -34,3 +34,7 @@ require 'ap'
 
 # Debug Print: http://github.com/niclasnilsson/dp
 require 'dp'
+
+# http://github.com/cldwalker/bond
+require 'bond'
+Bond.start
