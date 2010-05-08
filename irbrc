@@ -10,11 +10,9 @@ end
 gem 'irb_rocket'
 require 'irb_rocket'
 
-# sudo gem install cldwalker-hirb
-gem 'cldwalker-hirb'
+# gem install hirb
 require 'hirb'
-
-Hirb::View.enable
+Hirb.enable
 
 # Hirb.enable :pager => false
 # Hirb.enable :formatter => false
