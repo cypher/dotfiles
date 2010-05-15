@@ -177,9 +177,13 @@ else
     alias l='ls -lhF'
 fi
 
-alias ...='cd ../../'
-alias ..='cd ..'
 alias .='pwd'
+alias '..'='cd ..'
+# The -g makes them global aliases, so they're expaned even inside commands
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+# Aliases '-' to 'cd -'
 alias -- -='cd -'
 
 alias cp='nocorrect cp'         # no spelling correction on cp
