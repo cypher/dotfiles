@@ -74,11 +74,8 @@ set nojoinspaces
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark          " we are using a dark background
 syntax on                    " syntax highlighting on
-if has('gui_running')
-  colorscheme xoria256
-else
-  colorscheme asmdev
-endif
+
+colorscheme asmdev
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backups
@@ -172,19 +169,6 @@ let g:clj_want_gorilla = 1                  " Enable interactive mode
 
 " NERD_Tree support
 map <Leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" GUI Options
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set gfn=Inconsolata:h13.00
-"set gfn=Monaco:h10.00
-
-" Hide the menu bar
-set guioptions-=T
-
-set ch=2                     " Make command line two lines high
-
-set mousehide                " Hide the mouse when typing text
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MacVim specific stuff
