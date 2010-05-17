@@ -2,9 +2,12 @@ IRB.conf[:PROMPT_MODE] = :SIMPLE
 
 require 'rubygems'
 
-
-gem 'irb_rocket'
-require 'irb_rocket'
+begin
+  gem 'irb_rocket'
+  require 'irb_rocket'
+rescue LoadError
+  # This gem requires a native extension, so it fails to load under JRuby
+end
 
 # gem install hirb
 require 'hirb'
@@ -29,6 +32,11 @@ require 'ap'
 # Debug Print: http://github.com/niclasnilsson/dp
 require 'dp'
 
-# http://github.com/cldwalker/bond
-require 'bond'
-Bond.start
+begin
+  # http://github.com/cldwalker/bond
+  require 'bond'
+  Bond.start
+rescue LoadError
+  # This gem requires a native extension, so it fails to load under JRuby
+end
+
