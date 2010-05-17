@@ -9,6 +9,11 @@ rescue LoadError
   # This gem requires a native extension, so it fails to load under JRuby
 end
 
+# gem install interactive_editor
+# Supersedes the Utiltity Belt version
+gem 'interactive_editor'
+require 'interactive_editor'
+
 # gem install hirb
 require 'hirb'
 Hirb.enable
