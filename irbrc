@@ -2,10 +2,6 @@ IRB.conf[:PROMPT_MODE] = :SIMPLE
 
 require 'rubygems'
 
-if RUBY_VERSION =~ /1\.8/
-  require 'utility_belt'
-  UtilityBelt.equip( :all, :except => %w{amazon_upload_shortcut guessmethod rails_finder_shortcut rails_verbosity_control} )
-end
 
 gem 'irb_rocket'
 require 'irb_rocket'
