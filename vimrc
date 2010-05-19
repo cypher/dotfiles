@@ -200,7 +200,4 @@ if has("gui_macvim")
 
   " Enable default OS X shift-movement/replacement behavior
   let macvim_hig_shift_movement = 1
-
-  " Return focus to previous window when MacVim window is closed
-  au VimLeave * maca hide:
 endif
