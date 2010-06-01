@@ -8,10 +8,11 @@ annotate = --user --changeset
 cdiff = -q
 
 [extdiff]
-cmd.cdiff = colordiff
-opts.cdiff = -uprN
+cmd.ksdiff = /usr/local/bin/ksdiff-wrapper
+opts.ksdiff = hg
 
 [extensions]
 #fetch = 
 #hgext.mq = 
 #transplant = 
+hgext.extdiff =

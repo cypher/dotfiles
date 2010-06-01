@@ -75,6 +75,7 @@
 [diff]
 	renames = true
 	mnemonicprefix = true
+	tool = Kaleidoscope
 
 [difftool]
 	prompt = false
@@ -124,3 +125,6 @@
 
 [git-tmbundle]
 	gitx-path = /usr/local/bin/gitx
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
