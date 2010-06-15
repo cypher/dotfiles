@@ -370,7 +370,9 @@ mkcd () {
     cd "$*"
 }
 
-alias ydl="youtube-dl -td"
+ydl () {
+    for url ($*) youtube-dl -td "$url" || youtube-dl -tb "$url"
+}
 
 #########################################################################################
 # Ruby aliases/functions
