@@ -58,3 +58,6 @@
 [submodule "emacs.d"]
 	path = emacs.d
 	url = git://github.com/technomancy/emacs-starter-kit.git
+[submodule "vimbundles/ack"]
+	path = vimbundles/ack
+	url = http://github.com/mileszs/ack.vim.git
