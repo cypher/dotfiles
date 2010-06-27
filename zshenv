@@ -36,6 +36,12 @@ then
     PATH="${HOME}/Code/git-utils:${PATH}"
 fi
 
+# 'clj' (http://github.com/liebke/clj)
+if [[ -d "${HOME}/.clj/bin" ]]
+then
+    PATH="${HOME}/.clj/bin:${PATH}"
+fi
+
 # Force these paths to be in front of all other paths
 for p in "${HOME}/bin" '/usr/local/sbin' '/usr/local/bin'
 do
