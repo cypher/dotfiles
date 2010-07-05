@@ -35,4 +35,3 @@ begin
 rescue LoadError
   # This gem requires a native extension, so it fails to load under JRuby
 end
-

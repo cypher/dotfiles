@@ -396,6 +396,8 @@ alias rg='rails generate'
 alias rs='rails server'
 
 alias r='rake'
+alias t='thor'
+
 alias restart='touch tmp/restart.txt'
 alias migrate='rake db:migrate && rake db:test:prepare'
 
