@@ -37,9 +37,9 @@ then
 fi
 
 # 'clj' (http://github.com/liebke/clj)
-if [[ -d "${HOME}/.clj/bin" ]]
+if [[ -d "${HOME}/.cljr/bin" ]]
 then
-    PATH="${HOME}/.clj/bin:${PATH}"
+    PATH="${HOME}/.cljr/bin:${PATH}"
 fi
 
 # Force these paths to be in front of all other paths
