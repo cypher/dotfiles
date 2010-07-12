@@ -8,7 +8,7 @@ def try_require(gem_name, lib_name = nil)
 
   yield if block_given?
 rescue LoadError
-  $stderr.puts ".irbrc: Could not load `#{gem_name}'"
+  $stderr.puts "#{__FILE__}: Could not load `#{gem_name}'"
 end
 
 try_require 'irb_rocket'
