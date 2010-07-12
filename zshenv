@@ -83,6 +83,8 @@ fi
 export EDITOR=$VISUAL
 export SVN_EDITOR=$VISUAL
 
+export LESS="-R"
+
 # -- start rip config -- #
 RIPDIR="${HOME}/.rip"
 RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
