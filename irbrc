@@ -2,36 +2,33 @@ IRB.conf[:PROMPT_MODE] = :SIMPLE
 
 require 'rubygems'
 
-begin
-  gem 'irb_rocket'
-  require 'irb_rocket'
+def try_require(gem_name, lib_name = nil)
+  gem gem_name
+  require(lib_name || gem_name)
+
+  yield if block_given?
 rescue LoadError
-  # This gem requires a native extension, so it fails to load under JRuby
+  $stderr.puts ".irbrc: Could not load `#{gem_name}'"
 end
 
-# gem install interactive_editor
-# Supersedes the Utiltity Belt version
-gem 'interactive_editor'
-require 'interactive_editor'
+try_require 'irb_rocket'
 
-# gem install hirb
-require 'hirb'
-Hirb.enable
+try_require 'interactive_editor'
 
-# Hirb.enable :pager => false
-# Hirb.enable :formatter => false
+try_require 'hirb' do
+  Hirb.enable
+
+  # Hirb.enable :pager => false
+  # Hirb.enable :formatter => false
+end
 
 # Awesome print: http://www.rubyinside.com/awesome_print-a-new-pretty-printer-for-your-ruby-objects-3208.html
-gem 'awesome_print'
-require 'ap'
+try_require 'awesome_print', 'ap'
 
 # Debug Print: http://github.com/niclasnilsson/dp
-require 'dp'
+try_require 'dp'
 
-begin
-  # http://github.com/cldwalker/bond
-  require 'bond'
+# http://github.com/cldwalker/bond
+try_require 'bond' do
   Bond.start
-rescue LoadError
-  # This gem requires a native extension, so it fails to load under JRuby
 end
