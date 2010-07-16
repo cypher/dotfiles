@@ -374,6 +374,11 @@ ydl () {
     for url ($*) youtube-dl -td "$url" || youtube-dl -tb "$url"
 }
 
+if [[ -x `which bcat` ]]; then
+    # If bcat (Browser cat, http://rtomayko.github.com/bcat/) is invoked as `btee', it acts like `tee(1)'
+    alias btee=bcat
+fi
+
 #########################################################################################
 # Ruby aliases/functions
 
