@@ -453,6 +453,10 @@ function update-git () {
         else
             sudo make prefix=/usr/local BLK_SHA1=1 NO_TCLTK=1 install quick-install-man
         fi
+
+        if [[ -e "${HOME}/dotfiles/git-completion.sh" ]]; then
+            cp "./contrib/completion/git-completion.bash" "${HOME}/dotfiles/git-completion.sh"
+        fi
     fi
 
     git --version
