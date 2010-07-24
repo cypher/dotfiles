@@ -371,7 +371,7 @@ mkcd () {
 }
 
 ydl () {
-    for url ($*) youtube-dl -l "$url" || youtube-dl -l "$url"
+    for url ($*) youtube-dl -cl "$url"
 }
 
 if [[ -x `which bcat` ]]; then
