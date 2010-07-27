@@ -505,10 +505,12 @@ compdef _git_remote_branch grb
 #########################################################################################
 # Node
 
-# nvm, the node version manager
-NVM_DIR=$HOME/.nvm
-source $NVM_DIR/nvm.sh
-# nvm use v0.1.91
+if [[ -d "${HOME}/.nvm" ]]; then
+    # nvm, the node version manager
+    NVM_DIR=$HOME/.nvm
+    source $NVM_DIR/nvm.sh
+    # nvm use v0.1.91
+fi
 
 #########################################################################################
 # SSH
