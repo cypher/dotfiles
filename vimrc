@@ -94,6 +94,9 @@ set fo=tcrqn                 " See Help (complex)
 set autoindent               " autoindent
 set nosmartindent            " smartindent
 set cindent                  " do c-style indenting
+"set tabstop=2               " tab spacing (settings below are just to unify it)
+set softtabstop=2            " unify
+set shiftwidth=2             " unify
 set expandtab                " use spaces instead of tabs
 "set nowrap                  " do not wrap lines
 set smarttab                 " use tabs at the start of a line, spaces elsewhere
