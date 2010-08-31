@@ -467,6 +467,13 @@ function update-git () {
 
     git --version
     popd
+
+    # Update git-flow
+    if [[ -d ~/Code/gitflow ]]; then
+        pushd ~/Code/gitflow
+        git pull && git submodule update
+        popd
+    fi
 }
 
 if [[ -e "${HOME}/.git-completion.sh" ]]; then
