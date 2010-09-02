@@ -13,7 +13,7 @@
 	ms = merge --squash
 	mm = merge --no-ff
 	b = branch
-	l = log
+	l = log --oneline --decorate
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	sl = shortlog
 	h = help
@@ -42,11 +42,7 @@
 	rbc = rebase --continue
 	rba = rebase --abort
 	rbs = rebase --skip
-	undo = reset --hard HEAD@{1}
 	prb = pull --rebase
-	svnrb = svn rebase
-	svnf = svn fetch
-	c-p = cherry-pick
 	p = cherry-pick -s
 	pending = log origin/master..master
 	missing = rev-list --pretty=oneline --reverse "^HEAD" origin
@@ -58,9 +54,6 @@
 	retrack = "!retrack() {\n  if [[ -n \"$2\" ]]\n  then\n    branch=$1\n    remote=$2\n  else\n    branch=$(git branch | sed -ne \"s/^\\*\\ \\(.*\\)$/\\1/p\")\n    remote=$1\n  fi\n\n  git config \"branch.$branch.remote\" $(dirname \"$remote\")\n  git config \"branch.$branch.merge\" \"refs/heads/$(basename \"$remote\")\"\n}\n retrack"
 	track = ! track() {\n  branch=$(git branch | sed -ne \"s/^\\*\\ \\(.*\\)$/\\1/p\")\n  remote=$1\n\n  git config \"branch.$branch.remote\" $(dirname \"$remote\")\n  git config \"branch.$branch.merge\" \"refs/heads/$(basename \"$remote\")\"\n}\n\ntrack
 	msg = commit --allow-empty -m
-	w = wip
-	wl = wip log --pretty
-	wi = wip info
 	deploy = ! git checkout soup-production && git merge soup && git checkout soup && git push && cap production deploy:fast
 	datetag = !git tag `git name-rev --name-only HEAD`-`date \"+%Y%m%d%H%M\"`
 	ls-ignored = ls-files --exclude-standard --ignored --others
