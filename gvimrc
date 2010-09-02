@@ -5,8 +5,9 @@ colorscheme xoria256
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GUI Options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set gfn=Inconsolata:h13.00
 "set gfn=Monaco:h10.00
+"set gfn=Inconsolata:h13.00
+set gfn=Anonymous\ Pro:h11.00
 
 " Hide the menu bar
 set guioptions-=T
