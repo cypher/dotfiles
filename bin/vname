@@ -1,24 +1,24 @@
-#! /usr/bin/env ruby -r ftools
+#! /usr/bin/env ruby -r fileutils
 # "vname" by Henrik Nyh <http://henrik.nyh.se> on 2010-05-28 under the MIT license.
-#  
+#
 #  Usage:
-#  
+#
 #    vname PATTERN
-#  
+#
 #  Prompts to rename files in the working directory matching the PATTERN into this pattern:
-#  
+#
 #    X-Files - S01E03 - Pilot.avi
-#  
+#
 #  Useful for e.g. renaming TV series episodes for Plex.
-#  
+#
 #  The pattern is a combination of whichever of these you like:
-#  
+#
 #    :s  - season number (defaults to 1)
 #    :e  - episode number (also handles intervals like 01-02, defaults to 1)
 #    :p  - programme/show name
 #    :t  - episode title
 #    ... - any uninteresting sequence of characters
-#  
+#
 #  The pattern doesn't have to match the full filename, only part. Don't mention the extension.
 #
 #  You can use e.g. ":s:e" for "203.avi" to get "S02E03". In that case it assumes the season is a single digit.
@@ -27,26 +27,26 @@
 #  tricky names. E.g. "tpz-deadwood301.avi" makes it difficult to separate programme and season, so you could do
 #
 #    vname tpz-deadwood3:e Deadwood 3
-#  
+#
 #  Example session:
-#  
+#
 #    $ touch "X-Files [1x01] Pilot- DVDRip.avi"
 #    $ touch "X-Files [1x02] Ett kul avsnitt- DVDRip.avi"
 #    $ ls X-Files*
 #    X-Files [1x01] Pilot- DVDRip.avi           X-Files [1x02] Ett kul avsnitt- DVDRip.avi
 #    $ vname ":p [:sx:e] :t-"
-#    
+#
 #    From:  X-Files [1x01] Pilot- DVDRip.avi
 #    To:    X-Files - S01E01 - Pilot.avi
-#    
+#
 #    From:  X-Files [1x02] Ett kul avsnitt- DVDRip.avi
 #    To:    X-Files - S01E02 - Ett kul avsnitt.avi
-#    
+#
 #    Rename 2 files (y/n - default: n)? y
-#    
+#
 #    Renamed:   X-Files [1x01] Pilot- DVDRip.avi   ==>   X-Files - S01E01 - Pilot.avi
 #    Renamed:   X-Files [1x02] Ett kul avsnitt- DVDRip.avi   ==>   X-Files - S01E02 - Ett kul avsnitt.avi
-#    
+#
 #    Done.
 #    $ ls X-Files*
 #    X-Files - S01E01 - Pilot.avi           X-Files - S01E02 - Ett kul avsnitt.avi
@@ -66,12 +66,18 @@ patterns = pattern.split(/(:[pest]|\.\.\.)/u)
 
 parts = patterns.map { |part|
   case part
-  when ':p':  /(.+)/
-  when ':e':  /(\d+(?:-\d+)?)/
-  when ':s':  /(\d+?)/
-  when ':t':  /(.+)/ 
-  when '...': /.*/
-  else Regexp.escape(part)
+  when ':p'
+    /(.+)/
+  when ':e'
+    /(\d+(?:-\d+)?)/
+  when ':s'
+    /(\d+?)/
+  when ':t'
+    /(.+)/
+  when '...'
+    /.*/
+  else
+    Regexp.escape(part)
   end
 }
 parts << /.*(\.\w+)$/  # Extension.
@@ -83,7 +89,7 @@ renamings = []
 filenames = Dir["*"]
 filenames.each do |old_filename|
   next unless (match = old_filename.match(re))
-  
+
   captures = match.captures
   extension = captures.pop
 
@@ -97,7 +103,7 @@ filenames.each do |old_filename|
   new_filename_parts << format("S%02dE%02d", (season ? season.to_i : 1), (episode ? episode.to_i : 1))
   new_filename_parts << title
   new_filename = new_filename_parts.compact.join(' - ') + extension
-  
+
   renamings << [old_filename, new_filename]
 
   puts
@@ -119,7 +125,7 @@ else
 
   puts
   renamings.each do |old_filename, new_filename|
-    File.mv(old_filename, new_filename)
+    FileUtils.mv(old_filename, new_filename)
     puts "Renamed:   #{old_filename}   ==>   #{new_filename}"
   end
   puts
