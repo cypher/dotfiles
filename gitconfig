@@ -56,6 +56,7 @@
 	deploy = ! git checkout soup-production && git merge soup && git checkout soup && git push && cap production deploy:fast
 	datetag = !git tag `git name-rev --name-only HEAD`-`date \"+%Y%m%d%H%M\"`
 	ls-ignored = ls-files --exclude-standard --ignored --others
+	amend = commit --amend -C HEAD
 
 [advice]
 	pushNonFastForward = false
