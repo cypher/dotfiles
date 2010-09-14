@@ -474,6 +474,13 @@ function update-git () {
         git pull && git submodule update
         popd
     fi
+
+    # Update git-subtree
+    if [[ -d ~/Code/git-subtree ]]; then
+        pushd ~/Code/git-subtree
+        git pull && sh "./install.sh"
+        popd
+    fi
 }
 
 if [[ -e "${HOME}/.git-completion.sh" ]]; then
