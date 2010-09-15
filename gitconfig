@@ -57,6 +57,7 @@
 	datetag = !git tag `git name-rev --name-only HEAD`-`date \"+%Y%m%d%H%M\"`
 	ls-ignored = ls-files --exclude-standard --ignored --others
 	amend = commit --amend -C HEAD
+	str = subtree
 
 [advice]
 	pushNonFastForward = false
