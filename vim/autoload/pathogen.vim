@@ -65,18 +65,6 @@ function! pathogen#uniq(list) abort " {{{1
   return a:list
 endfunction " }}}1
 
-" Returns a hash indicating which filetype features are enabled.
-function! pathogen#filetype() abort " {{{1
-  redir => output
-  silent filetype
-  redir END
-  let result = {}
-  let result.detection = match(output,'detection:ON') >= 0
-  let result.indent = match(output,'indent:ON') >= 0
-  let result.plugin = match(output,'plugin:ON') >= 0
-  return result
-endfunction " }}}1
-
 " \ on Windows unless shellslash is set, / everywhere else.
 function! pathogen#separator() abort " {{{1
   return !exists("+shellslash") || &shellslash ? '/' : '\'
@@ -113,10 +101,14 @@ endfunction " }}}1
 function! pathogen#runtime_append_all_bundles(...) " {{{1
   let sep = pathogen#separator()
   let name = a:0 ? a:1 : 'bundle'
+  if "\n".s:done_bundles =~# "\\M\n".name."\n"
+    return ""
+  endif
+  let s:done_bundles .= name . "\n"
   let list = []
   for dir in pathogen#split(&rtp)
     if dir =~# '\<after$'
-      let list +=  pathogen#glob_directories(substitute(dir,'after$',name.sep.'*[^~]'.sep.'after','')) + [dir]
+      let list +=  pathogen#glob_directories(substitute(dir,'after$',name,'').sep.'*[^~]'.sep.'after') + [dir]
     else
       let list +=  [dir] + pathogen#glob_directories(dir.sep.name.sep.'*[^~]')
     endif
@@ -125,6 +117,7 @@ function! pathogen#runtime_append_all_bundles(...) " {{{1
   return 1
 endfunction
 
+let s:done_bundles = ''
 " }}}1
 
 " Invoke :helptags on all non-$VIM doc directories in runtimepath.

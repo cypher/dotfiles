@@ -2,7 +2,8 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-call pathogen#runtime_prepend_subdirectories(expand('~/.vimbundles'))
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
 
 " Make , the personal leader key
 let mapleader = ","
