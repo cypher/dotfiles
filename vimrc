@@ -2,6 +2,8 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Use pathogen (http://www.vim.org/scripts/script.php?script_id=2332) for
+" easier bundle management
 call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
@@ -54,8 +56,13 @@ set incsearch                " ... dynamically as they are typed
 " turn of hlsearch temporarily
 nmap <silent> <leader>n :silent :nohlsearch<CR>
 
+" This line will make Vim set out tab characters, trailing whitespace and
+" invisible spaces visually, and additionally use the # sign at the end of
+" lines to mark lines that extend off-screen. For more info, see :h listchars.
+" set list
+set listchars=tab:>.,trail:.,extends:#,nbsp:.,eol:$
+
 " Make trailing whitespace visible with ,s
-set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
 set autoread                 " Automatically reread files that have been changed externally
@@ -69,6 +76,17 @@ set shortmess=atI
 
 " Only use one space after ., ? or ! with a join command
 set nojoinspaces
+
+" Use Q for formatting the current paragraph (or selection)
+vmap Q gq
+nmap Q gqap
+
+" Make j and k behave more natural when working with long, wrapped lines
+nnoremap j gj
+nnoremap k gk
+
+" Useful trick when I've forgotten to `sudo' before editing a file:
+cmap w!! w !sudo tee % >/dev/null
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme/Colors
