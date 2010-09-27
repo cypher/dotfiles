@@ -5,6 +5,7 @@ class Tm < Thor
     if File.exist?(bundles_path)
       Dir.chdir(bundles_path) do |dir|
         invoke 'scm:update'
+        say "Reloading bundles...", :green
         system %q{osascript -e 'tell app "TextMate" to reload bundles'}
       end
     end

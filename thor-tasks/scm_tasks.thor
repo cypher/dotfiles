@@ -86,7 +86,7 @@ class Scm < Thor
     def find_scm_dirs(path, &block)
       if scm = check_for_scm(path) then
         Dir.chdir(path) do
-          puts("(in #{path})")
+          say "(in #{path})", :green
           yield scm
         end
       else
