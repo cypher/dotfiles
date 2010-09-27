@@ -4,7 +4,6 @@ class Scm < Thor
 
   desc "fetch", "Fetches the newest updates for all repositories (git, svn, bzr, hg, darcs) in your current working directory and its subdirectories"
   def fetch
-    #run_pager
     find_scm_dirs(File.expand_path(Dir.getwd)) do |scm|
       case scm
       when ".svn"
@@ -27,7 +26,6 @@ class Scm < Thor
 
   desc "update", "Updates all repositories (git, svn, bzr, hg, darcs) in your current working directory and its subdirectories"
   def update
-    #run_pager
     find_scm_dirs(File.expand_path(Dir.getwd)) do |scm|
       case scm
       when ".svn"
@@ -56,7 +54,6 @@ class Scm < Thor
   desc "gc", "Executes git gc on all git repos"
   method_options :aggressive => :boolean
   def gc()
-    #run_pager
     find_scm_dirs(File.expand_path(Dir.getwd)) do |scm|
       if scm == ".git"
         if options[:aggressive]
@@ -103,31 +100,5 @@ class Scm < Thor
 
     def git_bare?
       File.exists?('config') && File.file?('config') && File.exists?('HEAD')
-    end
-
-    def run_pager
-      return if PLATFORM =~ /win32/
-      return unless STDOUT.tty?
-
-      read, write = IO.pipe
-
-      unless Kernel.fork # Child process
-        STDOUT.reopen(write)
-        STDERR.reopen(write) if STDERR.tty?
-        read.close
-        write.close
-        return
-      end
-
-      # Parent process, become pager
-      STDIN.reopen(read)
-      read.close
-      write.close
-
-      ENV['LESS'] = 'FSRX' # Don't page if the input is short enough
-
-      Kernel.select [STDIN] # Wait until we have input before we start the pager
-      pager = ENV['PAGER'] || 'less'
-      exec pager rescue exec "/bin/sh", "-c", pager
     end
 end
