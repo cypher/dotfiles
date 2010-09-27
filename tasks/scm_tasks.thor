@@ -33,12 +33,12 @@ class Scm < Thor
       when ".svn"
         system("svn up")
       when ".git"
-        unless git_svn?
-          system("git remote update")
-          system("git pull")
-        else
+        if git_svn?
           system("git svn fetch")
           system("git svn rebase")
+        else
+          system("git remote update")
+          system("git pull") unless git_bare?
         end
       when ".bzr"
         system("bzr pull")
@@ -50,6 +50,9 @@ class Scm < Thor
     end
   end
 
+  desc 'up', "An alias for 'update'"
+  alias :up :update
+
   desc "gc", "Executes git gc on all git repos"
   method_options :aggressive => :boolean
   def gc()
@@ -59,7 +62,7 @@ class Scm < Thor
         if options[:aggressive]
           system("git gc --aggressive --prune=now")
         else
-          system("git gc --auto")
+          system("git gc --prune=now")
         end
       end
     end
@@ -67,58 +70,64 @@ class Scm < Thor
 
   private
 
-  SUPPORTED_SCMS = [".git", ".svn", ".bzr", ".hg", "_darcs"]
+    SUPPORTED_SCMS = [".git", ".svn", ".bzr", ".hg", "_darcs"]
 
-  def check_for_scm(path)
-    Dir.glob(File.join(path, "*"), File::FNM_DOTMATCH).each do |file_or_dir|
-      if File.directory?(file_or_dir) then
-        dir = File.split(file_or_dir)[1]
-        return dir if SUPPORTED_SCMS.include?(dir)
+    def check_for_scm(path)
+      Dir.glob(File.join(path, "*"), File::FNM_DOTMATCH).each do |file_or_dir|
+        if File.directory?(file_or_dir)
+          dir = File.split(file_or_dir)[1]
+          return dir if SUPPORTED_SCMS.include?(dir)
+          return '.git' if file_or_dir =~ /\.git\/\.$/
+        end
+      end
+      false
+    end
+
+    def find_scm_dirs(path, &block)
+      if scm = check_for_scm(path) then
+        Dir.chdir(path) do
+          puts("(in #{path})")
+          yield scm
+        end
+      else
+        Dir[File.join(path, "*")].each do |path|
+          find_scm_dirs(path, &block) if File.directory?(path)
+        end
       end
     end
-    false
-  end
 
-  def find_scm_dirs(path, &block)
-    if scm = check_for_scm(path) then
-      Dir.chdir(path) do
-        puts("(in #{path})")
-        yield scm
-      end
-    else
-      Dir[File.join(path, "*")].each do |path|
-        find_scm_dirs(path, &block) if File.directory?(path)
-      end
+    def git_svn?
+      (File.exist?('.git/config') && !File.readlines('.git/config').grep(/^\[svn-remote "svn"\]\s*$/).empty?) ||
+        (File.exist?('config') && File.file?('config') && !File.readlines('config').grep(/^\[svn-remote "svn"\]\s*$/).empty?)
     end
-  end
 
-  def git_svn?
-    File.exist?(".git/config") && !File.readlines(".git/config").grep(/^\[svn-remote "svn"\]\s*$/).empty?
-  end
+    def git_bare?
+      File.exists?('config') && File.file?('config') && File.exists?('HEAD')
+    end
 
-  def run_pager
-    return if PLATFORM =~ /win32/
-    return unless STDOUT.tty?
+    def run_pager
+      return if PLATFORM =~ /win32/
+      return unless STDOUT.tty?
 
-    read, write = IO.pipe
+      read, write = IO.pipe
 
-    unless Kernel.fork # Child process
-      STDOUT.reopen(write)
-      STDERR.reopen(write) if STDERR.tty?
+      unless Kernel.fork # Child process
+        STDOUT.reopen(write)
+        STDERR.reopen(write) if STDERR.tty?
+        read.close
+        write.close
+        return
+      end
+
+      # Parent process, become pager
+      STDIN.reopen(read)
       read.close
       write.close
-      return
+
+      ENV['LESS'] = 'FSRX' # Don't page if the input is short enough
+
+      Kernel.select [STDIN] # Wait until we have input before we start the pager
+      pager = ENV['PAGER'] || 'less'
+      exec pager rescue exec "/bin/sh", "-c", pager
     end
-
-    # Parent process, become pager
-    STDIN.reopen(read)
-    read.close
-    write.close
-
-    ENV['LESS'] = 'FSRX' # Don't page if the input is short enough
-
-    Kernel.select [STDIN] # Wait until we have input before we start the pager
-    pager = ENV['PAGER'] || 'less'
-    exec pager rescue exec "/bin/sh", "-c", pager
-  end
 end
