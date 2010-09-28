@@ -3,3 +3,4 @@ irssi/logs
 .DS_Store
 vim/temp
 vim/.netrwhist
+cake/*
