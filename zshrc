@@ -381,7 +381,7 @@ fi
 
 # sh function to murder all running processes matching a pattern
 # thanks 3n: http://twitter.com/3n/status/19113206105
- murder () {
+murder () {
   ps | grep $1 | grep -v grep | awk '{print $1}' | xargs kill -9
 }
 
