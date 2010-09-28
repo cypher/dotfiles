@@ -464,6 +464,7 @@ function update-git () {
 
         if [[ -e "${HOME}/dotfiles/git-completion.sh" ]]; then
             cp "./contrib/completion/git-completion.bash" "${HOME}/dotfiles/git-completion.sh"
+            cp "./contrib/workdir/git-new-workdir" "${HOME}/dotfiles/bin/git-new-workdir"
         fi
     fi
 
