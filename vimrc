@@ -18,25 +18,25 @@ set backspace=indent,eol,start
 nnoremap ' `
 nnoremap ` '
 
-set backup                   " keep a backup file
-set hidden                   " Allow Vim to manage hidden buffers effectively
-set history=500              " keep 500 lines of command line history
-set ruler                    " show the cursor position all the time
-set showcmd                  " display incomplete commands
-set incsearch                " do incremental searching
-set number                   " show line numbers
+set backup                    " keep a backup file
+set hidden                    " Allow Vim to manage hidden buffers effectively
+set history=500               " keep 500 lines of command line history
+set ruler                     " show the cursor position all the time
+set showcmd                   " display incomplete commands
+set incsearch                 " do incremental searching
+set number                    " show line numbers
 
-runtime macros/matchit.vim   " Enable extended % matching
+runtime macros/matchit.vim    " Enable extended % matching
 
-filetype on                  " detect the type of file
-filetype indent on           " Enable filetype-specific indenting
-filetype plugin on           " Enable filetype-specific plugins
+filetype on                   " detect the type of file
+filetype indent on            " Enable filetype-specific indenting
+filetype plugin on            " Enable filetype-specific plugins
 
-set cf                       " enable error files and error jumping
-set ffs=unix,dos,mac         " support all three, in this order
-set viminfo+=!               " make sure it can save viminfo
-set isk+=_,$,@,%,#,-         " none of these should be word dividers, so make them not be
-set title                    " show title in xterm
+set cf                        " enable error files and error jumping
+set ffs=unix,dos,mac          " support all three, in this order
+set viminfo+=!                " make sure it can save viminfo
+set isk+=_,$,@,%,#,-          " none of these should be word dividers, so make them not be
+set title                     " show title in xterm
 
 " Make completion useful
 set wildmenu
@@ -48,11 +48,20 @@ set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.
 set ignorecase
 set smartcase
 
-set scrolloff=3              " Start scrolling 3 lines before the border
+" automatically insert a \v before any search string, so search uses
+" normal regexes
+nnoremap / /\v
+vnoremap / /\v
+
+set gdefault                  " always apply substitutions globally on a line
+
+" Clear out any search by typing <leader><space>
+nnoremap <leader><space> :noh<cr>
 
 " Sane searching
-set hlsearch                 " Hilight search term
-set incsearch                " ... dynamically as they are typed
+set hlsearch                  " Hilight search term
+set showmatch                 " Show matching brackets
+set incsearch                 " ... dynamically as they are typed
 " turn of hlsearch temporarily
 nmap <silent> <leader>n :silent :nohlsearch<CR>
 
@@ -60,12 +69,17 @@ nmap <silent> <leader>n :silent :nohlsearch<CR>
 " invisible spaces visually, and additionally use the # sign at the end of
 " lines to mark lines that extend off-screen. For more info, see :h listchars.
 " set list
-set listchars=tab:>.,trail:.,extends:#,nbsp:.,eol:$
+set listchars=tab:▸\ ,eol:¬,trail:.,extends:#,nbsp:.
 
 " Make trailing whitespace visible with ,s
 nmap <silent> <leader>s :set nolist!<CR>
 
-set autoread                 " Automatically reread files that have been changed externally
+set scrolloff=3               " Start scrolling 3 lines before the border
+
+set autoread                  " Automatically reread files that have been changed externally
+
+set relativenumber            " show how far away each line is from the current one
+set undofile                  " save undo information
 
 " Make ^e and ^y scroll 3 lines instead of 1
 nnoremap <C-e> 3<C-e>
@@ -85,8 +99,21 @@ nmap Q gqap
 nnoremap j gj
 nnoremap k gk
 
+" Make the tab key match bracket pairs
+nnoremap <tab> %
+vnoremap <tab> %
+
+" Make ';' an alias for ':'
+nnoremap ; :
+
 " Useful trick when I've forgotten to `sudo' before editing a file:
 cmap w!! w !sudo tee % >/dev/null
+
+" Automagically save files when focus is lost
+au FocusLost * :wa
+
+" ,W strips all trailing whitespace from current file
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme/Colors
