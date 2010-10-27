@@ -58,6 +58,7 @@
 	ls-ignored = ls-files --exclude-standard --ignored --others
 	amend = commit --amend -C HEAD
 	str = subtree
+	pu = pull
 
 [advice]
 	pushNonFastForward = false
