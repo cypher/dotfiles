@@ -489,7 +489,6 @@ function update-git () {
 if [[ -e "${HOME}/.git-completion.sh" ]]; then
     # Enable bash completion for git
     # This should allow git-completion to work properly
-    alias shopt=setopt
     autoload bashcompinit
     bashcompinit
 
