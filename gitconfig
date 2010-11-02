@@ -42,7 +42,7 @@
 	rbc = rebase --continue
 	rba = rebase --abort
 	rbs = rebase --skip
-	prb = pull --rebase
+	pu = pull --rebase
 	p = cherry-pick -s
 	pending = log origin/master..master
 	missing = rev-list --pretty=oneline --reverse "^HEAD" origin
@@ -58,7 +58,6 @@
 	ls-ignored = ls-files --exclude-standard --ignored --others
 	amend = commit --amend -C HEAD
 	str = subtree
-	pu = pull
 
 [advice]
 	pushNonFastForward = false
