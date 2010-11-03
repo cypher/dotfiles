@@ -1,8 +1,6 @@
 # Sourced on all invocations
 # Should not produce output or assume a tty is present
 
-export RUBYOPTS="rubygems"
-
 # Setting PATH for MacPython 2.4
 if [[ -d "/Library/Frameworks/Python.framework/Versions/Current/bin" ]]
 then
