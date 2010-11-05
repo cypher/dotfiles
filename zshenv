@@ -81,13 +81,14 @@ export LANG="en_US.UTF-8"
 export DISPLAY=:0.0
 
 # Set favourite editor
-if [[ -f $(which mate) ]]; then
-    export VISUAL="mate_wait"
-elif [[ -f $(which mvim) ]]; then
+# if [[ -f $(which mate) ]]; then
+#     export VISUAL="mate_wait"
+if [[ -f $(which mvim) ]]; then
     export VISUAL="mvim -f -c \"au VimLeave * maca hide:\""
 else
     export VISUAL="vim"
 fi
+
 export EDITOR=$VISUAL
 export SVN_EDITOR=$VISUAL
 
