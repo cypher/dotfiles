@@ -209,13 +209,6 @@ vnoremap X "_X
 noremap p p`[
 noremap P P`[
 
-" Config for Clojure
-let g:clj_highlight_builtins = 1            " Hilight builtin functions
-let g:clj_highlight_contrib = 1             " Hilight contrib functions
-let g:clj_paren_rainbow = 1                 " Hilight different levels of parens differently
-" let vimclojure#NailgunClient = "~/bin/ng" " Tell VimClojure where it can find the NailGun client
-let g:clj_want_gorilla = 1                  " Enable interactive mode
-
 " NERD_Tree support
 map <Leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 
