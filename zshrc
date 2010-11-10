@@ -242,18 +242,12 @@ alias r-x='chmod 755'
 # Convert a picture to a favicon
 alias make-favicon="convert -colors 256 -resize 16x16 "
 
-# Alias m to a sane value, even if not on a mac
-if [[ -f $(which mate_wait) ]]; then
-    alias m='mate'
-    alias m.='mate .'
-else
-    alias m="${EDITOR}"
-    alias m.="${EDITOR} ."
-fi
-
 if [[ -f $(which mvim) ]]; then
     alias v='mvim'
     alias v.='mvim .'
+
+    alias m="${EDITOR}"
+    alias m.="${EDITOR} ."
 else
     alias v='vim'
     alias v.='vim .'
