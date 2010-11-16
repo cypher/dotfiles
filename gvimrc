@@ -1,4 +1,4 @@
-set lines=50 columns=150
+set lines=60 columns=200
 " colorscheme vividchalk
 colorscheme xoria256
 
