@@ -387,8 +387,6 @@ alias dotedit="$VISUAL ~/dotfiles/"
 alias rubydo="rvm rubydo"
 alias multiruby="rvm rubydo"
 
-alias macirb="macirb --readline -r irb/completion --simple-prompt"
-
 alias h="heroku"
 
 # For Rails:
