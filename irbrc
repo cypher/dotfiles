@@ -1,4 +1,8 @@
-IRB.conf[:PROMPT_MODE] = :SIMPLE
+unless IRB.version.include?('DietRB')
+  IRB.conf[:PROMPT_MODE] = :SIMPLE
+else
+  IRB.formatter.prompt = :simple
+end
 
 require 'rubygems'
 
@@ -15,15 +19,32 @@ try_require 'irb_rocket'
 
 try_require 'interactive_editor'
 
-try_require 'hirb' do
-  Hirb.enable
+# MacRuby/DietRB doesn't like Hirb, so don't load it
+unless IRB.version.include?('DietRB')
+  try_require 'hirb' do
+    Hirb.enable
 
-  # Hirb.enable :pager => false
-  # Hirb.enable :formatter => false
+    # Hirb.enable :pager => false
+    # Hirb.enable :formatter => false
+  end
 end
 
 # Awesome print: http://www.rubyinside.com/awesome_print-a-new-pretty-printer-for-your-ruby-objects-3208.html
-try_require 'awesome_print', 'ap'
+try_require 'awesome_print', 'ap' do
+  unless IRB.version.include?('DietRB')
+    IRB::Irb.class_eval do
+      def output_value
+        ap @context.last_value
+      end
+    end
+  else # MacRuby
+    IRB.formatter = Class.new(IRB::Formatter) do
+      def inspect_object(object)
+        object.ai
+      end
+    end.new
+  end
+end
 
 # Debug Print: http://github.com/niclasnilsson/dp
 try_require 'dp'
