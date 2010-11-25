@@ -44,6 +44,11 @@ set wildmenu
 " Ignore these files when completing names and in Explorer
 set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
 
+" Specify which keys can move the cursor left/right to move to the
+" previous/next line when the cursor is on the first/last character in that
+" line
+" set whichwrap+=<,>,[,]
+
 " make /-style searches case-sensitive only if there is a capital letter in the search expression
 set ignorecase
 set smartcase
@@ -126,6 +131,15 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
+" Opens an edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>e
+map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" Opens a tab edit command with the path of the currently edited file filled in
+" Normal mode: <Leader>t
+map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme/Colors
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -200,6 +214,11 @@ autocmd FileType ruby set omnifunc=rubycomplete#Complete
 autocmd FileType ruby let g:rubycomplete_rails = 1
 " ... and to include Classes in global completions
 autocmd FileType ruby let g:rubycomplete_classes_in_global = 1
+" Thorfile, Rakefile and Gemfile are Ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
+
+" md, markdown, and mk are markdown and define buffer-local preview
+au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
 
 " Syntax highlight shell scripts as per POSIX,
 " not the original Bourne shell which very few use
@@ -221,5 +240,9 @@ noremap p p`[
 noremap P P`[
 
 " NERD_Tree support
-map <Leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+let NERDTreeIgnore=['\.rbc$', '\~$']
+map <Leader>d :NERDTreeToggle<CR>
+
+" CTags
+map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 

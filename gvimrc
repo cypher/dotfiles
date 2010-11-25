@@ -1,6 +1,7 @@
 set lines=60 columns=200
 " colorscheme vividchalk
-colorscheme xoria256
+" colorscheme xoria256
+colorscheme molokai
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GUI Options
@@ -22,6 +23,13 @@ set mousehide                " Hide the mouse when typing text
 au FocusLost * wa
 
 if has("gui_macvim")
+  " Fullscreen takes up entire screen
+  set fuoptions=maxhorz,maxvert
+
+  " Command-Shift-F for Ack
+  macmenu Window.Toggle\ Full\ Screen\ Mode key=<nop>
+  map <D-F> :Ack<space>
+
   " bind command-] to shift right
   nmap <D-]> >>
   vmap <D-]> >>
