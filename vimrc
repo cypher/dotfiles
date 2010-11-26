@@ -138,7 +138,17 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Opens a tab edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>t
 map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+" Shift-tab to insert a hard tab
+imap <silent> <S-tab> <C-v><tab>
 
+" allow deleting selection without updating the clipboard (yank buffer)
+vnoremap x "_x
+vnoremap X "_X
+
+" don't move the cursor after pasting
+" (by jumping to back start of previously changed text)
+noremap p p`[
+noremap P P`[
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme/Colors
@@ -226,18 +236,6 @@ let g:is_posix = 1
 
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
-
-" Shift-tab to insert a hard tab
-imap <silent> <S-tab> <C-v><tab>
-
-" allow deleting selection without updating the clipboard (yank buffer)
-vnoremap x "_x
-vnoremap X "_X
-
-" don't move the cursor after pasting
-" (by jumping to back start of previously changed text)
-noremap p p`[
-noremap P P`[
 
 " NERD_Tree support
 let NERDTreeIgnore=['\.rbc$', '\~$']
