@@ -244,5 +244,3 @@ map <Leader>d :NERDTreeToggle<CR>
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
-runtime! plugin/editexisting.vim
-
