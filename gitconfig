@@ -79,6 +79,7 @@
 
 [branch]
 	autosetupmerge = true
+	autosetuprebase = always
 
 [color]
 	ui = auto
