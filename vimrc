@@ -73,7 +73,7 @@ nmap <silent> <leader>n :silent :nohlsearch<CR>
 " This line will make Vim set out tab characters, trailing whitespace and
 " invisible spaces visually, and additionally use the # sign at the end of
 " lines to mark lines that extend off-screen. For more info, see :h listchars.
-" set list
+set list
 set listchars=tab:▸\ ,eol:¬,trail:.,extends:#,nbsp:.
 
 " Make trailing whitespace visible with ,s
