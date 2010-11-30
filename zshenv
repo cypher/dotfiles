@@ -82,17 +82,15 @@ export DISPLAY=:0.0
 
 # Set favourite editor
 # if [[ -f $(which mate) ]]; then
-#     export VISUAL="mate"
-#     export EDITOR="mate_wait"
+#     export VISUAL="mate_wait"
 if [[ -f $(which mvim) ]]; then
-    export VISUAL='mvim'
-    export EDITOR='mvim -f -c "au VimLeave * !open -a Terminal"'
+    export VISUAL='mvim -f -c "au VimLeave * !open -a Terminal"'
 else
     export VISUAL="vim"
-    export EDITOR="vim -f"
 fi
 
-export SVN_EDITOR=$EDITOR
+export EDITOR=$VISUAL
+export SVN_EDITOR=$VISUAL
 
 export LESS="-R"
 
