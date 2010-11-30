@@ -242,6 +242,17 @@ alias r-x='chmod 755'
 # Convert a picture to a favicon
 alias make-favicon="convert -colors 256 -resize 16x16 "
 
+if [[ -f $(which mvim) ]]; then
+    alias v='mvim'
+    alias v.='mvim .'
+
+    alias m="${EDITOR}"
+    alias m.="${EDITOR} ."
+else
+    alias v='vim'
+    alias v.='vim .'
+fi
+
 if [[ -x "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient" ]]; then
     alias e='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient --no-wait'
     alias e.='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient --no-wait .'
