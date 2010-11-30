@@ -280,50 +280,7 @@ function freenode () {
     fi
 }
 
-# TODO: Make sure this only executes on eschaton:
-function update-repos () {
-    pushd ~/Code/
-    thor scm:update
-    popd
-    pushd ~/Projects
-    thor scm:fetch
-    popd
-    pushd ~/GitHub
-    for name in *
-    do
-        ~/bin/githubsync.py $name $name
-    done
-    popd
-    pushd ~/dotfiles
-    git remote update
-    popd
-}
-
 function rot13 () { tr "[a-m][n-z][A-M][N-Z]" "[n-z][a-m][N-Z][A-M]" }
-
-function update-clj () {
-    pushd ~/Code/clojure
-    output=$(git pull)
-    echo $output
-    if [[ $output != "Already up-to-date." ]]; then
-        ant
-        # No need to update symlink, as the ant task always regenerates clojure.jar as well
-    fi
-    popd
-
-    pushd ~/Code/clojure-contrib
-    output=$(git pull)
-    echo $output
-    if [[ $output != "Already up-to-date." ]]; then
-        mvn package
-
-        # TODO: Improve this so it actually selects the just build jar
-        clojure_contrib_jar=$(ls -1 `pwd`/target/clojure-contrib-*.jar | tail -n 1)
-
-        ln -sf $clojure_contrib_jar ~/classes/clojure-contrib.jar
-    fi
-    popd
-}
 
 alias eject='hdiutil eject'
 
