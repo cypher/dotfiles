@@ -242,20 +242,10 @@ alias r-x='chmod 755'
 # Convert a picture to a favicon
 alias make-favicon="convert -colors 256 -resize 16x16 "
 
-if [[ -f $(which mvim) ]]; then
-    alias v='mvim'
-    alias v.='mvim .'
-
-    alias m="${EDITOR}"
-    alias m.="${EDITOR} ."
-else
-    alias v='vim'
-    alias v.='vim .'
-fi
-
 if [[ -x "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient" ]]; then
     alias e='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient --no-wait'
     alias e.='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient --no-wait .'
+    alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 else
     alias e='emacsclient --no-wait'
     alias e.='emacsclient --no-wait .'
@@ -308,10 +298,6 @@ pdfman () {
 alias lockscreen="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 alias inode="rlwrap node-repl"
-
-if [[ -x "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient" ]]; then
-    alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
-fi
 
 alias httpdump='sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E "Host\: .*|GET \/.*"'
 
