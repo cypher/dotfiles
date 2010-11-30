@@ -84,7 +84,7 @@ export DISPLAY=:0.0
 # if [[ -f $(which mate) ]]; then
 #     export VISUAL="mate_wait"
 if [[ -f $(which mvim) ]]; then
-    export VISUAL="mvim -f -c \"au VimLeave * maca hide:\""
+    export VISUAL='mvim -f -c "au VimLeave * !open -a Terminal"'
 else
     export VISUAL="vim"
 fi
