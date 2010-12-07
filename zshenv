@@ -14,9 +14,9 @@ then
 fi
 
 # PostgreSQL
-if [[ -d "/usr/local/pgsql/bin/" ]]
+if [[ -d "/usr/local/pgsql/bin" ]]
 then
-    PATH="/usr/local/pgsql/bin/:${PATH}"
+    PATH="/usr/local/pgsql/bin:${PATH}"
 fi
 
 # npm: The node package manager
