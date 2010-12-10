@@ -53,7 +53,6 @@
 	upf = "!git_up() { git push -f ${1:-origin} $(git branch | sed -ne 's/^\\*\\ \\(.*\\)$/\\1/p'); }; git_up"
 	retrack = "!retrack() {\n  if [[ -n \"$2\" ]]\n  then\n    branch=$1\n    remote=$2\n  else\n    branch=$(git branch | sed -ne \"s/^\\*\\ \\(.*\\)$/\\1/p\")\n    remote=$1\n  fi\n\n  git config \"branch.$branch.remote\" $(dirname \"$remote\")\n  git config \"branch.$branch.merge\" \"refs/heads/$(basename \"$remote\")\"\n}\n retrack"
 	msg = commit --allow-empty -m
-	deploy = ! git checkout soup-production && git merge soup && git checkout soup && git push && cap production deploy:fast
 	datetag = !git tag `git name-rev --name-only HEAD`-`date \"+%Y%m%d%H%M\"`
 	ls-ignored = ls-files --exclude-standard --ignored --others
 	amend = commit --amend -C HEAD
