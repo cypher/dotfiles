@@ -19,12 +19,6 @@ then
     PATH="/usr/local/pgsql/bin:${PATH}"
 fi
 
-# npm: The node package manager
-if [[ -d "/usr/local/share/npm/bin" ]]
-then
-    PATH="/usr/local/share/npm/bin:${PATH}"
-fi
-
 # Add these paths only if they aren't present already
 for p in '/usr/sbin' '/usr/bin' '/sbin' '/bin'
 do
