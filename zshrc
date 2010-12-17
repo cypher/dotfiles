@@ -447,7 +447,7 @@ if [[ -e "${HOME}/.git-completion.sh" ]]; then
     autoload bashcompinit
     bashcompinit
 
-    source ~/.git-completion.sh
+    source ${HOME}/.git-completion.sh
     # Autocomplete for 'gh' as well
     complete -o default -o nospace -F _git gh
     # Autocomplete for 'g' as well
