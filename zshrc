@@ -360,6 +360,15 @@ alias t='thor'
 alias restart='touch tmp/restart.txt'
 alias migrate='rake db:migrate && rake db:test:prepare'
 
+function rbx () {
+    if [[ -x `which -s rbx` ]]
+    then
+        command rbx "$@"
+    else
+        ${HOME}/Projects/Rubinius/bin/rbx "$@"
+    fi
+}
+
 #########################################################################################
 # Git aliases/functions
 
