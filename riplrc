@@ -1,0 +1,3 @@
+require 'ripl/multi_line'
+require 'ripl/irb'
+require 'ripltools'
