@@ -465,16 +465,6 @@ _git_remote_branch() {
 compdef _git_remote_branch grb
 
 #########################################################################################
-# Node
-
-if [[ -d "${HOME}/.nvm" ]]; then
-    # nvm, the node version manager
-    NVM_DIR=$HOME/.nvm
-    source $NVM_DIR/nvm.sh
-    # nvm use v0.1.91
-fi
-
-#########################################################################################
 # SSH
 
 # Auto-completion for ssh hosts
