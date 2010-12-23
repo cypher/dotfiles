@@ -242,24 +242,20 @@ alias r-x='chmod 755'
 # Convert a picture to a favicon
 alias make-favicon="convert -colors 256 -resize 16x16 "
 
+alias e="${EDITOR}"
+alias e.="${EDITOR} ."
+
+if [[ -f $(which mate) ]]; then
+    alias m='mate'
+    alias m.='mate .'
+fi
+
 if [[ -f $(which mvim) ]]; then
     alias v='mvim'
     alias v.='mvim .'
-
-    alias m="${EDITOR}"
-    alias m.="${EDITOR} ."
 else
     alias v='vim'
     alias v.='vim .'
-fi
-
-if [[ -x "/Applications/Emacs.app/Contents/MacOS/bin/emacsclient" ]]; then
-    alias e='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient --no-wait'
-    alias e.='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient --no-wait .'
-    alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
-else
-    alias e='emacsclient --no-wait'
-    alias e.='emacsclient --no-wait .'
 fi
 
 # Start or resume irssi
