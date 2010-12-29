@@ -1,13 +1,8 @@
 --- 
-:backtrace: false
-:benchmark: false
-:bulk_threshold: 1000
-:sources:
+sources:
 - http://gems.rubyforge.org
 - http://gems.github.com
-:update_sources: true
-:verbose: true
-gem: --no-ri --no-rdoc
-install: --no-ri --no-rdoc
+install: --no-rdoc --no-ri
+update: --no-rdoc --no-ri
 rdoc: --line-numbers
 search: --details --both
