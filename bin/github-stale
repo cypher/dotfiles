@@ -1,0 +1,66 @@
+#!/usr/bin/env ruby
+#
+# Quick hack to help you find and deal with old watched repos, forks and owned repos.
+#
+# It will ask you to confirm once if you want to unwatch a repo.
+#
+# You can't unwatch your own repos, so they will need to be deleted.
+# THIS SCRIPT WILL ASK YOU FOR CONFIRMATION TWICE BEFORE IT DELETES A REPO.
+#
+require 'rubygems'
+require 'json'
+require 'time'
+require 'pp'
+require 'term/ansicolor'
+require 'highline/import'
+include Term::ANSIColor
+
+stale = Time.now - 21037950 # 8 months
+gh_user = `git config github.user`.chomp
+gh_token = `git config github.token`.chomp
+
+body = `curl -s -u "#{gh_user}/token:#{gh_token}" http://github.com/api/v2/json/repos/watched/#{gh_user}`
+repos =  JSON.parse(body)['repositories']
+
+groups = {
+  :your_forks  => [],
+  :your_repos  => [],
+  :their_forks => [],
+  :their_repos => []
+}
+repos.each do |r|
+  groups[:your_forks] << r if r['fork'] && r['owner'] == gh_user
+  groups[:your_repos] << r if !r['fork'] && r['owner'] == gh_user
+  groups[:their_forks] << r if r['fork'] && r['owner'] != gh_user
+  groups[:their_repos] << r if !r['fork'] && r['owner'] != gh_user
+end
+groups.each {|gr, repos| groups[gr] = repos.sort_by {|r| Time.parse(r['pushed_at']) }}
+
+groups.each do |key, repos|
+  puts "\n\n== #{key.to_s.gsub('_', ' ').upcase}"
+  repos.each do |repo|
+    updated = Time.parse(repo['pushed_at'])
+    if updated <= stale
+      body = "{}"
+      out = "#{repo['owner']}/#{repo['name']}?  It was last updated #{updated.strftime('%B %d, %Y')}. [y,yes,n,no]"
+      if [:your_forks, :your_repos].include?(key)
+        delete = agree red("DELETE #{out}")
+        if delete
+          command = %(-s -u "#{gh_user}/token:#{gh_token}" https://github.com/api/v2/json/repos/delete/#{repo['owner']}/#{repo['name']})
+          step = `curl -X POST #{command}`
+          token = JSON.parse(step)['delete_token']
+          if token && agree("Sure you want to delete #{repo['owner']}/#{repo['name']}?")
+            body = `curl -d delete_token=#{token} #{command}`
+          end
+        end
+      else
+        unwatch = agree "Unwatch #{out}"
+        if unwatch
+          body = `curl -s -u "#{gh_user}/token:#{gh_token}" https://github.com/api/v2/json/repos/unwatch/#{repo['owner']}/#{repo['name']}`
+        end
+      end
+      resp = JSON.parse(body)['error']
+      puts red(resp) unless resp.nil?
+    end
+  end
+end
