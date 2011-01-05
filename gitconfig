@@ -3,60 +3,52 @@
 	email = markus.prinz@nuclearsquid.com
 
 [alias]
+	a = add
+	ae = add --edit
+	ai = add --interactive
+	amend = commit --amend -C HEAD
+	ap = add --patch
+	au = add --update
+	b = branch
 	c = commit
 	ca = commit --amend
+	changes = diff --name-status -r
 	co = checkout
-	s = status
 	d = diff
-	wd = diff --color-words
-	m = merge
-	ms = merge --squash
-	mm = merge --no-ff
-	b = branch
+	dm = "!git_merge_diff() { git diff head...\"$1\"; }; git_merge_diff"
+	ds = diff --staged
+	h = help
+	irb = rebase --interactive
 	l = log --oneline --decorate
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-	sl = shortlog
-	h = help
-	st = stash
-	stl = stash list
-	stc = stash clear
-	stp = stash pop
-	ds = diff --staged
-	wds = diff --color-words --staged
-	dt = difftool
-	dm = "!git_merge_diff() { git diff head...\"$1\"; }; git_merge_diff"
-	both = diff HEAD
-	changes = diff --name-status -r
+	ls-ignored = ls-files --exclude-standard --ignored --others
+	m = merge
+	missing = rev-list --pretty=oneline --reverse "^HEAD" origin
+	mm = merge --no-ff
+	msg = commit --allow-empty -m
+	p = cherry-pick -s
+	pending = log origin/master..master
 	r = remote
+	rb = rebase
+	rba = rebase --abort
+	rbc = rebase --continue
+	rbprune = "!for remote in `git remote`; do git remote prune $remote; done"
+	rbs = rebase --skip
+	rh = reset --hard
 	ru = remote update --prune
-	a = add
-	ap = add --patch
-	ai = add --interactive
-	au = add --update
-	ae = add --edit
+	s = status
+	sl = shortlog
 	sm = submodule
 	sma = submodule add
 	smu = submodule update --init
-	rb = rebase
-	irb = rebase --interactive
-	rbc = rebase --continue
-	rba = rebase --abort
-	rbs = rebase --skip
-	pu = pull --rebase
-	p = cherry-pick -s
-	pending = log origin/master..master
-	missing = rev-list --pretty=oneline --reverse "^HEAD" origin
+	st = stash
+	stc = stash clear
+	stl = stash list
+	stp = stash pop
+	undo = reset --soft HEAD^
 	unpushed = log origin..HEAD
-	rh = reset --hard
-	rbprune = "!for remote in `git remote`; do git remote prune $remote; done"
-	up = "!git_up() { git push ${1:-origin} $(git branch | sed -ne 's/^\\*\\ \\(.*\\)$/\\1/p'); }; git_up"
-	upf = "!git_up() { git push -f ${1:-origin} $(git branch | sed -ne 's/^\\*\\ \\(.*\\)$/\\1/p'); }; git_up"
-	retrack = "!retrack() {\n  if [[ -n \"$2\" ]]\n  then\n    branch=$1\n    remote=$2\n  else\n    branch=$(git branch | sed -ne \"s/^\\*\\ \\(.*\\)$/\\1/p\")\n    remote=$1\n  fi\n\n  git config \"branch.$branch.remote\" $(dirname \"$remote\")\n  git config \"branch.$branch.merge\" \"refs/heads/$(basename \"$remote\")\"\n}\n retrack"
-	msg = commit --allow-empty -m
-	datetag = !git tag `git name-rev --name-only HEAD`-`date \"+%Y%m%d%H%M\"`
-	ls-ignored = ls-files --exclude-standard --ignored --others
-	amend = commit --amend -C HEAD
-	str = subtree
+	wd = diff --color-words
+	wds = diff --color-words --staged
 
 [advice]
 	pushNonFastForward = false
