@@ -1,0 +1,148 @@
+#!/usr/bin/env ruby
+# This script updates the installed git version on my systems
+
+require 'pathname'
+require 'shellwords'
+require 'fileutils'
+
+module Git
+  extend self
+
+  def git_dir
+    @git_dir ||= Pathname.new(%w(~/Code/git ~/src/git).map{ |path| File.expand_path(path)}.detect { |path|
+      File.exist?(path)
+    })
+  end
+
+  def which(name)
+    path = `which #{name.shellescape}`.chomp
+
+    if path.empty?
+      nil
+    else
+      path
+    end
+  end
+
+  def clang?
+    which('clang') && which('clang++')
+  end
+
+  def git_options
+    @git_options ||= begin
+                       options = %w(BLK_SHA1=1 NO_TCLTK=1)
+                       options << %w(CC=clang CXX=clang++) if clang?
+                       options.join(" ")
+                     end
+  end
+
+  def git_prefix
+    "/usr/local"
+  end
+
+  def git_make_command
+    "make prefix=#{git_prefix} #{git_options} all"
+  end
+
+  def git_install_command(sudo = false)
+    "#{'sudo' if sudo} make prefix=#{git_prefix} #{git_options} install quick-install-man"
+  end
+
+  GIT_BASH_COMPLETION_SCRIPT_PATH = File.expand_path("~/dotfiles/git-completion.sh")
+  def update_git_completion_script
+    if File.exist?(GIT_BASH_COMPLETION_SCRIPT_PATH)
+      FileUtils.cp File.expand_path('./contrib/completion/git-completion.bash'), GIT_BASH_COMPLETION_SCRIPT_PATH, :verbose => true
+    end
+  end
+
+  GIT_NEW_WORKDIR_SCRIPT_PATH = File.expand_path("~/dotfiles/bin/git-new-workdir")
+  def update_git_new_workdir_script
+    if File.exist?(GIT_NEW_WORKDIR_SCRIPT_PATH)
+      FileUtils.cp File.expand_path('./contrib/workdir/git-new-workdir'), GIT_NEW_WORKDIR_SCRIPT_PATH, :verbose => true
+    end
+  end
+
+  def run
+    begin
+      puts "(#{git_dir})"
+    rescue
+      warn "Could not locate git source directory!"
+      raise
+    end
+
+    Dir.chdir(git_dir) do
+      output = `git pull`
+      puts output
+
+      # Only recompile if there have been any changes
+      if output !~ /^Current branch .+ is up to date\.$/
+        system git_make_command
+
+        # If we own the git_prefix already, we want to install git without using sudo
+        if test(?O, git_prefix)
+          system git_install_command
+        else
+          system git_install_command(true)
+        end
+
+        update_git_completion_script
+        update_git_new_workdir_script
+      end
+
+      system "git --version"
+    end
+  end
+end
+
+module GitFlow
+  extend self
+
+  def git_flow_dir
+    @git_flow_dir ||= Pathname.new(%w(~/Code/git-flow).map{ |path| File.expand_path(path)}.detect { |path|
+      File.exist?(path)
+    })
+  end
+
+  def run
+    begin
+      puts "(#{git_flow_dir})"
+    rescue
+      warn "Could not locate git-flow source directory!"
+      raise
+    end
+
+    Dir.chdir(git_flow_dir) do
+      system "git pull"
+      system "git submodule update"
+    end
+  end
+end
+
+module GitSubtree
+  extend self
+
+  def git_subtree_dir
+    @git_subtree_dir ||= Pathname.new(%w(~/Code/git-subtree).map{ |path| File.expand_path(path)}.detect { |path|
+      File.exist?(path)
+    })
+  end
+
+  def run
+    begin
+      puts "(#{git_subtree_dir})"
+    rescue
+      warn "Could not locate git-subtree source directory!"
+      raise
+    end
+
+    Dir.chdir(git_subtree_dir) do
+      system "git pull"
+      system "sh ./install.sh"
+    end
+  end
+end
+
+Git.run
+GitFlow.run
+GitSubtree.run
+

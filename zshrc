@@ -392,50 +392,6 @@ function git-track () {
     echo "tracking origin/$branch"
 }
 
-function update-git () {
-    if [[ -d ~/Code/Git ]]; then
-        pushd ~/Code/Git
-    elif [[ -d ~/src/git ]]; then
-        pushd ~/src/git
-    else
-        print "Could not find Git source dir. Bailing..."
-        return 1
-    fi
-
-    output=$(git pull)
-    echo $output
-
-    if [[ $output != "Already up-to-date." ]]; then
-        make prefix=/usr/local BLK_SHA1=1 NO_TCLTK=1 all
-        if [[ -O /usr/local ]]; then
-            make prefix=/usr/local BLK_SHA1=1 NO_TCLTK=1 install quick-install-man
-        else
-            sudo make prefix=/usr/local BLK_SHA1=1 NO_TCLTK=1 install quick-install-man
-        fi
-
-        if [[ -e "${HOME}/dotfiles/git-completion.sh" ]]; then
-            cp "./contrib/completion/git-completion.bash" "${HOME}/dotfiles/git-completion.sh"
-            cp "./contrib/workdir/git-new-workdir" "${HOME}/dotfiles/bin/git-new-workdir"
-        fi
-    fi
-
-    git --version
-    popd
-
-    # Update git-flow
-    if [[ -d ~/Code/gitflow ]]; then
-        pushd ~/Code/gitflow
-        git pull && git submodule update
-        popd
-    fi
-
-    # Update git-subtree
-    if [[ -d ~/Code/git-subtree ]]; then
-        pushd ~/Code/git-subtree
-        git pull && sh "./install.sh"
-        popd
-    fi
-}
 
 if [[ -e "${HOME}/.git-completion.sh" ]]; then
     # Enable bash completion for git
