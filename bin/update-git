@@ -27,13 +27,13 @@ module Git
   end
 
   def clang?
-    which('clang') && which('clang++')
+    which('clang')
   end
 
   def git_options
     @git_options ||= begin
                        options = %w(BLK_SHA1=1 NO_TCLTK=1 NO_DARWIN_PORTS=1 NO_FINK=1)
-                       options << %w(CC=clang CXX=clang++) if clang?
+                       options << %w(CC=clang) if clang?
                        options.join(" ")
                      end
   end
