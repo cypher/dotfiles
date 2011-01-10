@@ -365,6 +365,8 @@ function rbx () {
     fi
 }
 
+alias configure-rbx='./configure --cc=clang --cxx=clang++'
+
 #########################################################################################
 # Git aliases/functions
 
