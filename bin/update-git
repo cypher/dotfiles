@@ -8,6 +8,8 @@ require 'fileutils'
 module Git
   extend self
 
+  DOTFILES_DIR = Pathname.new(File.expand_path("~/dotfiles"))
+
   def git_dir
     @git_dir ||= Pathname.new(%w(~/Code/git ~/src/git).map{ |path| File.expand_path(path)}.detect { |path|
       File.exist?(path)
@@ -48,14 +50,15 @@ module Git
     "#{'sudo' if sudo} make prefix=#{git_prefix} #{git_options} install quick-install-man"
   end
 
-  GIT_BASH_COMPLETION_SCRIPT_PATH = File.expand_path("~/dotfiles/git-completion.sh")
+  # These two methods will update the git bash completion and git-new-workdir scripts, but only if they already exist
+  GIT_BASH_COMPLETION_SCRIPT_PATH = DOTFILES_DIR + "git-completion.sh"
   def update_git_completion_script
     if File.exist?(GIT_BASH_COMPLETION_SCRIPT_PATH)
       FileUtils.cp File.expand_path('./contrib/completion/git-completion.bash'), GIT_BASH_COMPLETION_SCRIPT_PATH, :verbose => true
     end
   end
 
-  GIT_NEW_WORKDIR_SCRIPT_PATH = File.expand_path("~/dotfiles/bin/git-new-workdir")
+  GIT_NEW_WORKDIR_SCRIPT_PATH = DOTFILES_DIR + "git-new-workdir"
   def update_git_new_workdir_script
     if File.exist?(GIT_NEW_WORKDIR_SCRIPT_PATH)
       FileUtils.cp File.expand_path('./contrib/workdir/git-new-workdir'), GIT_NEW_WORKDIR_SCRIPT_PATH, :verbose => true
