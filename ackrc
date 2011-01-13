@@ -26,3 +26,6 @@
 # Introduce Haml to ack
 --type-set=haml=.haml
 
+# Ignore vendor/ and log/ by default, for Rails projects
+--ignore-dir=vendor
+--ignore-dir=log
