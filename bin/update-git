@@ -74,7 +74,7 @@ module Git
     end
 
     Dir.chdir(git_dir) do
-      output = `git pull`
+      output = `git pull --progress`
       puts output
 
       # Only recompile if there have been any changes
