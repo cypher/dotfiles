@@ -373,9 +373,6 @@ alias configure-rbx='./configure --cc=clang --cxx=clang++'
 # Aliases git to hub
 # eval `hub alias -s zsh`
 alias g='git'
-alias gb='git branch -a -v'
-alias gs='git status'
-alias gd='git diff'
 
 # gc => git checkout master
 # gc bugs => git checkout bugs
@@ -386,14 +383,6 @@ function gc () {
         git checkout $1
     fi
 }
-
-function git-track () {
-    branch=$(git branch | sed -ne 's/^\*\ \(.*\)$/\1/p')
-    git config branch.$branch.remote origin
-    git config branch.$branch.merge refs/heads/$branch
-    echo "tracking origin/$branch"
-}
-
 
 if [[ -e "${HOME}/.git-completion.sh" ]]; then
     # Enable bash completion for git
