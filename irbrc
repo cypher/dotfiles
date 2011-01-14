@@ -17,8 +17,6 @@ end
 
 try_require 'irb_rocket'
 
-try_require 'interactive_editor'
-
 # MacRuby/DietRB doesn't like Hirb, so don't load it
 unless IRB.version.include?('DietRB')
   try_require 'hirb' do
@@ -48,8 +46,3 @@ end
 
 # Debug Print: http://github.com/niclasnilsson/dp
 try_require 'dp'
-
-# http://github.com/cldwalker/bond
-try_require 'bond' do
-  Bond.start
-end
