@@ -373,6 +373,7 @@ alias configure-rbx='./configure --cc=clang --cxx=clang++'
 # Aliases git to hub
 # eval `hub alias -s zsh`
 alias g='git'
+alias changelog='git log `git log -1 --format=%H -- CHANGELOG*`..; cat CHANGELOG*'
 
 # gc => git checkout master
 # gc bugs => git checkout bugs
