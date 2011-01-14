@@ -11,8 +11,8 @@ def try_require(gem_name, lib_name = nil)
   require(lib_name || gem_name)
 
   yield if block_given?
-rescue LoadError
-  $stderr.puts "#{__FILE__}: Could not load `#{gem_name}'"
+rescue LoadError => e
+  warn "#{__FILE__}: Could not load `#{gem_name}':\n#{e.class}: #{e.message}"
 end
 
 try_require 'irb_rocket'
