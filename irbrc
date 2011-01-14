@@ -52,3 +52,12 @@ end
 
 # Debug Print: http://github.com/niclasnilsson/dp
 try_require 'dp'
+
+def load_railsrc(path)
+  load path if File.exists?(path)
+end
+
+if $0 == 'irb' && ENV['RAILS_ENV']
+  load_railsrc(File.expand_path('~/.railsrc'))
+  load_railsrc(File.join(File.dirname(__FILE__), '.railsrc'))
+end
