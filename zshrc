@@ -516,5 +516,12 @@ function preexec () {
 # #k# Insert Unicode character
 # bindkey '^Xi' insert-unicode-char
 
+# use .localrc for SUPER SECRET CRAP that you don't
+# want in your public, versioned repo.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
 # rvm-install added line:
 if [[ -s ${HOME}/.rvm/scripts/rvm ]] ; then source ${HOME}/.rvm/scripts/rvm ; fi
