@@ -46,8 +46,8 @@ module Git
     "make prefix=#{git_prefix} #{git_options} all"
   end
 
-  def git_install_command(sudo = false)
-    "#{'sudo' if sudo} make prefix=#{git_prefix} #{git_options} install quick-install-man"
+  def git_install_command(options = {})
+    "#{'sudo' if options[:sudo]} make prefix=#{git_prefix} #{git_options} install quick-install-man"
   end
 
   def git_pull
@@ -93,7 +93,7 @@ module Git
         if test(?O, git_prefix)
           system git_install_command
         else
-          system git_install_command(true)
+          system git_install_command(:sudo => true)
         end
 
         update_git_completion_script
