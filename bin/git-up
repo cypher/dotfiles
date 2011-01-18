@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env ruby
 #
 # Usage: git-up
 #        git-reup
@@ -11,26 +11,33 @@
 #
 # Stolen from Ryan Tomayko
 # http://github.com/rtomayko/dotfiles/blob/rtomayko/bin/git-up
+# and then Zach Holman
+# https://github.com/holman/dotfiles/blob/master/bin/git-up
 
-set -e
+require 'shellwords'
 
-PULL_ARGS="$@"
+pull_args = ARGV.to_a
 
-# when invoked as git-reup, run as `git pull --rebase'
-test "$(basename $0)" = "git-reup" &&
-PULL_ARGS="--rebase $PULL_ARGS"
+rebase = File.basename($0) == 'git-reup'
 
-git pull $PULL_ARGS
+stashed = false
 
-# show diffstat of all changes if we're pulling with --rebase. not
-# sure why git-pull only does this when merging.
-test "$(basename $0)" = "git-reup" && {
-    echo "Diff:"
-    git --no-pager diff --color --stat HEAD@{1}.. |
-    sed 's/^/ /'
-}
+if rebase
+  pull_args.push '--rebase'
 
-# show an abbreviated commit log of stuff that was just merged.
-echo "Log:"
-git log --color --pretty=oneline --abbrev-commit HEAD@{1}.. |
-sed 's/^/  /'
+  msg = `git stash save`
+  puts msg
+  stashed = msg =~ /^No local changes to save$/
+end
+
+system "git pull #{pull_args.shelljoin}"
+
+if rebase
+  system "git stash pop" if stashed
+
+  puts "Diff:"
+  system "git --no-pager diff --color --stat head@{1}.. | sed 's/^/ /'"
+end
+
+puts "Log:"
+system "git log --color --pretty=oneline --abbrev-commit head@{1}.. | sed 's/^/ /'"
