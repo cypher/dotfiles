@@ -50,6 +50,14 @@ module Git
     "#{'sudo' if sudo} make prefix=#{git_prefix} #{git_options} install quick-install-man"
   end
 
+  def git_pull
+    "git pull --progress"
+  end
+
+  def git_get_revision_for(treeish)
+    `git rev-parse #{treeish.shellescape}`.chomp
+  end
+
   # These two methods will update the git bash completion and git-new-workdir scripts, but only if they already exist
   GIT_BASH_COMPLETION_SCRIPT_PATH = DOTFILES_DIR + "git-completion.sh"
   def update_git_completion_script
@@ -74,11 +82,11 @@ module Git
     end
 
     Dir.chdir(git_dir) do
-      output = `git pull --progress`
-      puts output
+      old_revision = git_get_revision_for('head')
+      system git_pull
 
       # Only recompile if there have been any changes
-      if output !~ /^Current branch .+ is up to date\.$/
+      if old_revision != git_get_revision_for('head')
         system git_make_command
 
         # If we own the git_prefix already, we want to install git without using sudo
