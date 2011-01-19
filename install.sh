@@ -14,3 +14,8 @@ for file in `find ${PWD}/bin/ -maxdepth 1 -not -name '.*'`; do
     echo "ln -s `pwd`/$filename -> ~/bin/$filename"
     ln -s `pwd`/$filename ~/bin/$filename
 done
+
+# Special case: Make bin/git-reup a link to git-up
+if [[-e ~/bin/git-up ]]; then
+    ln -s ~/bin/git-up ~/bin/git-reup
+fi
