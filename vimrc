@@ -227,9 +227,6 @@ autocmd FileType ruby let g:rubycomplete_classes_in_global = 1
 " Thorfile, Rakefile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
 
-" md, markdown, and mk are markdown and define buffer-local preview
-au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn} call s:setupMarkup()
-
 " Syntax highlight shell scripts as per POSIX,
 " not the original Bourne shell which very few use
 let g:is_posix = 1
