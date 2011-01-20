@@ -22,7 +22,6 @@
 # THE SOFTWARE.
 
 require 'shellwords'
-require 'pp'
 
 # Update Java Classpath
 CLASSPATH = ENV["CLASSPATH"] ? ENV["CLASSPATH"].split(':') : []
