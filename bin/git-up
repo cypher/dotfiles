@@ -27,7 +27,7 @@ if rebase
 
   msg = `git stash save`
   puts msg
-  stashed = msg =~ /^No local changes to save$/
+  stashed = msg !~ /^No local changes to save$/
 end
 
 system "git pull #{pull_args.shelljoin}"
