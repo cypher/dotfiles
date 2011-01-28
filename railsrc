@@ -8,9 +8,9 @@ def r
 end
 
 # Kinda evil, kinda awesome
-def method_missing(method, *args, &block)
-  User.find_by_login(method.to_s) || super
-end
+#def method_missing(method, *args, &block)
+#  User.find_by_login(method.to_s) || super
+#end
 
 def sql(query)
   ActiveRecord::Base.connection.select_all(query)
