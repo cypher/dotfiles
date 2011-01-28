@@ -398,6 +398,7 @@ zstyle -e ':completion::*:hosts' hosts 'reply=($(sed -e "/^#/d" -e "s/ .*\$//" -
 
 # Grep in history
 function greph () { history 0 | grep -i $1 }
+
 # use colors when GNU grep with color-support
 #  Execute grep --color=auto
 if (grep --help 2>/dev/null |grep -- --color) >/dev/null; then
@@ -434,47 +435,6 @@ function precmd () {
 function preexec () {
     title "$1" "$USER@%m" "%35<...<%~"
 }
-
-
-#########################################################################################
-# Set terminal to UTF-8/ISO mode
-
-# # see http://www.cl.cam.ac.uk/~mgk25/unicode.html#term for details
-# alias term2iso="echo 'Setting terminal to iso mode' ; print -n '\e%@'"
-# alias term2utf="echo 'Setting terminal to utf-8 mode'; print -n '\e%G'"
-# 
-# # make sure it is not assigned yet
-# [[ $(whence -w utf2iso &>/dev/null) == 'utf2iso: alias' ]] && unalias utf2iso
-# 
-# utf2iso() {
-#     if isutfenv ; then
-#         for ENV in $(env | command grep -i '.utf') ; do
-#             eval export "$(echo $ENV | sed 's/UTF-8/iso885915/ ; s/utf8/iso885915/')"
-#         done
-#     fi
-# }
-# 
-# # make sure it is not assigned yet
-# [[ $(whence -w iso2utf &>/dev/null) == 'iso2utf: alias' ]] && unalias iso2utf
-# iso2utf() {
-#     if ! isutfenv ; then
-#         for ENV in $(env | command grep -i '\.iso') ; do
-#             eval export "$(echo $ENV | sed 's/iso.*/UTF-8/ ; s/ISO.*/UTF-8/')"
-#         done
-#     fi
-# }
-
-#########################################################################################
-# Insert Unicode character
-
-# I'm not using this (yet)
-# # insert unicode character
-# # usage example: 'ctrl-x i' 00A7 'ctrl-x i' will give you an §
-# # See for example http://unicode.org/charts/ for unicode characters code
-# autoload -U insert-unicode-char
-# zle -N insert-unicode-char
-# #k# Insert Unicode character
-# bindkey '^Xi' insert-unicode-char
 
 # use .localrc for settings specific to one system
 [[ -f ~/.localrc ]] && . ~/.localrc
