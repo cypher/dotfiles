@@ -375,16 +375,6 @@ alias configure-rbx='./configure --cc=clang --cxx=clang++'
 alias g='git'
 alias changelog='git log `git log -1 --format=%H -- CHANGELOG*`..; cat CHANGELOG*'
 
-# gc => git checkout master
-# gc bugs => git checkout bugs
-function gc () {
-    if [[ -z "$1" ]]; then
-        git checkout master
-    else
-        git checkout $1
-    fi
-}
-
 if [[ -e "${HOME}/.git-completion.sh" ]]; then
     # Enable bash completion for git
     # This should allow git-completion to work properly
@@ -392,30 +382,10 @@ if [[ -e "${HOME}/.git-completion.sh" ]]; then
     bashcompinit
 
     source ${HOME}/.git-completion.sh
-    # Autocomplete for 'gh' as well
-    complete -o default -o nospace -F _git gh
+
     # Autocomplete for 'g' as well
     complete -o default -o nospace -F _git g
 fi
-
-_git_remote_branch() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null)
-  if [[ -n $ref ]]; then
-    if (( CURRENT == 2 )); then
-      # first arg: operation
-      compadd create publish rename delete track
-    elif (( CURRENT == 3 )); then
-      # second arg: remote branch name
-      compadd `git branch -r | grep -v HEAD | sed "s/.*\///" | sed "s/ //g"`
-    elif (( CURRENT == 4 )); then
-      # third arg: remote name
-      compadd `git remote`
-    fi
-  else;
-    _files
-  fi
-}
-compdef _git_remote_branch grb
 
 #########################################################################################
 # SSH
