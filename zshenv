@@ -17,6 +17,8 @@ fi
 if [[ -d "/usr/local/pgsql/bin" ]]
 then
     PATH="/usr/local/pgsql/bin:${PATH}"
+    # Also set PGDATA to default db location
+    export PGDATA="/usr/local/pgsql/data"
 fi
 
 # Add these paths only if they aren't present already
