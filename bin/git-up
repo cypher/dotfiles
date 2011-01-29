@@ -30,14 +30,20 @@ if rebase
   stashed = msg !~ /^No local changes to save$/
 end
 
+old_head = `git rev-parse head`.chomp
+
 system "git pull #{pull_args.shelljoin}"
 
-if rebase
-  system "git stash pop" if stashed
+updated = (old_head != `git rev-parse head`.chomp)
 
-  puts "Diff:"
-  system "git --no-pager diff --color --stat head@{1}.. | sed 's/^/ /'"
+system "git stash pop" if stashed && rebase
+
+if updated
+  if rebase
+    puts "Diff:"
+    system "git --no-pager diff --color --stat head@{1}.. | sed 's/^/  /'"
+  end
+
+  puts "Log:"
+  system "git log --color --pretty=oneline --abbrev-commit head@{1}.. | sed 's/^/  /'"
 end
-
-puts "Log:"
-system "git log --color --pretty=oneline --abbrev-commit head@{1}.. | sed 's/^/ /'"
