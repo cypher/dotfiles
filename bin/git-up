@@ -25,7 +25,7 @@ stashed = false
 if rebase
   pull_args.push '--rebase'
 
-  msg = `git stash save`
+  msg = `git stash save "Auto-stash by #{File.basename($0)} script"`
   puts msg
   stashed = msg !~ /^No local changes to save$/
 end
