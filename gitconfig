@@ -133,3 +133,6 @@
 [diff "zip"]
   textconv = unzip -c -a
 
+[github]
+	user = cypher
+	token = 5730ec66bfaa2e758dca8bc953eb2851
