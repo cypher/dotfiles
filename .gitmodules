@@ -91,3 +91,6 @@
 [submodule "vim/bundle/vim-autoclose"]
 	path = vim/bundle/vim-autoclose
 	url = https://github.com/Townk/vim-autoclose.git
+[submodule "emacs.d/el-get"]
+	path = emacs.d/el-get
+	url = git://github.com/dimitri/el-get.git
