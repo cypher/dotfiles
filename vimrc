@@ -83,7 +83,7 @@ set scrolloff=3               " Start scrolling 3 lines before the border
 
 set autoread                  " Automatically reread files that have been changed externally
 
-set relativenumber            " show how far away each line is from the current one
+" set relativenumber            " show how far away each line is from the current one
 " set undofile                  " save undo information
 
 " Make ^e and ^y scroll 3 lines instead of 1
