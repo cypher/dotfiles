@@ -239,6 +239,7 @@ imap <C-l> <Space>=><Space>
 " NERD_Tree support
 let NERDTreeIgnore=['\.rbc$', '\~$']
 map <Leader>d :NERDTreeToggle<CR>
+map <Leader>n :NERDTreeFind<CR>
 
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
