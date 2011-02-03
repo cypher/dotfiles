@@ -116,8 +116,9 @@ nnoremap ; :
 " Useful trick when I've forgotten to `sudo' before editing a file:
 cmap w!! w !sudo tee % >/dev/null
 
-" Automagically save files when focus is lost
-au FocusLost * :wa
+" Automagically save files when focus is lost, but ignore any warnings, e.g.
+" when a buffer doesn't have an associated file
+autocmd BufLeave,FocusLost silent! wall
 
 " ,W strips all trailing whitespace from current file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
