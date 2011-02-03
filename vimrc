@@ -119,6 +119,8 @@ cmap w!! w !sudo tee % >/dev/null
 " Automagically save files when focus is lost, but ignore any warnings, e.g.
 " when a buffer doesn't have an associated file
 autocmd BufLeave,FocusLost silent! wall
+" Automatically return to command mode when focus is lost
+au FocusLost,TabLeave * call feedkeys("\<C-\>\<C-n>")
 
 " ,W strips all trailing whitespace from current file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
