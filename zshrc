@@ -177,7 +177,6 @@ else
     alias l='ls -lhF'
 fi
 
-alias .='pwd'
 alias '..'='cd ..'
 # The -g makes them global aliases, so they're expaned even inside commands
 alias -g ...='../..'
@@ -371,9 +370,7 @@ alias configure-rbx='./configure --cc=clang --cxx=clang++'
 # Git aliases/functions
 
 # Aliases git to hub
-# eval `hub alias -s zsh`
 alias g='git'
-alias changelog='git log `git log -1 --format=%H -- CHANGELOG*`..; cat CHANGELOG*'
 
 if [[ -e "${HOME}/.git-completion.sh" ]]; then
     # Enable bash completion for git
