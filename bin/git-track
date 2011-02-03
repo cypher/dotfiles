@@ -1,0 +1,6 @@
+#!/bin/sh
+
+branch=$(git branch | sed -ne 's/^\*\ \(.*\)$/\1/p')
+git config branch.$branch.remote origin
+git config branch.$branch.merge refs/heads/$branch
+echo "tracking origin/$branch"
