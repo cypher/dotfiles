@@ -434,7 +434,7 @@ function preexec () {
 }
 
 # use .localrc for settings specific to one system
-[[ -f ~/.localrc ]] && . ~/.localrc
+[[ -f ~/.localrc ]] && source ~/.localrc
 
 # rvm-install added line:
 if [[ -s ${HOME}/.rvm/scripts/rvm ]] ; then source ${HOME}/.rvm/scripts/rvm ; fi
