@@ -1,0 +1,11 @@
+#!/usr/bin/ruby
+
+gitconfig = File.expand_path("./gitconfig")
+
+if File.exists?(gitconfig)
+  `git grep --cached --quiet 'token' -- #{gitconfig}`
+  if $? == 0
+    warn "Are you trying to commit your GitHub token again? Aborting commit."
+    exit(1) 
+  end
+end
