@@ -361,7 +361,7 @@ function rbx () {
     then
         command rbx "$@"
     else
-        ${HOME}/Projects/Rubinius/bin/rbx "$@"
+        ${HOME}/Development/Rubinius/bin/rbx "$@"
     fi
 }
 
