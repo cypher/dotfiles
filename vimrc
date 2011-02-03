@@ -131,7 +131,8 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Opens a tab edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>t
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+map <Leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
 " Shift-tab to insert a hard tab
 imap <silent> <S-tab> <C-v><tab>
 
