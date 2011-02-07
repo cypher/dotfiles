@@ -1,4 +1,5 @@
 #!/usr/bin/ruby
+# pre-commit hook
 
 gitconfig = File.expand_path("./gitconfig")
 
