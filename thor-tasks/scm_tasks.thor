@@ -36,7 +36,7 @@ class Scm < Thor
           system("git svn rebase")
         else
           system("git remote update")
-          system("git pull") unless git_bare?
+          system("git pull --progress --summary --stat --ff-only ") unless git_bare?
         end
       when ".bzr"
         system("bzr pull")
