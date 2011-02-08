@@ -58,7 +58,7 @@
 	whitespace = nowarn
 
 [diff]
-	renames = true
+	renames = copies
 	mnemonicprefix = true
 	tool = Kaleidoscope
 
