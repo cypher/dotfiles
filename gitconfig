@@ -66,7 +66,7 @@
 	prompt = false
 
 [pager]
-	color = true 
+	color = true
 
 [branch]
 	autosetupmerge = true
@@ -90,9 +90,6 @@
 	changed = green
 	untracked = cyan
 	
-[format]
-	numbered = auto
-
 [svn]
 	brokenSymlinkWorkaround = false
 
