@@ -112,9 +112,10 @@
 [difftool "Kaleidoscope"]
 	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 
-[merge "bundlelock"]
-	name = bundle lock
-	driver = bundle lock
+[merge "bundleinstall"]
+	name = bundle install
+	driver = bundle install
+
 [merge "railsschema"]
 	name = newer Rails schema version
 	driver = "ruby -e '\n\
@@ -125,6 +126,7 @@
 		end\n\
 		File.open(%(%A), %(w)) {|f| f.write(b)}\n\
 		exit 1 if b.include?(%(<)*%L)'"
+
 [merge]
 	stat = true
 
