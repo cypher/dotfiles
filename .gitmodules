@@ -94,3 +94,6 @@
 [submodule "emacs.d/el-get"]
 	path = emacs.d/el-get
 	url = git://github.com/dimitri/el-get.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git

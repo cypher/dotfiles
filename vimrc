@@ -237,3 +237,5 @@ map <Leader>f :NERDTreeFind<CR>
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
+" Allow SuperTab to choose the completion type by context
+let g:SuperTabDefaultCompletionType = "context"
