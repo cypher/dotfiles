@@ -37,16 +37,6 @@ do
     fi
 done
 
-# Extra git scripts
-if [[ -d "${HOME}/Code/git-utils" ]]
-then
-    PATH="${HOME}/Code/git-utils:${PATH}"
-fi
-if [[ -d "${HOME}/Code/gitflow" ]]
-then
-    PATH="${HOME}/Code/gitflow:${PATH}"
-fi
-
 # 'clj' (http://github.com/liebke/clj)
 if [[ -d "${HOME}/.cljr/bin" ]]
 then
