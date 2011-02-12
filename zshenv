@@ -21,6 +21,13 @@ then
     export PGDATA="/usr/local/pgsql/data"
 fi
 
+# node program manager
+
+if [[ -d "/usr/local/share/npm/bin" ]]
+then
+    PATH="/usr/local/share/npm/bin:${PATH}"
+fi
+
 # Add these paths only if they aren't present already
 for p in '/usr/sbin' '/usr/bin' '/sbin' '/bin'
 do
@@ -53,6 +60,15 @@ do
 done
 
 export PATH
+
+# Node
+
+if [[ -d "/usr/local/lib/node" ]]
+then
+    NODE_PATH="/usr/local/lib/node:${NODE_PATH}"
+fi
+
+export NODE_PATH
 
 # Java Classpath
 
