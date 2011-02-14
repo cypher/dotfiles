@@ -102,6 +102,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	whitespace = trailing-space,space-before-tab
+	quotepath = false
 
 [rerere]
 	enabled = 1
