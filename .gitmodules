@@ -94,3 +94,6 @@
 [submodule "emacs.d/el-get"]
 	path = emacs.d/el-get
 	url = git://github.com/dimitri/el-get.git
+[submodule "vim/bundle/vim-indent-guides"]
+	path = vim/bundle/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
