@@ -6,3 +6,9 @@ install: --no-rdoc --no-ri
 update: --no-rdoc --no-ri
 rdoc: --line-numbers
 search: --details --both
+test_options:
+  auto_test_on_install: false
+  install_development_dependencies: false
+  upload_results: true
+  force_install: true # set if you want to install gems even if they fail tests.
+  force_uninstall_on_failure: false
