@@ -15,7 +15,6 @@
 	changes = diff --name-status -r
 	co = checkout
 	d = diff
-	dm = "!git_merge_diff() { git diff head...\"$1\"; }; git_merge_diff"
 	ds = diff --staged
 	h = help
 	irb = rebase --interactive
