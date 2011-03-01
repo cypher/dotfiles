@@ -7,7 +7,7 @@
 # Highlight the matching text
 --color
 
-# Print 1 line of output context
+# Print 1 line of context before and after a matching line
 --context=1
 
 # Follow symlinks
@@ -16,12 +16,6 @@
 # Print a filename heading above each file's results and
 # print a break between results from different files
 --group
-
-# All file types searched
---all-types
-
-# add rake extension to ack's notion of Ruby files
---type-add=ruby=rake
 
 # Introduce Haml to ack
 --type-set=haml=.haml
