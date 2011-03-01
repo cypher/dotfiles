@@ -235,3 +235,18 @@ map <Leader>f :NERDTreeFind<CR>
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
+" Syntastic
+let g:syntastic_enable_signs=1
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+run SyntasticEnable ruby
+run SyntasticEnable eruby
+run SyntasticEnable coffee
+run SyntasticEnable c
+run SyntasticEnable cpp
+run SyntasticEnable html
+run SyntasticEnable javascript
+run SyntasticEnable lua
+run SyntasticEnable sh
