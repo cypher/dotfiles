@@ -103,3 +103,6 @@
 [submodule "vim/bundle/vim-endwise"]
 	path = vim/bundle/vim-endwise
 	url = https://github.com/tpope/vim-endwise.git
+[submodule "vim/bundle/clang_complete"]
+	path = vim/bundle/clang_complete
+	url = https://github.com/Rip-Rip/clang_complete.git
