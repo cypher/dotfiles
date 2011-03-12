@@ -97,7 +97,7 @@ export SVN_EDITOR=$VISUAL
 export LESS="-R"
 
 # Rubinius
-export RBXOPT="-Xrbc.db=${TMPDIR}/rbx"
+export RBXOPT="-Xrbc.db=${TMPDIR}/rbx -Xagent.start"
 
 # tuned REE GC settings, via http://smartic.us/2010/10/27/tune-your-ruby-enterprise-edition-garbage-collection-settings-to-run-tests-faster/
 export RUBY_HEAP_MIN_SLOTS=1000000
