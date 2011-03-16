@@ -1,4 +1,4 @@
-set lines=80 columns=200
+set lines=90 columns=200
 " colorscheme vividchalk
 " colorscheme xoria256
 colorscheme molokai
