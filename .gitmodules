@@ -112,3 +112,6 @@
 [submodule "vim/bundle/vim-ragtag"]
 	path = vim/bundle/vim-ragtag
 	url = https://github.com/tpope/vim-ragtag.git
+[submodule "vim/bundle/snipmate"]
+	path = vim/bundle/snipmate
+	url = https://github.com/msanders/snipmate.vim.git
