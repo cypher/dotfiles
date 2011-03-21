@@ -115,3 +115,6 @@
 [submodule "vim/bundle/snipmate"]
 	path = vim/bundle/snipmate
 	url = https://github.com/msanders/snipmate.vim.git
+[submodule "vim/bundle/vim-ruby-runner"]
+	path = vim/bundle/vim-ruby-runner
+	url = https://github.com/henrik/vim-ruby-runner.git
