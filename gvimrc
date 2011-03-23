@@ -6,9 +6,7 @@ colorscheme molokai
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GUI Options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set gfn=Monaco:h10.00
-"set gfn=Inconsolata:h13.00
-set gfn=Anonymous\ Pro:h11.00
+set gfn=Meslo\ LG\ S\ DZ:h10.00
 
 set antialias                     " MacVim: smooth fonts.
 
