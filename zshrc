@@ -241,22 +241,6 @@ alias r-x='chmod 755'
 # Convert a picture to a favicon
 alias make-favicon="convert -colors 256 -resize 16x16 "
 
-alias e="${EDITOR}"
-alias e.="${EDITOR} ."
-
-if [[ -f $(which mate) ]]; then
-    alias m='mate'
-    alias m.='mate .'
-fi
-
-if [[ -f $(which mvim) ]]; then
-    alias v='mvim'
-    alias v.='mvim .'
-else
-    alias v='vim'
-    alias v.='vim .'
-fi
-
 # Start or resume irssi
 function irc () {
     if grep irc <<< `screen -ls`; then
@@ -286,34 +270,15 @@ alias cpwd='pwd|xargs echo -n|pbcopy'
 # Show current airport status:
 alias apinfo='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Resources/airport -I'
 
-# Use spotlight to search for a file:
-spotlightfile() {
-  mdfind "kMDItemDisplayName == '$@'wc";
-}
-
-# Use spotlight to search file contents:
-spotlightcontent() {
-  mdfind -interpret "$@";
-}
-
-# View man pages in Preview
-pdfman () {
-  man -t $1 | open -a /Applications/Preview.app -f
-}
-
-alias lockscreen="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-
-alias inode="rlwrap node-repl"
-
 alias httpdump='sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E "Host\: .*|GET \/.*"'
 
 # mkdir, cd into it (via http://onethingwell.org/post/586977440/mkcd-improved)
-mkcd () {
+function mkcd () {
     mkdir -p "$*"
     cd "$*"
 }
 
-ydl () {
+function ydl () {
     for url ($*) youtube-dl -cl "$url"
 }
 
@@ -324,11 +289,33 @@ fi
 
 # sh function to murder all running processes matching a pattern
 # thanks 3n: http://twitter.com/3n/status/19113206105
-murder () {
+function murder () {
   ps | grep $1 | grep -v grep | awk '{print $1}' | xargs kill -9
 }
 
 alias dotedit="$VISUAL ~/dotfiles/"
+
+alias sha1='openssl dgst -sha1'
+alias sha256='openssl dgst -sha256'
+
+#########################################################################################
+# Editor aliases
+
+alias e="${EDITOR}"
+alias e.="${EDITOR} ."
+
+if [[ -f $(which mate) ]]; then
+    alias m='mate'
+    alias m.='mate .'
+fi
+
+if [[ -f $(which mvim) ]]; then
+    alias v='mvim'
+    alias v.='mvim .'
+else
+    alias v='vim'
+    alias v.='vim .'
+fi
 
 #########################################################################################
 # Ruby aliases/functions
