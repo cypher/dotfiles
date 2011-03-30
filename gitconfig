@@ -4,6 +4,7 @@
 
 [alias]
 	a = add
+	aa = add --all
 	ae = add --edit
 	ai = add --interactive
 	amend = commit --amend -C HEAD
