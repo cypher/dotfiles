@@ -3,3 +3,4 @@ export rvm_make_flags="-j 2"
 export rvm_archflags="-arch x86_64"
 export rvm_pretty_print_flag=1
 
+export rvm_path="/Users/cypher/.rvm"
