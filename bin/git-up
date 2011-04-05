@@ -21,14 +21,14 @@ pull_args = ARGV.to_a
 rebase = File.basename($0) == 'git-reup'
 stashed = false
 
+old_head = `git rev-parse head`.chomp
+
 if rebase
   pull_args.push '--rebase'
 
   msg = `git stash save "Auto-stash by #{File.basename($0)} script"`
   stashed = msg !~ /^No local changes to save$/
 end
-
-old_head = `git rev-parse head`.chomp
 
 system "git pull #{pull_args.shelljoin}"
 
@@ -39,9 +39,9 @@ system "git stash pop --quiet" if stashed && rebase
 if updated
   if rebase
     puts "Diffstat:"
-    system "git --no-pager diff --color --stat head@{1}.. | sed 's/^/  /'"
+    system "git --no-pager diff --color --stat #{old_head}.. | sed 's/^/  /'"
   end
 
   puts "Log:"
-  system "git log --color --pretty=oneline --abbrev-commit head@{1}.. | sed 's/^/  /'"
+  system "git log --color --pretty=oneline --abbrev-commit #{old_head}.. | sed 's/^/  /'"
 end
