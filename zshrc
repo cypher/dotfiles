@@ -363,18 +363,6 @@ function heftiest {
 # Aliases git to hub
 alias g='git'
 
-if [[ -e "${HOME}/.git-completion.sh" ]]; then
-    # Enable bash completion for git
-    # This should allow git-completion to work properly
-    autoload bashcompinit
-    bashcompinit
-
-    source ${HOME}/.git-completion.sh
-
-    # Autocomplete for 'g' as well
-    complete -o default -o nospace -F _git g
-fi
-
 #########################################################################################
 # SSH
 
