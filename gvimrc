@@ -1,5 +1,6 @@
 set lines=90 columns=200
-colorscheme molokai
+set background=light
+colorscheme solarized
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GUI Options

@@ -159,7 +159,7 @@ set laststatus=2
 set background=dark          " we are using a dark background
 syntax on                    " syntax highlighting on
 
-colorscheme asmdev
+colorscheme solarized
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backups
