@@ -1,5 +1,5 @@
 set lines=90 columns=200
-set background=light
+set background=dark
 colorscheme solarized
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
