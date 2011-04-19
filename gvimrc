@@ -55,5 +55,9 @@ if has("gui_macvim")
 
   macmenu &File.New\ Tab key=<nop>
   map <D-t> <Plug>PeepOpen
+
+  " Activate spelling support, via https://twitter.com/b4winckler/status/58584667200303104
+  " Enables Cmd-; and Cmd-:
+  set spell
 end
 
