@@ -15,6 +15,7 @@
 	ca = commit --amend
 	changes = diff --name-status -r
 	co = checkout
+	cpc = cherry-pick
 	d = diff
 	ds = diff --staged
 	h = help
