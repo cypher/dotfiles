@@ -158,6 +158,7 @@ set laststatus=2
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark          " we are using a dark background
 syntax on                    " syntax highlighting on
+filetype plugin indent on
 
 colorscheme solarized
 
@@ -257,3 +258,9 @@ run SyntasticEnable html
 run SyntasticEnable javascript
 run SyntasticEnable lua
 run SyntasticEnable sh
+
+" VimClojure
+let g:vimclojure#HighlightBuiltins = 1
+let g:vimclojure#ParenRainbow = 1
+let g:vimclojure#DynamicHighlighting = 1
+" let vimclojure#WantNailgun = 1

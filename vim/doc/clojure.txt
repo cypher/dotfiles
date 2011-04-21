@@ -16,9 +16,9 @@ Nailgun Server                      *clj-nailgun-server*
 
 To use the interactive part you have to start the nailgun server via the jar
 file. Make sure, that clojure and clojure-contrib are in your classpath and
-start the com.martiansoftware.nailgun.NGServer class. Example invocation:
+start the vimclojure.nailgun.NGServer class. Example invocation:
 >
-        java -cp clojure.jar:clojure-contrib.jar:vimclojure.jar com.martiansoftware.nailgun.NGServer 127.0.0.1
+        java -cp clojure.jar:clojure-contrib.jar:vimclojure.jar vimclojure.nailgun.NGServer 127.0.0.1
 <
 This may look different depending on your system.
 
@@ -27,9 +27,9 @@ argument.
 >
         ng ng-stop
 <
-Set the clj_want_gorilla variable in your vimrc.
+Set the vimclojure#WantNailgun variable in your vimrc.
 >
-        let g:clj_want_gorilla = 1
+        let vimclojure#WantNailgun = 1
 <
 Note: Should there be an error when executing an interactive command
 and the error message goes away to quickly, you can use |:messages| to
@@ -37,45 +37,60 @@ recall the message and read it conveniently without time pressure.
 
 VimClojure might pop up windows, like the preview window or the Repl.
 The place where this is done may be controlled with the SplitPos variable.
-Possible values are "left", "right", "top" and "bottom". Thedefault is
+Possible values are "left", "right", "top" and "bottom". The default is
 "top".
 
 Example:
 >
         let vimclojure#SplitPos = "left"
 <
+It is also possible to specify the size of the new window. The size is
+specified in lines/columns.
+>
+        let vimclojure#SplitSize = 10
+<
+
+Errors
+------
+
+Errors are reported in a temporary buffer. This is to make error messages
+more readable. In particular when they contain stacktraces from the Java
+side. However this may interfer with scripts which do not expect that a
+new buffer pops up. So one can go back to the old behaviour.
+>
+        let vimclojure#UseErrorBuffer = 0
+<
+Note: the error might not be shown by vim. Check the output of |:message|
+for errors.
 
 Syntax Highlighting                 *ft-clj-syntax*
 -------------------
 
 The clojure syntax highlighting provides several options:
 >
-        g:clj_highlight_builtins
-                If it exists and is nonzero, then Clojure's builtin functions
-                are highlighted. This useful to distuingish macros and special
-                forms from functions.
+        g:vimclojure#HighlightBuiltins
+                If it is nonzero, then Clojure's builtin functions are
+                highlighted. This useful to distuingish macros and special
+                forms from functions. Enabled by default.
 
-        g:clj_highlight_contrib
-                If it exists and is nonzero, then Clojure-Contrib's functions
-                are highlighted. (Currently incomplete)
+        g:vimclojure#ParenRainbow
+                Controls the colorisation of the differing levels of
+                parenthesisation. If non-zero, different levels will be
+                colored differently. Disabled by default.
 
-        g:clj_paren_rainbow
-                If it exists and is nonzero, then differing levels of
-                parenthesisation will receive different highlighting.
-
-        g:clj_dynamic_highlighting
+        g:vimclojure#DynamicHighlighting
                 Uses the dynamic features of VimClojure to dynamically add
                 the symbols of required and used namespaces. The file needs
                 to be correct (ie. w/o syntax errors and on the classpath)
-                for this to work. If this is not the case, that dynamic
-                highlighting is not done.
+                for this to work. If this is not the case, dynamic
+                highlighting is not done. Disabled by default.
 <
-The g:clj_paren_rainbow option provides 10 levels of individual colorisation
-for the parentheses. Because of the quantity of colorisation levels, unlike
-non-rainbow highlighting, the rainbow mode specifies its highlighting using
-ctermfg and guifg, thereby bypassing the usual colorscheme control using
-standard highlighting groups. The actual highlighting used depends on the
-dark/bright setting (see |'bg'|).
+The g:vimclojure#ParenRainbow option provides 10 levels of individual
+colorisation for the parentheses. Because of the quantity of colorisation
+levels, unlike non-rainbow highlighting, the rainbow mode specifies its
+highlighting using ctermfg and guifg, thereby bypassing the usual colorscheme
+control using standard highlighting groups. The actual highlighting used
+depends on the dark/bright setting (see |'bg'|).
 
 Preview Window
 --------------
@@ -210,12 +225,17 @@ Plug name and your setting will override the default mapping.
                         Start a new Vim Repl in a fresh buffer. There
                         might be multiple Repls at the same time.
 
+<LocalLeader>sR                                 *sR* *StartLocalRepl*
+                        Start a new Vim Repl in a fresh buffer. Initialise
+                        the namespace to be the namespace of the current
+                        buffer. Note: this will 'require' the namespace!
+
 The following key mappings are also supported if the dynamic features are
 turned off.
 
 <LocalLeader>aw                                 *aw* *AddToLispWords*
                         Add the word under the cursor to the lispwords option
-                        of the bufer. This modifies the way the form is
+                        of the buffer. This modifies the way the form is
                         indented.
 
 Vim Repl
@@ -241,6 +261,11 @@ The following convenience commands are provided:
  - ,close - close the Repl and free the Repl resources in the server process
  - ,st - print a stack trace of *e as with clojure.contrib.stacktrace
  - ,ct - print a cause trace of *e as with clojure.contrib.stacktrace
+ - ,toggle-pprint - toggle pretty-printing of evaluated values
+
+You can also start a Repl with the :ClojureRepl command. This command works
+regardless of the type of the current buffer, while the shortcuts only work in
+Clojure buffers.
 
 Pretty Printing
 ---------------
@@ -249,7 +274,7 @@ In case Tom Faulhaber's cl-format package is available in the Classpath
 it will be used for pretty printing, eg. of macroexpansions. The Repl
 can be told to use pretty printing via a global Var.
 >
-        (set! de.kotka.vimclojure.repl/*print-pretty* true)
+        (set! vimclojure.repl/*print-pretty* true)
 <
 
 Omni Completion
@@ -284,10 +309,17 @@ hyphens and (for namespaces) dots. So r-s<C-x><C-o> matches read-string.
 Note: Completion of symbols and keywords is also provided via the <C-N>
 functionality of Vim.
 
+Known Issues
+------------
+
+There seems to be a race condition in nailgun. At the moment there is
+no solution to this problem. In case you get errors with valid looking
+input for vim, please contact me.
+
 License
 -------
 
-Copyright (c) 2008,2009 Meikel Brandmeyer, Frankfurt am Main
+Copyright (c) 2008,2009,2010 Meikel Brandmeyer, Frankfurt am Main
 All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy

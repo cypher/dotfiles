@@ -7,4 +7,6 @@ project
 rename
 rename-keys
 select
+subset?
+superset?
 union

@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/bin/bash
 
 # Copyright (c) Stephen C. Gilardi. All rights reserved.  The use and
 # distribution terms for this software are covered by the Eclipse Public
@@ -16,9 +16,8 @@
 # scgilardi (gmail)
 # Created 7 January 2009
 #
-# Modified to act as launcher for the Nailgun server and to read in an
-# optional .clojure file in the current directory naming further items
-# for the CLASSPATH.
+# Modified to read in an optional .clojure file in the current directory
+# naming further items for the CLASSPATH.
 #
 # Meikel Brandmeyer (mb ? kotka ! de)
 # Frankfurt am Main, 21.08.2009
@@ -42,8 +41,9 @@
 #               default:
 #               example:"-Xms32M -Xmx128M -server"
 #
-#  .clojure     A file in the current directory. Every line names an item
-#               which will be added to the CLASSPATH.
+#  CLOJURE_MAIN The Java class to launch
+#               default: clojure.main
+#               example: clojure.contrib.repl_ln
 
 set -o errexit
 #set -o nounset
@@ -55,23 +55,26 @@ if [ -n "${CLOJURE_EXT:-}" ]; then
     EXT="$(find -H ${CLOJURE_EXT} -mindepth 1 -maxdepth 1 -print0 | tr \\0 \:)"
     IFS="$OLD"
     if [ -n "${CLASSPATH:-}" ]; then
-        export CLASSPATH="${EXT}${CLASSPATH}"
+        CLASSPATH="${EXT}${CLASSPATH}"
     else
-        export CLASSPATH="${EXT%:}"
+        CLASSPATH="${EXT%:}"
     fi
 fi
 
 if [ -f .clojure ]; then
     for path in `cat .clojure`; do
         if [ -n "${CLASSPATH:-}" ]; then
-            export CLASSPATH="${path}${CLASSPATH}"
+            CLASSPATH="${path}:${CLASSPATH}"
         else
-            export CLASSPATH="${path%:}"
+            CLASSPATH="${path%:}"
         fi
     done
 fi
 
+export CLASSPATH
+
 JAVA=${CLOJURE_JAVA:-java}
 OPTS=${CLOJURE_OPTS:-}
+MAIN=${CLOJURE_MAIN:-clojure.main}
 
-exec ${JAVA} ${OPTS} com.martiansoftware.nailgun.NGServer 127.0.0.1 "$@"
+exec ${JAVA} ${OPTS} ${MAIN} "$@"
