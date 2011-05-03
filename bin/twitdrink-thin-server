@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+cd "${HOME}/Sites/twitdrink.at"
+
+source .rvmrc
+
+$(${HOME}/.rvm/bin/gem env gemdir)/bin/bundle exec thin --config "${HOME}/Sites/twitdrink.at/config.ru" --port 4567 start
