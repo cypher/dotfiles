@@ -17,6 +17,7 @@
 	co = checkout
 	cpc = cherry-pick
 	d = diff
+	dc = diff --cached
 	ds = diff --staged
 	h = help
 	irb = rebase --interactive
@@ -27,11 +28,12 @@
 	mm = merge --no-ff
 	msg = commit --allow-empty -m
 	p = cherry-pick -s
+	prune-remotes = "!for remote in `git remote`; do git remote prune $remote; done"
 	r = remote
+	ra = !git log --graph --abbrev-commit --date=relative -20 --all --pretty='format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
 	rb = rebase
 	rba = rebase --abort
 	rbc = rebase --continue
-	rbprune = "!for remote in `git remote`; do git remote prune $remote; done"
 	rbs = rebase --skip
 	rh = reset --hard
 	ru = remote update --prune
@@ -41,7 +43,6 @@
 	sma = submodule add
 	smu = submodule update --init
 	st = stash
-	stc = stash clear
 	stl = stash list
 	stp = stash pop
 	undo = reset --soft HEAD^
@@ -128,6 +129,7 @@
 
 [merge]
 	stat = true
+	diff = vimdiff
 
 [diff "zip"]
   textconv = unzip -c -a
