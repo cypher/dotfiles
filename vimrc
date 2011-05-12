@@ -92,6 +92,9 @@ endif
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
+" Switch to alternate file
+nnoremap <leader><leader> <c-^>
+
 " shorten command-line text and other info tokens (see :help shortmess)
 set shortmess=atI
 
