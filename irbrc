@@ -66,5 +66,5 @@ end
 
 if $0 == 'irb' && ENV['RAILS_ENV']
   load_railsrc(File.expand_path('~/.railsrc'))
-  load_railsrc(File.join(File.dirname(__FILE__), '.railsrc'))
+  load_railsrc(File.join(Dir.pwd, '.railsrc'))
 end
