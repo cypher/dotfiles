@@ -71,7 +71,7 @@ zstyle ':completion:*' use-cache 1
 # zstyle ':completion:*' cache-path ~/.zcompcache/$HOST
 
 ## add colors to completions
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-colors ${(s.:.)LSCOLORS}
 
 ### If you want zsh's completion to pick up new commands in $path automatically
 ### comment out the next line and un-comment the following 5 lines
@@ -105,7 +105,10 @@ autoload colors; colors;
 # PS1="%m :: %2~ %B»%b "
 PROMPT="%m %B%F{red}::%b %B%F{green}%3~%(0?. . %F{red}%? )%F{blue}%(0!.#.»)%b%F{white} "
 
-unset LSCOLORS
+export CLICOLOR=1
+
+# TODO LSCOLORS and LS_COLORS don't define the same color scheme
+export LSCOLORS=gxfxcxdxbxegedabagacad
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
 #########################################################################################
