@@ -1,0 +1,4 @@
+AwesomePrint.defaults = {
+  # left-aling hashes
+  :indent => -2
+}
