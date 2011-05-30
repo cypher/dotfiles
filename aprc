@@ -1,4 +1,6 @@
 AwesomePrint.defaults = {
   # left-aling hashes
-  :indent => -2
+  :indent => -2,
+  :plain  => false,
+  :html   => false,
 }
