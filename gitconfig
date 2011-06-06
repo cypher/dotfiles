@@ -18,6 +18,7 @@
 	cpc = cherry-pick
 	d = diff
 	dc = diff --cached
+	div = divergence
 	ds = diff --staged
 	h = help
 	irb = rebase --interactive
