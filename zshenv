@@ -70,6 +70,11 @@ then
     done
 fi
 
+if [[ $(which brew) && $(brew installed | grep --silent clojure-contrib)]]
+then
+    CLASSPATH="${CLASSPATH}:$(brew --prefix clojure-contrib)/clojure-contrib.jar"
+fi
+
 export CLASSPATH=".:${CLASSPATH}"
 
 export LANGUAGE="en_US.UTF-8"
