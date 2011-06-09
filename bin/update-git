@@ -62,14 +62,6 @@ module Git
     `git rev-parse #{treeish.shellescape}`.chomp
   end
 
-  # These two methods will update the git bash completion and git-new-workdir scripts, but only if they already exist
-  GIT_BASH_COMPLETION_SCRIPT_PATH = DOTFILES_DIR + "git-completion.sh"
-  def update_git_completion_script
-    if File.exist?(GIT_BASH_COMPLETION_SCRIPT_PATH)
-      FileUtils.cp File.expand_path('./contrib/completion/git-completion.bash'), GIT_BASH_COMPLETION_SCRIPT_PATH, :verbose => true
-    end
-  end
-
   GIT_NEW_WORKDIR_SCRIPT_PATH = DOTFILES_DIR + "git-new-workdir"
   def update_git_new_workdir_script
     if File.exist?(GIT_NEW_WORKDIR_SCRIPT_PATH)
@@ -101,7 +93,6 @@ module Git
           system git_install_command(:sudo => true)
         end
 
-        update_git_completion_script
         update_git_new_workdir_script
       end
 
