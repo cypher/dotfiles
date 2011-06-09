@@ -354,8 +354,6 @@ function rbx () {
     fi
 }
 
-alias configure-rbx='./configure --cc=clang --cxx=clang++'
-
 function heftiest {
     for file in $(find app/$1/**/*.rb -type f); do wc -l $file ; done  | sort -r | head
 }
