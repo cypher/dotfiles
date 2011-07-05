@@ -29,6 +29,7 @@
 	mm = merge --no-ff
 	msg = commit --allow-empty -m
 	p = cherry-pick -s
+	pick = cherry-pick
 	prune-remotes = "!for remote in `git remote`; do git remote prune $remote; done"
 	r = remote
 	ra = !git log --graph --abbrev-commit --date=relative -20 --all --pretty='format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
