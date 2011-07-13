@@ -55,7 +55,11 @@ module Git
   end
 
   def git_pull
-    "git pull --progress"
+    if system('which -s git-up')
+      "git up"
+    else
+      "git pull --progress"
+    end
   end
 
   def git_get_revision_for(treeish)
