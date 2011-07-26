@@ -91,11 +91,7 @@ module Git
         system git_make_command
 
         # If we own the git_prefix already, we want to install git without using sudo
-        if test(?O, git_prefix)
-          system git_install_command
-        else
-          system git_install_command(:sudo => true)
-        end
+        system git_install_command(:sudo => test(?O, git_prefix))
 
         update_git_new_workdir_script
       end
