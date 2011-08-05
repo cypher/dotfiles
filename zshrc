@@ -282,7 +282,7 @@ function mkcd () {
 }
 
 function ydl () {
-    for url ($*) youtube-dl -cl "$url"
+    for url ($*) youtube-dl --continue --literal --console-title "$url"
 }
 
 if [[ -x `which bcat` ]]; then
