@@ -301,6 +301,8 @@ alias dotedit="$VISUAL ~/dotfiles/"
 alias sha1='openssl dgst -sha1'
 alias sha256='openssl dgst -sha256'
 
+alias wk2png='/usr/bin/python $(which webkit2png)'
+
 #########################################################################################
 # Editor aliases
 
