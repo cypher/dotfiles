@@ -163,7 +163,7 @@ set background=dark          " we are using a dark background
 syntax on                    " syntax highlighting on
 filetype plugin indent on
 
-colorscheme solarized
+colorscheme asmdev
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backups
