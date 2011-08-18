@@ -22,6 +22,11 @@ do
     PATH="${p}:${PATH}"
 done
 
+if [[ -d "${HOME}/.rbenv/shims" ]]
+then
+    PATH="${HOME}/.rbenv/shims:${PATH}"
+fi
+
 export PATH
 
 # Node

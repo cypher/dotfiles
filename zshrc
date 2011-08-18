@@ -325,9 +325,6 @@ fi
 #########################################################################################
 # Ruby aliases/functions
 
-alias rubydo="rvm rubydo"
-alias multiruby="rvm rubydo"
-
 alias h="heroku"
 
 # For Rails:
@@ -418,5 +415,6 @@ function preexec () {
 # use .localrc for settings specific to one system
 [[ -f ~/.localrc ]] && source ~/.localrc
 
-# rvm-install added line:
-if [[ -s ${HOME}/.rvm/scripts/rvm ]] ; then source ${HOME}/.rvm/scripts/rvm ; fi
+# rbenv
+source "/usr/local/Cellar/rbenv/0.1.2/libexec/../completions/rbenv.zsh"
+rbenv rehash 2>/dev/null

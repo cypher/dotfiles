@@ -21,6 +21,3 @@ export RIPDIR RUBYLIB PATH
 # -- end rip config -- #
 
 [ -f ~/.bashrc ]    && . ~/.bashrc
-
-# rvm-install added line:
-if [[ -s ${HOME}/.rvm/scripts/rvm ]] && [[ $rvm_loaded_flag != 1 ]] ; then source ${HOME}/.rvm/scripts/rvm ; fi
