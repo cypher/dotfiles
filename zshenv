@@ -7,44 +7,17 @@ then
     PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
 fi
 
-# MySQL
-if [[ -d "/usr/local/mysql/bin" ]]
-then
-    PATH="/usr/local/mysql/bin:${PATH}"
-fi
-
-# PostgreSQL
-if [[ -d "/usr/local/pgsql/bin" ]]
-then
-    PATH="/usr/local/pgsql/bin:${PATH}"
-    # Also set PGDATA to default db location
-    export PGDATA="/usr/local/pgsql/data"
-fi
-
-# node program manager
-
-if [[ -d "/usr/local/share/npm/bin" ]]
-then
-    PATH="/usr/local/share/npm/bin:${PATH}"
-fi
-
-# Add these paths only if they aren't present already
-for p in '/usr/sbin' '/usr/bin' '/sbin' '/bin'
-do
-    if ! grep $p - >/dev/null 2>&1 <<< $PATH
-    then
-        PATH="${p}:${PATH}"
-    fi
-done
-
-# 'clj' (http://github.com/liebke/clj)
-if [[ -d "${HOME}/.cljr/bin" ]]
-then
-    PATH="${HOME}/.cljr/bin:${PATH}"
-fi
+# # Add these paths only if they aren't present already
+# for p in '/usr/sbin' '/usr/bin' '/sbin' '/bin'
+# do
+#     if ! grep $p - >/dev/null 2>&1 <<< ${PATH}
+#     then
+#         PATH="${PATH}:${p}"
+#     fi
+# done
 
 # Force these paths to be in front of all other paths
-for p in "${HOME}/bin" '/usr/local/sbin' '/usr/local/bin'
+for p in '/usr/local/bin' '/usr/local/sbin' "${HOME}/bin"
 do
     PATH="${p}:${PATH}"
 done
