@@ -127,3 +127,6 @@
 [submodule "vim/bundle/vim-css-color"]
 	path = vim/bundle/vim-css-color
 	url = https://github.com/skammer/vim-css-color.git
+[submodule "vim/bundle/ShowMarks"]
+	path = vim/bundle/ShowMarks
+	url = https://github.com/vim-scripts/ShowMarks.git
