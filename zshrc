@@ -416,5 +416,5 @@ function preexec () {
 [[ -f ~/.localrc ]] && source ~/.localrc
 
 # rbenv
-source "/usr/local/Cellar/rbenv/0.1.2/libexec/../completions/rbenv.zsh"
+source "${HOME}/.rbenv/completions/rbenv.zsh"
 rbenv rehash 2>/dev/null

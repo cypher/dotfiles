@@ -24,7 +24,7 @@ done
 
 if [[ -d "${HOME}/.rbenv/shims" ]]
 then
-    PATH="${HOME}/.rbenv/shims:${PATH}"
+    PATH="${HOME}/.rbenv/shims:${HOME}/.rbenv/bin:${PATH}"
 fi
 
 export PATH
