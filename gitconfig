@@ -39,7 +39,7 @@
 	rbs = rebase --skip
 	rh = reset --hard
 	ru = remote update --prune
-	s = status
+	s = status --short --branch
 	sl = shortlog
 	sm = submodule
 	sma = submodule add
