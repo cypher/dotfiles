@@ -22,9 +22,9 @@ do
     PATH="${p}:${PATH}"
 done
 
-if [[ -d "${HOME}/.rbenv/shims" ]]
+if [[ -d "${HOME}/.rbenv/bin" ]]
 then
-    PATH="${HOME}/.rbenv/shims:${HOME}/.rbenv/bin:${PATH}"
+    PATH="${HOME}/.rbenv/bin:${PATH}"
 fi
 
 export PATH

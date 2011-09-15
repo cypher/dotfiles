@@ -416,5 +416,4 @@ function preexec () {
 [[ -f ~/.localrc ]] && source ~/.localrc
 
 # rbenv
-source "${HOME}/.rbenv/completions/rbenv.zsh"
-rbenv rehash 2>/dev/null
+eval "$(rbenv init -)"
