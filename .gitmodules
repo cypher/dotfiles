@@ -1,24 +1,15 @@
 [submodule "emacs.d/el-get"]
 	path = emacs.d/el-get
 	url = git://github.com/dimitri/el-get.git
-[submodule "vim/bundle/nerdtree"]
-	path = vim/bundle/nerdtree
-	url = http://github.com/scrooloose/nerdtree.git
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = http://github.com/tpope/vim-fugitive.git
-[submodule "vim/bundle/vim-markdown"]
-	path = vim/bundle/vim-markdown
-	url = https://github.com/hallison/vim-markdown.git
 [submodule "vim/bundle/vim-rails"]
 	path = vim/bundle/vim-rails
 	url = http://github.com/tpope/vim-rails.git
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
 	url = http://github.com/tpope/vim-surround.git
-[submodule "vim/bundle/vim-coffee-script"]
-	path = vim/bundle/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
 [submodule "vim/bundle/vim-autoclose"]
 	path = vim/bundle/vim-autoclose
 	url = https://github.com/Townk/vim-autoclose.git
@@ -34,12 +25,6 @@
 [submodule "vim/bundle/vim-css-color"]
 	path = vim/bundle/vim-css-color
 	url = https://github.com/skammer/vim-css-color.git
-[submodule "vim/bundle/vim-rake"]
-	path = vim/bundle/vim-rake
-	url = https://github.com/tpope/vim-rake.git
-[submodule "vim/bundle/tcomment"]
-	path = vim/bundle/tcomment
-	url = https://github.com/tomtom/tcomment_vim.git
 [submodule "vim/bundle/vim-commentary"]
 	path = vim/bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
