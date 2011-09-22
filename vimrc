@@ -4,8 +4,7 @@ set nocompatible
 
 " Use pathogen (http://www.vim.org/scripts/script.php?script_id=2332) for
 " easier bundle management
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 
 " Make , the personal leader key
 let mapleader = ","
