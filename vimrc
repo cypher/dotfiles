@@ -225,14 +225,14 @@ map <C-l> <C-w>l
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Enable OmniCompletion for Ruby
-autocmd FileType ruby set omnifunc=rubycomplete#Complete
-" ... and Rails
-autocmd FileType ruby let g:rubycomplete_rails = 1
-" ... and to include Classes in global completions
-autocmd FileType ruby let g:rubycomplete_classes_in_global = 1
-" Thorfile, Rakefile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
+" " Enable OmniCompletion for Ruby
+" autocmd FileType ruby set omnifunc=rubycomplete#Complete
+" " ... and Rails
+" autocmd FileType ruby let g:rubycomplete_rails = 1
+" " ... and to include Classes in global completions
+" autocmd FileType ruby let g:rubycomplete_classes_in_global = 1
+" " Thorfile, Rakefile and Gemfile are Ruby
+" au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
 
 " Syntax highlight shell scripts as per POSIX,
 " not the original Bourne shell which very few use
@@ -241,35 +241,8 @@ let g:is_posix = 1
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
 
-" NERD_Tree support
-let NERDTreeIgnore=['\.rbc$', '\~$']
-map <Leader>d :NERDTreeToggle<CR>
-map <Leader>f :NERDTreeFind<CR>
-
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
-
-" Syntastic
-let g:syntastic_enable_signs=1
-let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-run SyntasticEnable ruby
-run SyntasticEnable eruby
-run SyntasticEnable coffee
-run SyntasticEnable c
-run SyntasticEnable cpp
-run SyntasticEnable html
-run SyntasticEnable javascript
-run SyntasticEnable lua
-run SyntasticEnable sh
-
-" VimClojure
-let g:vimclojure#HighlightBuiltins = 1
-let g:vimclojure#ParenRainbow = 1
-let g:vimclojure#DynamicHighlighting = 1
-" let vimclojure#WantNailgun = 1
-
-" Gundo
-map <Leader>g :GundoToggle<CR>
 
 " Nicked from Gary Bernhardt's vimrc
 " https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
