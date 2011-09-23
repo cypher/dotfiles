@@ -149,7 +149,6 @@ noremap P P`[
 set statusline=
 set statusline+=%f\ %2*%m\ %1*%h
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%{fugitive#statusline()}
 set statusline+=%*
 set statusline+=%r%=[%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]\ %12.(%c:%l/%L%)
