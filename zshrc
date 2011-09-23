@@ -244,25 +244,6 @@ alias r-x='chmod 755'
 # Convert a picture to a favicon
 alias make-favicon="convert -colors 256 -resize 16x16 "
 
-# Start or resume irssi
-function irc () {
-    if grep irc <<< `screen -ls`; then
-        screen -x irc
-    else
-        screen -S irc irssi
-    fi
-}
-
-# Start or resume irssi in freenode config
-function freenode () {
-    # TODO: Check for freenode instance here, not just irssi
-    if grep freenode <<< `screen -ls`; then
-        screen -x freenode
-    else
-        screen -S freenode irssi --config=${HOME}/.irssi/freenode
-    fi
-}
-
 function rot13 () { tr "[a-m][n-z][A-M][N-Z]" "[n-z][a-m][N-Z][A-M]" }
 
 alias eject='hdiutil eject'
