@@ -266,7 +266,7 @@ function ydl () {
     for url ($*) /usr/bin/python /usr/local/bin/youtube-dl --continue --literal --console-title "$url"
 }
 
-if [[ -x `which bcat` ]]; then
+if [[ -x $(which bcat) ]]; then
     # If bcat (Browser cat, http://rtomayko.github.com/bcat/) is invoked as `btee', it acts like `tee(1)'
     alias btee=bcat
 fi
@@ -326,7 +326,7 @@ alias restart='touch tmp/restart.txt'
 alias migrate='rake db:migrate && rake db:test:prepare'
 
 function rbx () {
-    if [[ -x `which -s rbx` ]]
+    if [[ -x $(which -s rbx) ]]
     then
         command rbx "$@"
     else
