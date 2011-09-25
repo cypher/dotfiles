@@ -263,7 +263,7 @@ function mkcd () {
 }
 
 function ydl () {
-    for url ($*) /usr/bin/python /usr/local/bin/youtube-dl --continue --literal --console-title "$url"
+    for url ($*) /usr/bin/python /usr/local/bin/youtube-dl --continue --literal --console-title --format 22 "$url"
 }
 
 if [[ -x $(which bcat) ]]; then
