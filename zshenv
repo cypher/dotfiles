@@ -1,6 +1,8 @@
 # Sourced on all invocations
 # Should not produce output or assume a tty is present
 
+fpath=($fpath $HOME/.zsh/functions)
+typeset -U fpath
 
 # # Add these paths only if they aren't present already
 # for p in '/usr/sbin' '/usr/bin' '/sbin' '/bin'

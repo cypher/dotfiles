@@ -93,9 +93,6 @@ zstyle ':completion:*' verbose yes
 
 zstyle ':completion:*:kill:*:processes' command "ps x"
 
-fpath=(${HOME}/.zsh/functions/ $fpath)
-autoload $^fpath/*(N:t)
-
 #########################################################################################
 # Colors
 
