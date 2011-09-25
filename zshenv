@@ -1,11 +1,6 @@
 # Sourced on all invocations
 # Should not produce output or assume a tty is present
 
-# Setting PATH for MacPython 2.4
-if [[ -d "/Library/Frameworks/Python.framework/Versions/Current/bin" ]]
-then
-    PATH="/Library/Frameworks/Python.framework/Versions/Current/bin:${PATH}"
-fi
 
 # # Add these paths only if they aren't present already
 # for p in '/usr/sbin' '/usr/bin' '/sbin' '/bin'
