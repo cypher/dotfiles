@@ -232,6 +232,10 @@ map <C-l> <C-w>l
 " " Thorfile, Rakefile and Gemfile are Ruby
 " au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
 
+" vim-commentary settings
+autocmd FileType sql set commentstring=--\ %s
+autocmd FileType vim set commentstring=\"\ %s
+
 " Syntax highlight shell scripts as per POSIX,
 " not the original Bourne shell which very few use
 let g:is_posix = 1
