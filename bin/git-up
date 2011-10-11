@@ -23,6 +23,8 @@ stashed = false
 
 old_head = `git rev-parse head`.chomp
 
+exit($?) unless $? == 0
+
 if rebase
   pull_args.push '--rebase'
 
