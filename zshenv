@@ -24,6 +24,18 @@ then
     PATH="${HOME}/.rbenv/bin:${PATH}"
 fi
 
+# If we're on OS X, we want access to the `stroke` utility
+if [[ -d "/Applications/Utilities/Network Utility.app/Contents/Resources/" ]]
+then
+    PATH="${PATH}:/Applications/Utilities/Network Utility.app/Contents/Resources/"
+fi
+
+# If we're on OS X, we want access to the `airport` utility
+if [[ -d "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/" ]]
+then
+    PATH="${PATH}:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/"
+fi
+
 export PATH
 
 # Node
