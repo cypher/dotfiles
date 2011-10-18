@@ -1,6 +1,3 @@
-[submodule "emacs.d/el-get"]
-	path = emacs.d/el-get
-	url = git://github.com/dimitri/el-get.git
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
 	url = http://github.com/tpope/vim-fugitive.git
