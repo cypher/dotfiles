@@ -315,12 +315,19 @@ alias sd='./script/destroy'
 alias rc='rails console'
 alias rg='rails generate'
 alias rs='rails server'
+alias rd='rails destroy'
 
 alias r='rake'
 alias t='thor'
 
 alias restart='touch tmp/restart.txt'
 alias migrate='rake db:migrate && rake db:test:prepare'
+
+function heftiest {
+    for file in $(find app/$1/**/*.rb -type f); do wc -l $file ; done  | sort -r | head
+}
+
+# Rubinius
 
 function rbx () {
     if [[ -x $(which -s rbx) ]]
@@ -331,9 +338,7 @@ function rbx () {
     fi
 }
 
-function heftiest {
-    for file in $(find app/$1/**/*.rb -type f); do wc -l $file ; done  | sort -r | head
-}
+alias weebuild='rake build && ./bin/mspec'
 
 #########################################################################################
 # Git aliases/functions
