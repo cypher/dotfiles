@@ -40,9 +40,9 @@ export PATH
 
 # Node
 
-if [[ -d "/usr/local/lib/node" ]]
+if [[ -d "/usr/local/lib/node_modules" ]]
 then
-    NODE_PATH="/usr/local/lib/node:${NODE_PATH}"
+    NODE_PATH="${NODE_PATH}:/usr/local/lib/node_modules"
 fi
 
 export NODE_PATH
