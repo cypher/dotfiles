@@ -397,3 +397,4 @@ function preexec () {
 
 # rbenv
 eval "$(rbenv init -)"
+builtin rehash
