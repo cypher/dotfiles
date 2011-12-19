@@ -24,6 +24,8 @@ autoload -U history-search-end
 #########################################################################################
 ## Completions
 
+fpath=(~/.zsh/functions $fpath)
+
 # This is from grml zshrc
 # # completion system
 # if autoload -U compinit ; then
