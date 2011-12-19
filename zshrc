@@ -93,6 +93,9 @@ zstyle ':completion:*' verbose yes
 
 zstyle ':completion:*:kill:*:processes' command "ps x"
 
+# Auto-completion for ssh hosts
+zstyle -e ':completion::*:hosts' hosts 'reply=($(sed -e "/^#/d" -e "s/ .*\$//" -e "s/,/ /g" /etc/ssh_known_hosts(N) ~/.ssh/known_hosts(N) 2>/dev/null | xargs) $(grep \^Host ~/.ssh/config(N) | cut -f2 -d\  2>/dev/null | xargs))'
+
 #########################################################################################
 # Colors
 
@@ -303,22 +306,11 @@ fi
 #########################################################################################
 # Ruby aliases/functions
 
-alias h="heroku"
-
 # For Rails:
 alias sc='./script/console'
 alias sg='./script/generate'
 alias ss='./script/server'
 alias sd='./script/destroy'
-
-# For Rails 3:
-alias rc='rails console'
-alias rg='rails generate'
-alias rs='rails server'
-alias rd='rails destroy'
-
-alias restart='touch tmp/restart.txt'
-alias migrate='rake db:migrate && rake db:test:prepare'
 
 function heftiest {
     for file in $(find app/$1/**/*.rb -type f); do wc -l $file ; done  | sort -r | head
@@ -340,14 +332,11 @@ alias weebuild='rake build && ./bin/mspec'
 #########################################################################################
 # Git aliases/functions
 
-# Aliases git to hub
 alias g='git'
 
 #########################################################################################
 # SSH
 
-# Auto-completion for ssh hosts
-zstyle -e ':completion::*:hosts' hosts 'reply=($(sed -e "/^#/d" -e "s/ .*\$//" -e "s/,/ /g" /etc/ssh_known_hosts(N) ~/.ssh/known_hosts(N) 2>/dev/null | xargs) $(grep \^Host ~/.ssh/config(N) | cut -f2 -d\  2>/dev/null | xargs))'
 
 #########################################################################################
 # Grep stuff
