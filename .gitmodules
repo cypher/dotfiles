@@ -37,3 +37,6 @@
 [submodule "vim/bundle/pyflakes-vim"]
 	path = vim/bundle/pyflakes-vim
 	url = git://github.com/kevinw/pyflakes-vim.git
+[submodule "vim/bundle/vim-pyflakes"]
+	path = vim/bundle/vim-pyflakes
+	url = git://github.com/nvie/vim-pyflakes.git
