@@ -10,6 +10,7 @@
 	amend = commit --amend -C HEAD
 	ap = add --patch
 	au = add --update
+	authors = "!git log --pretty=format:%aN | sort | uniq -c | sort -rn"
 	b = branch
 	c = commit
 	ca = commit --amend
