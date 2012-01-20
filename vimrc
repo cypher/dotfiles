@@ -154,6 +154,9 @@ set statusline+=%*
 set statusline+=%r%=[%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]\ %12.(%c:%l/%L%)
 set laststatus=2
 
+" tag support
+set tags=./tags;
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme/Colors
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -220,21 +223,37 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugins
+" OmniCompletion
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " " Enable OmniCompletion for Ruby
-" autocmd FileType ruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby set omnifunc=rubycomplete#Complete
 " " ... and Rails
 " autocmd FileType ruby let g:rubycomplete_rails = 1
 " " ... and to include Classes in global completions
 " autocmd FileType ruby let g:rubycomplete_classes_in_global = 1
-" " Thorfile, Rakefile and Gemfile are Ruby
-" au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru}    set ft=ruby
+
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugins
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " vim-commentary settings
 autocmd FileType sql set commentstring=--\ %s
 autocmd FileType vim set commentstring=\"\ %s
+
+" Python should always use 4-space indent
+au FileType python setl ai ts=4 sts=4 et sw=4
+
+" .inc files are Django templates
+au BufRead,BufNewFile {*.inc} set ft=htmldjango
+
+" Thorfile, Rakefile and Gemfile are Ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru} set ft=ruby
 
 " Syntax highlight shell scripts as per POSIX,
 " not the original Bourne shell which very few use
