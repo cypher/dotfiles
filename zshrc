@@ -3,6 +3,7 @@
 ## keybindings (run 'bindkeys' for details, more details via man zshzle)
 # use emacs style per default:
 bindkey -e
+
 # use vi style:
 # bindkey -v
 
@@ -12,12 +13,12 @@ autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
+
 # Vi style:
 # zle -N edit-command-line
 # bindkey -M vicmd v edit-command-line
 
 autoload -U zmv
-alias mmv='noglob zmv -W'
 
 autoload -U history-search-end
 
@@ -25,19 +26,11 @@ autoload -U history-search-end
 ## Completions
 
 fpath=(~/.zsh/functions $fpath)
-
-# This is from grml zshrc
-# # completion system
-# if autoload -U compinit ; then
-#     compinit || print 'Notice: no compinit available :('
-# else
-#     print 'Notice: no compinit available :('
-#     function zstyle { }
-#     function compdef { }
-# fi
+typeset -U fpath
 
 autoload -U compinit
-compinit -C
+compinit
+
 ## completions ####
 autoload -U zstyle+
 
@@ -101,7 +94,7 @@ zstyle -e ':completion::*:hosts' hosts 'reply=($(sed -e "/^#/d" -e "s/ .*\$//" -
 #########################################################################################
 # Colors
 
-autoload colors; colors;
+autoload -U colors; colors;
 
 # Based on http://twitter.com/evanphx/status/2021488509
 # PS1="%m :: %2~ %B»%b "
@@ -125,8 +118,8 @@ setopt hist_ignore_all_dups # If  a  new  command  line being added to the histo
 setopt hist_ignore_space    # remove command lines from the history list when
                             # the first character on the line is a space
 HISTFILE=$HOME/.zsh_history
-HISTSIZE=5000
-SAVEHIST=10000              # useful for setopt append_history
+HISTSIZE=2000
+SAVEHIST=3000              # useful for setopt append_history
 
 
 setopt auto_cd              # if a command is issued that can't be executed as a normal command,
@@ -163,24 +156,11 @@ setopt long_list_jobs       # List jobs in long format
 #########################################################################################
 
 # do we have GNU ls with color-support?
-if ls --help 2>/dev/null | grep -- --color= >/dev/null && [[ "$TERM" != dumb ]] ; then
-    # execute  ls with colors
-    alias ls='ls -bh -CF --color=auto'
-    # execute  list all files, with colors
-    alias la='ls -lhAF --color=auto'
-    # long colored list, without dotfiles
-    alias ll='ls -lh --color=auto'
-    # long colored list, human readable sizes
-    alias lh='ls -hAl --color=auto'
-    # List files, append qualifier to filenames, / for directories, @ for symlinks ...
-    alias l='ls -lhF --color=auto'
-else
-    alias ls='ls -bh -CF'
-    alias la='ls -lhAF'
-    alias ll='ls -lh'
-    alias lh='ls -hAl'
-    alias l='ls -lhF'
-fi
+alias ls='ls -bh -CF'
+alias la='ls -lhAF'
+alias ll='ls -lh'
+alias lh='ls -hAl'
+alias l='ls -lhF'
 
 alias '..'='cd ..'
 # The -g makes them global aliases, so they're expaned even inside commands
@@ -206,34 +186,6 @@ alias da='du -sch'
 # Execute jobs -l
 alias j='jobs -l'
 
-# listing stuff
-#  Execute ls -lSrah
-alias dir="ls -lSrah"
-#  Only show dot-directories
-alias lad='ls -d .*(/)'                # only show dot-directories
-#  Only show dot-files
-alias lsa='ls -a .*(.)'                # only show dot-files
-#  Only files with setgid/setuid/sticky flag
-alias lss='ls -l *(s,S,t)'             # only files with setgid/setuid/sticky flag
-#  Only show 1st ten symlinks
-alias lsl='ls -l *(@[1,10])'           # only symlinks
-#  Display only executables
-alias lsx='ls -l *(*[1,10])'           # only executables
-#  Display world-{readable,writable,executable} files
-alias lsw='ls -ld *(R,W,X.^ND/)'       # world-{readable,writable,executable} files
-#  Display the ten biggest files
-alias lsbig="ls -flh *(.OL[1,10])"     # display the biggest files
-#  Only show directories
-alias lsd='ls -d *(/)'                 # only show directories
-#  Only show empty directories
-alias lse='ls -d *(/^F)'               # only show empty directories
-#  Display the ten newest files
-alias lsnew="ls -rl *(D.om[1,10])"     # display the newest files
-#  Display the ten oldest files
-alias lsold="ls -rtlh *(D.om[1,10])"   # display the oldest files
-#  Display the ten smallest files
-alias lssmall="ls -Srl *(.oL[1,10])"   # display the smallest files
-
 # chmod
 alias rw-='chmod 600'
 alias rwx='chmod 700'
@@ -245,10 +197,6 @@ alias r-x='chmod 755'
 
 # Convert a picture to a favicon
 alias make-favicon="convert -colors 256 -resize 16x16 "
-
-function rot13 () { tr "[a-m][n-z][A-M][N-Z]" "[n-z][a-m][N-Z][A-M]" }
-
-alias eject='hdiutil eject'
 
 # Copy the working dir to the clipboard
 alias cpwd='pwd|xargs echo -n|pbcopy'
@@ -268,10 +216,8 @@ function ydl () {
     for url ($*) /usr/bin/python /usr/local/bin/youtube-dl --continue --literal --console-title --format 22 "$url" || /usr/bin/python /usr/local/bin/youtube-dl --continue --literal --console-title "$url"
 }
 
-if [[ -x $(which bcat) ]]; then
-    # If bcat (Browser cat, http://rtomayko.github.com/bcat/) is invoked as `btee', it acts like `tee(1)'
-    alias btee=bcat
-fi
+# If bcat (Browser cat, http://rtomayko.github.com/bcat/) is invoked as `btee', it acts like `tee(1)'
+alias btee=bcat
 
 # sh function to murder all running processes matching a pattern
 # thanks 3n: http://twitter.com/3n/status/19113206105
@@ -286,24 +232,26 @@ alias sha256='openssl dgst -sha256'
 
 alias wk2png='/usr/bin/python $(which webkit2png)'
 
+function console {
+  if [[ $# > 0 ]]; then
+    query=$(echo "$*" | tr -s ' ' '|')
+    tail -f /var/log/system.log|grep -i --color=auto -E "$query"
+  else
+    tail -f /var/log/system.log
+  fi
+}
+
 #########################################################################################
 # Editor aliases
 
 alias e="${EDITOR}"
 alias e.="${EDITOR} ."
 
-if [[ -f $(which mate) ]]; then
-    alias m='mate'
-    alias m.='mate .'
-fi
+alias m='mate'
+alias m.='mate .'
 
-if [[ -f $(which mvim) ]]; then
-    alias v='mvim'
-    alias v.='mvim .'
-else
-    alias v='vim'
-    alias v.='vim .'
-fi
+alias v='mvim'
+alias v.='mvim .'
 
 #########################################################################################
 # Ruby aliases/functions
@@ -335,10 +283,6 @@ alias weebuild='rake build && ./bin/mspec'
 # Git aliases/functions
 
 alias g='git'
-
-#########################################################################################
-# SSH
-
 
 #########################################################################################
 # Grep stuff
