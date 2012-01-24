@@ -66,6 +66,8 @@ export SVN_EDITOR=$VISUAL
 
 export LESS="-R"
 
+export CLICOLOR=1
+
 # Rubinius
 export RBXOPT="-Xagent.start -X19"
 
