@@ -96,16 +96,11 @@ zstyle -e ':completion::*:hosts' hosts 'reply=($(sed -e "/^#/d" -e "s/ .*\$//" -
 
 autoload -U colors; colors;
 
-# Based on http://twitter.com/evanphx/status/2021488509
-# PS1="%m :: %2~ %B»%b "
-# PROMPT="%m %B%F{red}::%b %B%F{green}%3~%(0?. . %F{red}%? )%F{blue}%(0!.#.»)%b%F{white} "
-
 setopt prompt_subst
 # Combined left and right prompt configuration.
 local smiley="%(?,%F{green}☺%f,%F{red}☹%f)"
 
 PROMPT='%m %B%F{red}:: %F{green}%3~ ${smiley} %F{blue}%(0!.#.») %b%f'
-
 RPROMPT='%F{white} $(rbenv version | sed -E s/([^ ]+).*/\\1/) $(~/bin/git-cwd-info.rb)%f'
 
 export CLICOLOR=1
@@ -125,6 +120,7 @@ setopt hist_ignore_all_dups # If  a  new  command  line being added to the histo
                             # list duplicates an older one, the older command is removed from the list
 setopt hist_ignore_space    # remove command lines from the history list when
                             # the first character on the line is a space
+
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=2000
 SAVEHIST=3000              # useful for setopt append_history
@@ -145,7 +141,7 @@ setopt notify               # report the status of backgrounds jobs immediately
 setopt hash_list_all        # Whenever a command completion is attempted, make sure
                             # the entire command path is hashed first.
 
-setopt completeinword       # not just at the end
+# setopt completeinword       # not just at the end
 
 setopt nohup                # and don't kill them, either
 
@@ -300,9 +296,7 @@ function greph () { history 0 | grep -i $1 }
 
 # use colors when GNU grep with color-support
 #  Execute grep --color=auto
-if (grep --help 2>/dev/null |grep -- --color) >/dev/null; then
-    alias grep='grep --color=auto'
-fi
+alias grep='grep --color=auto'
 
 #########################################################################################
 ## Functions for displaying neat stuff in *term title

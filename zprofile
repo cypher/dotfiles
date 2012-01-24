@@ -44,7 +44,7 @@ then
     done
 fi
 
-if whence brew > /dev/null && brew installed | grep --silent clojure-contrib
+if [[ -d "$(brew --prefix clojure-contrib)" ]]
 then
     CLASSPATH="${CLASSPATH}:$(brew --prefix clojure-contrib)/clojure-contrib.jar"
 fi
