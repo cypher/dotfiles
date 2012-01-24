@@ -98,7 +98,15 @@ autoload -U colors; colors;
 
 # Based on http://twitter.com/evanphx/status/2021488509
 # PS1="%m :: %2~ %B»%b "
-PROMPT="%m %B%F{red}::%b %B%F{green}%3~%(0?. . %F{red}%? )%F{blue}%(0!.#.»)%b%F{white} "
+# PROMPT="%m %B%F{red}::%b %B%F{green}%3~%(0?. . %F{red}%? )%F{blue}%(0!.#.»)%b%F{white} "
+
+setopt prompt_subst
+# Combined left and right prompt configuration.
+local smiley="%(?,%F{green}☺%f,%F{red}☹%f)"
+
+PROMPT='%m %B%F{red}:: %F{green}%3~ ${smiley} %F{blue}%(0!.#.») %b%f'
+
+RPROMPT='%F{white} $(rbenv version | sed -E s/([^ ]+).*/\\1/) $(~/bin/git-cwd-info.rb)%f'
 
 export CLICOLOR=1
 
