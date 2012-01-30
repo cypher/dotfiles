@@ -19,6 +19,7 @@
 
 # Introduce Haml to ack
 --type-set=haml=.haml
+--type-set=django=.inc,.py,.txt
 
 # Ignore vendor/ and log/ by default, for Rails projects
 --ignore-dir=vendor
