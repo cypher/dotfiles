@@ -264,6 +264,8 @@ alias sg='./script/generate'
 alias ss='./script/server'
 alias sd='./script/destroy'
 
+alias pryr="pry -r ./config/environment -r rails/console/app -r rails/console/helpers"
+
 function heftiest {
     for file in $(find app/$1/**/*.rb -type f); do wc -l $file ; done  | sort -r | head
 }
