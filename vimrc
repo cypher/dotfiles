@@ -265,8 +265,8 @@ imap <C-l> <Space>=><Space>
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
-" Pyflakes
-autocmd BufWritePost *.py call Pyflakes()
+" Flake8
+autocmd BufWritePost *.py call Flake8()
 
 " Nicked from Gary Bernhardt's vimrc
 " https://github.com/garybernhardt/dotfiles/blob/master/.vimrc
