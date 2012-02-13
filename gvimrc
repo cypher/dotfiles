@@ -1,4 +1,4 @@
-set lines=90 columns=200
+set lines=90 columns=230
 set background=light
 colorscheme solarized
 
