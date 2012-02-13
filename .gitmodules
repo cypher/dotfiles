@@ -34,9 +34,6 @@
 [submodule "vim/bundle/vim-coffee-script"]
 	path = vim/bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule "vim/bundle/pyflakes-vim"]
-	path = vim/bundle/pyflakes-vim
-	url = git://github.com/kevinw/pyflakes-vim.git
-[submodule "vim/bundle/vim-pyflakes"]
-	path = vim/bundle/vim-pyflakes
-	url = git://github.com/nvie/vim-pyflakes.git
+[submodule "vim/bundle/vim-flake8"]
+	path = vim/bundle/vim-flake8
+	url = git://github.com/nvie/vim-flake8.git
