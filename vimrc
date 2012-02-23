@@ -52,6 +52,9 @@ set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.
 set ignorecase
 set smartcase
 
+" Make ~ work like a normal operator
+set tildeop
+
 " automatically insert a \v before any search string, so search uses
 " normal regexes
 nnoremap / /\v
