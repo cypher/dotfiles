@@ -11,7 +11,7 @@
 	ap = add --patch
 	au = add --update
 	authors = "!git log --pretty=format:%aN | sort | uniq -c | sort -rn"
-	b = branch
+	b = branch -vv
 	c = commit
 	ca = commit --amend
 	changes = diff --name-status -r
