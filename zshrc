@@ -101,7 +101,7 @@ setopt prompt_subst
 local smiley="%(?,%F{green}☺%f,%F{red}☹%f)"
 
 PROMPT='%m %B%F{red}:: %F{green}%3~ ${smiley} %F{blue}%(0!.#.») %b%f'
-RPROMPT='%F{white} $(rbenv version-name) $(~/bin/git-cwd-info.rb)%f'
+RPROMPT='%F{white} $(rbenv version-name) $(~/bin/git-cwd-info)%f'
 
 # TODO LSCOLORS and LS_COLORS don't define the same color scheme
 export LSCOLORS=gxfxcxdxbxegedabagacad
