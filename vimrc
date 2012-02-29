@@ -148,6 +148,10 @@ vnoremap X "_X
 noremap p p`[
 noremap P P`[
 
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
 " status line
 set statusline=
 set statusline+=%f\ %2*%m\ %1*%h
