@@ -273,7 +273,7 @@ imap <C-l> <Space>=><Space>
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
 " PyFlake8
-let g:flake8_ignore = "E261,E401,E501,W293"
+let g:flake8_ignore = "E221,E261,E401,E501,W293"
 autocmd BufWritePost *.py call Flake8()
 
 " Nicked from Gary Bernhardt's vimrc
