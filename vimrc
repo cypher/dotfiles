@@ -152,6 +152,9 @@ noremap P P`[
 vnoremap < <gv
 vnoremap > >gv
 
+" Make Y behave like other capitals
+map Y y$
+
 " status line
 set statusline=
 set statusline+=%f\ %2*%m\ %1*%h
