@@ -36,7 +36,13 @@ class Scm < Thor
           system("git svn rebase")
         else
           system("git remote update")
-          system("git pull --progress --summary --stat --ff-only ") unless git_bare?
+          unless git_bare?
+            if File.executable?(File.expand_path("~/bin/git-up"))
+              system("git up")
+            else
+              system("git pull --progress --summary --stat --ff-only ")
+            end
+          end
         end
       when ".bzr"
         system("bzr pull")
