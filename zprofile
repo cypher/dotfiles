@@ -1,15 +1,15 @@
 # Sourced in login shells, before .zshrc
 
 # Force these paths to be in front of all other paths
-for p in '/usr/local/bin' '/usr/local/sbin' "${HOME}/bin"
-do
-    PATH="${p}:${PATH}"
-done
-
 if [[ -d "${HOME}/.rbenv/bin" ]]
 then
     PATH="${HOME}/.rbenv/bin:${PATH}"
 fi
+
+for p in '/usr/local/bin' '/usr/local/sbin' "${HOME}/bin"
+do
+    PATH="${p}:${PATH}"
+done
 
 # If we're on OS X, we want access to the `stroke` utility
 if [[ -d "/Applications/Utilities/Network Utility.app/Contents/Resources/" ]]
