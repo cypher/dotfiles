@@ -25,7 +25,7 @@ autoload -U history-search-end
 #########################################################################################
 ## Completions
 
-fpath=(~/.zsh/functions $fpath)
+fpath=(~/.zsh/functions /usr/local/share/zsh/functions $fpath)
 typeset -U fpath
 
 autoload -U compinit
