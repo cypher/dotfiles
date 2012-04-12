@@ -284,6 +284,18 @@ function rbx () {
 alias weebuild='rake build && ./bin/mspec'
 
 #########################################################################################
+# Elixir aliases/functions
+
+function elixir () {
+    if [[ -x $(which -s elixir) ]]
+    then
+        command elixir "$@"
+    else
+        ${HOME}/Development/elixir/bin/elixir "$@"
+    fi
+}
+
+#########################################################################################
 # Git aliases/functions
 
 alias g='git'
