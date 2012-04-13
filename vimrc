@@ -174,7 +174,7 @@ imap <c-c> <esc>
 " Clear the search buffer when hitting return
 nnoremap <CR> :nohlsearch<CR>
 
-" ?
+" Switch between the last two files
 nnoremap <leader><leader> <C-^>
 
 
