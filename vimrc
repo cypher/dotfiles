@@ -42,7 +42,10 @@ set title                     " show title in xterm
 set wildmenu
 
 " Ignore these files when completing names and in Explorer
-set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif
+set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pdf,*.bak,*.beam
+
+" set of file name suffixes that will be given a lower priority when it comes to matching wildcards
+set suffixes+=.old
 
 " Specify which keys can move the cursor left/right to move to the
 " previous/next line when the cursor is on the first/last character in that
