@@ -50,8 +50,8 @@
 	stl = stash list
 	stp = stash pop
 	undo = reset --soft HEAD^
-	wd = diff --color-words
-	wds = diff --color-words --staged
+	wd = diff --word-diff="color"
+	wds = diff --word-diff="color" --staged
 	push = push --tags
 
 [advice]
