@@ -22,6 +22,9 @@ autoload -U zmv
 
 autoload -U history-search-end
 
+# Report CPU usage for commands running longer than 10 seconds
+REPORTTIME=10
+
 #########################################################################################
 ## Completions
 
