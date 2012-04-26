@@ -114,8 +114,8 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 # Some options
 
 # history:
-setopt append_history       # append history list to the history file (important for multiple parallel zsh sessions!)
-setopt SHARE_HISTORY        # import new commands from the history file also in other zsh-session
+setopt inc_append_history   # append history list to the history file (important for multiple parallel zsh sessions!)
+setopt share_history        # import new commands from the history file also in other zsh-session
 setopt extended_history     # save each command's beginning timestamp and the duration to the history file
 setopt hist_ignore_all_dups # If  a  new  command  line being added to the history
                             # list duplicates an older one, the older command is removed from the list
