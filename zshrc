@@ -314,6 +314,11 @@ function greph () { history 0 | grep -i $1 }
 alias grep='grep --color=auto'
 
 #########################################################################################
+# Xcode
+
+alias ded="rm -rf ${HOME}/Library/Developer/Xcode/DerivedData"
+
+#########################################################################################
 ## Functions for displaying neat stuff in *term title
 
 # format titles for screen and rxvt
