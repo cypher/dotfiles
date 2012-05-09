@@ -16,8 +16,10 @@ done
 mkdir -p ~/bin/
 for file in "$BASE"/bin/*; do
     filename=`basename "$file"`
-    echo "ln -sf $BASE/$filename -> ~/bin/$filename"
-    ln -sf "$BASE/bin/$filename" ~/bin/$filename
+    from="$BASE/bin/$filename"
+    to="$HOME/bin/$filename"
+    echo "ln -sf $from -> $to"
+    ln -sf $from $to
 done
 
 # Special case: Make bin/git-reup a link to git-up
