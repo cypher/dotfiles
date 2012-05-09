@@ -7,10 +7,21 @@ BASE="$(cd "$(dirname "$0")" && pwd)"
 
 # Very simple install script
 
-for file in `find ${BASE} -maxdepth 1 -not -name '.*' -not -name install.sh -not -name bin -not -name tasks -not -name etc -not -name README.txt -not -name LICENSE`; do
+for file in `find ${BASE} -maxdepth 1 -type f -not -name '.*' -not -name install.sh -not -name bin -not -not -name etc -not -name README.txt -not -name LICENSE`; do
     filename=`basename "$file"`
-    echo "ln -sf $BASE/$filename -> ~/.$filename"
-    ln -sf "$BASE/$filename" ~/.$filename
+    from="$BASE/$filename"
+    to="$HOME/.$filename"
+    echo "ln -sf $from -> $to"
+    ln -sf $from $to
+done
+
+# Link directories
+directories=(MacOSX cabal cake rails-templates vim zsh)
+for dir in $directories; do
+    from="$BASE/$dir"
+    to="$HOME/.$dir"
+    echo "ln -sf $from -> $to"
+    ln -sf $from $to
 done
 
 mkdir -p ~/bin/
