@@ -44,7 +44,7 @@ then
     done
 fi
 
-if [[ -d "$(brew --prefix clojure-contrib)" ]]
+if [[ -x "$(which brew)" && -d "$(brew --prefix clojure-contrib)" ]]
 then
     CLASSPATH="${CLASSPATH}:$(brew --prefix clojure-contrib)/clojure-contrib.jar"
 fi
