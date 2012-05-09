@@ -318,6 +318,9 @@ alias grep='grep --color=auto'
 
 alias ded="rm -rf ${HOME}/Library/Developer/Xcode/DerivedData"
 
+# Via http://www.mikeash.com/pyblog/solving-simulator-bootstrap-errors.html
+alias unfuckbootstrap="launchctl list | grep UIKitApplication | awk '{print \$3}' | xargs launchctl remove"
+
 #########################################################################################
 ## Functions for displaying neat stuff in *term title
 
