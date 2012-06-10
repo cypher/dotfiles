@@ -314,12 +314,48 @@ function greph () { history 0 | grep -i $1 }
 alias grep='grep --color=auto'
 
 #########################################################################################
-# Xcode
+# Xcode/iOS
 
 alias ded="rm -rf ${HOME}/Library/Developer/Xcode/DerivedData"
 
 # Via http://www.mikeash.com/pyblog/solving-simulator-bootstrap-errors.html
 alias unfuckbootstrap="launchctl list | grep UIKitApplication | awk '{print \$3}' | xargs launchctl remove"
+
+# Nicked from http://www.red-sweater.com/blog/2517/fixing-pngs
+function fixpng ()
+{
+        if [[ ! -f $1 ]] ; then
+                echo "Usage: fixpng <inputFiles> [outputFile]"
+                return -1
+        else
+                local inputFile=$1
+                local outputFile=$1
+                if [[ -e $2 ]] ; then
+                        outputFile=$2
+                else
+                        zmodload zsh/regex
+                        local baseName=$1
+                        [[ $inputFile -regex-match "^(.*).png" ]] && baseName=$match[1]
+                        outputFile=$baseName-fixed.png
+                fi
+
+                echo Writing fixed PNG to $outputFile
+
+                # xcrun -sdk iphoneos pngcrush
+                "$(xcode-select -print-path)/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush" -q -revert-iphone-optimizations $inputFile $outputFile
+        fi
+}
+
+# Fix a whole mess of pngs at once
+fixpngs ()
+{
+        if [[ ! -f $1 ]] ; then
+                echo "Usage: fixpng <inputFiles> [outputFile]"
+                return -1
+        else
+                for i in "$@"; do fixpng ./"$i"; done;
+        fi
+}
 
 #########################################################################################
 ## Functions for displaying neat stuff in *term title
