@@ -341,8 +341,7 @@ function fixpng ()
 
                 echo Writing fixed PNG to $outputFile
 
-                # xcrun -sdk iphoneos pngcrush
-                "$(xcode-select -print-path)/Platforms/iPhoneOS.platform/Developer/usr/bin/pngcrush" -q -revert-iphone-optimizations $inputFile $outputFile
+                xcrun -sdk iphoneos pngcrush -q -revert-iphone-optimizations $inputFile $outputFile
         fi
 }
 
