@@ -246,6 +246,8 @@ function console {
   fi
 }
 
+alias backup-itunes='rsync --update --human-readable --recursive --progress --inplace --8-bit-output ~/Music/iTunes/iTunes\ Music/{Music,Mobile\ Applications,Audiobooks,Books} "${ITUNES_BACKUP_DIR}"'
+
 #########################################################################################
 # Editor aliases
 
