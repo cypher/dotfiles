@@ -25,6 +25,10 @@ fi
 
 export PATH
 
+MANPATH="/usr/local/share/man/:${MANPATH}"
+
+export MANPATH
+
 # Node
 
 if [[ -d "/usr/local/lib/node_modules" ]]
