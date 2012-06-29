@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+
+debug=
+args="-s"
+BURL=${BURL:-http://localhost:3000}
+quote="[[:space:]]|[&<>;]"
+
+#
+# output usage
+#
+
+usage() {
+  cat <<EOF
+  
+  Usage: burl [options] <url> 
+
+  Options:
+
+    -j, --json <data>    issue an application/json request
+
+  Examples:
+
+    $ burl /users
+    $ burl /users .json
+    $ burl /users .text
+    $ burl /users .html
+    $ burl /search?query=foo
+    $ burl --json '{"name":"tobi"}' /user
+    $ burl Accept: application/json /users
+    $ burl If-None-Match: etag /users
+    $ burl -X GET --json '{"query":"something"}' /search
+
+EOF
+}
+
+# parse args
+
+while test $# -ne 0; do
+  arg=$1; shift
+  case $arg in
+    --debug)
+      debug=1
+      ;;
+    --pretty)
+      pretty=1
+      ;;
+    -j|--json)
+      json=$1; shift
+      args="$args -H 'Content-Type: application/json' -d '$json'"
+      ;;
+    GET|POST|PUT|HEAD|DELETE|OPTIONS|PATCH|TRACE|COPY|LOCK|\
+    MKCOL|MOVE|PROPFIND|PROPPATCH|UNLOCK|REPORT|MKACTIVITY|\
+    CHECKOUT|MERGE|NOTIFY|SUBSCRIBE|UNSUBSCRIBE)
+      args="$args -X $arg"
+      ;;
+    *:)
+      val=$1; shift
+      args="$args -H \"$arg $val\""
+      ;;
+    /*)
+      args="$args $BURL$arg"
+      ;;
+    .html)
+      args="$args -H Accept:text/html"
+      ;;
+    .txt|.text)
+      args="$args -H Accept:text/plain"
+      ;;
+    .json)
+      args="$args -H Accept:application/json"
+      ;;
+    -h|--help)
+      usage
+      exit
+      ;;
+    *)
+      if [[ $arg =~ $quote ]]; then
+        args="$args \"$arg\""
+      else
+        args="$args $arg"
+      fi
+      ;;
+  esac
+done
+
+test $pretty && args="$args | python -mjson.tool"
+test $debug && echo "curl $args"
+eval "curl $args"
