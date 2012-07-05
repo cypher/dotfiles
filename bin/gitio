@@ -9,11 +9,11 @@
 url  = ARGV[0]
 code = ARGV[1]
 
-if url !~ /^(https?:\/\/)?(gist\.)?github.com/
+if url !~ /\A(https?:\/\/)?(gist\.)?github\.com/
   abort "* github.com URLs only"
 end
 
-if url !~ /^http/
+if url !~ /\Ahttp/
   url = "https://#{url}"
 end
 
