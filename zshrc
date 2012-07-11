@@ -323,6 +323,14 @@ alias ded="rm -rf ${HOME}/Library/Developer/Xcode/DerivedData"
 # Via http://www.mikeash.com/pyblog/solving-simulator-bootstrap-errors.html
 alias unfuckbootstrap="launchctl list | grep UIKitApplication | awk '{print \$3}' | xargs launchctl remove"
 
+# Nicked from http://cl.ly/1k0X0L2I033J0y0Y3V3a
+function wtfxcode()
+{
+  sudo spindump Xcode
+  local xcodefile=$(ls -t /tmp/Xcode* | tail -1)
+  sudo less $xcodefile
+}
+
 # Nicked from http://www.red-sweater.com/blog/2517/fixing-pngs
 function fixpng ()
 {
