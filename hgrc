@@ -12,7 +12,7 @@ cmd.ksdiff = /usr/local/bin/ksdiff-wrapper
 opts.ksdiff = hg
 
 [extensions]
-#fetch = 
-#hgext.mq = 
-#transplant = 
+fetch =
+#hgext.mq =
+#transplant =
 hgext.extdiff =
