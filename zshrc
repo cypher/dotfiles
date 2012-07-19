@@ -370,7 +370,7 @@ fixpngs ()
 ## Functions for displaying neat stuff in *term title
 
 # format titles for screen and rxvt
-function title () {
+function title() {
     # escape '%' chars in $1, make nonprintables visible
     a=${(V)1//\%/\%\%}
 
@@ -378,23 +378,25 @@ function title () {
     a=$(print -Pn "%40>...>$a" | tr -d "\n")
 
     case $TERM in
-    screen)
-    print -Pn "\ek$a:$3\e\\"      # screen title (in ^A")
-    ;;
-    xterm*|rxvt)
-    print -Pn "\e]2;$2 | $a:$3\a" # plain xterm title
-    ;;
+        screen)
+            print -Pn "\e]2;$a @ $2\a" # plain xterm title
+            print -Pn "\ek$a\e\\"      # screen title (in ^A")
+            print -Pn "\e_$2   \e\\"   # screen location
+            ;;
+        xterm*|rxvt)
+            print -Pn "\e]2;$a @ $2\a" # plain xterm title
+            ;;
     esac
 }
 
 # precmd is called just before the prompt is printed
 function precmd () {
-    title "zsh" "$USER@%m" "%55<...<%~"
+    title "zsh" "%m(%55<...<%~)"
 }
 
 # preexec is called just before any command line is executed
 function preexec () {
-    title "$1" "$USER@%m" "%35<...<%~"
+    title "$1" "%m(%35<...<%~)"
 }
 
 # use .localrc for settings specific to one system
