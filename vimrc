@@ -126,6 +126,12 @@ vnoremap <tab> %
 " Make ';' an alias for ':'
 nnoremap ; :
 
+" Map `jj` to ESC
+imap jj <C-[>
+
+" Map ,, to 'switch to previous buffer'
+map ,, <C-^>
+
 " Useful trick when I've forgotten to `sudo' before editing a file:
 cmap w!! w !sudo tee % >/dev/null
 
