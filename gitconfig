@@ -107,6 +107,7 @@
 	excludesfile = ~/.gitignore
 	whitespace = trailing-space,space-before-tab
 	quotepath = false
+	pager = less -FXR
 
 [rerere]
 	enabled = 1
