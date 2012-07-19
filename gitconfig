@@ -124,3 +124,5 @@
 
 [github]
 	user = cypher
+[credential]
+	helper = git-credential-osxkeychain
