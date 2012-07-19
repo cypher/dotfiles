@@ -24,7 +24,7 @@
 	ds = diff --staged
 	h = help
 	irb = rebase --interactive
-	l = log --oneline --decorate
+	l = "!git log --graph --pretty='tformat:%C(yellow)%h{%C(green)%ar{%C(bold blue)%an{%C(red)%d%C(reset) %s' $* | column -t -s '{' | less -FXRS"
 	lg = log --graph --pretty=format:'%Cred%h%Creset %an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	ls-ignored = ls-files --exclude-standard --ignored --others
 	m = merge
