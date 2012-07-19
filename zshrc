@@ -248,6 +248,9 @@ function console {
 
 alias backup-itunes='rsync --update --human-readable --recursive --progress --inplace --8-bit-output ~/Music/iTunes/iTunes\ Music/{Music,Mobile\ Applications,Audiobooks,Books} "${ITUNES_BACKUP_DIR}"'
 
+alias pg_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pg_stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+
 #########################################################################################
 # Editor aliases
 
