@@ -307,7 +307,7 @@ match WhitespaceEOL /\s\+$/
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set foldenable               " Turn on folding
 "set foldmethod=indent       " Make folding indent sensitive
-set foldmethod=marker        " 
+set foldmethod=marker        "
 set foldlevel=100            " Don't autofold anything (but I can still fold manually)
 "set foldopen-=search        " don't open folds when you search into them
 "set foldopen-=undo          " don't open folds when you undo stuff

@@ -356,7 +356,7 @@ function fixpng ()
 }
 
 # Fix a whole mess of pngs at once
-fixpngs ()
+function fixpngs ()
 {
         if [[ ! -f $1 ]] ; then
                 echo "Usage: fixpng <inputFiles> [outputFile]"

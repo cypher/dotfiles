@@ -25,6 +25,8 @@ fi
 
 export PATH
 
+# Add man dirs from Homebrew
+
 MANPATH="/usr/local/share/man/:${MANPATH}"
 
 export MANPATH
