@@ -1,5 +1,7 @@
 # Sourced in login shells, before .zshrc
 
+BREW_PREFIX="$(brew --prefix)"
+
 # Force these paths to be in front of all other paths
 if [[ -d "${HOME}/.rbenv/bin" ]]
 then
@@ -50,7 +52,7 @@ then
     done
 fi
 
-if [[ -x "$(which brew)" && -d "$(brew --prefix clojure-contrib)" ]]
+if [[ -n $BREW_PREFIX ]]
 then
     CLASSPATH="${CLASSPATH}:$(brew --prefix clojure-contrib)/clojure-contrib.jar"
 fi
