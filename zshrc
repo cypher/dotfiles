@@ -28,7 +28,7 @@ REPORTTIME=10
 #########################################################################################
 ## Completions
 
-fpath=(~/.zsh/functions /usr/local/share/zsh/functions /usr/local/share/zsh/site-functions $fpath)
+fpath=(~/.zsh/functions /usr/local/share/zsh-completions /usr/local/share/zsh/functions /usr/local/share/zsh/site-functions $fpath)
 typeset -U fpath
 
 autoload -U compinit
