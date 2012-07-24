@@ -150,10 +150,6 @@ map <Leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " Shift-tab to insert a hard tab
 imap <silent> <S-tab> <C-v><tab>
 
-" allow deleting selection without updating the clipboard (yank buffer)
-vnoremap x "_x
-vnoremap X "_X
-
 " don't move the cursor after pasting
 " (by jumping to back start of previously changed text)
 noremap p p`[
