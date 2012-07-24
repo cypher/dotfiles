@@ -129,9 +129,6 @@ nnoremap ; :
 " Map `jj` to ESC
 imap jj <C-[>
 
-" Map ,, to 'switch to previous buffer'
-map ,, <C-^>
-
 " Useful trick when I've forgotten to `sudo' before editing a file:
 cmap w!! w !sudo tee % >/dev/null
 
@@ -184,11 +181,8 @@ set tags=./tags;
 " Can't be bothered to understand ESC vs <c-c> in insert mode
 imap <c-c> <esc>
 
-" Clear the search buffer when hitting return
-nnoremap <CR> :nohlsearch<CR>
-
-" Switch between the last two files
-nnoremap <leader><leader> <C-^>
+" Clear search buffer
+nnoremap <leader><leader> :nohlsearch<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
