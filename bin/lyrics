@@ -12,4 +12,4 @@ artist=`echo $artist_name | sed "s/[[:space:]]/%20/g"`
 title=`echo $song_title | sed "s/[[:space:]]/%20/g"`
 song=`curl -s "http://makeitpersonal.co/lyrics?artist=$artist&title=$title"`
 
-echo -e "$artist_name - $song_title\n$song" | less
+echo -e "$artist_name - $song_title\n$song" | less -FX
