@@ -1,6 +1,7 @@
 set lines=90 columns=230
 set background=light
-colorscheme solarized
+" colorscheme solarized
+colorscheme railscat
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GUI Options
