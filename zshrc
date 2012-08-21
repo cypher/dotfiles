@@ -253,6 +253,9 @@ alias pg_stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
 alias flush-dns-cache='sudo killall -HUP mDNSResponder'
 
+# Useful when the 'Open With' menu has one App multiple times
+alias rebuild-launch-services-db='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -all system,local,user'
+
 #########################################################################################
 # Editor aliases
 
