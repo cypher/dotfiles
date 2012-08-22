@@ -126,3 +126,5 @@
 	user = cypher
 [credential]
 	helper = git-credential-osxkeychain
+[status]
+	submodulesummary = true
