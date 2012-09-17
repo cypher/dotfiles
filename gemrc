@@ -2,8 +2,8 @@
 sources:
 - http://gems.rubyforge.org
 - http://gems.github.com
-install: --no-rdoc --no-ri
-update: --no-rdoc --no-ri
+install: --no-rdoc
+update: --no-rdoc
 rdoc: --line-numbers
 search: --details --both
 test_options:
