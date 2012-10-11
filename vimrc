@@ -368,6 +368,9 @@ let g:flake8_max_line_length=99
 " Hide .pyc in NetRW
 let g:netrw_listhide='.*\.pyc\$'
 
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SWITCH BETWEEN TEST AND PRODUCTION CODE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
