@@ -5,13 +5,13 @@
 bindkey -e
 
 # use vi style:
-bindkey -v
+# bindkey -v
 
 # Map jj to ESC, just like in Vim
-bindkey -M viins 'jj' vi-cmd-mode
+# bindkey -M viins 'jj' vi-cmd-mode
 
 # Enable Ctrl-R to do backwards history search
-bindkey '^R' history-incremental-search-backward
+# bindkey '^R' history-incremental-search-backward
 
 # Enable Ctrl-x-e to edit command line
 autoload -U edit-command-line
