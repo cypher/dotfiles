@@ -25,3 +25,6 @@
 --ignore-dir=vendor
 --ignore-dir=log
 --ignore-dir=doc
+
+# Ignore jekyll site dir
+--ignore-dir=_site
