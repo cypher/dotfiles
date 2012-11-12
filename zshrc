@@ -252,7 +252,12 @@ function console {
   fi
 }
 
-alias backup-itunes='rsync --update --human-readable --recursive --progress --inplace --8-bit-output ~/Music/iTunes/iTunes\ Music/{Music,Mobile\ Applications,Audiobooks,Books} "${ITUNES_BACKUP_DIR}"'
+function backup-itunes() {
+  echo "Backing up Music, Audiobooks and Books"
+  rsync --update --human-readable --recursive --progress --inplace --8-bit-output ~/Music/iTunes/iTunes\ Music/{Music,Audiobooks,Books} "${ITUNES_BACKUP_DIR}";
+  echo "Backing up iOS Apps"
+  rsync --update --human-readable --recursive --progress --inplace --8-bit-output --delete-after ~/Music/iTunes/iTunes\ Music/Mobile\ Applications "${ITUNES_BACKUP_DIR}";
+}
 
 alias pg_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias pg_stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
