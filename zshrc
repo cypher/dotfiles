@@ -296,15 +296,6 @@ function heftiest {
 
 # Rubinius
 
-function rbx () {
-    if [[ -x $(which -s rbx) ]]
-    then
-        command rbx "$@"
-    else
-        ${HOME}/Development/Rubinius/bin/rbx "$@"
-    fi
-}
-
 alias weebuild='rake build && ./bin/mspec'
 
 # Via mislav (https://gist.github.com/3402583)
