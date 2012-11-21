@@ -113,11 +113,12 @@
 	enabled = 1
 
 [difftool "Kaleidoscope"]
-	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
 [merge]
 	stat = true
 	diff = vimdiff
+	tool = Kaleidoscope
 
 [diff "zip"]
   textconv = unzip -c -a
@@ -128,3 +129,7 @@
 	helper = git-credential-osxkeychain
 [status]
 	submodulesummary = true
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+[mergetool]
+	prompt = false
