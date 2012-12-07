@@ -223,10 +223,6 @@ function mkcd () {
     cd "$*"
 }
 
-function ydl () {
-    for url ($*) /usr/bin/python /usr/local/bin/youtube-dl --continue --literal --console-title --format 22 "$url" || /usr/bin/python /usr/local/bin/youtube-dl --continue --literal --console-title "$url"
-}
-
 # If bcat (Browser cat, http://rtomayko.github.com/bcat/) is invoked as `btee', it acts like `tee(1)'
 alias btee=bcat
 
