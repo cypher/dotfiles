@@ -11,6 +11,11 @@ do
     PATH="${p}:${PATH}"
 done
 
+if [[ -d "/usr/local/tranquil/bin"  ]]
+then
+    PATH="${PATH}:/usr/local/tranquil/bin"
+fi
+
 # If we're on OS X, we want access to the `stroke` utility
 if [[ -d "/Applications/Utilities/Network Utility.app/Contents/Resources" ]]
 then
