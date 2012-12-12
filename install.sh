@@ -3,11 +3,11 @@
 set -e
 
 BASE="$(cd "$(dirname "$0")" && pwd)"
-
+echo "BASE: ${BASE}"
 
 # Very simple install script
 
-for file in `find ${BASE} -maxdepth 1 -type f -not -name '.*' -not -name install.sh -not -name bin -not -not -name etc -not -name README.txt -not -name LICENSE`; do
+for file in $(find ${BASE} -maxdepth 1 -type f -not -name '.*' -not -name install.sh -not -name bin -not -name etc -not -name README.txt -not -name LICENSE); do
     filename=`basename "$file"`
     from="$BASE/$filename"
     to="$HOME/.$filename"
@@ -24,7 +24,7 @@ for dir in $directories; do
     ln -sf $from $to
 done
 
-mkdir -p ~/bin/
+mkdir -p "$HOME"/bin/
 for file in "$BASE"/bin/*; do
     filename=`basename "$file"`
     from="$BASE/bin/$filename"
@@ -34,6 +34,6 @@ for file in "$BASE"/bin/*; do
 done
 
 # Special case: Make bin/git-reup a link to git-up
-if [[ -e ~/bin/git-up ]]; then
-    ln -sf ~/bin/git-up ~/bin/git-reup
+if [[ -e "$HOME/bin/git-up" ]]; then
+    ln -sf "$HOME"/bin/git-up "$HOME"/bin/git-reup
 fi
