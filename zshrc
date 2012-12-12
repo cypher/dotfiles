@@ -263,6 +263,9 @@ alias flush-dns-cache='sudo killall -HUP mDNSResponder'
 # Useful when the 'Open With' menu has one App multiple times
 alias rebuild-launch-services-db='sudo /System/Library/Frameworks/CoreServices.framework/Versions/Current/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
 
+alias now='ruby -e "puts Time.now.utc.to_i"'
+alias uuid='python -c "import uuid; print uuid.uuid1()"'
+
 #########################################################################################
 # Editor aliases
 
