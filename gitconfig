@@ -30,6 +30,7 @@
 	m = merge
 	mm = merge --no-ff
 	msg = commit --allow-empty -m
+	news = log -p HEAD@{1}..HEAD@{0}
 	p = cherry-pick -s
 	pick = cherry-pick
 	prune-remotes = "!for remote in `git remote`; do git remote prune $remote; done"

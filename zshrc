@@ -237,6 +237,7 @@ function murder () {
 }
 
 alias dotedit="$VISUAL ~/dotfiles/"
+alias homegit="GIT_DIR=~/dotfiles/.git GIT_WORK_TREE=~ git"
 
 alias sha1='openssl dgst -sha1'
 alias sha256='openssl dgst -sha256'
