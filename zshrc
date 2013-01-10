@@ -224,7 +224,7 @@ function mkcd () {
 }
 
 function ydl () {
-    /usr/bin/python /usr/local/bin/youtube-dl --continue --literal --console-title $*
+    /usr/bin/python /usr/local/bin/youtube-dl --cookies ~/.youtubedl-cookies --continue --title --console-title $*
 }
 
 # If bcat (Browser cat, http://rtomayko.github.com/bcat/) is invoked as `btee', it acts like `tee(1)'
