@@ -141,8 +141,6 @@ setopt extended_glob        # in order to use #, ~ and ^ for filename generation
                             # -> searches for word not in compressed files
                             # don't forget to quote '^', '~' and '#'!
 
-setopt longlistjobs         # display PID when suspending processes as well
-
 setopt notify               # report the status of backgrounds jobs immediately
 
 setopt hash_list_all        # Whenever a command completion is attempted, make sure
@@ -162,7 +160,7 @@ setopt pushd_ignore_dups    # don't push the same dir twice.
 
 setopt noglobdots           # * shouldn't match dotfiles. ever.
 
-setopt long_list_jobs       # List jobs in long format
+setopt long_list_jobs       # List jobs in long format, display PID when suspending processes as well
 
 #########################################################################################
 
