@@ -22,6 +22,7 @@
 	dc = diff --cached
 	div = divergence
 	ds = diff --staged
+	dt = difftool
 	h = help
 	irb = rebase --interactive
 	l = "!git log --graph --pretty='tformat:%C(yellow)%h{%C(green)%ar{%C(bold blue)%an{%C(red)%d%C(reset) %s' $* | column -t -s '{' | less -FXRS"
@@ -132,5 +133,6 @@
 	submodulesummary = true
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
 [mergetool]
 	prompt = false
