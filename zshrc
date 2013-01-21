@@ -358,7 +358,7 @@ function elixir () {
     then
         command elixir "$@"
     else
-        ${HOME}/Development/elixir/bin/elixir "$@"
+        ${HOME}/dev/elixir/bin/elixir "$@"
     fi
 }
 
