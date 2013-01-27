@@ -371,6 +371,11 @@ let g:netrw_listhide='.*\.pyc\$'
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
 
+" CtrlP
+map <leader>m :CtrlP<CR>
+map <leader>b :CtrlPBuffer<CR>
+map <leader>o :CtrlPMixed<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SWITCH BETWEEN TEST AND PRODUCTION CODE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
