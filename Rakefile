@@ -6,7 +6,12 @@ def basedir
 end
 
 def homedir
-  Dir.home(Etc.getlogin)
+  if Dir.responds_to? :home
+    Dir.home(Etc.getlogin)
+  else
+    # Less reliable, but only way supported on 1.8
+    File.expand_path('~')
+  end
 end
 
 IGNORED_ENTRIES = %w{install.sh Rakefile README.txt LICENSE bin etc example git-hooks postgresql LaunchBar LaunchAgents}
