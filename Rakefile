@@ -31,7 +31,7 @@ task :install_bins do
   Dir[File.join(bin_basedir, '*')].each do |entry|
     basename = File.basename(entry)
 
-    FileUtils.ln_sf(File.join(basedir, basename), File.join(bindir, basename), :verbose => true)
+    FileUtils.ln_sf(File.join(bin_basedir, basename), File.join(bindir, basename), :verbose => true)
 
     if basename == 'git-up'
       FileUtils.ln_sf(File.join(bindir, 'git-up'), File.join(bindir, 'git-reup'), :verbose => true)
