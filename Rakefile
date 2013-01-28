@@ -6,7 +6,7 @@ def basedir
 end
 
 def homedir
-  if Dir.responds_to? :home
+  if Dir.respond_to? :home
     Dir.home(Etc.getlogin)
   else
     # Less reliable, but only way supported on 1.8
