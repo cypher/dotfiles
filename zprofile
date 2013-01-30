@@ -57,6 +57,8 @@ fi
 
 export CLASSPATH=".:${CLASSPATH}"
 
+export JRUBY_OPTS="-X-C -J-server -J-XX:+UseParallelOldGC -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1"
+
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
