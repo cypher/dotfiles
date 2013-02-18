@@ -269,6 +269,17 @@ alias rebuild-launch-services-db='sudo /System/Library/Frameworks/CoreServices.f
 alias now='ruby -e "puts Time.now.utc.to_i"'
 alias uuid='python -c "import uuid; print uuid.uuid1()"'
 
+# Based on http://schneems.com/post/41104255619/use-gifs-in-your-pull-request-for-good-not-evil
+function convert-video-to-gif() {
+  TMPFILE=$(mktemp -t gifvideo)
+  echo "TMPFILE is $TMPFILE"
+  echo "Converting..."
+  ffmpeg -y -i "$1" -pix_fmt rgb24 -f gif "$TMPFILE"
+  echo "Optimizing..."
+  convert -verbose -layers Optimize "$TMPFILE" "$2"
+  rm -f "$TMPFILE"
+}
+
 #########################################################################################
 # Editor aliases
 
