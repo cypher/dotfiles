@@ -263,8 +263,9 @@ alias pg_stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
 alias flush-dns-cache='sudo killall -HUP mDNSResponder'
 
-# Useful when the 'Open With' menu has one App multiple times
-alias rebuild-launch-services-db='sudo /System/Library/Frameworks/CoreServices.framework/Versions/Current/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
+# Quick way to rebuild the Launch Services database and get rid of duplicates in the Open With submenu.
+# via http://www.leancrew.com/all-this/2013/02/getting-rid-of-open-with-duplicates/
+alias rebuild-launch-services-db='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
 
 alias now='ruby -e "puts Time.now.utc.to_i"'
 alias uuid='python -c "import uuid; print uuid.uuid1()"'
