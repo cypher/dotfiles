@@ -79,11 +79,15 @@ export CLICOLOR=1
 # Rubinius
 export RBXOPT="-Xagent.start -X19"
 
-# tuned REE GC settings, via http://smartic.us/2010/10/27/tune-your-ruby-enterprise-edition-garbage-collection-settings-to-run-tests-faster/
+# The initial number of heap slots as well as the minimum number of slots allocated.
 export RUBY_HEAP_MIN_SLOTS=1000000
 export RUBY_HEAP_SLOTS_INCREMENT=1000000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+# The number of C data structures that can be allocated before the GC kicks in.
+# If set too low, the GC kicks in even if there are still heap slots available.
 export RUBY_GC_MALLOC_LIMIT=1000000000
+# The minimum number of heap slots that should be available after the GC runs.
+# If they are not available then, ruby will allocate more slots.
 export RUBY_HEAP_FREE_MIN=500000
 
 # 37signals settings
