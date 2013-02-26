@@ -26,7 +26,7 @@ export VISUAL="vim -f"
 export EDITOR=$VISUAL
 export SVN_EDITOR=$VISUAL
 
-export LESS="-RF"
+export LESS="-R"
 
 export CLICOLOR=1
 
