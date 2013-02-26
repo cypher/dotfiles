@@ -1,5 +1,36 @@
 # Sourced in interactive shells
 
+
+# Setup PATH for interactive shell
+if [[ -d "${HOME}/.rbenv/bin" ]]
+then
+    PATH="${HOME}/.rbenv/bin:${PATH}"
+fi
+
+for p in '/usr/local/bin' '/usr/local/sbin' "${HOME}/bin"
+do
+    PATH="${p}:${PATH}"
+done
+
+if [[ -d "/usr/local/tranquil/bin"  ]]
+then
+    PATH="${PATH}:/usr/local/tranquil/bin"
+fi
+
+# If we're on OS X, we want access to the `stroke` utility
+if [[ -d "/Applications/Utilities/Network Utility.app/Contents/Resources" ]]
+then
+    PATH="${PATH}:/Applications/Utilities/Network Utility.app/Contents/Resources"
+fi
+
+# If we're on OS X, we want access to the `airport` utility
+if [[ -d "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources" ]]
+then
+    PATH="${PATH}:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources"
+fi
+
+export PATH
+
 ## keybindings (run 'bindkeys' for details, more details via man zshzle)
 # use emacs style per default:
 bindkey -e

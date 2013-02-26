@@ -1,40 +1,8 @@
 # Sourced in login shells, before .zshrc
 
-# Force these paths to be in front of all other paths
-if [[ -d "${HOME}/.rbenv/bin" ]]
-then
-    PATH="${HOME}/.rbenv/bin:${PATH}"
-fi
-
-for p in '/usr/local/bin' '/usr/local/sbin' "${HOME}/bin"
-do
-    PATH="${p}:${PATH}"
-done
-
-if [[ -d "/usr/local/tranquil/bin"  ]]
-then
-    PATH="${PATH}:/usr/local/tranquil/bin"
-fi
-
-# If we're on OS X, we want access to the `stroke` utility
-if [[ -d "/Applications/Utilities/Network Utility.app/Contents/Resources" ]]
-then
-    PATH="${PATH}:/Applications/Utilities/Network Utility.app/Contents/Resources"
-fi
-
-# If we're on OS X, we want access to the `airport` utility
-if [[ -d "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources" ]]
-then
-    PATH="${PATH}:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources"
-fi
-
-export PATH
-
-# Add man dirs from Homebrew
-
-MANPATH="/usr/local/share/man/:${MANPATH}"
-
-export MANPATH
+# Add man dirs from Homebrew:
+# sudo -e /etc/manpaths.d/homebrew
+# Add line "/usr/local/share/man" (Assuming /usr/local is your Homebrew prefix)
 
 # Node
 
