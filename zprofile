@@ -13,20 +13,6 @@ fi
 
 export NODE_PATH
 
-# Java Classpath
-
-if [[ -d "${HOME}/classes/" ]]
-then
-    for jar in ${HOME}/classes/*.jar
-    do
-        CLASSPATH="${jar}:${CLASSPATH}"
-    done
-fi
-
-export CLASSPATH=".:${CLASSPATH}"
-
-export JRUBY_OPTS="-X-C -J-server -J-XX:+UseParallelOldGC -J-XX:+TieredCompilation -J-XX:TieredStopAtLevel=1"
-
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
