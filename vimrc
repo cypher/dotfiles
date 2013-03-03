@@ -340,6 +340,7 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 " GitGutter needs this, otherwise the gutter looks weird
 highlight clear SignColumn
+map <leader>g :ToggleGitGutter
 
 " vim-commentary settings
 autocmd FileType sql set commentstring=--\ %s
