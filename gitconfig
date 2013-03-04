@@ -136,3 +136,5 @@
 	trustExitCode = true
 [mergetool]
 	prompt = false
+[pull]
+	rebase = true
