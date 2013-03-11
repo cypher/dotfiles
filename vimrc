@@ -223,7 +223,7 @@ inoremap <s-tab> <c-n>"
 map <Left> :echo "no!"<cr>
 map <Right> :echo "no!"<cr>
 map <Up> :echo "no!"<cr>
-map <Down> :echo "no!"<cr>"
+map <Down> :echo "no!"<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " RENAME CURRENT FILE
