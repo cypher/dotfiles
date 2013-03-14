@@ -51,7 +51,6 @@ task :update do
 
   rust_dir = File.expand_path('~/src/rust')
   Dir.chdir(rust_dir) do
-    system("git up")
     FileUtils.cp_r(Dir.glob(File.join(rust_dir, 'src/etc/vim/*')), File.join(basedir, 'vim/bundle/rust/'), :verbose => true)
   end if File.exists?(rust_dir)
 end
