@@ -51,7 +51,7 @@
 	st = stash
 	stl = stash list
 	stp = stash pop
-	undo = reset --soft HEAD^
+	undo = reset --soft HEAD@{1}
 	wd = diff --word-diff="color"
 	wds = diff --word-diff="color" --staged
 	push = push --tags
