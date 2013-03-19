@@ -161,7 +161,7 @@ setopt hist_ignore_space    # remove command lines from the history list when
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=
-SAVEHIST=                   # useful for setopt append_history
+SAVEHIST=10000000           # useful for setopt append_history
 
 
 setopt auto_cd              # if a command is issued that can't be executed as a normal command,
