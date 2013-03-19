@@ -53,8 +53,8 @@ alias g='git'
 export PS1="\[\e[32;1m\]\u\[\e[0m\]\[\e[32m\]@\h \[\e[36m\]\w \[\e[33m\]\$ \[\e[0m\]"
 
 # Some fancy history stuff
-export HISTCONTROL=erasedups # No duplicates
-export HISTSIZE=10000 # Bigger history
+export HISTCONTROL=erasedups  # No duplicates
+export HISTSIZE=              # Bigger history
 shopt -s histappend # Append to ~/.bash_history
 alias h='history | grep' # Easy history grep
 
