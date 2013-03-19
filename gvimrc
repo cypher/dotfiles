@@ -24,9 +24,6 @@ if has("gui_macvim")
   " Fullscreen takes up entire screen
   set fuoptions=maxhorz,maxvert
 
-  " Command-Shift-A for Ack
-  map <D-A> :Ack<space>
-
   " bind command-] to shift right
   nmap <D-]> >>
   vmap <D-]> >>
@@ -53,7 +50,6 @@ if has("gui_macvim")
 
   " Enable default OS X shift-movement/replacement behavior
   let macvim_hig_shift_movement = 1
-
 
   " Activate spelling support, via https://twitter.com/b4winckler/status/58584667200303104
   " Enables Cmd-; and Cmd-:
