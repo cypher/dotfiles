@@ -348,10 +348,6 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" GitGutter needs this, otherwise the gutter looks weird
-highlight clear SignColumn
-map <leader>g :ToggleGitGutter<CR>
-
 " vim-commentary settings
 autocmd FileType sql set commentstring=--\ %s
 autocmd FileType vim set commentstring=\"\ %s
@@ -381,9 +377,6 @@ let g:flake8_max_line_length=99
 
 " Hide .pyc in NetRW
 let g:netrw_listhide='.*\.pyc\$'
-
-" Tagbar
-nmap <F8> :TagbarToggle<CR>
 
 " CtrlP
 map <leader>m :CtrlP<CR>

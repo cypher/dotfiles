@@ -54,8 +54,6 @@ if has("gui_macvim")
   " Enable default OS X shift-movement/replacement behavior
   let macvim_hig_shift_movement = 1
 
-  macmenu &File.New\ Tab key=<nop>
-  map <D-t> <Plug>PeepOpen
 
   " Activate spelling support, via https://twitter.com/b4winckler/status/58584667200303104
   " Enables Cmd-; and Cmd-:
