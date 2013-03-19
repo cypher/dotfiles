@@ -1,2 +1,8 @@
-\set PROMPT1 '%n@%m %~%R%# '
+\set PROMPT1 '%[%033[33;1m%]%x%[%033[0m%]%[%033[1m%]%/%[%033[0m%]%R%# '
 \x auto
+\pset linestyle unicode
+\pset border 2
+\pset null ¤
+\pset format wrapped
+\timing
+\set show_slow_queries 'SELECT (total_time / 1000 / 60) as total_minutes, (total_time/calls) as average_time, query FROM pg_stat_statements ORDER BY 1 DESC LIMIT 100;'
