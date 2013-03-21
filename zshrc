@@ -160,7 +160,7 @@ setopt hist_ignore_space    # remove command lines from the history list when
                             # the first character on the line is a space
 
 HISTFILE=$HOME/.zsh_history
-HISTSIZE=
+HISTSIZE=10000000
 SAVEHIST=10000000           # useful for setopt append_history
 
 
