@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+# encoding: us-ascii
+
+require 'shellwords'
+
+video_files = ARGV.map { |path|
+  File.expand_path(path)
+}.select { |path|
+  Dir.exist?(path)
+}.map { |path|
+  Dir[File.join(path, '*')].sort
+}.flatten
+
+video_files.shuffle! if ARGV.include?('--shuffle')
+
+if video_files.any?
+  system "open -a VLC #{video_files.map(&:shellescape).join(" ")}"
+else
+  warn "No files found!"
+end
