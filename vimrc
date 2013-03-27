@@ -325,13 +325,13 @@ autocmd FileType sql set commentstring=--\ %s
 autocmd FileType vim set commentstring=\"\ %s
 
 " Python should always use 4-space indent
-au FileType python setl ai ts=4 sts=4 et sw=4
+autocmd FileType python setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " .inc files are Django templates
-au BufRead,BufNewFile {*.inc} set ft=htmldjango
+autocmd BufRead,BufNewFile {*.inc} set filetype=htmldjango
 
 " Thorfile, Rakefile and Gemfile are Ruby
-au BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru} set ft=ruby
+autocmd BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru} set filetype=ruby
 
 " Syntax highlight shell scripts as per POSIX,
 " not the original Bourne shell which very few use
