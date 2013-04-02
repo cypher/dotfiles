@@ -350,10 +350,11 @@ let g:flake8_max_line_length=99
 " Hide .pyc in NetRW
 let g:netrw_listhide='.*\.pyc\$'
 
-" CtrlP
-map <leader>m :CtrlP<CR>
-map <leader>b :CtrlPBuffer<CR>
-map <leader>o :CtrlPMixed<CR>
+if exists(":CtrlP")
+  map <leader>m :CtrlP<CR>
+  map <leader>b :CtrlPBuffer<CR>
+  map <leader>o :CtrlPMixed<CR>
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SWITCH BETWEEN TEST AND PRODUCTION CODE
