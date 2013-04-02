@@ -324,6 +324,9 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType sql set commentstring=--\ %s
 autocmd FileType vim set commentstring=\"\ %s
 
+" automatically use tabs (4 columns wide) for javascript files
+" autocmd FileType javascript setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+
 " Python and SQL should always use 4-space indent
 autocmd FileType {python,sql} setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
@@ -349,6 +352,9 @@ let g:flake8_max_line_length=99
 
 " Hide .pyc in NetRW
 let g:netrw_listhide='.*\.pyc\$'
+
+" Use a different key to en/disable Numbertoggle
+" let g:NumberToggleTrigger="<F2>"
 
 if exists(":CtrlP")
   map <leader>m :CtrlP<CR>
