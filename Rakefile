@@ -18,7 +18,7 @@ IGNORED_ENTRIES = %w{install.sh Rakefile README.txt LICENSE bin etc example git-
 
 task :install_dotfiles do
   Dir[File.join(basedir, '*')].each do |entry|
-    if File.file?(entry)
+    if File.file?(entry) or File.directory?(entry)
       basename = File.basename(entry)
       next if IGNORED_ENTRIES.include?(basename)
 
