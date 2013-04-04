@@ -22,7 +22,10 @@ task :install_dotfiles do
       basename = File.basename(entry)
       next if IGNORED_ENTRIES.include?(basename)
 
-      FileUtils.ln_sf(File.join(basedir, basename), File.join(homedir, ".#{basename}"), :verbose => true)
+      target = File.join(homedir, ".#{basename}")
+
+      File.unlink(target) if File.directory?(target) # We need to unlink directories before creating the symlink, otherwise Ruby will create it as "source/target" instead of "target"
+      FileUtils.ln_sf(File.join(basedir, basename), target, :verbose => true)
     end
   end
 end
