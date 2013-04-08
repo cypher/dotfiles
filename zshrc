@@ -131,6 +131,19 @@ zstyle ':completion:*:kill:*:processes' command "ps x"
 # Auto-completion for ssh hosts
 zstyle -e ':completion::*:hosts' hosts 'reply=($(sed -e "/^#/d" -e "s/ .*\$//" -e "s/,/ /g" /etc/ssh_known_hosts(N) ~/.ssh/known_hosts(N) 2>/dev/null | xargs) $(grep \^Host ~/.ssh/config(N) | cut -f2 -d\  2>/dev/null | xargs))'
 
+
+# cd will never select the parent directory (e.g.: cd ../<TAB>):
+# zstyle ':completion:*:cd:*' ignore-parents parent pwd
+
+# Fuzzy matching of completions for when you mistype them:
+# zstyle ':completion:*' completer _complete _match _approximate
+# zstyle ':completion:*:match:*' original only
+# zstyle ':completion:*:approximate:*' max-errors 1 numeric
+
+# Use a cache for slow-ass completions like yum
+# zstyle ':completion:*' use-cache on
+# zstyle ':completion:*' cache-path ~/.zsh/cache
+
 #########################################################################################
 # Colors
 
@@ -201,6 +214,18 @@ alias la='ls -lhAF'
 alias ll='ls -lh'
 alias lh='ls -hAl'
 alias l='ls -lhF'
+
+# _n_ dots for cd-ing upwards
+# alias -g ...="../.."
+# alias -g ....="../../.."
+# alias -g .....="../../../.."
+
+# Suffix-based aliases, eg `user.rb` will invoke emacsclient on that file
+# alias -s rb=e
+
+# grep marius /etc/passwd C
+# expands to grep marius /etc/passwd | wc -l
+# alias -g C='| wc -l'
 
 alias '..'='cd ..'
 # The -g makes them global aliases, so they're expaned even inside commands
