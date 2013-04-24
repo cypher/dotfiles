@@ -345,6 +345,9 @@ autocmd BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru} setlocal filety
 " not the original Bourne shell which very few use
 let g:is_posix = 1
 
+" Don't conceal things like "->" with their Unicode representation
+let g:no_rust_conceal = 1
+
 " bind control-l to hashrocket
 imap <C-l> <Space>=><Space>
 
