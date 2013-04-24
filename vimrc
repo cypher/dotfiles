@@ -327,8 +327,13 @@ autocmd FileType vim set commentstring=\"\ %s
 " automatically use tabs (4 columns wide) for javascript files
 " autocmd FileType javascript setlocal tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 
-" Python and SQL should always use 4-space indent
-autocmd FileType {python,sql} setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+" Some languages should always use 4-space indent
+autocmd FileType python setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType sql setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType javascript setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType html setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType htmldjango setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType rust setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 " .inc files are Django templates
 autocmd BufRead,BufNewFile {*.inc} set filetype=htmldjango
