@@ -140,10 +140,6 @@ zstyle -e ':completion::*:hosts' hosts 'reply=($(sed -e "/^#/d" -e "s/ .*\$//" -
 # zstyle ':completion:*:match:*' original only
 # zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
-# Use a cache for slow-ass completions like yum
-# zstyle ':completion:*' use-cache on
-# zstyle ':completion:*' cache-path ~/.zsh/cache
-
 #########################################################################################
 # Colors
 
