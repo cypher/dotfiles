@@ -17,6 +17,12 @@ then
     PATH="${PATH}:/usr/local/tranquil/bin"
 fi
 
+# Pick up NPM-installed binaries
+if [[ -d "/usr/local/share/npm/bin" ]]
+then
+    PATH="${PATH}:/usr/local/share/npm/bin"
+fi
+
 # If we're on OS X, we want access to the `stroke` utility
 if [[ -d "/Applications/Utilities/Network Utility.app/Contents/Resources" ]]
 then
