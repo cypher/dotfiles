@@ -61,3 +61,6 @@
 [submodule "vim/bundle/vim-html5"]
 	path = vim/bundle/vim-html5
 	url = https://github.com/kaihendry/vim-html5
+[submodule "vim/bundle/vim-slime"]
+	path = vim/bundle/vim-slime
+	url = git://github.com/jpalardy/vim-slime.git
