@@ -384,6 +384,10 @@ function convert-video-to-gif() {
   rm -f "$TMPFILE"
 }
 
+function dash() {
+  open "dash://$1"
+}
+
 #########################################################################################
 # Editor aliases
 
