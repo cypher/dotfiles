@@ -26,6 +26,8 @@ export VISUAL="vim -f"
 export EDITOR=$VISUAL
 export SVN_EDITOR=$VISUAL
 
+export PSQL_EDITOR="vim -c ':set ft=sql'"
+
 export LESS="-R"
 
 export CLICOLOR=1
