@@ -384,6 +384,11 @@ function convert-video-to-gif() {
   rm -f "$TMPFILE"
 }
 
+# 'work on', via https://coderwall.com/p/feoi0a
+function wo() {
+  cd $(find $CODE_DIR -type d -maxdepth 3 | grep -i $* | grep -Ev Pods --max-count=1)
+}
+
 function dash() {
   open "dash://$1"
 }
