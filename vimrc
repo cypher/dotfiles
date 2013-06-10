@@ -356,9 +356,9 @@ let g:netrw_listhide='.*\.pyc\$'
 " let g:NumberToggleTrigger="<F2>"
 
 if exists(":CtrlP")
-  map <leader>m :CtrlP<CR>
-  map <leader>b :CtrlPBuffer<CR>
-  map <leader>o :CtrlPMixed<CR>
+  nnoremap <leader>m :CtrlP<CR>
+  nnoremap <leader>b :CtrlPBuffer<CR>
+  nnoremap <leader>o :CtrlPMixed<CR>
 endif
 
 if exists(":Tabularize")
