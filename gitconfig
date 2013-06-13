@@ -128,7 +128,7 @@
 [github]
 	user = cypher
 [credential]
-	helper = git-credential-osxkeychain
+	helper = osxkeychain
 [status]
 	submodulesummary = true
 [mergetool "Kaleidoscope"]
