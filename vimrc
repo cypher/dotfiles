@@ -345,10 +345,6 @@ imap <C-l> <Space>=><Space>
 " CTags
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
-" PyFlake8
-let g:flake8_ignore="E221,E241,E261,E401,E501,W293"
-let g:flake8_max_line_length=99
-
 " Hide .pyc in NetRW
 let g:netrw_listhide='.*\.pyc\$'
 
