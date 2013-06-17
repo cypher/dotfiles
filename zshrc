@@ -588,6 +588,10 @@ function preexec () {
 # use .localrc for settings specific to one system
 [[ -f ~/.localrc ]] && source ~/.localrc
 
+# ZSH syntax highlighting
+syntax_highlight_path="/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+[[ -f "${syntax_highlight_path}" ]] && source "${syntax_highlight_path}"
+
 # rbenv
 eval "$(rbenv init -)"
 builtin rehash
