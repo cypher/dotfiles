@@ -32,10 +32,10 @@ filetype on                   " detect the type of file
 filetype indent on            " Enable filetype-specific indenting
 filetype plugin on            " Enable filetype-specific plugins
 
-set cf                        " enable error files and error jumping
-set ffs=unix,dos,mac          " support all three, in this order
+set confirm                   " enable error files and error jumping
+set fileformats=unix,dos,mac  " support all three, in this order
 set viminfo+=!                " make sure it can save viminfo
-set isk+=_,$,@,%,#,-          " none of these should be word dividers, so make them not be
+set iskeyword+=_,$,@,%,#,-    " none of these should be word dividers, so make them not be
 set title                     " show title in xterm
 
 " Make completion useful
@@ -248,7 +248,7 @@ set makeef=error.err         " When using make, where should it dump the file
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text Formatting/Layout
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set fo=tcrqn                 " See Help (complex)
+set formatoptions=tcrqn      " See Help (complex)
 set autoindent               " autoindent
 set nosmartindent            " smartindent
 set cindent                  " do c-style indenting
