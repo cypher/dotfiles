@@ -351,20 +351,18 @@ let g:netrw_listhide='.*\.pyc\$'
 " Use a different key to en/disable Numbertoggle
 " let g:NumberToggleTrigger="<F2>"
 
-if exists(":CtrlP")
-  nnoremap <leader>m :CtrlP<CR>
-  nnoremap <leader>b :CtrlPBuffer<CR>
-  nnoremap <leader>o :CtrlPMixed<CR>
-endif
+" CtrlP
+nnoremap <leader>m :CtrlP<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>o :CtrlPMixed<CR>
 
-if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
-  nmap <Leader>a, :Tabularize /,\zs<CR>
-  vmap <Leader>a, :Tabularize /,\zs<CR>
-endif
+" Tabularize
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+nmap <Leader>a, :Tabularize /,\zs<CR>
+vmap <Leader>a, :Tabularize /,\zs<CR>
 
 " vim-ruby-refactoring
 nnoremap <leader>rap  :RAddParameter<cr>
