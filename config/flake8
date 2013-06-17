@@ -1,5 +1,5 @@
 [flake8]
 # ignore = E221,E241,E261,E401,E501,W293
-ignore = E128,W391,F403
+ignore = E128,E261,E401,W391,F401,F403
 max-line-length = 160
 max-complexity = 12
