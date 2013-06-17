@@ -348,9 +348,6 @@ map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 " Hide .pyc in NetRW
 let g:netrw_listhide='.*\.pyc\$'
 
-" Use a different key to en/disable Numbertoggle
-" let g:NumberToggleTrigger="<F2>"
-
 " CtrlP
 nnoremap <leader>m :CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
