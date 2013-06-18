@@ -13,6 +13,13 @@ fi
 
 export NODE_PATH
 
+if [[ -d "/usr/local/lib/python2.7/site-packages" ]]
+then
+  PYTHONPATH="/usr/local/lib/python2.7/site-packages:${PYTHONPATH}"
+fi
+
+export PYTHONPATH
+
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
