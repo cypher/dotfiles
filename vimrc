@@ -32,7 +32,7 @@ filetype on                   " detect the type of file
 filetype indent on            " Enable filetype-specific indenting
 filetype plugin on            " Enable filetype-specific plugins
 
-set confirm                   " enable error files and error jumping
+set confirm                   " Ask before doing destructive changes with an unsaved buffer
 set fileformats=unix,dos,mac  " support all three, in this order
 set viminfo+=!                " make sure it can save viminfo
 set iskeyword+=_,$,@,%,#,-    " none of these should be word dividers, so make them not be
@@ -42,7 +42,7 @@ set title                     " show title in xterm
 set wildmenu
 
 " Ignore these files when completing names and in Explorer
-set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pdf,*.bak,*.beam,*/tmp/*,*.zip,*.pyc
+set wildignore+=.svn,CVS,.git,*.pyc,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pdf,*.bak,*.beam,*/tmp/*,*.zip
 
 " Pull from keywords for completion in the current file, other buffers (closed or still
 " open), and from the current tags file.
@@ -68,17 +68,16 @@ set tildeop
 nnoremap / /\v
 vnoremap / /\v
 
-set gdefault                  " always apply substitutions globally on a line
+" always apply substitutions globally on a line
+set gdefault
 
-" Clear out any search by typing <leader><space>
-nnoremap <leader><space> :noh<cr>
+" Clear search buffer
+nnoremap <leader><leader> :nohlsearch<CR>
 
 " Sane searching
 set hlsearch                  " Hilight search term
 set showmatch                 " Show matching brackets
 set incsearch                 " ... dynamically as they are typed
-" turn of hlsearch temporarily
-nmap <silent> <leader>n :silent :nohlsearch<CR>
 
 " This line will make Vim set out tab characters, trailing whitespace and
 " invisible spaces visually, and additionally use the # sign at the end of
@@ -176,9 +175,6 @@ set tags=./tags;
 
 " Can't be bothered to understand ESC vs <c-c> in insert mode
 imap <c-c> <esc>
-
-" Clear search buffer
-nnoremap <leader><leader> :nohlsearch<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
