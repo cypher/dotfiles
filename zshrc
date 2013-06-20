@@ -477,14 +477,7 @@ rb() {
 #########################################################################################
 # Elixir aliases/functions
 
-function elixir () {
-    if [[ -x $(which -s elixir) ]]
-    then
-        command elixir "$@"
-    else
-        ${HOME}/dev/elixir/bin/elixir "$@"
-    fi
-}
+
 
 #########################################################################################
 # Git aliases/functions
