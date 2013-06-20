@@ -369,8 +369,8 @@ vnoremap <leader>rriv :RRenameInstanceVariable<cr>
 vnoremap <leader>rem  :RExtractMethod<cr>
 
 " Syntastic
-" let g:syntastic_html_tidy_ignore_errors = []
 let g:syntastic_python_checkers=['flake8']
+let g:syntastic_html_checkers=['validator', 'w3']
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SWITCH BETWEEN TEST AND PRODUCTION CODE
