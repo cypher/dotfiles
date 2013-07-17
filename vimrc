@@ -370,7 +370,7 @@ vnoremap <leader>rem  :RExtractMethod<cr>
 
 " Syntastic
 let g:syntastic_python_checkers=['flake8']
-let g:syntastic_html_checkers=['validator', 'w3']
+let g:syntastic_html_checkers=[] " ['validator', 'w3']
 
 " If there's a .vimlocal file automatically source it
 function! SourceVimLocal()
