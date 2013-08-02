@@ -67,6 +67,7 @@
 	renames = copies
 	mnemonicprefix = true
 	tool = Kaleidoscope
+	algorithm = histogram
 
 [difftool]
 	prompt = false
