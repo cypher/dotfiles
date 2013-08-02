@@ -15,6 +15,7 @@
 	c = commit
 	ca = commit --amend
 	changes = diff --name-status -r
+	check = diff --check
 	cm = commit --message
 	co = checkout
 	cpc = cherry-pick
