@@ -28,7 +28,7 @@
 	l = "!git log --graph --pretty='tformat:%C(yellow)%h{%C(green)%ar{%C(bold blue)%an{%C(red)%d%C(reset) %s' $* | column -t -s '{' | less -FXRS"
 	lg = log --graph --pretty=format:'%Cred%h%Creset %an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	ls-ignored = ls-files --exclude-standard --ignored --others
-	m = merge
+	m = merge -s recursive -X patience
 	mm = merge --no-ff
 	msg = commit --allow-empty -m
 	news = log -p HEAD@{1}..HEAD@{0}
