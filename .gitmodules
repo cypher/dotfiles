@@ -79,3 +79,6 @@
 [submodule "vim/bundle/vim-elixir"]
 	path = vim/bundle/vim-elixir
 	url = git@github.com:elixir-lang/vim-elixir.git
+[submodule "vim/bundle/vim-indent-object"]
+	path = vim/bundle/vim-indent-object
+	url = git@github.com:michaeljsmith/vim-indent-object.git
