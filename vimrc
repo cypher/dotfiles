@@ -125,8 +125,8 @@ vnoremap <tab> %
 " Make ';' an alias for ':'
 nnoremap ; :
 
-" Map `jj` to ESC
-imap jj <ESC>
+" Map `kj` to ESC
+imap kj <ESC>
 
 " Useful trick when I've forgotten to `sudo' before editing a file:
 cmap w!! w !sudo tee % >/dev/null
