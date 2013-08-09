@@ -583,4 +583,7 @@ function preexec () {
 
 # rbenv
 eval "$(rbenv init -)"
+# pyenv
+eval "$(pyenv init -)"
+
 builtin rehash
