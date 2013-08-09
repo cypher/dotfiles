@@ -97,9 +97,9 @@ if v:version >= 720
 endif
 " set undofile                  " save undo information
 
-" Make ^e and ^y scroll 3 lines instead of 1
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
+" Make ^e and ^y scroll 5 lines instead of 1
+nnoremap <C-e> 5<C-e>
+nnoremap <C-y> 5<C-y>
 
 " Switch to alternate file
 nnoremap <leader>. <c-^>
