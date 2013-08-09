@@ -176,6 +176,9 @@ set tags=./tags;
 " Can't be bothered to understand ESC vs <c-c> in insert mode
 imap <c-c> <esc>
 
+" Make sure the current split has at least 80 width
+set winwidth=80
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Autocommands
