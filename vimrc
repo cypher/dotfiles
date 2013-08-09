@@ -349,6 +349,16 @@ nnoremap <leader>m :CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>o :CtrlPMixed<CR>
 
+let g:ctrlp_use_caching = 1
+" Keep cache across sessions
+let g:ctrlp_clear_cache_on_exit = 1
+" Custom caching dir
+let g:ctrlp_cache_dir = $HOME.'/.ctrlp-cache'
+" Up the number of files ctrlp is allowed to scan
+let g:ctrlp_max_files = 50000
+" Only update after typing has stopped
+" let g:ctrlp_lazy_update = 1
+
 " Tabularize
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
