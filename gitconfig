@@ -22,7 +22,6 @@
 	d = diff
 	dc = diff --cached
 	div = divergence
-	ds = diff --staged
 	dt = difftool
 	h = help
 	irb = rebase --interactive
