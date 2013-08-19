@@ -53,7 +53,7 @@
 	stp = stash pop
 	undo = reset --soft HEAD@{1}
 	wd = diff --word-diff="color"
-	wds = diff --word-diff="color" --staged
+	wdc = diff --word-diff="color" --cached
 	push = push --tags
 
 [advice]
