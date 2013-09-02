@@ -265,7 +265,7 @@ set smarttab                 " use tabs at the start of a line, spaces elsewhere
 
 " Highlight trailing whitespace
 highlight WhitespaceEOL ctermbg=DarkYellow guibg=DarkYellow
-match WhitespaceEOL /\s\+$/
+match WhitespaceEOL /\s\+\%#\@<!$/
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Folding
