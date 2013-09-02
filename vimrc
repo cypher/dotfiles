@@ -352,6 +352,9 @@ map <leader>rt :!ctags --extra=+f -R *<CR><CR>
 " Hide .pyc in NetRW
 let g:netrw_listhide='.*\.pyc\$'
 
+" Note: The whitespace at the end is intentional!
+nmap <leader>f :Ack 
+
 " Strip trailing whitespace - The Plugin
 nmap <leader><space> :call whitespace#strip_trailing()<CR>
 
