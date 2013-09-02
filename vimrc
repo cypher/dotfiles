@@ -44,6 +44,8 @@ set wildmenu
 " Ignore these files when completing names and in Explorer
 set wildignore+=.svn,CVS,.git,*.pyc,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pdf,*.bak,*.beam,*/tmp/*,*.zip,log/**,node_modules/**,target/**,tmp/**,*.rbc
 
+set wildmode=longest,list,full
+
 " Pull from keywords for completion in the current file, other buffers (closed or still
 " open), and from the current tags file.
 set complete=.,b,u,]
