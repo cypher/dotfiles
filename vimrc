@@ -136,7 +136,7 @@ cmap w!! w !sudo tee % >/dev/null
 autocmd BufLeave,FocusLost silent! wall
 
 " ,W strips all trailing whitespace from current file
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <leader>W :echo "Use \<leader\>\<space\> instead!"<CR>
 
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
@@ -346,6 +346,9 @@ map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 
 " Hide .pyc in NetRW
 let g:netrw_listhide='.*\.pyc\$'
+
+" Strip trailing whitespace - The Plugin
+nmap <leader><space> :call whitespace#strip_trailing()<CR>
 
 " CtrlP
 nnoremap <leader>m :CtrlP<CR>
