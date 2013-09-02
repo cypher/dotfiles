@@ -246,7 +246,7 @@ colorscheme asmdev
 " where to put backup file
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " directory is the directory for temp file
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory-=.             " Don't store swapfiles in the current directory
 set makeef=error.err         " When using make, where should it dump the file
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
