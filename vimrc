@@ -362,6 +362,7 @@ nmap <leader><space> :call whitespace#strip_trailing()<CR>
 nnoremap <leader>m :CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>o :CtrlPMixed<CR>
+nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 
 " Let CtrlP use a cache
 let g:ctrlp_use_caching = 1
