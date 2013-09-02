@@ -182,6 +182,8 @@ imap <c-c> <esc>
 " Make sure the current split has at least 80 width
 set winwidth=80
 
+" Easy reloading of vimrc
+map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Custom Autocommands
