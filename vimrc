@@ -46,6 +46,9 @@ set wildignore+=.svn,CVS,.git,*.pyc,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*
 
 set wildmode=longest,list,full
 
+" Yank and paste with the system clipboard
+set clipboard=unnamed
+
 " Pull from keywords for completion in the current file, other buffers (closed or still
 " open), and from the current tags file.
 set complete=.,b,u,]
