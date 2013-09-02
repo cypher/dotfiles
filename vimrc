@@ -410,6 +410,9 @@ vnoremap <leader>rem  :RExtractMethod<cr>
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_html_checkers=[] " ['validator', 'w3']
 
+" Use Marked.app to preview Markdown files
+nnoremap <leader>p :silent !open -a Marked.app '%:p'<cr>
+
 " If there's a .vimlocal file automatically source it
 function! SourceVimLocal()
   if filereadable(".vimlocal")
