@@ -38,7 +38,7 @@ set viminfo+=!                " make sure it can save viminfo
 set iskeyword+=_,$,@,%,#,-    " none of these should be word dividers, so make them not be
 set title                     " show title in xterm
 
-" Make completion useful
+" Make completion useful: show a navigable menu for tab completion
 set wildmenu
 
 " Ignore these files when completing names and in Explorer
@@ -90,7 +90,8 @@ nmap <silent> <leader>s :set nolist!<CR>
 
 set scrolloff=3               " Start scrolling 3 lines before the border
 
-set autoread                  " Automatically reread files that have been changed externally
+" Automatically reread files that have been changed externally
+set autoread
 
 if v:version >= 720
   set relativenumber            " show how far away each line is from the current one
@@ -168,6 +169,8 @@ set statusline+=%#warningmsg#
 set statusline+=%{fugitive#statusline()}
 set statusline+=%*
 set statusline+=%r%=[%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]\ %12.(%c:%l/%L%)
+
+" always show statusline
 set laststatus=2
 
 " tag support
@@ -355,6 +358,7 @@ nnoremap <leader>m :CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>o :CtrlPMixed<CR>
 
+" Let CtrlP use a cache
 let g:ctrlp_use_caching = 1
 " Keep cache across sessions
 let g:ctrlp_clear_cache_on_exit = 1
