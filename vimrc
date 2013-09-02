@@ -83,7 +83,7 @@ set incsearch                 " ... dynamically as they are typed
 " invisible spaces visually, and additionally use the # sign at the end of
 " lines to mark lines that extend off-screen. For more info, see :h listchars.
 set list
-set listchars=tab:▸\ ,eol:¬,trail:.,extends:#,nbsp:.
+set listchars=tab:▸\ ,eol:¬,trail:▫,extends:#,nbsp:▫
 
 " Make trailing whitespace visible with ,s
 nmap <silent> <leader>s :set nolist!<CR>
