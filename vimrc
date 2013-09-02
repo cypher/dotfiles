@@ -140,12 +140,12 @@ autocmd BufLeave,FocusLost silent! wall
 nnoremap <leader>W :echo "Use \<leader\>\<space\> instead!"<CR>
 
 " Opens an edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>e
-" map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+" Normal mode: <leader>e
+" map <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Opens a tab edit command with the path of the currently edited file filled in
-" Normal mode: <Leader>t
-map <Leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+" Normal mode: <leader>t
+map <leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Shift-tab to insert a hard tab
 imap <silent> <S-tab> <C-v><tab>
@@ -345,7 +345,7 @@ let g:no_rust_conceal = 1
 imap <C-l> <Space>=><Space>
 
 " CTags
-map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+map <leader>rt :!ctags --extra=+f -R *<CR><CR>
 
 " Hide .pyc in NetRW
 let g:netrw_listhide='.*\.pyc\$'
@@ -369,13 +369,25 @@ let g:ctrlp_max_files = 50000
 " Only update after typing has stopped
 " let g:ctrlp_lazy_update = 1
 
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  let g:ackprg = 'ag --nogroup --column'
+
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
 " Tabularize
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
-nmap <Leader>a, :Tabularize /,\zs<CR>
-vmap <Leader>a, :Tabularize /,\zs<CR>
+nmap <leader>a= :Tabularize /=<CR>
+vmap <leader>a= :Tabularize /=<CR>
+nmap <leader>a: :Tabularize /:\zs<CR>
+vmap <leader>a: :Tabularize /:\zs<CR>
+nmap <leader>a, :Tabularize /,\zs<CR>
+vmap <leader>a, :Tabularize /,\zs<CR>
 
 " vim-ruby-refactoring
 nnoremap <leader>rap  :RAddParameter<cr>
