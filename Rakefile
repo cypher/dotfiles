@@ -14,7 +14,7 @@ def homedir
   end
 end
 
-IGNORED_ENTRIES = %w{install.sh Rakefile README.txt LICENSE bin etc example git-hooks postgresql LaunchBar LaunchAgents}
+IGNORED_ENTRIES = %w{install.sh Rakefile README.md LICENSE bin etc example git-hooks postgresql LaunchBar LaunchAgents}
 
 task :install_dotfiles do
   Dir[File.join(basedir, '*')].each do |entry|
