@@ -199,6 +199,7 @@ augroup vimrcEx
 
   " Inspired by Gary Bernhardt/Destroy All Software
   " Jump to last cursor position unless it's invalid or in an event handler
+  " when reopening a file/vim
   autocmd BufReadPost *
       \ if line("'\"") > 0 && line("'\"") <= line("$") |
       \   exe "normal g`\"" |
