@@ -101,7 +101,12 @@ set autoread
 if v:version >= 720
   set relativenumber            " show how far away each line is from the current one
 endif
-" set undofile                  " save undo information
+
+" save undo information
+set undodir=$HOME/.vim-undo
+set undofile
+set undolevels=1000
+set undoreload=10000
 
 " Make ^e and ^y scroll 5 lines instead of 1
 nnoremap <C-e> 5<C-e>
