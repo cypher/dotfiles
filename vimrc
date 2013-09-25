@@ -24,6 +24,9 @@ set ruler                     " show the cursor position all the time
 set showcmd                   " display incomplete commands
 set incsearch                 " do incremental searching
 set number                    " show line numbers
+if v:version >= 704
+  set relativenumber          " also show relative line numbers, enabling the hybrid number mode
+endif
 " set cursorline                " Highlight current line
 
 runtime macros/matchit.vim    " Enable extended % matching
@@ -97,10 +100,6 @@ set scrolloff=3               " Start scrolling 3 lines before the border
 
 " Automatically reread files that have been changed externally
 set autoread
-
-if v:version >= 720
-  set relativenumber            " show how far away each line is from the current one
-endif
 
 " save undo information
 set undodir=$HOME/.vim-undo
