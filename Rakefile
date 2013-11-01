@@ -50,6 +50,7 @@ end
 task :install => [ :install_dotfiles, :install_bins ]
 
 task :update do
+  system("git submodule foreach git checkout master")
   system("git submodule foreach git up")
 
   rust_dir = File.expand_path('~/src/rust')
