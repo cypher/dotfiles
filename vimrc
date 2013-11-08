@@ -329,6 +329,11 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Mediummode
+" Automatically turn on hardmode for every buffer
+autocmd VimEnter,BufNewFile,BufReadPost * silent! MediumModeEnable
+" Allow toggling of hard mode
+nnoremap <leader>h <Esc>:MediumModeToggle<CR>
 
 " vim-commentary settings
 autocmd FileType sql set commentstring=--\ %s

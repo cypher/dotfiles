@@ -85,3 +85,6 @@
 [submodule "vim/bundle/mustache"]
 	path = vim/bundle/mustache
 	url = git://github.com/mustache/vim-mode.git
+[submodule "vim/bundle/mediummode"]
+	path = vim/bundle/mediummode
+	url = git@github.com:kbarrette/mediummode.git
