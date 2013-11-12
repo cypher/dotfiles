@@ -104,7 +104,7 @@
 	brokenSymlinkWorkaround = false
 
 [push]
-	default = tracking
+	default = simple
 
 [help]
 	autocorrect = 0
