@@ -1,0 +1,10 @@
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+(require 'pallet)
+
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+(require 'pallet)
+(add-to-list 'load-path "~/.emacs.d/custom")
+(add-to-list 'load-path "~/.emacs.d/other_paths")
+(load "00common-setup.el")
