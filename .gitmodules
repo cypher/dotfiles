@@ -88,3 +88,6 @@
 [submodule "vim/bundle/mediummode"]
 	path = vim/bundle/mediummode
 	url = git@github.com:kbarrette/mediummode.git
+[submodule "vim/bundle/vim-vroom"]
+	path = vim/bundle/vim-vroom
+	url = git://github.com/skalnik/vim-vroom.git
