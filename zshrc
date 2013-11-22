@@ -582,8 +582,8 @@ function preexec () {
 [[ -f ~/.localrc ]] && source ~/.localrc
 
 # rbenv
-eval "$(rbenv init -)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # pyenv
-eval "$(pyenv init -)"
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 builtin rehash
