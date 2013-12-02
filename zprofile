@@ -20,6 +20,11 @@ fi
 
 export PYTHONPATH
 
+if [[ -d "${HOME}/go" ]]
+then
+  export GOPATH="${HOME}/go"
+fi
+
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"

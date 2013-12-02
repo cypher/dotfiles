@@ -17,6 +17,13 @@ then
     PATH="${PATH}:/usr/local/tranquil/bin"
 fi
 
+# Pick up go binaries
+
+if (($+GOPATH))
+then
+    PATH="${PATH}:${GOPATH}/bin"
+fi
+
 # Pick up NPM-installed binaries
 if [[ -d "/usr/local/share/npm/bin" ]]
 then
