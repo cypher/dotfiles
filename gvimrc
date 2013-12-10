@@ -34,6 +34,18 @@ if has("gui_macvim")
   vmap <D-[> <<
   imap <D-[> <C-O><<
 
+  "custom tab stuff
+  " tab navigation like safari
+  " idea adopted from: [[VimTip1221]]
+  nmap <D-[> :tabprevious<CR>
+  nmap <D-]> :tabnext<CR>
+  map  <D-[> :tabprevious<CR>
+  map  <D-]> :tabnext<CR>
+  imap <D-[> <Esc>:tabprevious<CR>i
+  imap <D-]> <Esc>:tabnext<CR>i
+  nmap <D-t> :tabnew<CR>
+  imap <D-t> <Esc>:tabnew<CR>
+
   " open tabs with command-<tab number>
   map <D-S-]> gt
   map <D-S-[> gT
@@ -49,7 +61,7 @@ if has("gui_macvim")
   map <D-0> :tablast<CR>
 
   " Enable default OS X shift-movement/replacement behavior
-  let macvim_hig_shift_movement = 1
+  " let macvim_hig_shift_movement = 1
 
   " Activate spelling support, via https://twitter.com/b4winckler/status/58584667200303104
   " Enables Cmd-; and Cmd-:
