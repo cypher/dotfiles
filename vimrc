@@ -90,8 +90,8 @@ set incsearch                 " ... dynamically as they are typed
 " This line will make Vim set out tab characters, trailing whitespace and
 " invisible spaces visually, and additionally use the # sign at the end of
 " lines to mark lines that extend off-screen. For more info, see :h listchars.
-set list
 set listchars=tab:▸\ ,eol:¬,trail:▫,extends:#,nbsp:▫
+set list
 
 " Make trailing whitespace visible with ,s
 nmap <silent> <leader>s :set nolist!<CR>
@@ -163,6 +163,13 @@ imap <silent> <S-tab> <C-v><tab>
 " (by jumping to back start of previously changed text)
 noremap p p`[
 noremap P P`[
+
+" Swap v and CTRL-V, because Block mode is more useful that Visual mode
+nnoremap    v   <C-V>
+nnoremap <C-V>     v
+
+vnoremap    v   <C-V>
+vnoremap <C-V>     v
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
@@ -446,6 +453,21 @@ function! SourceVimLocal()
   endif
 endfunction
 call SourceVimLocal()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Customizations
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+highlight ColorColumn ctermbg=magenta
+" '\%81v' is a regex matching the virtual 81st column
+call matchadd('ColorColumn', '\%121v', 100)
+
+" Always turn on syntax highlighting for diffs
+filetype on
+augroup PatchDiffHighlight
+    autocmd!
+    autocmd FileType  diff   syntax enable
+augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Rename current file
