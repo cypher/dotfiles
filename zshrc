@@ -362,9 +362,9 @@ function console {
 }
 
 function backup-itunes() {
-  echo "Backing up Music, Audiobooks and Books"
-  rsync --update --human-readable --recursive --progress --inplace --8-bit-output ~/Music/iTunes/iTunes\ Music/{Music,Audiobooks,Books} "${ITUNES_BACKUP_DIR}";
-  echo "Backing up iOS Apps"
+  printf "Backing up Music and Audiobooks\n"
+  rsync --update --human-readable --recursive --progress --inplace --8-bit-output ~/Music/iTunes/iTunes\ Music/{Music,Audiobooks} "${ITUNES_BACKUP_DIR}";
+  printf "Backing up iOS Apps\n"
   rsync --update --human-readable --recursive --progress --inplace --8-bit-output --delete-after ~/Music/iTunes/iTunes\ Music/Mobile\ Applications "${ITUNES_BACKUP_DIR}";
 }
 
