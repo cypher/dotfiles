@@ -1,4 +1,2 @@
-Gemfile.lock merge=bundleinstall
-db/schema.rb merge=railsschema
 *.zip diff=zip
 *.m diff=objc
