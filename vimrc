@@ -264,7 +264,7 @@ map <Leader>ct :!ctags -R .<CR>
 
 
 " Switch between the last two files
-nnoremap <leader><leader> <c-^>
+" nnoremap <leader><leader> <c-^>
 
 
 " Easy reloading of vimrc
