@@ -2,6 +2,15 @@
 	name = Markus Prinz
 	email = markus.prinz@nuclearsquid.com
 
+
+[core]
+	excludesfile = ~/.gitignore
+	whitespace = trailing-space,space-before-tab
+	quotepath = false
+	pager = less -FXR
+	editor = vim -pc ':normal gg'
+
+
 [alias]
 	a = add
 	aa = add --all
@@ -20,8 +29,10 @@
 	co = checkout
 	conflicted = grep --name-only --full-name '<<<<<<< HEAD'
 	cpc = cherry-pick
+	create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
 	d = diff
 	dc = diff --cached
+	delete-branch = !sh -c 'git push origin :refs/heads/$1 && git remote prune origin && git branch -D $1' -
 	div = divergence
 	dt = difftool
 	h = help
@@ -33,10 +44,12 @@
 	m = merge -s recursive -X patience
 	markdown = !BN=$(git name-rev --name-only HEAD) && git log --no-merges --grep=$BN --pretty=oneline | awk -F"$BN: " '{print \"-\", $NF}' | uniq
 	mm = merge --no-ff
+	merge-branch = !git checkout master && git merge @{-1}
 	msg = commit --allow-empty -m
 	news = log -p HEAD@{1}..HEAD@{0}
 	p = cherry-pick -s
 	pick = cherry-pick
+	pr = !hub pull-request
 	prune-remotes = "!for remote in `git remote`; do git remote prune $remote; done"
 	r = remote
 	ra = !git log --graph --abbrev-commit --date=relative -20 --all --pretty='format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
@@ -59,30 +72,27 @@
 	wdc = diff --word-diff="color" --cached
 	push = push --tags
 
+
 [advice]
 	pushNonFastForward = false
 	statusHints = false
 
+
 [apply]
 	whitespace = nowarn
 
-[diff]
-	renames = copies
-	mnemonicprefix = true
-	tool = Kaleidoscope
-	algorithm = histogram
-
-[difftool]
-	prompt = false
 
 [pager]
 	color = true
 
+
 [branch]
 	autosetupmerge = true
 
+
 [color]
 	ui = auto
+
 
 [color "branch"]
 	current = yellow reverse
@@ -100,46 +110,69 @@
 	changed = green
 	untracked = cyan
 
+
 [svn]
 	brokenSymlinkWorkaround = false
+
 
 [push]
 	default = simple
 
+
+[pull]
+	rebase = true
+
+
 [help]
 	autocorrect = 0
 
-[core]
-	excludesfile = ~/.gitignore
-	whitespace = trailing-space,space-before-tab
-	quotepath = false
-	pager = less -FXR
-	editor = vim -pc ':normal gg'
+
 
 [rerere]
 	enabled = 1
 
+
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+
+[diff]
+	renames = copies
+	mnemonicprefix = true
+	tool = Kaleidoscope
+	algorithm = histogram
+
+
+[difftool]
+	prompt = false
+
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+
 
 [merge]
 	stat = true
 	diff = vimdiff
 	tool = Kaleidoscope
 
+
+[mergetool]
+	prompt = false
+
+
 [diff "zip"]
   textconv = unzip -c -a
 
+
 [github]
 	user = cypher
+
+
 [credential]
 	helper = osxkeychain
+
+
 [status]
 	submodulesummary = true
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
-[mergetool]
-	prompt = false
-[pull]
-	rebase = true
