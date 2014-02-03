@@ -443,7 +443,7 @@ nmap <leader><space> :call whitespace#strip_trailing()<CR>
 
 
 " Snippets are activated by Shift+Tab
-let g:snippetsEmu_key = "<S-Tab>"
+" let g:snippetsEmu_key = "<S-Tab>"
 
 
 " Tabularize
