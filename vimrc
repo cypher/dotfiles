@@ -225,7 +225,7 @@ map <leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 
 " Shift-tab to insert a hard tab
-imap <silent> <S-tab> <C-v><tab>
+" imap <silent> <S-tab> <C-v><tab>
 
 
 " don't move the cursor after pasting
@@ -485,6 +485,12 @@ let g:html_indent_tags = 'li\|p'
 
 " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
+
+
+" UltiSnips
+let g:UltiSnipsEditSplit="horizontal"
+let g:UltiSnipsExpandTrigger="<S-Tab>"
+let g:UltiSnipsJumpForwardTrigger="<S-Tab>"
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
