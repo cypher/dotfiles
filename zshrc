@@ -1,6 +1,10 @@
 # Sourced in interactive shells
 
 
+##############################################################################
+# PATH stuff
+##############################################################################
+
 # Setup PATH for interactive shell
 if [[ -d "${HOME}/.rbenv/bin" ]]
 then
@@ -24,17 +28,20 @@ then
     PATH="${PATH}:${GOPATH}/bin"
 fi
 
+
 # Pick up NPM-installed binaries
 if [[ -d "/usr/local/share/npm/bin" ]]
 then
     PATH="${PATH}:/usr/local/share/npm/bin"
 fi
 
+
 # If we're on OS X, we want access to the `stroke` utility
 if [[ -d "/Applications/Utilities/Network Utility.app/Contents/Resources" ]]
 then
     PATH="${PATH}:/Applications/Utilities/Network Utility.app/Contents/Resources"
 fi
+
 
 # If we're on OS X, we want access to the `airport` utility
 if [[ -d "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources" ]]
@@ -44,9 +51,14 @@ fi
 
 export PATH
 
+
+##############################################################################
+# Keybindings
+##############################################################################
+
 ## keybindings (run 'bindkeys' for details, more details via man zshzle)
 # use emacs style per default:
-bindkey -e
+# bindkey -e
 
 # use vi style:
 # bindkey -v
@@ -57,6 +69,21 @@ bindkey -e
 # Enable Ctrl-R to do backwards history search
 # bindkey '^R' history-incremental-search-backward
 
+# vi mode
+bindkey -v
+bindkey "^F" vi-cmd-mode
+bindkey jj vi-cmd-mode
+
+# handy keybindings
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^R" history-incremental-search-backward
+bindkey "^P" history-search-backward
+bindkey "^Y" accept-and-hold
+bindkey "^N" insert-last-word
+bindkey -s "^T" "^[Isudo ^[A" # "t" for "toughguy"
+
+
 # Enable Ctrl-x-e to edit command line
 autoload -U edit-command-line
 # Emacs style
@@ -64,28 +91,35 @@ zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
 
+
 # Vi style:
 # zle -N edit-command-line
 # bindkey -M vicmd v edit-command-line
 
-autoload -U zmv
 
-autoload -U history-search-end
 
-# Report CPU usage for commands running longer than 10 seconds
-REPORTTIME=10
+##############################################################################
+# Completions
+##############################################################################
 
-#########################################################################################
-## Completions
-
-fpath=(~/.zsh/functions /usr/local/share/zsh-completions /usr/local/share/zsh/functions /usr/local/share/zsh/site-functions $fpath)
+fpath=(~/.zsh/completion /usr/local/share/zsh-completions /usr/local/share/zsh/functions /usr/local/share/zsh/site-functions $fpath)
 typeset -U fpath # Remove duplicates from $fpath
 
-autoload -U compinit
-compinit
+
+for function in ~/.zsh/functions/*; do
+  source $function
+done
+
 
 ## completions ####
+autoload -U compinit
+compinit
 autoload -U zstyle+
+
+
+# Try to correct command line spelling
+setopt correct correctall
+
 
 ## General completion technique
 ## complete as much as you can ..
@@ -94,6 +128,7 @@ zstyle ':completion:*' completer _complete _list _oldlist _expand _ignored _matc
 #zstyle ':completion:*' completer _expand _complete _list _ignored _approximate
 ## complete minimal
 #zstyle ':completion:*' completer _complete _ignored
+
 
 ## determine in which order the names (files) should be
 ## listed and completed when using menu completion.
@@ -107,6 +142,7 @@ zstyle ':completion:*' completer _complete _list _oldlist _expand _ignored _matc
 ## sorted alphabetically by name.
 zstyle ':completion:*' file-sort name
 
+
 ## case-insensitive (uppercase from lowercase) completion
 #zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 ## case-insensitive (all) completion
@@ -114,12 +150,15 @@ zstyle ':completion:*' file-sort name
 ## case-insensitive,partial-word and then substring completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
+
 ## completion caching
 zstyle ':completion:*' use-cache on
 # zstyle ':completion:*' cache-path ~/.zcompcache/$HOST
 
+
 ## add colors to completions
 zstyle ':completion:*' list-colors ${(s.:.)LSCOLORS}
+
 
 ### If you want zsh's completion to pick up new commands in $path automatically
 ### comment out the next line and un-comment the following 5 lines
@@ -139,7 +178,9 @@ zstyle ':completion:*:manuals.(^1*)' insert-sections true
 zstyle ':completion:*' menu select
 zstyle ':completion:*' verbose yes
 
+
 zstyle ':completion:*:kill:*:processes' command "ps x"
+
 
 # Auto-completion for ssh hosts
 zstyle -e ':completion::*:hosts' hosts 'reply=($(sed -e "/^#/d" -e "s/ .*\$//" -e "s/,/ /g" /etc/ssh_known_hosts(N) ~/.ssh/known_hosts(N) 2>/dev/null | xargs) $(grep \^Host ~/.ssh/config(N) | cut -f2 -d\  2>/dev/null | xargs))'
@@ -148,13 +189,16 @@ zstyle -e ':completion::*:hosts' hosts 'reply=($(sed -e "/^#/d" -e "s/ .*\$//" -
 # cd will never select the parent directory (e.g.: cd ../<TAB>):
 # zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
+
 # Fuzzy matching of completions for when you mistype them:
 # zstyle ':completion:*' completer _complete _match _approximate
 # zstyle ':completion:*:match:*' original only
 # zstyle ':completion:*:approximate:*' max-errors 1 numeric
 
-#########################################################################################
+
+##############################################################################
 # Colors
+##############################################################################
 
 autoload -U colors; colors;
 
@@ -169,17 +213,26 @@ RPROMPT='%F{white} $(rbenv version-name) $(~/bin/git-cwd-info)%f'
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
-#########################################################################################
-# Some options
+
+##############################################################################
+# Zsh options & plugins
+##############################################################################
+
+
+autoload -U zmv
+
+autoload -U history-search-end
+
+# Report CPU usage for commands running longer than 10 seconds
+REPORTTIME=10
+
 
 # history:
 setopt inc_append_history   # append history list to the history file (important for multiple parallel zsh sessions!)
 setopt share_history        # import new commands from the history file also in other zsh-session
 setopt extended_history     # save each command's beginning timestamp and the duration to the history file
-setopt hist_ignore_all_dups # If  a  new  command  line being added to the history
-                            # list duplicates an older one, the older command is removed from the list
-setopt hist_ignore_space    # remove command lines from the history list when
-                            # the first character on the line is a space
+setopt hist_ignore_all_dups # If a new command line being added to the history list duplicates an older one, the older command is removed from the list
+setopt hist_ignore_space    # remove command lines from the history list when the first character on the line is a space
 
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000000
@@ -215,12 +268,16 @@ setopt noglobdots           # * shouldn't match dotfiles. ever.
 
 setopt long_list_jobs       # List jobs in long format, display PID when suspending processes as well
 
-#########################################################################################
+
+##############################################################################
+# Custom aliases
+##############################################################################
 
 # alias -s rb=vim
 # alias -s tex=vim
 # alias -s html=w3m
 # alias -s org=w3m
+
 
 # alias -g ...='../..'
 # alias -g ....='../../..'
@@ -262,6 +319,7 @@ setopt long_list_jobs       # List jobs in long format, display PID when suspend
 # alias -g XG='| xargs egrep'
 # alias -g X='| xargs'
 
+
 # do we have GNU ls with color-support?
 alias ls='ls -bh -CF'
 alias la='ls -lhAF'
@@ -269,17 +327,15 @@ alias ll='ls -lh'
 alias lh='ls -hAl'
 alias l='ls -lhF'
 
-# _n_ dots for cd-ing upwards
-# alias -g ...="../.."
-# alias -g ....="../../.."
-# alias -g .....="../../../.."
 
 # Suffix-based aliases, eg `user.rb` will invoke emacsclient on that file
 # alias -s rb=e
 
+
 # grep marius /etc/passwd C
 # expands to grep marius /etc/passwd | wc -l
 # alias -g C='| wc -l'
+
 
 alias '..'='cd ..'
 # The -g makes them global aliases, so they're expaned even inside commands
@@ -289,15 +345,18 @@ alias -g .....='../../../..'
 # Aliases '-' to 'cd -'
 alias -- -='cd -'
 
+
 alias cp='nocorrect cp'         # no spelling correction on cp
 alias mkdir='nocorrect mkdir'   # no spelling correction on mkdir
 alias mv='nocorrect mv'         # no spelling correction on mv
 alias rm='nocorrect rm'         # no spelling correction on rm
 
+
 # Execute rmdir
 alias rd='rmdir'
 # Execute rmdir
 alias md='mkdir -p'
+
 
 # general
 # Execute du -sch
@@ -305,11 +364,15 @@ alias da='du -sch'
 # Execute jobs -l
 alias j='jobs -l'
 
+
 # chmod
 alias rw-='chmod 600'
 alias rwx='chmod 700'
 alias r--='chmod 644'
 alias r-x='chmod 755'
+
+
+alias tlf="tail -f"
 
 #########################################################################################
 # Custom aliases/commands
@@ -481,18 +544,21 @@ rb() {
   fi
 }
 
-#########################################################################################
-# Elixir aliases/functions
 
-
-
-#########################################################################################
-# Git aliases/functions
+##############################################################################
+# Git aliases/functions/stuff
+##############################################################################
 
 alias g='git'
 
-#########################################################################################
+
+# mkdir .git/safe in the root of repositories you trust
+export PATH=".git/safe/../../bin:$PATH"
+
+
+##############################################################################
 # Grep stuff
+##############################################################################
 
 # Grep in history
 function greph () { history 0 | grep -i $1 }
@@ -501,8 +567,10 @@ function greph () { history 0 | grep -i $1 }
 #  Execute grep --color=auto
 alias grep='grep --color=auto'
 
-#########################################################################################
+
+##############################################################################
 # Xcode/iOS
+##############################################################################
 
 alias ded="rm -rf ${HOME}/Library/Developer/Xcode/DerivedData"
 
@@ -552,8 +620,10 @@ function fixpngs ()
         fi
 }
 
-#########################################################################################
-## Functions for displaying neat stuff in *term title
+
+##############################################################################
+# Functions for displaying neat stuff in *term title
+##############################################################################
 
 # format titles for screen and rxvt
 function title() {
@@ -585,12 +655,23 @@ function preexec () {
     title "$1" "%m(%35<...<%~)"
 }
 
-# use .localrc for settings specific to one system
-[[ -f ~/.localrc ]] && source ~/.localrc
+
+##############################################################################
+# rbenv/pyenv
+##############################################################################
 
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
+
 builtin rehash
+
+
+##############################################################################
+# Local Config
+##############################################################################
+
+# use .localrc for settings specific to one system
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
