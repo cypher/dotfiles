@@ -11,7 +11,7 @@ then
     PATH="${HOME}/.rbenv/bin:${PATH}"
 fi
 
-for p in '/usr/local/bin' '/usr/local/sbin' "${HOME}/bin"
+for p in '/usr/local/sbin' '/usr/sbin' '/sbin' '/bin' '/usr/bin' '/usr/local/bin' "${HOME}/bin"
 do
     PATH="${p}:${PATH}"
 done
