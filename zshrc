@@ -121,7 +121,8 @@ autoload -U zstyle+
 
 
 # Try to correct command line spelling
-setopt correct correctall
+# setopt correct correctall
+setopt correct
 
 
 ## General completion technique
@@ -257,7 +258,7 @@ setopt hash_list_all        # Whenever a command completion is attempted, make s
 
 # setopt completeinword       # not just at the end
 
-setopt nohup                # and don't kill them, either
+setopt nohup                # Don't kill background jobs when shell exits
 
 # setopt auto_pushd         # make cd push the old directory onto the directory stack.
 
@@ -271,6 +272,7 @@ setopt noglobdots           # * shouldn't match dotfiles. ever.
 
 setopt long_list_jobs       # List jobs in long format, display PID when suspending processes as well
 
+setopt mark_dirs            # Append a trailing `/' to all directory names resulting from globbing
 
 ##############################################################################
 # Custom aliases
