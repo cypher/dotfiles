@@ -58,7 +58,7 @@ export PATH
 
 ## keybindings (run 'bindkeys' for details, more details via man zshzle)
 # use emacs style per default:
-# bindkey -e
+bindkey -e
 
 # use vi style:
 # bindkey -v
@@ -70,9 +70,9 @@ export PATH
 # bindkey '^R' history-incremental-search-backward
 
 # vi mode
-bindkey -v
-bindkey "^F" vi-cmd-mode
-bindkey jj vi-cmd-mode
+# bindkey -v
+# bindkey "^F" vi-cmd-mode
+# bindkey jj vi-cmd-mode
 
 # handy keybindings
 bindkey "^A" beginning-of-line
