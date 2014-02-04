@@ -49,6 +49,9 @@ then
     PATH="${PATH}:/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources"
 fi
 
+# Deduplicate entries in PATH
+typeset -U PATH
+
 export PATH
 
 
