@@ -468,6 +468,9 @@ function dash() {
   open "dash://$1"
 }
 
+# `wifi on` to turn wifi on, and `wifi off` to turn it off
+alias wifi="networksetup -setairportpower $(networksetup -listallhardwareports | grep -A 2 'Hardware Port: Wi-Fi' | grep 'Device:' | awk '{print $2}')"
+
 #########################################################################################
 # Editor aliases
 
