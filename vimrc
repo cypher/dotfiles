@@ -493,6 +493,10 @@ let g:UltiSnipsExpandTrigger="<S-Tab>"
 let g:UltiSnipsJumpForwardTrigger="<S-Tab>"
 
 
+" Tagbar
+nmap <leader>k :TagbarToggle<CR>
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

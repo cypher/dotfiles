@@ -45,7 +45,7 @@
 	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
 [submodule "vim/bundle/tagbar"]
 	path = vim/bundle/tagbar
-	url = https://github.com/majutsushi/tagbar.git
+	url = git://github.com/majutsushi/tagbar
 [submodule "vim/bundle/vim-gitgutter"]
 	path = vim/bundle/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
