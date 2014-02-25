@@ -487,12 +487,6 @@ let g:html_indent_tags = 'li\|p'
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 
-" UltiSnips
-let g:UltiSnipsEditSplit="horizontal"
-let g:UltiSnipsExpandTrigger="<S-Tab>"
-let g:UltiSnipsJumpForwardTrigger="<S-Tab>"
-
-
 " Tagbar
 nmap <leader>k :TagbarToggle<CR>
 
