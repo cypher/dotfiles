@@ -162,8 +162,12 @@
 	prompt = false
 
 
+[rebase]
+	autosquash = true
+
+
 [diff "zip"]
-  textconv = unzip -c -a
+	textconv = unzip -c -a
 
 
 [github]
