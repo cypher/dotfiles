@@ -384,6 +384,10 @@ alias tlf="tail -f"
 
 alias computer,="sudo"
 
+alias such=git
+alias very=git
+alias wow='git status --branch --short'
+
 # Convert a picture to a favicon
 alias make-favicon="convert -colors 256 -resize 16x16 "
 
