@@ -382,6 +382,8 @@ alias tlf="tail -f"
 #########################################################################################
 # Custom aliases/commands
 
+alias computer,="sudo"
+
 # Convert a picture to a favicon
 alias make-favicon="convert -colors 256 -resize 16x16 "
 
