@@ -55,9 +55,6 @@
 [submodule "vim/bundle/vim-html5"]
 	path = vim/bundle/vim-html5
 	url = https://github.com/kaihendry/vim-html5
-[submodule "vim/bundle/vim-slime"]
-	path = vim/bundle/vim-slime
-	url = git://github.com/jpalardy/vim-slime.git
 [submodule "vim/bundle/vim-ruby-refactoring"]
 	path = vim/bundle/vim-ruby-refactoring
 	url = git://github.com/rking/vim-ruby-refactoring.git
@@ -94,3 +91,12 @@
 [submodule "vim/bundle/vim-colors-github"]
 	path = vim/bundle/vim-colors-github
 	url = git@github.com:croaky/vim-colors-github.git
+[submodule "vim/bundle/vim-clojure-static"]
+	path = vim/bundle/vim-clojure-static
+	url = git@github.com:guns/vim-clojure-static.git
+[submodule "vim/bundle/vim-fireplace"]
+	path = vim/bundle/vim-fireplace
+	url = git://github.com/tpope/vim-fireplace.git
+[submodule "vim/bundle/vim-classpath"]
+	path = vim/bundle/vim-classpath
+	url = git://github.com/tpope/vim-classpath.git
