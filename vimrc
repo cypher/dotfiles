@@ -179,7 +179,8 @@ vnoremap / /\v
 
 
 " Clear search buffer
-nnoremap <leader><leader> :nohlsearch<CR>
+" nnoremap <leader><leader> :nohlsearch<CR>
+nnoremap <leader>l :nohlsearch<CR>
 
 
 " Make trailing whitespace visible with ,s
