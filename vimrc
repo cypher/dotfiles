@@ -414,13 +414,6 @@ augroup END
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Mediummode
-" Automatically turn on hardmode for every buffer
-autocmd VimEnter,BufNewFile,BufReadPost * silent! MediumModeEnable
-" Allow toggling of hard mode
-nnoremap <leader>h <Esc>:MediumModeToggle<CR>
-
-
 " vim-commentary settings
 autocmd FileType sql set commentstring=--\ %s
 autocmd FileType vim set commentstring=\"\ %s
@@ -456,18 +449,6 @@ nmap <leader>a, :Tabularize /,\zs<CR>
 vmap <leader>a, :Tabularize /,\zs<CR>
 
 
-" vim-ruby-refactoring
-nnoremap <leader>rap  :RAddParameter<cr>
-nnoremap <leader>rcpc :RConvertPostConditional<cr>
-nnoremap <leader>rel  :RExtractLet<cr>
-vnoremap <leader>rec  :RExtractConstant<cr>
-vnoremap <leader>relv :RExtractLocalVariable<cr>
-nnoremap <leader>rit  :RInlineTemp<cr>
-vnoremap <leader>rrlv :RRenameLocalVariable<cr>
-vnoremap <leader>rriv :RRenameInstanceVariable<cr>
-vnoremap <leader>rem  :RExtractMethod<cr>
-
-
 " Syntastic
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_html_checkers=[] " ['validator', 'w3']
@@ -475,21 +456,8 @@ let g:syntastic_html_checkers=[] " ['validator', 'w3']
 let g:syntastic_check_on_open=1
 
 
-" Better Digraphs
-" inoremap <expr>  <C-K>   BDG_GetDigraph()
-inoremap <expr>  <C-K>   HUDG_GetDigraph()
-
-
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
-
-
-" Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
-let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
-
-
-" Tagbar
-nmap <leader>k :TagbarToggle<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

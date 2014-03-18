@@ -25,9 +25,6 @@
 [submodule "vim/bundle/vim-ruby"]
 	path = vim/bundle/vim-ruby
 	url = git://github.com/vim-ruby/vim-ruby.git
-[submodule "vim/bundle/vim-coffee-script"]
-	path = vim/bundle/vim-coffee-script
-	url = git://github.com/kchmck/vim-coffee-script.git
 [submodule "vim/bundle/vim-flake8"]
 	path = vim/bundle/vim-flake8
 	url = git://github.com/nvie/vim-flake8.git
@@ -37,30 +34,12 @@
 [submodule "vim/bundle/tabular.vim"]
 	path = vim/bundle/tabular.vim
 	url = https://github.com/godlygeek/tabular.git
-[submodule "vim/bundle/VimClojure"]
-	path = vim/bundle/VimClojure
-	url = https://github.com/vim-scripts/VimClojure.git
-[submodule "vim/bundle/vim-numbertoggle"]
-	path = vim/bundle/vim-numbertoggle
-	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
-[submodule "vim/bundle/tagbar"]
-	path = vim/bundle/tagbar
-	url = git://github.com/majutsushi/tagbar
 [submodule "vim/bundle/vim-gitgutter"]
 	path = vim/bundle/vim-gitgutter
 	url = git://github.com/airblade/vim-gitgutter.git
-[submodule "vim/bundle/vim-dispatch"]
-	path = vim/bundle/vim-dispatch
-	url = git://github.com/tpope/vim-dispatch.git
 [submodule "vim/bundle/vim-html5"]
 	path = vim/bundle/vim-html5
 	url = https://github.com/kaihendry/vim-html5
-[submodule "vim/bundle/vim-ruby-refactoring"]
-	path = vim/bundle/vim-ruby-refactoring
-	url = git://github.com/rking/vim-ruby-refactoring.git
-[submodule "vim/bundle/puppet"]
-	path = vim/bundle/puppet
-	url = git://github.com/rodjek/vim-puppet.git
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
@@ -70,33 +49,12 @@
 [submodule "vim/bundle/vim-elixir"]
 	path = vim/bundle/vim-elixir
 	url = git@github.com:elixir-lang/vim-elixir.git
-[submodule "vim/bundle/vim-indent-object"]
-	path = vim/bundle/vim-indent-object
-	url = git@github.com:michaeljsmith/vim-indent-object.git
 [submodule "vim/bundle/ack"]
 	path = vim/bundle/ack
 	url = git@github.com:mileszs/ack.vim.git
 [submodule "vim/bundle/vim-golang"]
 	path = vim/bundle/vim-golang
 	url = git@github.com:jnwhiteh/vim-golang.git
-[submodule "vim/bundle/mustache"]
-	path = vim/bundle/mustache
-	url = git://github.com/mustache/vim-mode.git
-[submodule "vim/bundle/mediummode"]
-	path = vim/bundle/mediummode
-	url = git@github.com:kbarrette/mediummode.git
-[submodule "vim/bundle/vim-vroom"]
-	path = vim/bundle/vim-vroom
-	url = git://github.com/skalnik/vim-vroom.git
 [submodule "vim/bundle/vim-colors-github"]
 	path = vim/bundle/vim-colors-github
 	url = git@github.com:croaky/vim-colors-github.git
-[submodule "vim/bundle/vim-clojure-static"]
-	path = vim/bundle/vim-clojure-static
-	url = git@github.com:guns/vim-clojure-static.git
-[submodule "vim/bundle/vim-fireplace"]
-	path = vim/bundle/vim-fireplace
-	url = git://github.com/tpope/vim-fireplace.git
-[submodule "vim/bundle/vim-classpath"]
-	path = vim/bundle/vim-classpath
-	url = git://github.com/tpope/vim-classpath.git
