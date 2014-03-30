@@ -52,7 +52,7 @@ syn keyword   rustType        f64 i8 i16 i32 i64 str Self
 " to make it easy to update.
 
 " Core operators {{{3
-syn keyword   rustTrait       Freeze Pod Send Sized
+syn keyword   rustTrait       Share Copy Send Sized
 syn keyword   rustTrait       Add Sub Mul Div Rem Neg Not
 syn keyword   rustTrait       BitAnd BitOr BitXor
 syn keyword   rustTrait       Drop
@@ -135,7 +135,7 @@ syn match     rustStringContinuation display contained /\\\n\s*/
 syn region    rustString      start=+"+ skip=+\\\\\|\\"+ end=+"+ contains=rustSpecial,rustSpecialError,rustStringContinuation,@Spell
 syn region    rustString      start='r\z(#*\)"' end='"\z1' contains=@Spell
 
-syn region    rustAttribute   start="#\[" end="\]" contains=rustString,rustDeriving
+syn region    rustAttribute   start="#!\?\[" end="\]" contains=rustString,rustDeriving
 syn region    rustDeriving    start="deriving(" end=")" contained contains=rustTrait
 
 " Number literals
