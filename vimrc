@@ -395,6 +395,10 @@ autocmd FileType htmldjango setlocal autoindent tabstop=4 softtabstop=4 shiftwid
 autocmd FileType rust setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 
+" Handy for running go tests
+autocmd FileType go map <leader>t :w<CR> :set makeprg=go\ test<CR> :make<CR>
+
+
 " .inc files are Django templates
 autocmd BufRead,BufNewFile {*.inc} set filetype=htmldjango
 
