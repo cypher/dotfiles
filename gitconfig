@@ -27,7 +27,6 @@
 	check = diff --check
 	cm = commit --message
 	co = checkout
-	conflicted = grep --name-only --full-name '<<<<<<< HEAD'
 	cpc = cherry-pick
 	create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
 	d = diff --ignore-all-space
@@ -37,41 +36,70 @@
 	dt = difftool
 	h = help
 	irb = rebase --interactive
-	l = "!git log --graph --pretty='tformat:%C(yellow)%h{%C(green)%ar{%C(bold blue)%an{%C(red)%d%C(reset) %s' $* | column -t -s '{' | less -FXRS"
-	latest = for-each-ref --count=10 --sort=-committerdate --format='%(committerdate:short) %(refname:short)'
-	lg = log --graph --pretty=format:'%Cred%h%Creset %an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	list-aliases = "!git config -l | grep alias | cut -c 7-"
+	la = "!git list-aliases"
 	ls-ignored = ls-files --exclude-standard --ignored --others
-	m = merge -s recursive -X patience
 	markdown = !BN=$(git name-rev --name-only HEAD) && git log --no-merges --grep=$BN --pretty=oneline | awk -F"$BN: " '{print \"-\", $NF}' | uniq
-	mm = merge --no-ff
-	merge-branch = !git checkout master && git merge @{-1}
+	# Create an empty commit, only having a commit message
 	msg = commit --allow-empty -m
-	news = log -p HEAD@{1}..HEAD@{0}
 	p = cherry-pick -s
 	pick = cherry-pick
 	pr = !hub pull-request
 	prune-remotes = "!for remote in `git remote`; do git remote prune $remote; done"
 	r = remote
-	ra = !git log --graph --abbrev-commit --date=relative -20 --all --pretty='format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
-	rb = rebase
-	rba = rebase --abort
-	rbc = rebase --continue
-	rbs = rebase --skip
 	rh = reset --hard
 	ru = remote update --prune
 	s = status --short --branch
-	sl = shortlog
 	sm = submodule
 	sma = submodule add
 	smu = submodule update --init
-	st = stash
-	stl = stash list
-	stp = stash pop
 	undo = reset --soft HEAD@{1}
 	wd = diff --word-diff="color"
 	wdc = diff --word-diff="color" --cached
 	push = push --tags
 
+	# Make stashing easier
+	st = stash
+	stl = stash list
+	stp = stash pop
+
+	# Make rebasing easier
+	rb = rebase
+	rba = rebase --abort
+	rbc = rebase --continue
+	rbs = rebase --skip
+
+	# Easier merging
+	m = merge -s recursive -X patience
+	mm = merge --no-ff
+	merge-branch = !git checkout master && git merge @{-1}
+	conflicted = grep --name-only --full-name '<<<<<<< HEAD'
+	# Pick our version of a file while merging
+	ours = "!f() { git co --ours $@ && git add $@; }; f"
+	# Pick their version of a file while merging
+	theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+
+	# Inspect history in various ways
+	news = log -p HEAD@{1}..HEAD@{0}
+	sl = shortlog
+	# Show compact history
+	l = "!git log --graph --pretty='tformat:%C(yellow)%h{%C(green)%ar{%C(bold blue)%an{%C(red)%d%C(reset) %s' $* | column -t -s '{' | less -FXRS"
+	# Show commit log using graph notation
+	lg = log --graph --pretty=format:'%Cred%h%Creset %an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	# List commits showing changed files
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	ra = log --graph --abbrev-commit --date=relative -20 --all --pretty='format:%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'
+
+	# See all the commits related to a file
+	filelog = log -u
+	fl = log -u
+
+	# Easily ignore committed, but changed files that I don't want to commit
+	assume = update-index --assume-unchanged
+	assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+	assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
+	unassume = update-index --no-assume-unchanged
+	unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
 
 [advice]
 	pushNonFastForward = false
