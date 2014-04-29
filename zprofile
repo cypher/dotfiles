@@ -23,6 +23,7 @@ export PYTHONPATH
 if [[ -d "${HOME}/go" ]]
 then
   export GOPATH="${HOME}/go"
+  export PATH=$PATH:$GOPATH/bin
 fi
 
 export LANGUAGE="en_US.UTF-8"
