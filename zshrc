@@ -559,6 +559,18 @@ rb() {
 }
 
 
+common_gems=(irb_rocket hirb awesome_print dp bundler thor pry awesome_print wirble foreman rblineprof guard guard-shell rb-fsevent pry pry-doc pry-debugger pry-exception_explorer pry-stack_explorer pry-nav warbler terminal-notifier)
+
+
+function install-common-gems() {
+  gem update --system
+  for gem_name in $standard_gems; do
+    gem install --no-document "$gem_name"
+  done
+  rbenv rehash
+}
+
+
 ##############################################################################
 # Git aliases/functions/stuff
 ##############################################################################
