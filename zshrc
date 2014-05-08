@@ -559,7 +559,7 @@ rb() {
 }
 
 
-common_gems=(irb_rocket hirb awesome_print dp bundler thor pry awesome_print wirble foreman rblineprof guard guard-shell rb-fsevent pry pry-doc pry-debugger pry-exception_explorer pry-stack_explorer pry-nav warbler terminal-notifier)
+common_gems=(irb_rocket hirb awesome_print dp bundler thor awesome_print wirble foreman rblineprof guard guard-shell rb-fsevent pry pry-doc pry-debugger pry-exception_explorer pry-stack_explorer warbler terminal-notifier)
 
 
 function install-common-gems() {
