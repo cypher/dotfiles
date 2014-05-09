@@ -571,6 +571,11 @@ function install-common-gems() {
 }
 
 
+function julia() {
+  /Applications/Julia-*.app/Contents/Resources/julia/bin/julia $*
+}
+
+
 ##############################################################################
 # Git aliases/functions/stuff
 ##############################################################################
