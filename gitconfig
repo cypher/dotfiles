@@ -1,6 +1,7 @@
 [user]
 	name = Markus Prinz
 	email = markus.prinz@nuclearsquid.com
+	signingkey = 1C11C397
 
 
 [core]
