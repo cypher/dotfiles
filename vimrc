@@ -472,6 +472,7 @@ nnoremap <leader>m :CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>o :CtrlPMixed<CR>
 nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
+nnoremap <leader>] :CtrlPTag<CR>
 
 
 " Let CtrlP use a cache
