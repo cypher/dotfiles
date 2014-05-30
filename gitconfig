@@ -30,6 +30,7 @@
 	co = checkout
 	cpc = cherry-pick
 	create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
+	current-branch = rev-parse --abbrev-ref HEAD
 	d = diff --ignore-all-space
 	dc = diff --cached --ignore-all-space
 	delete-branch = !sh -c 'git push origin :refs/heads/$1 && git remote prune origin && git branch -D $1' -
