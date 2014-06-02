@@ -2,9 +2,7 @@
 sources:
 - http://gems.rubyforge.org
 - http://gems.github.com
-install: --no-rdoc
-update: --no-rdoc
-rdoc: --line-numbers
+gem: --no-document
 search: --details --both
 test_options:
   auto_test_on_install: false
