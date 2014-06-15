@@ -1,0 +1,4 @@
+CFBundleName = "iTunes AirPlay Ausgabegerät wählen";
+"LBSummary" = "Zeigt alle AirPlay–Geräte, die iTunes verwenden kann, und ermöglicht es, eines davon für die Ausgabe auszuwählen.";
+"LBRequirements" = "Benötigt AirPlay–Geräte im aktuellen Netzwerk.";
+"LBResult" = "Liefert AirPlay–Geräte zurück. Die Ausgabe von iTunes kann durch öffnen eines davon gesetzt werden.";

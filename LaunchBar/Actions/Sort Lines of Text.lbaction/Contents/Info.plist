@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>at.obdev.LaunchBar.action.SortLines</string>
+	<key>CFBundleName</key>
+	<string>Sort Lines of Text</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>string</string>
+			</array>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBRequiresArgument</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>default.js</string>
+		</dict>
+	</dict>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBSummary</key>
+		<string>Sorts the given lines of text. Holding down the ⇧–key reverses the sort order. Holding down the ⌘–key pastes the sorted lines in the frontmost app.</string>
+		<key>LBResult</key>
+		<string>Returns the sorted lines of text.</string>
+		<key>LBAuthor</key>
+		<string>Objective Development</string>
+		<key>LBEmail</key>
+		<string>launchbar@obdev.at</string>
+		<key>LBWebsite</key>
+		<string>http://www.obdev.at/</string>
+		<key>LBTwitter</key>
+		<string>@launchbar</string>
+	</dict>
+</dict>
+</plist>

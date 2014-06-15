@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>at.obdev.LaunchBar.action.ObDevBlog</string>
+	<key>CFBundleName</key>
+	<string>Objective Development Blog</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>CFBundleIconFile</key>
+	<string>ObDev Logo</string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBScriptName</key>
+			<string>default.rb</string>
+			<key>LBReturnsResult</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBSummary</key>
+		<string>Shows Objective Development’s blog posts.</string>
+		<key>LBRequirements</key>
+		<string>Requires an active internet connection.</string>
+		<key>LBResult</key>
+		<string>Returns a list of blog posts.</string>
+		<key>LBAuthor</key>
+		<string>Objective Development</string>
+		<key>LBEmail</key>
+		<string>launchbar@obdev.at</string>
+		<key>LBWebsite</key>
+		<string>http://www.obdev.at/</string>
+		<key>LBTwitter</key>
+		<string>@launchbar</string>
+	</dict>
+</dict>
+</plist>

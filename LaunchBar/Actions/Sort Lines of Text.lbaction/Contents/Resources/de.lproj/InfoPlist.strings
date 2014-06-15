@@ -1,0 +1,3 @@
+CFBundleName = "Textzeilen sortieren";
+"LBSummary" = "Sortiert die eingegebenen Textzeilen. Halten der ⇧–Taste kehrt die Sortierreihenfolge um. Halten der ⌘–Taste setzt die sortierten Zeilen in der aktiven App ein.";
+"LBResult" = "Liefert die sortierten Textzeilen zurück.";

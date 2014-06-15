@@ -1,0 +1,4 @@
+CFBundleName = "Objective Development Blog";
+"LBSummary" = "Zeigt Posts vom Objective Development Blog.";
+"LBRequirements" = "Benötigt eine aktive Internetverbindung.";
+"LBResult" = "Zeigt eine Liste von Blog–Posts.";

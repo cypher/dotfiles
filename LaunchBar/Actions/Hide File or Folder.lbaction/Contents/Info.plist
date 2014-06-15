@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleName</key>
+	<string>Hide File or Folder</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>CFBundleIdentifier</key>
+	<string>at.obdev.LaunchBar.action.HideFileOrFolder</string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBScriptName</key>
+			<string>default.sh</string>
+			<key>LBRequiresArgument</key>
+			<true/>
+			<key>LBRunInBackground</key>
+			<true/>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>path</string>
+			</array>
+		</dict>
+	</dict>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBSummary</key>
+		<string>Hides a file or folder. Use the “Unhide File or Folder” action to make it visible again.</string>
+		<key>LBAuthor</key>
+		<string>Objective Development</string>
+		<key>LBEmail</key>
+		<string>launchbar@obdev.at</string>
+		<key>LBWebsite</key>
+		<string>http://www.obdev.at/</string>
+		<key>LBTwitter</key>
+		<string>@launchbar</string>
+	</dict>
+</dict>
+</plist>
