@@ -58,3 +58,6 @@
 [submodule "vim/bundle/vim-colors-github"]
 	path = vim/bundle/vim-colors-github
 	url = git@github.com:croaky/vim-colors-github.git
+[submodule "vim/bundle/swift.vim"]
+	path = vim/bundle/swift.vim
+	url = https://github.com/Keithbsmiley/swift.vim.git
