@@ -14,11 +14,12 @@
 
 [alias]
 	a = add
-	aa = add --all
+	aa = add --all --intent-to-add
 	ae = add --edit
 	ai = add --interactive
 	amend = commit --amend -C HEAD
 	ap = add --patch
+	at = add --intent-to-add
 	au = add --update
 	authors = "!git log --pretty=format:%aN | sort | uniq -c | sort -rn"
 	b = branch -vv
