@@ -379,6 +379,8 @@ alias r-x='chmod 755'
 
 alias tlf="tail -f"
 
+alias fuck='sudo $(history -p \!\!)'
+
 #########################################################################################
 # Custom aliases/commands
 
