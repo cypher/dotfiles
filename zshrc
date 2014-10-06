@@ -494,6 +494,9 @@ alias v.='mvim .'
 #########################################################################################
 # Ruby aliases/functions
 
+# Bundler:
+alias be='bundle exec'
+
 # For Rails:
 alias sc='./script/console'
 alias sg='./script/generate'
