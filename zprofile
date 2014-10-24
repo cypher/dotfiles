@@ -23,7 +23,7 @@ export PYTHONPATH
 if type xcode-select > /dev/null 2>&1
 then
   export XCODE="$(xcode-select --print-path)"
-  export PATH=$PATH:$XCODE/Tools/
+  export PATH=$PATH:$XCODE/Tools
 fi
 
 if [[ -d "${HOME}/go" ]]
