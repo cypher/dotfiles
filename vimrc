@@ -455,8 +455,12 @@ vmap <leader>a, :Tabularize /,\zs<CR>
 
 
 " Syntastic
-let g:syntastic_python_checkers=['pylama', 'flake8']
+let g:syntastic_python_checkers=['flake8', 'pylama']
+let g:syntastic_python_flake8_args='--ignore=E501,E401'
+let g:syntastic_python_pylama_args='--ignore E501,E401'
+
 let g:syntastic_javascript_checkers=['jshint']
+
 let g:syntastic_html_checkers=[] " ['validator', 'w3']
 " Let syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
