@@ -17,7 +17,7 @@ syn keyword   rustConditional match if else
 syn keyword   rustOperator    as
 
 syn match     rustAssert      "\<assert\(\w\)*!" contained
-syn match     rustFail        "\<fail\(\w\)*!" contained
+syn match     rustPanic       "\<panic\(\w\)*!" contained
 syn keyword   rustKeyword     break
 syn keyword   rustKeyword     box nextgroup=rustBoxPlacement skipwhite skipempty
 syn keyword   rustKeyword     continue
@@ -30,7 +30,7 @@ syn keyword   rustKeyword     unsafe virtual where while
 syn keyword   rustKeyword     use nextgroup=rustModPath skipwhite skipempty
 " FIXME: Scoped impl's name is also fallen in this category
 syn keyword   rustKeyword     mod trait struct enum type nextgroup=rustIdentifier skipwhite skipempty
-syn keyword   rustStorage     mut ref static const
+syn keyword   rustStorage     move mut ref static const
 
 syn keyword   rustInvalidBareKeyword crate
 
@@ -151,8 +151,8 @@ syn match     rustSigil        display /[&~@*][^)= \t\r\n]/he=e-1,me=e-1
 " Last, because the & in && isn't a sigil
 syn match     rustOperator     display "&&\|||"
 
-syn match     rustMacro       '\w\(\w\)*!' contains=rustAssert,rustFail
-syn match     rustMacro       '#\w\(\w\)*' contains=rustAssert,rustFail
+syn match     rustMacro       '\w\(\w\)*!' contains=rustAssert,rustPanic
+syn match     rustMacro       '#\w\(\w\)*' contains=rustAssert,rustPanic
 
 syn match     rustEscapeError   display contained /\\./
 syn match     rustEscape        display contained /\\\([nrt0\\'"]\|x\x\{2}\)/
@@ -263,7 +263,7 @@ hi def link rustCommentLineDoc SpecialComment
 hi def link rustCommentBlock  rustCommentLine
 hi def link rustCommentBlockDoc rustCommentLineDoc
 hi def link rustAssert        PreCondit
-hi def link rustFail          PreCondit
+hi def link rustPanic         PreCondit
 hi def link rustMacro         Macro
 hi def link rustType          Type
 hi def link rustTodo          Todo
@@ -282,7 +282,7 @@ hi def link rustBoxPlacementExpr rustKeyword
 " hi rustAttribute ctermfg=cyan
 " hi rustDeriving ctermfg=cyan
 " hi rustAssert ctermfg=yellow
-" hi rustFail ctermfg=red
+" hi rustPanic ctermfg=red
 " hi rustMacro ctermfg=magenta
 
 syn sync minlines=200
