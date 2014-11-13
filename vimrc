@@ -424,6 +424,10 @@ autocmd FileType sql set commentstring=--\ %s
 autocmd FileType vim set commentstring=\"\ %s
 
 
+" tasklist plugin
+map <leader>v <Plug>TaskList
+
+
 " Syntax highlight shell scripts as per POSIX,
 " not the original Bourne shell which very few use
 let g:is_posix = 1
