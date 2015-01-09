@@ -188,7 +188,7 @@ flag() {
      fi
 }
 
-validate_opt () {
+validate_opt() {
     for arg in $CFG_ARGS
     do
         isArgValid=0
@@ -229,7 +229,36 @@ validate_opt () {
     done
 }
 
+create_tmp_dir() {
+    local TMP_DIR=`pwd`/rustup-tmp-install
+
+    rm -Rf "${TMP_DIR}"
+    need_ok "failed to remove temporary installation directory"
+
+    mkdir -p "${TMP_DIR}"
+    need_ok "failed to create create temporary installation directory"
+
+    echo $TMP_DIR
+}
+
 probe_need CFG_CURL  curl
+probe_need CFG_TAR   tar
+probe_need CFG_FILE  file
+
+probe CFG_SHA256SUM sha256sum
+probe CFG_SHASUM shasum
+
+if [ -z "$CFG_SHA256SUM" -a -z "$CFG_SHASUM" ]; then
+    err "unable to find either sha256sum or shasum"
+fi
+
+calculate_hash() {
+    if [ -n "$CFG_SHA256SUM" ]; then
+        ${CFG_SHA256SUM} $@
+    else
+        ${CFG_SHASUM} -a 256 $@
+    fi
+}
 
 CFG_SRC_DIR="$(cd $(dirname $0) && pwd)/"
 CFG_SELF="$0"
@@ -255,7 +284,8 @@ VAL_OPTIONS=""
 
 flag uninstall "only uninstall from the installation prefix"
 valopt prefix "" "set installation prefix"
-opt cargo 1 "install cargo with rust"
+valopt date "" "use the YYYY-MM-DD nightly instead of the current nightly"
+flag save "save the downloaded nightlies to ~/.rustup"
 
 if [ $HELP -eq 1 ]
 then
@@ -329,7 +359,8 @@ case $CFG_OSTYPE in
         ;;
 
 # We do not detect other OS such as XP/2003 using 64 bit using uname.
-# If we want to in the future, we will need to use Cygwin - Chuck's csih helper in /usr/lib/csih/winProductName.exe or alternative.
+# If we want to in the future, we will need to use Cygwin
+# Chuck's csih helper in /usr/lib/csih/winProductName.exe or alternative.
     *)
         err "unknown OS type: $CFG_OSTYPE"
         ;;
@@ -357,7 +388,7 @@ esac
 # Detect 64 bit linux systems with 32 bit userland and force 32 bit compilation
 if [ $CFG_OSTYPE = unknown-linux-gnu -a $CFG_CPUTYPE = x86_64 ]
 then
-    file -L "$SHELL" | grep -q "x86[_-]64"
+    "${CFG_FILE}" -L "$SHELL" | grep -q "x86[_-]64"
     if [ $? != 0 ]; then
         CFG_CPUTYPE=i686
     fi
@@ -368,108 +399,181 @@ HOST_TRIPLE="${CFG_CPUTYPE}-${CFG_OSTYPE}"
 # Is this a triple we have nightlies for?
 case $HOST_TRIPLE in
 
-	x86_64-unknown-linux-gnu)
-		;;
+        x86_64-unknown-linux-gnu)
+                ;;
 
-	i686-unknown-linux-gnu)
-		;;
+        i686-unknown-linux-gnu)
+                ;;
 
-	x86_64-apple-darwin)
-		;;
+        x86_64-apple-darwin)
+                ;;
 
-	i686-apple-darwin)
-		;;
+        i686-apple-darwin)
+                ;;
 
-	*)
-		err "rustup.sh doesn't work for host $HOST_TRIPLE"
+        *)
+                err "rustup.sh doesn't work for host $HOST_TRIPLE"
 
 esac
 
 msg "host triple: ${HOST_TRIPLE}"
 
-PACKAGE_NAME=rust-nightly
-PACKAGE_NAME_AND_TRIPLE="${PACKAGE_NAME}-${HOST_TRIPLE}"
-TARBALL_NAME="${PACKAGE_NAME_AND_TRIPLE}.tar.gz"
-REMOTE_TARBALL="https://static.rust-lang.org/dist/${TARBALL_NAME}"
-TMP_DIR="./rustup-tmp-install"
-LOCAL_TARBALL="${TMP_DIR}/${TARBALL_NAME}"
-LOCAL_INSTALL_DIR="${TMP_DIR}/${PACKAGE_NAME_AND_TRIPLE}"
-LOCAL_INSTALL_SCRIPT="${LOCAL_INSTALL_DIR}/install.sh"
-
-CARGO_PACKAGE_NAME=cargo-nightly
-CARGO_PACKAGE_NAME_AND_TRIPLE="${CARGO_PACKAGE_NAME}-${HOST_TRIPLE}"
-CARGO_TARBALL_NAME="${CARGO_PACKAGE_NAME_AND_TRIPLE}.tar.gz"
-CARGO_REMOTE_TARBALL="https://static.rust-lang.org/cargo-dist/${CARGO_TARBALL_NAME}"
-CARGO_LOCAL_TARBALL="${TMP_DIR}/${CARGO_TARBALL_NAME}"
-CARGO_LOCAL_INSTALL_DIR="${TMP_DIR}/${CARGO_PACKAGE_NAME_AND_TRIPLE}"
-CARGO_LOCAL_INSTALL_SCRIPT="${CARGO_LOCAL_INSTALL_DIR}/install.sh"
-
-rm -Rf "${TMP_DIR}"
-need_ok "failed to remove temporary installation directory"
-
-mkdir -p "${TMP_DIR}"
-need_ok "failed to create create temporary installation directory"
-
-msg "downloading rust installer"
-"${CFG_CURL}" "${REMOTE_TARBALL}" > "${LOCAL_TARBALL}"
-if [ $? -ne 0 ]
-then
-	rm -Rf "${TMP_DIR}"
-	err "failed to download installer"
-fi
-
-if [ -z "${CFG_DISABLE_CARGO}" ]; then
-    msg "downloading cargo installer"
-    "${CFG_CURL}" "${CARGO_REMOTE_TARBALL}" > "${CARGO_LOCAL_TARBALL}"
-    if [ $? -ne 0 ]
-    then
-            rm -Rf "${TMP_DIR}"
-            err "failed to download cargo installer"
-    fi
-fi
-
-
-(cd "${TMP_DIR}" && tar xzf "${TARBALL_NAME}")
-if [ $? -ne 0 ]
-then
-	rm -Rf "${TMP_DIR}"
-	err "failed to unpack installer"
-fi
-
-MAYBE_UNINSTALL=
+CFG_INSTALL_FLAGS=""
 if [ -n "${CFG_UNINSTALL}" ]
 then
-	MAYBE_UNINSTALL="--uninstall"
+    CFG_INSTALL_FLAGS="${CFG_INSTALL_FLAGS} --uninstall"
 fi
 
-MAYBE_PREFIX=
 if [ -n "${CFG_PREFIX}" ]
 then
-	MAYBE_PREFIX="--prefix=${CFG_PREFIX}"
+    CFG_INSTALL_FLAGS="${CFG_INSTALL_FLAGS} --prefix=${CFG_PREFIX}"
 fi
 
-sh "${LOCAL_INSTALL_SCRIPT}" "${MAYBE_UNINSTALL}" "${MAYBE_PREFIX}"
-if [ $? -ne 0 ]
+CFG_TMP_DIR=$(mktemp -d 2>/dev/null \
+           || mktemp -d -t 'rustup-tmp-install' 2>/dev/null \
+           || create_tmp_dir)
+
+# If we're saving nightlies and we didn't specify which one, grab todays.
+# Otherwise we'll use the latest version.
+if [ -n "${CFG_SAVE}" -a -z "${CFG_DATE}" ];
 then
-	rm -Rf "${TMP_DIR}"
-	err "failed to install Rust"
+    CFG_DATE=`date "+%Y-%m-%d"`
 fi
 
-if [ -z "${CFG_DISABLE_CARGO}" ]; then
-    (cd "${TMP_DIR}" && tar xzf "${CARGO_TARBALL_NAME}")
-    if [ $? -ne 0 ]
-    then
-            rm -Rf "${TMP_DIR}"
-            err "failed to unpack cargo installer"
-    fi
+RUST_URL="https://static.rust-lang.org/dist"
+RUST_PACKAGE_NAME=rust-nightly
+RUST_PACKAGE_NAME_AND_TRIPLE="${RUST_PACKAGE_NAME}-${HOST_TRIPLE}"
+RUST_TARBALL_NAME="${RUST_PACKAGE_NAME_AND_TRIPLE}.tar.gz"
+RUST_LOCAL_INSTALL_DIR="${CFG_TMP_DIR}/${RUST_PACKAGE_NAME_AND_TRIPLE}"
+RUST_LOCAL_INSTALL_SCRIPT="${RUST_LOCAL_INSTALL_DIR}/install.sh"
 
-    sh "${CARGO_LOCAL_INSTALL_SCRIPT}" "${MAYBE_UNINSTALL}" "${MAYBE_PREFIX}"
-    if [ $? -ne 0 ]
-    then
-            rm -Rf "${TMP_DIR}"
-            err "failed to install Cargo"
-    fi
+# add a date suffix if we want a particular nighly.
+if [ -n "${CFG_DATE}" ];
+then
+    RUST_URL="${RUST_URL}/${CFG_DATE}"
 fi
 
-rm -Rf "${TMP_DIR}"
-need_ok "couldn't rm temporary installation directory"
+verify_hash() {
+    remote_sha256="$1"
+    local_file="$2"
+
+    msg "Downloading ${remote_sha256}"
+    remote_sha256=`"${CFG_CURL}" -f "${remote_sha256}"`
+    if [ "$?" -ne 0 ]; then
+        rm -Rf "${CFG_TMP_DIR}"
+        err "Failed to download ${remote_url}"
+    fi
+
+    msg "Verifying hash"
+    local_sha256=$(calculate_hash "${local_file}")
+    if [ "$?" -ne 0 ]; then
+        rm -Rf "${CFG_TMP_DIR}"
+        err "Failed to compute hash for ${local_tarball}"
+    fi
+
+    # We only need the sha, not the filenames
+    remote_sha256=`echo ${remote_sha256} | cut -f 1 -d ' '`
+    local_sha256=`echo ${local_sha256} | cut -f 1 -d ' '`
+
+    if [ "${remote_sha256}" != "${local_sha256}" ]; then
+        rm -Rf "${CFG_TMP_DIR}"
+        errmsg="invalid sha256.\n"
+        errmsg="$errmsg ${remote_sha256}\t${remote_tarball}\n"
+        errmsg="$errmsg ${local_sha256}\t${local_tarball}"
+        err "$errmsg"
+    fi
+}
+
+# Fetch the package. Optionally caches the tarballs.
+download_package() {
+    remote_tarball="$1"
+    local_tarball="$2"
+    remote_sha256="${remote_tarball}.sha256"
+
+    # Check if we've already downloaded this file.
+    if [ -e "${local_tarball}.tmp" ]; then
+        msg "Resuming ${remote_tarball} to ${local_tarball}"
+
+        "${CFG_CURL}" -f -C - -o "${local_tarball}.tmp" "${remote_tarball}"
+        if [ $? -ne 0 ]
+        then
+            rm -Rf "${CFG_TMP_DIR}"
+            err "failed to download installer"
+        fi
+
+        mv "${local_tarball}.tmp" "${local_tarball}"
+    elif [ ! -e "${local_tarball}" ]; then
+        msg "Downloading ${remote_tarball} to ${local_tarball}"
+
+        "${CFG_CURL}" -f -o "${local_tarball}.tmp" "${remote_tarball}"
+        if [ $? -ne 0 ]
+        then
+            rm -Rf "${CFG_TMP_DIR}"
+            err "failed to download installer"
+        fi
+
+        mv "${local_tarball}.tmp" "${local_tarball}"
+    fi
+
+    verify_hash "${remote_sha256}" "${local_tarball}"
+}
+
+# Wrap all the commands needed to install a package.
+install_package() {
+    local_tarball="$1"
+    install_script="$2"
+
+    msg "Extracting ${local_tarball}"
+    (cd "${CFG_TMP_DIR}" && "${CFG_TAR}" -xzf "${local_tarball}")
+    if [ $? -ne 0 ]; then
+        rm -Rf "${CFG_TMP_DIR}"
+        err "failed to unpack installer"
+    fi
+
+    sh "${install_script}" "${CFG_INSTALL_FLAGS}"
+    if [ $? -ne 0 ]
+    then
+        rm -Rf "${CFG_TMP_DIR}"
+        err "failed to install Rust"
+    fi
+}
+
+# It's possible that curl could be interrupted partway though downloading
+# `rustup.sh`, truncating the file. This could be especially bad if we were in
+# the middle of a line that would run "rm -rf ". To protect against this, we
+# wrap up the `rustup.sh` destructive functionality in this helper function,
+# which we call as the last thing we do. This means we will not do anything
+# unless we have the entire file downloaded.
+install_packages() {
+    rm -Rf "${CFG_TMP_DIR}"
+    need_ok "failed to remove temporary installation directory"
+
+    mkdir -p "${CFG_TMP_DIR}"
+    need_ok "failed to create create temporary installation directory"
+
+    # If we're saving our nightlies, put them in $HOME/.rustup.
+    if [ -n "${CFG_SAVE}" ]
+    then
+        RUST_DOWNLOAD_DIR="${HOME}/.rustup/${CFG_DATE}"
+    else
+        RUST_DOWNLOAD_DIR="${CFG_TMP_DIR}"
+    fi
+
+    mkdir -p "${RUST_DOWNLOAD_DIR}"
+    need_ok "failed to create create download directory"
+
+    RUST_LOCAL_TARBALL="${RUST_DOWNLOAD_DIR}/${RUST_TARBALL_NAME}"
+
+    download_package \
+        "${RUST_URL}/${RUST_TARBALL_NAME}" \
+        "${RUST_LOCAL_TARBALL}"
+
+    install_package \
+        "${RUST_LOCAL_TARBALL}" \
+        "${RUST_LOCAL_INSTALL_SCRIPT}"
+
+    rm -Rf "${CFG_TMP_DIR}"
+    need_ok "couldn't rm temporary installation directory"
+}
+
+install_packages
