@@ -425,6 +425,11 @@ autocmd BufRead,BufNewFile {*.inc} set filetype=htmldjango
 autocmd BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru} setlocal filetype=ruby
 
 
+" Customize markdown file settings
+autocmd FileType *.md set wrap|set linebreak|set nolist
+autocmd FileType *.markdown set wrap|set linebreak|set nolist
+
+
 " Always turn on syntax highlighting for diffs
 augroup PatchDiffHighlight
     autocmd!
