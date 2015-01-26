@@ -73,3 +73,6 @@
 [submodule "vim/bundle/jellybeans.vim"]
 	path = vim/bundle/jellybeans.vim
 	url = git@github.com:nanotech/jellybeans.vim.git
+[submodule "vim/bundle/vim-align"]
+	path = vim/bundle/vim-align
+	url = https://github.com/tsaleh/vim-align.git
