@@ -52,11 +52,6 @@ task :install => [ :install_dotfiles, :install_bins ]
 task :update do
   system("git submodule foreach git checkout master")
   system("git submodule foreach git up")
-
-  rust_dir = File.expand_path('~/src/rust')
-  Dir.chdir(rust_dir) do
-    FileUtils.cp_r(Dir.glob(File.join(rust_dir, 'src/etc/vim/*')), File.join(basedir, 'vim/bundle/rust/'), :verbose => true)
-  end if File.exists?(rust_dir)
 end
 
 task :default => [ :update ]
