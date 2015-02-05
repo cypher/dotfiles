@@ -529,9 +529,6 @@ let g:ctrlp_max_files = 50000
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
-  let g:ackprg = 'ag --nogroup --column'
-  let g:ack_wildignore = 0
-
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor
 
@@ -545,8 +542,6 @@ if executable('ag')
     \ }
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
-else
-  let g:ackprg = 'ack'
 endif
 
 
