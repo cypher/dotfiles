@@ -55,6 +55,10 @@
 \set tsize '(SELECT table_schema, table_name, pg_size_pretty(size) AS size, pg_size_pretty(total_size) AS total_size FROM (:rtsize) x ORDER BY x.size DESC, x.total_size DESC, table_schema, table_name)'
 
 
+-- Alternate unused indexes query, via http://jmorano.moretrix.com/2014/02/postgresql-monitor-unused-indexes/
+\set unusedindexes '(SELECT relid::regclass AS table, indexrelid::regclass AS index, pg_size_pretty(pg_relation_size(indexrelid::regclass)) AS index_size, idx_tup_read, idx_tup_fetch, idx_scan FROM pg_stat_user_indexes JOIN pg_index USING (indexrelid) WHERE idx_scan = 0 AND indisunique IS FALSE)'
+
+
 
 -- Return to normal verbosity
 \unset QUIET
