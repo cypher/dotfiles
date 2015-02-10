@@ -38,7 +38,7 @@
 
 -- Shorthand to show locks
 -- TODO: Doesn't quite work with 9.3 yet
-\set locks 'SELECT w.locktype AS waiting_locktype,w.relation::regclass AS waiting_table,w.transactionid, substr(w_stm.current_query,1,20) AS waiting_query,w.mode AS waiting_mode,w.pid AS waiting_pid,other.locktype AS other_locktype,other.relation::regclass AS other_table,other_stm.current_query AS other_query,other.mode AS other_mode,other.pid AS other_pid,other.granted AS other_granted FROM pg_catalog.pg_locks AS w JOIN pg_catalog.pg_stat_activity AS w_stm ON (w_stm.procpid = w.pid) JOIN pg_catalog.pg_locks AS other ON ((w.\"database\" = other.\"database\" AND w.relation  = other.relation) OR w.transactionid = other.transactionid) JOIN pg_catalog.pg_stat_activity AS other_stm ON (other_stm.procpid = other.pid) WHERE NOT w.granted AND w.pid <> other.pid;'
+\set locks 'SELECT w.locktype AS waiting_locktype,w.relation::regclass AS waiting_table,w.transactionid, substr(w_stm.query,1,20) AS waiting_query,w.mode AS waiting_mode,w.pid AS waiting_pid,other.locktype AS other_locktype,other.relation::regclass AS other_table, other_stm.query AS other_query,other.mode AS other_mode,other.pid AS other_pid,other.granted AS other_granted FROM pg_catalog.pg_locks AS w JOIN pg_catalog.pg_stat_activity AS w_stm ON (w_stm.pid = w.pid) JOIN pg_catalog.pg_locks AS other ON ((w.\"database\" = other.\"database\" AND w.relation  = other.relation) OR w.transactionid = other.transactionid) JOIN pg_catalog.pg_stat_activity AS other_stm ON (other_stm.pid = other.pid) WHERE NOT w.granted AND w.pid <> other.pid;'
 
 
 -- Show current backend status with queries, longest running on top
