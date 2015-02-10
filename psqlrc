@@ -45,6 +45,16 @@
 \set top 'SELECT datname, pid, query, state, waiting, application_name FROM pg_stat_activity ORDER BY backend_start;'
 
 
+-- 4 helpful queries from radek http://radek.cc/2009/08/15/psqlrc-tricks-table-sizes/
+\set trashindexes '( SELECT s.schemaname AS schema, s.relname AS relation, s.indexrelname AS index, s.idx_scan AS index_scans, pg_size_pretty(pg_relation_size(s.relid)) AS "table size", pg_size_pretty(pg_relation_size(s.indexrelid)) AS "index size" FROM pg_stat_user_indexes s JOIN pg_index i ON i.indexrelid=s.indexrelid LEFT JOIN pg_constraint c ON i.indrelid=c.conrelid AND array_to_string(i.indkey, '' '') = array_to_string(c.conkey, '' '') WHERE i.indisunique IS false AND pg_relation_size(s.relid) > 1000000 AND s.idx_scan < 100000 AND c.confrelid IS NULL ORDER BY s.idx_scan ASC, pg_relation_size(s.relid) DESC )'
+
+\set missingindexes '( SELECT src_table, dst_table, fk_name, pg_size_pretty(s_size) AS s_size, pg_size_pretty(d_size) as d_size, d FROM ( SELECT DISTINCT ON (1,2,3,4,5) textin(regclassout(c.conrelid)) AS src_table, textin(regclassout(c.confrelid)) AS dst_table, c.conname AS fk_name, pg_relation_size(c.conrelid) AS s_size, pg_relation_size(c.confrelid) AS d_size, array_upper(di.indkey::int[], 1) + 1 - array_upper(c.conkey::int[], 1) AS d FROM pg_constraint c LEFT JOIN pg_index di ON di.indrelid = c.conrelid AND array_to_string(di.indkey, '' '') ~ (''^'' || array_to_string(c.conkey, '' '') || ''( |$)'') JOIN pg_stat_user_tables st ON st.relid = c.conrelid WHERE c.contype = ''f'' ORDER BY 1,2,3,4,5,6 ASC) mfk WHERE mfk.d IS DISTINCT FROM 0 AND mfk.s_size > 1000000 ORDER BY mfk.s_size DESC, mfk.d DESC )'
+
+\set rtsize '(SELECT table_schema, table_name, pg_relation_size( quote_ident( table_schema ) || \'.\' || quote_ident( table_name ) ) AS size, pg_total_relation_size( quote_ident( table_schema ) || \'.\' || quote_ident( table_name ) ) AS total_size FROM information_schema.tables WHERE table_type = \'BASE TABLE\' AND table_schema NOT IN (\'information_schema\', \'pg_catalog\') ORDER BY pg_relation_size( quote_ident( table_schema ) || \'.\' || quote_ident( table_name ) ) DESC, table_schema, table_name)'
+
+\set tsize '(SELECT table_schema, table_name, pg_size_pretty(size) AS size, pg_size_pretty(total_size) AS total_size FROM (:rtsize) x ORDER BY x.size DESC, x.total_size DESC, table_schema, table_name)'
+
+
 
 -- Return to normal verbosity
 \unset QUIET
