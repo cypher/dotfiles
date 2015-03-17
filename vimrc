@@ -430,6 +430,10 @@ autocmd FileType *.md set wrap|set linebreak|set nolist
 autocmd FileType *.markdown set wrap|set linebreak|set nolist
 
 
+" Git Commit
+autocmd Filetype gitcommit setlocal spell textwidth=72
+
+
 " Always turn on syntax highlighting for diffs
 augroup PatchDiffHighlight
     autocmd!
