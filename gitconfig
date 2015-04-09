@@ -17,7 +17,7 @@
 	aa = add --all --intent-to-add
 	ae = add --edit
 	ai = add --interactive
-	amend = commit --amend -C HEAD
+	amend = commit --amend --reuse-message=HEAD
 	ap = add --patch
 	at = add --intent-to-add
 	au = add --update
