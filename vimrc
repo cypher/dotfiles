@@ -223,7 +223,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 " Opens a tab edit command with the path of the currently edited file filled in
 " Normal mode: <leader>t
-map <leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
+" map <leader>t :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 
 " Shift-tab to insert a hard tab
@@ -415,7 +415,7 @@ autocmd FileType go setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 exp
 
 
 " Handy for running go tests
-autocmd FileType go map <leader>t :w<CR> :set makeprg=go\ test<CR> :make<CR>
+" autocmd FileType go map <leader>t :w<CR> :set makeprg=go\ test<CR> :make<CR>
 
 
 " .inc files are Django templates
