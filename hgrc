@@ -4,22 +4,6 @@ ssh = ssh -C
 
 [defaults]
 annotate = --user --changeset
-# suppress noisy extdiff header message
-cdiff = -q
-
-[extdiff]
-cmd.ksdiff = /usr/local/bin/ksdiff-wrapper
-opts.ksdiff = hg
-
-[extensions]
-fetch =
-#hgext.mq =
-#transplant =
-hgext.extdiff =
-
-[extdiff]
-cmd.ksdiff = /usr/local/bin/ksdiff
-opts.ksdiff = --changeset --wait --filelist
 
 [ui]
 merge = Kaleidoscope
