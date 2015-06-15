@@ -1,0 +1,3 @@
+--cookies /Users/cypher/.youtubedl-cookies
+--console-title
+--format "137+140/bestvideo[ext=mp4]+bestaudio[ext=m4a]/best"

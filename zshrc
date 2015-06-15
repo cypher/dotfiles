@@ -407,9 +407,7 @@ function mkcd () {
     cd "$*"
 }
 
-function ydl () {
-    /usr/bin/python /usr/local/bin/youtube-dl --cookies ~/.youtubedl-cookies --continue --title --console-title $*
-}
+alias ydl=youtube-dl
 
 # If bcat (Browser cat, http://rtomayko.github.com/bcat/) is invoked as `btee', it acts like `tee(1)'
 alias btee=bcat
