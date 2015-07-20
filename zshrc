@@ -579,6 +579,11 @@ function julia() {
 }
 
 
+function asmdoc() {
+  sqlite3 ~/.x86-64.sqlite "$(echo -e "SELECT description FROM instructions WHERE mnem=UPPER('$1')")" | $PAGER
+}
+
+
 ##############################################################################
 # Git aliases/functions/stuff
 ##############################################################################

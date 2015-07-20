@@ -51,6 +51,8 @@ export LESS="-R"
 
 export CLICOLOR=1
 
+export PAGER="less"
+
 # Rubinius
 export RBXOPT="-Xagent.start -X19"
 
