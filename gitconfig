@@ -60,6 +60,7 @@
 	wd = diff --word-diff="color"
 	wdc = diff --word-diff="color" --cached
 	push = push --tags
+	regret = reset
 
 	# Make stashing easier
 	st = stash
