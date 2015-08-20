@@ -88,3 +88,6 @@
 [submodule "vim/bundle/vim-capnp"]
 	path = vim/bundle/vim-capnp
 	url = git@github.com:cstrahan/vim-capnp.git
+[submodule "vim/bundle/vim-jinja2-syntax"]
+	path = vim/bundle/vim-jinja2-syntax
+	url = git@github.com:Glench/Vim-Jinja2-Syntax.git
