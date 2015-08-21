@@ -91,3 +91,6 @@
 [submodule "vim/bundle/vim-jinja2-syntax"]
 	path = vim/bundle/vim-jinja2-syntax
 	url = git@github.com:Glench/Vim-Jinja2-Syntax.git
+[submodule "vim/bundle/vim-crystal"]
+	path = vim/bundle/vim-crystal
+	url = git@github.com:rhysd/vim-crystal.git
