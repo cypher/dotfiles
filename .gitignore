@@ -5,3 +5,5 @@ vim/temp
 vim/.netrwhist
 cake/*
 emacs.d/elpa/
+config/fish/fish_history
+config/fish/fishd.*
