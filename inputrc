@@ -20,8 +20,8 @@ set bell-style none
 # the subset of the history starting with that text
 # is searched (like 4dos for e.g.).
 # Note to get rid of a line just Ctrl-C
-#"\e[B": history-search-forward
-#"\e[A": history-search-backward
+# "\e[B": history-search-forward
+# "\e[A": history-search-backward
 
 #$if Bash
 #  # F10 toggles mc on and off
@@ -36,3 +36,7 @@ set bell-style none
 # by default if one has their own .inputrc
 # (Don't have one on this system)
 #$include /etc/inputrc
+
+# These allow you to use ctrl+left/right arrow keys to jump the cursor over words
+"\e[5C": forward-word
+"\e[5D": backward-word
