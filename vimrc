@@ -6,6 +6,9 @@ set nocompatible
 " easier bundle management
 call pathogen#infect()
 
+" Set default encoding to UTF-8.
+set encoding=utf-8 fileencodings=
+
 " Make ',' the personal leader key
 let mapleader = ","
 let maplocalleader = ","
@@ -42,6 +45,7 @@ set shortmess=atI               " shorten command-line text and other info token
 set winwidth=80                 " Make sure the current split has at least 80 width
 set nojoinspaces                " Only use one space after ., ? or ! with a join command
 set clipboard=unnamed           " Yank and paste with the system clipboard
+set ttyfast                     " We have a fast terminal
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
