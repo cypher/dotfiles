@@ -1,12 +1,10 @@
---- 
+---
+install: --no-rdoc --no-ri --no-doc
+update: --no-rdoc --no-ri --no-doc
+benchmark: false
+backtrace: false
+update_sources: true
+verbose: true
+bulk_threshold: 1000
 sources:
-- http://gems.rubyforge.org
-- http://gems.github.com
-gem: --no-document
-search: --details --both
-test_options:
-  auto_test_on_install: false
-  install_development_dependencies: false
-  upload_results: true
-  force_install: true # set if you want to install gems even if they fail tests.
-  force_uninstall_on_failure: false
+- http://rubygems.org/
