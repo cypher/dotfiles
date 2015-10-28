@@ -48,3 +48,6 @@ Return a list of installed packages or nil for every skipped package."
 
 ;; (load-theme 'solarized-dark t)
 (load-theme 'solarized-light t)
+
+;; Remove the toolbar
+(tool-bar-mode -1)
