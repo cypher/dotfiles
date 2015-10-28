@@ -51,3 +51,8 @@ Return a list of installed packages or nil for every skipped package."
 
 ;; Remove the toolbar
 (tool-bar-mode -1)
+
+;; Automatically follow symlinks
+;; If set to 'nil', it won't "follow" the symlink, and edit it in place.
+;; However, version control related stuff won't be available
+(setq vc-follow-symlinks t)
