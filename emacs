@@ -56,3 +56,6 @@ Return a list of installed packages or nil for every skipped package."
 ;; If set to 'nil', it won't "follow" the symlink, and edit it in place.
 ;; However, version control related stuff won't be available
 (setq vc-follow-symlinks t)
+
+;; Make the Emacs window maximized on startup
+(toggle-frame-maximized)
