@@ -494,6 +494,7 @@ alias v.='mvim .'
 
 # Bundler:
 alias be='bundle exec'
+alias b='bundle'
 
 # For Rails:
 alias sc='./script/console'
