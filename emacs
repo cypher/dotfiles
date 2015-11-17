@@ -66,3 +66,10 @@ Return a list of installed packages or nil for every skipped package."
 (global-set-key (kbd "C-x <down>") 'shrink-window)
 (global-set-key (kbd "C-x <C-up>") 'enlarge-window)
 (global-set-key (kbd "C-x <C-down>") 'shrink-window)
+
+
+;; Configure python mode
+; (defun configure-python-mode
+;    (setq python-indent-offset 2))
+;
+; (add-hook 'python-mode-hook 'configure-python-mode)
