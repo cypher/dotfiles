@@ -450,6 +450,12 @@ augroup END
 " Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" rainbow parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
 " vim-commentary settings
 autocmd FileType sql set commentstring=--\ %s
 autocmd FileType vim set commentstring=\"\ %s
