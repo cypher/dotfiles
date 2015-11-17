@@ -59,3 +59,10 @@ Return a list of installed packages or nil for every skipped package."
 
 ;; Make the Emacs window maximized on startup
 (toggle-frame-maximized)
+
+
+;; Set up shortcuts to resize frames
+(global-set-key (kbd "C-x <up>") 'enlarge-window)
+(global-set-key (kbd "C-x <down>") 'shrink-window)
+(global-set-key (kbd "C-x <C-up>") 'enlarge-window)
+(global-set-key (kbd "C-x <C-down>") 'shrink-window)
