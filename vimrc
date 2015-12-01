@@ -434,7 +434,7 @@ autocmd FileType go setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 exp
 
 
 " .inc files are Django templates
-autocmd BufRead,BufNewFile {*.inc} set filetype=htmldjango
+autocmd BufRead,BufNewFile {*.inc} set filetype=jinja
 
 
 " Thorfile, Rakefile and Gemfile are Ruby
