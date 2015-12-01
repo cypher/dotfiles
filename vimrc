@@ -112,6 +112,8 @@ set statusline+=%r%=[%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]\ %
 " tag support
 set tags=./tags;
 
+" file for autosaved session
+let g:ausession=".vimsession"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text Formatting/Layout
