@@ -75,6 +75,15 @@ set complete=.,b,u,]            " Pull from keywords for completion in the curre
 set suffixes+=.old              " set of file name suffixes that will be given a lower priority when it comes to matching wildcards
 
 
+" Set spellfile to location that is guaranteed to exist,
+" can be symlinked to Dropbox or kept in Git
+" and managed outside of thoughtbot/dotfiles using rcm.
+set spellfile=$HOME/.vim-spell-en.utf-8.add
+
+" Autocomplete with dictionary words when spell check is on
+set complete+=kspell
+
+
 " This line will make Vim set out tab characters, trailing whitespace and
 " invisible spaces visually, and additionally use the # sign at the end of
 " lines to mark lines that extend off-screen. For more info, see :h listchars.
@@ -435,9 +444,13 @@ autocmd BufRead,BufNewFile {Gemfile,Rakefile,Thorfile,config.ru} setlocal filety
 " Customize markdown file settings
 autocmd FileType *.md set wrap|set linebreak|set nolist
 autocmd FileType *.markdown set wrap|set linebreak|set nolist
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 
+" Spell-check Markdown files
+autocmd FileType markdown setlocal spell
 
 " Git Commit
+" (Spell check, max line length of 72)
 autocmd Filetype gitcommit setlocal spell textwidth=72
 
 
