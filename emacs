@@ -3,7 +3,7 @@
 (require 'package)
 
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+; (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 
 (setq package-enable-at-startup nil)
@@ -31,14 +31,20 @@ Return a list of installed packages or nil for every skipped package."
 
 ;; Make sure we always have these packages
 (ensure-package-installed 'evil
-			  'projectile
-			  'magit
-			  'helm
-			  'python-django
-			  'minitest
-			  'ag
-			  'color-theme
-			  'solarized-theme
+				'projectile
+				'magit
+				'helm
+				'python-django
+				'minitest
+				'ag
+				'color-theme
+				'solarized-theme
+				;; Via http://www.lambdacat.com/post-modern-emacs-setup-for-erlang/
+				'popup
+				'company
+				'flycheck
+				'flycheck-tip
+				; 'flycheck-rust
     )
 
 ;; Vim is still the better text editor
@@ -73,3 +79,17 @@ Return a list of installed packages or nil for every skipped package."
 ;    (setq python-indent-offset 2))
 ;
 ; (add-hook 'python-mode-hook 'configure-python-mode)
+
+
+;; Configure flycheck
+(require 'flycheck)
+
+; Flycheck setup here
+
+;; Get Flycheck messages as tool tips
+(require 'flycheck-tip)
+(flycheck-tip-use-timer 'verbose)
+
+
+;; Enable Autocomplete
+(add-hook 'after-init-hook 'global-company-mode)
