@@ -427,6 +427,7 @@ autocmd FileType html setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 e
 autocmd FileType htmldjango setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 autocmd FileType rust setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 autocmd FileType swift setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType c setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 autocmd FileType go setlocal autoindent tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 
 
