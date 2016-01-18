@@ -28,7 +28,7 @@ exit($?.to_i) unless $? == 0
 if rebase
   pull_args.push '--rebase'
 
-  msg = `git stash save "Auto-stash by #{File.basename($0)} script"`
+  msg = `git stash save "Auto-stash by #{File.basename($0)} script on #{Time.today}"`
   stashed = msg !~ /^No local changes to save$/
 end
 
