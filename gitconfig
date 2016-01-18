@@ -149,6 +149,7 @@
 
 [push]
 	default = simple
+	recurseSubmodules = check
 
 
 [pull]
