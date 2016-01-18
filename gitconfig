@@ -213,9 +213,15 @@
 
 [status]
 	submodulesummary = true
+
 [init]
 	templatedir = ~/.git-template
+
 [diff "plist"]
 	textconv = "plutil -convert xml1 -o -"
+
 [diff "localizablestrings"]
 	textconv = "iconv -f utf-16 -t utf-8"
+
+[remote]
+	pushdefault = origin
