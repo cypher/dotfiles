@@ -133,9 +133,9 @@ set autoindent                  " autoindent
 set nosmartindent               " No smartindent, because…
 set cindent                     " C-style indenting is better
 
-set tabstop=2                   " tab spacing (settings below are just to unify it)
-set softtabstop=2               " unify
-set shiftwidth=2                " unify
+set tabstop=4                   " tab spacing (settings below are just to unify it)
+set softtabstop=4               " unify
+set shiftwidth=4                " unify
 set expandtab                   " use spaces instead of tabs
 set smarttab                    " use tabs at the start of a line, spaces elsewhere
 
