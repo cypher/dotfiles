@@ -704,8 +704,6 @@ function preexec () {
 if type rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # pyenv
 if type pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-# swiftenv
-if type swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
 
 
 builtin rehash
