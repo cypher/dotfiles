@@ -660,6 +660,10 @@ function fixpngs ()
         fi
 }
 
+# Quickly purge the contents of all Simulators:
+# (via https://twitter.com/bobmccune/status/692779281559199744)
+alias purge-simulators='xcrun simctl erase all'
+
 
 ##############################################################################
 # Functions for displaying neat stuff in *term title
