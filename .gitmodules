@@ -97,6 +97,9 @@
 [submodule "vim/bundle/vim-test"]
 	path = vim/bundle/vim-test
 	url = git@github.com:janko-m/vim-test.git
+[submodule "vim/bundle/vim-eunuch"]
+	path = vim/bundle/vim-eunuch
+	url = git@github.com:tpope/vim-eunuch.git
 [submodule "vim/bundle/vim-jekyll"]
 	path = vim/bundle/vim-jekyll
 	url = git@github.com:csexton/jekyll.vim.git
