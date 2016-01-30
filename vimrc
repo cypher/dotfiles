@@ -531,6 +531,35 @@ let g:syntastic_check_on_open=1
 let g:html_indent_tags = 'li\|p'
 
 
+" vim-test
+" nmap <silent> <leader>t :TestNearest<CR>
+" nmap <silent> <leader>T :TestFile<CR>
+" nmap <silent> <leader>a :TestSuite<CR>
+" nmap <silent> <leader>l :TestLast<CR>
+" nmap <silent> <leader>g :TestVisit<CR>
+
+" let test#strategy = "basic"
+" make test commands execute using dispatch.vim
+" let test#strategy = "dispatch"
+" Use this for Neovim
+" let test#strategy = "neovim"
+" Sends test commands to Terminal (useful in MacVim GUI).
+" let test#strategy = "terminal"
+" Sends test commands to iTerm2 >= 2.9 (useful in MacVim GUI).
+" let test#strategy = "iterm"
+
+" Set sticky cli options
+" let test#ruby#minitest#options = '--verbose'
+
+" Set executable
+" let test#ruby#rspec#executable = 'foreman run rspec'
+
+" vim-test defaults to the first available test runner. The setting below
+" foces a specific one
+" Runners available are 'pytest', 'nose', 'djangotest' and 'djangonose'
+" let test#python#runner = 'pytest'
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CtrlP
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -538,7 +567,7 @@ let g:html_indent_tags = 'li\|p'
 nnoremap <leader>m :CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>o :CtrlPMixed<CR>
-nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
+" nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 nnoremap <leader>] :CtrlPTag<CR>
 
 
