@@ -560,6 +560,12 @@ let g:html_indent_tags = 'li\|p'
 " let test#python#runner = 'pytest'
 
 
+" jekyll.vim
+map <leader>jb  :JekyllBuild<CR>
+map <leader>jn  :JekyllPost<CR>
+map <leader>jl  :JekyllList<CR>
+
+
 " vim-airline
 " Only load the specified extensions
 " let g:airline_extensions = ['branch', 'tabline']
