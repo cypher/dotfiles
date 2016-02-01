@@ -564,6 +564,8 @@ let g:html_indent_tags = 'li\|p'
 map <leader>jb  :JekyllBuild<CR>
 map <leader>jn  :JekyllPost<CR>
 map <leader>jl  :JekyllList<CR>
+map <leader>jc  :JekyllCommit<CR>
+map <leader>jp  :JekyllPublish<CR>
 
 
 " vim-airline
