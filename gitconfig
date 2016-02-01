@@ -225,3 +225,12 @@
 
 [remote]
 	pushdefault = origin
+
+[transfer]
+	fsckobjects = true
+
+[fetch]
+	fsckobjects = true
+
+[receive]
+	fsckobjects = true
