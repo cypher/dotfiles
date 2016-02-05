@@ -525,6 +525,8 @@ let g:syntastic_css_checkers=['csslint']
 let g:syntastic_html_checkers=[] " ['validator', 'w3']
 " Let syntax checking to check on open as well as save
 let g:syntastic_check_on_open=1
+" If multiple checkers are defined, aggregate their output
+let g:syntastic_aggregate_errors = 1
 
 
 " Treat <li> and <p> tags like the block tags they are
