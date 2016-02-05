@@ -227,10 +227,10 @@
 	pushdefault = origin
 
 [transfer]
-	fsckobjects = true
+	fsckObjects = true
 
 [fetch]
-	fsckobjects = true
+	fsckObjects = true
 
 [receive]
-	fsckobjects = true
+	fsckObjects = true
