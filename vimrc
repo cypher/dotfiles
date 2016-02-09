@@ -150,7 +150,8 @@ set background=dark             " we are using a dark background
 
 " colorscheme asmdev
 " colorscheme github
-colorscheme jellybeans
+" colorscheme jellybeans
+colorscheme smyck
 
 " Highlight trailing whitespace
 highlight WhitespaceEOL ctermbg=DarkYellow guibg=DarkYellow
