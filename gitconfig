@@ -46,6 +46,7 @@
 	# Create an empty commit, only having a commit message
 	msg = commit --allow-empty -m
 	p = cherry-pick -s
+	pf = push --force-with-lease
 	pick = cherry-pick
 	pr = !hub pull-request
 	prune-remotes = "!for remote in `git remote`; do git remote prune $remote; done"
