@@ -32,6 +32,11 @@ then
   export PATH=$PATH:$GOPATH/bin
 fi
 
+if [[ -d "${HOME}/.cargo/bin" ]]
+then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
 export LANGUAGE="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
