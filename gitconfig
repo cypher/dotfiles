@@ -106,6 +106,14 @@
 	unassume = update-index --no-assume-unchanged
 	unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
 
+	# The following aliases were nabbed from http://kamalmarhubi.com/blog/2016/02/29/my-git-aliases/
+	# Print absolute path of repo root directory
+	root = rev-parse --show-toplevel
+	# Get to a detached HEAD state on purpose! Usage: `git detach [REF]`
+	detach = !sh -c 'git checkout $(git rev-parse ${1:-HEAD})' --
+	# Print short sha1; usage: `git sha1 [REF]`
+	sha1 = !sh -c 'git rev-parse --short ${1:-HEAD}' --
+
 [advice]
 	pushNonFastForward = false
 	statusHints = false
