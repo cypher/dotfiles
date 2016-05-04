@@ -5,6 +5,13 @@ ssh = ssh -C
 [defaults]
 annotate = --user --changeset
 
+[extensions]
+hgext.extdiff =
+
+[extdiff]
+cmd.ksdiff = /usr/local/bin/ksdiff
+opts.ksdiff = --changeset --wait --filelist
+
 [ui]
 merge = Kaleidoscope
 
