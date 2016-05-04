@@ -45,6 +45,7 @@
 	markdown = !BN=$(git name-rev --name-only HEAD) && git log --no-merges --grep=$BN --pretty=oneline | awk -F"$BN: " '{print \"-\", $NF}' | uniq
 	# Create an empty commit, only having a commit message
 	msg = commit --allow-empty -m
+	mt = mergetool
 	p = cherry-pick -s
 	pf = push --force-with-lease
 	pick = cherry-pick
