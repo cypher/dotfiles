@@ -55,6 +55,15 @@
 \set tsize '(SELECT table_schema, table_name, pg_size_pretty(size) AS size, pg_size_pretty(total_size) AS total_size FROM (:rtsize) x ORDER BY x.size DESC, x.total_size DESC, table_schema, table_name)'
 
 
+-- Performance helpers, from http://okigiveup.net/what-postgresql-tells-you-about-its-performance/
+\set cache_hit_ratio 'SELECT blks_hit::float/(blks_read + blks_hit) as cache_hit_ratio FROM pg_stat_database WHERE datname=current_database()'
+\set successful_xact_ratio 'SELECT xact_commit::float/(xact_commit + xact_rollback) as successful_xact_ratio FROM pg_stat_database WHERE datname=current_database()'
+\set idx_scan_ratio 'SELECT SUM(idx_scan)/(SUM(idx_scan) + SUM(seq_scan)) as idx_scan_ratio FROM pg_stat_all_tables WHERE schemaname=\'public\''
+\set idx_detailed_scan_ratio 'SELECT relname, idx_scan::float/(idx_scan + seq_scan + 1) as idx_scan_ratio FROM pg_stat_all_tables WHERE schemaname=\'public\' ORDER BY idx_scan_ratio ASC'
+\set db_performance 'SELECT numbackends, blks_hit::float/(blks_read + blks_hit) AS cache_hit_ratio, xact_commit::float/(xact_commit + xact_rollback) AS successful_xact_ratio FROM pg_stat_database WHERE datname=current_database()'
+\set 'SELECT queryid, total_time, (total_time::float / calls) AS mean_time, LEFT(query, 40) AS short_query FROM pg_stat_statements ORDER BY total_time DESC LIMIT 10'
+
+
 -- Alternate unused indexes query, via http://jmorano.moretrix.com/2014/02/postgresql-monitor-unused-indexes/
 \set unusedindexes '(SELECT relid::regclass AS table, indexrelid::regclass AS index, pg_size_pretty(pg_relation_size(indexrelid::regclass)) AS index_size, idx_tup_read, idx_tup_fetch, idx_scan FROM pg_stat_user_indexes JOIN pg_index USING (indexrelid) WHERE idx_scan = 0 AND indisunique IS FALSE)'
 
