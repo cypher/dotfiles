@@ -25,8 +25,10 @@ values."
      ;; ----------------------------------------------------------------
      ;; auto-completion
      ;; better-defaults
+     osx
      emacs-lisp
      git
+     github
      markdown
      org
      (shell :variables
@@ -42,6 +44,14 @@ values."
      sql
      fsharp
      c-c++
+
+     ansible
+     salt
+     terraform
+
+     tmux
+
+     xkcd
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
