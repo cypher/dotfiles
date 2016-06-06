@@ -20,4 +20,6 @@ PATH="$PATH:$RIPDIR/active/bin"
 export RIPDIR RUBYLIB PATH
 # -- end rip config -- #
 
+export PATH="$HOME/.cargo/bin:$PATH"
+
 [ -f ~/.bashrc ]    && . ~/.bashrc
