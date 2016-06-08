@@ -18,7 +18,7 @@ set mousehide               " Hide the mouse when typing text
 " GUI Options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set gfn=Meslo\ LG\ S\ DZ:h10.00
+set gfn=Meslo\ LG\ S\ DZ\ for\ Powerline:h10.00
 
 set antialias               " MacVim: smooth fonts.
 
