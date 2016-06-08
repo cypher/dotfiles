@@ -1,71 +1,70 @@
 require 'find'
 
 class Scm < Thor
+  include Thor::Actions
 
   desc "fetch", "Fetches the newest updates for all repositories (git, svn, bzr, hg, darcs) in your current working directory and its subdirectories"
   def fetch
     find_scm_dirs(File.expand_path(Dir.getwd)) do |scm|
       case scm
       when ".svn"
-        system("svn up")
+        run("svn up")
       when ".git"
-        unless git_svn?
-          system("git remote update")
+        if git_svn?
+          run("git svn fetch")
         else
-          system("git svn fetch")
+          run("git remote update")
         end
       when ".bzr"
-        system("bzr update")
+        run("bzr update")
       when ".hg"
-        system("hg pull")
+        run("hg pull")
       when "_darcs"
-        system("darcs pull --all")
+        run("darcs pull --all")
       end
     end
   end
 
   desc "update", "Updates all repositories (git, svn, bzr, hg, darcs) in your current working directory and its subdirectories"
+  method_options aliases: "up"
   def update
     find_scm_dirs(File.expand_path(Dir.getwd)) do |scm|
       case scm
       when ".svn"
-        system("svn up")
+        run("svn up")
       when ".git"
         if git_svn?
-          system("git svn fetch")
-          system("git svn rebase")
+          run("git svn fetch")
+          run("git svn rebase")
         else
-          system("git remote update")
+          run("git remote update")
           unless git_bare?
             if File.executable?(File.expand_path("~/bin/git-up"))
-              system("git up")
+              run("git up")
             else
-              system("git pull --progress --summary --stat --ff-only ")
+              run("git pull --progress --summary --stat --ff-only ")
             end
           end
         end
       when ".bzr"
-        system("bzr pull")
+        run("bzr pull")
       when ".hg"
-        system("hg pull -u")
+        run("hg pull -u")
       when "_darcs"
-        system("darcs pull --all")
+        run("darcs pull --all")
       end
     end
   end
 
-  desc 'up', "An alias for 'update'"
-  alias :up :update
-
   desc "gc", "Executes git gc on all git repos"
-  method_options :aggressive => :boolean
+  method_options aggressive: false
   def gc()
     find_scm_dirs(File.expand_path(Dir.getwd)) do |scm|
       if scm == ".git"
         if options[:aggressive]
-          system("git gc --aggressive --prune=now")
+          run("git gc --aggressive --prune=now")
         else
-          system("git gc --prune=now")
+          run("git gc --prune=now")
         end
       end
     end
@@ -93,8 +92,8 @@ class Scm < Thor
           yield scm
         end
       else
-        Dir[File.join(path, "*")].each do |path|
-          find_scm_dirs(path, &block) if File.directory?(path)
+        Dir[File.join(path, "*")].each do |dir_path|
+          find_scm_dirs(dir_path, &block) if File.directory?(dir_path)
         end
       end
     end
