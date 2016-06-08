@@ -108,7 +108,7 @@ map <leader>jp  :JekyllPublish<CR>
 " Only load the specified extensions
 " let g:airline_extensions = ['branch', 'tabline']
 " enable/disable automatic population of the `g:airline_symbols` dictionary with powerline symbols.
-" let g:airline_powerline_fonts=0
+let g:airline_powerline_fonts = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
