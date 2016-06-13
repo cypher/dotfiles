@@ -61,7 +61,7 @@
 \set idx_scan_ratio 'SELECT SUM(idx_scan)/(SUM(idx_scan) + SUM(seq_scan)) as idx_scan_ratio FROM pg_stat_all_tables WHERE schemaname=\'public\''
 \set idx_detailed_scan_ratio 'SELECT relname, idx_scan::float/(idx_scan + seq_scan + 1) as idx_scan_ratio FROM pg_stat_all_tables WHERE schemaname=\'public\' ORDER BY idx_scan_ratio ASC'
 \set db_performance 'SELECT numbackends, blks_hit::float/(blks_read + blks_hit) AS cache_hit_ratio, xact_commit::float/(xact_commit + xact_rollback) AS successful_xact_ratio FROM pg_stat_database WHERE datname=current_database()'
-\set 'SELECT queryid, total_time, (total_time::float / calls) AS mean_time, LEFT(query, 40) AS short_query FROM pg_stat_statements ORDER BY total_time DESC LIMIT 10'
+\set mean_query_time 'SELECT queryid, total_time, (total_time::float / calls) AS mean_time, LEFT(query, 40) AS short_query FROM pg_stat_statements ORDER BY total_time DESC LIMIT 10'
 
 
 -- Alternate unused indexes query, via http://jmorano.moretrix.com/2014/02/postgresql-monitor-unused-indexes/
