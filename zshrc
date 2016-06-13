@@ -752,6 +752,9 @@ if type rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # pyenv
 if type pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
+# swiftenv
+if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+
 
 builtin rehash
 
