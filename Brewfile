@@ -1,8 +1,48 @@
 # Required/useful software for using the stuff in the dotfiles
-install rbenv
-install curl
-install curl-ca-bundle
-install coreutils
-install ack
-install dos2unix
-install ctags
+# Install via (assuming you're in the directory where this file is):
+# $ brew tap Homebrew/bundle
+# $ brew bundle
+tap 'homebrew/bundle'
+tap 'homebrew/core'
+tap 'homebrew/dupes'
+brew 'afl-fuzz'
+brew 'openssl'
+brew 'ansible'
+brew 'capnp'
+brew 'coreutils'
+brew 'crystal-lang'
+brew 'ctags'
+brew 'curl'
+brew 'dos2unix'
+brew 'git'
+brew 'exercism'
+brew 'postgresql'
+brew 'git-lfs'
+brew 'gnu-sed'
+brew 'graphviz'
+brew 'httpie'
+brew 'mruby'
+brew 'ncftp'
+brew 'nomad'
+brew 'otto'
+brew 'pngcrush'
+brew 'ponyc'
+brew 'postgis'
+brew 'psgrep'
+brew 'pstree'
+brew 'pv'
+brew 'ruby-build'
+brew 'rbenv'
+brew 'socat'
+brew 'sqlmap'
+brew 'ssh-copy-id'
+brew 'syncthing'
+brew 'tarsnap'
+brew 'terraform'
+brew 'the_silver_searcher'
+brew 'tmux'
+brew 'tree'
+brew 'vim'
+brew 'youtube-dl'
+brew 'zsh'
+brew 'homebrew/dupes/openssh'
