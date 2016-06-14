@@ -62,7 +62,7 @@ class Dotfiles < Thor
 
   no_commands do
     def basedir
-      File.dirname(__FILE__)
+      File.expand_path('..', __FILE__)
     end
   end
 end
