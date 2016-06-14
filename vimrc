@@ -9,9 +9,8 @@ call pathogen#infect()
 source $HOME/.vim/basics.vim
 source $HOME/.vim/bindings.vim
 source $HOME/.vim/editing.vim
-source $HOME/.vim/plugins.vim
 source $HOME/.vim/window.vim
-source $HOME/.vim/filetypes.vim
+source $HOME/.vim/extensions.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Load local config
