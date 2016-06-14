@@ -110,6 +110,15 @@ let g:syntastic_html_checkers=[] " ['validator', 'w3']
 let g:syntastic_check_on_open=1
 " If multiple checkers are defined, aggregate their output
 let g:syntastic_aggregate_errors = 1
+" Fun symbols
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
 
 
 " Treat <li> and <p> tags like the block tags they are
