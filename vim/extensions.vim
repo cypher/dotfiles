@@ -101,7 +101,7 @@ let g:syntastic_python_checkers=['flake8', 'pylama']
 let g:syntastic_python_flake8_args='--ignore=E501,E401,E221,E241'
 let g:syntastic_python_pylama_args='--ignore E501,E401,E221,E241'
 
-let g:syntastic_javascript_checkers=['jshint']
+let g:syntastic_javascript_checkers=['eslint']
 
 let g:syntastic_css_checkers=['csslint']
 
