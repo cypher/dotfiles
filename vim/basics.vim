@@ -123,9 +123,9 @@ let g:ausession=".vimsession"
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set formatoptions=tcrqnj        " See Help (complex)
-set autoindent                  " autoindent
-set nosmartindent               " No smartindent, because…
-set cindent                     " C-style indenting is better
+" set autoindent                  " autoindent
+set smartindent                 " Use smart indenting 
+" set cindent                     " Use C-style indentation
 
 set tabstop=4                   " tab spacing (settings below are just to unify it)
 set softtabstop=4               " unify
