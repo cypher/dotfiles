@@ -96,6 +96,13 @@ nmap <leader><space> :call whitespace#strip_trailing()<CR>
 " vmap <leader>a, :Tabularize /,\zs<CR>
 
 
+" Easy Align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+
 " Syntastic
 let g:syntastic_python_checkers=['flake8', 'pylama']
 let g:syntastic_python_flake8_args='--ignore=E501,E401,E221,E241'

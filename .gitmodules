@@ -115,3 +115,6 @@
 [submodule "vim/bundle/fsharp-vim"]
 	path = vim/bundle/fsharp-vim
 	url = git@github.com:kongo2002/fsharp-vim.git
+[submodule "vim/bundle/vim-easy-align"]
+	path = vim/bundle/vim-easy-align
+	url = git@github.com:junegunn/vim-easy-align.git
