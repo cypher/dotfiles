@@ -11,7 +11,7 @@ class Dotfiles < Thor
   def install_dotfiles
     Dir['*'].each do |file|
       if IGNORED_ENTRIES.include?(file)
-        say("Skipping file `#{file}'...", :red) if options[:verbose]
+        say("Ignoring `#{file}'", :red) if options[:verbose]
         next
       end
 
@@ -54,8 +54,8 @@ class Dotfiles < Thor
   desc "update", "Update all submodules, e.g. for Vim bundles"
   method_options verbose: true
   def update
-    run("git submodule foreach git checkout master", verbose: options[:verbose], capture: true)
-    run("git submodule foreach git up", verbose: options[:verbose], capture: true)
+    run("git submodule foreach git checkout master", verbose: options[:verbose])
+    run("git submodule foreach git up", verbose: options[:verbose])
   end
 
   default_task :update
