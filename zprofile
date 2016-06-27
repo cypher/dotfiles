@@ -52,7 +52,7 @@ export SVN_EDITOR=$VISUAL
 
 export PSQL_EDITOR="vim -c ':set ft=sql'"
 
-export LESS="-R"
+export LESS="-FXR"
 
 export CLICOLOR=1
 
