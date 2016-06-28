@@ -187,6 +187,7 @@
 	mnemonicprefix = true
 	tool = Kaleidoscope
 	algorithm = histogram
+	compactionHeuristic = true
 
 
 [difftool]
