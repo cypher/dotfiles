@@ -5,6 +5,12 @@
 # PATH stuff
 ##############################################################################
 
+# Setup PATH for interactive shell
+if [[ -d "${HOME}/.rbenv/bin" ]]
+then
+    PATH="${HOME}/.rbenv/bin:${PATH}"
+fi
+
 for p in '/usr/local/sbin' '/usr/sbin' '/sbin' '/bin' '/usr/bin' '/usr/local/bin' "${HOME}/bin"
 do
     PATH="${p}:${PATH}"
@@ -200,7 +206,7 @@ setopt prompt_subst
 local smiley="%(?,%F{green}☺%f,%F{red}☹%f)"
 
 PROMPT='%m %B%F{red}:: %F{green}%3~ ${smiley} %F{blue}%(0!.#.») %b%f'
-RPROMPT='%F{white} $(~/bin/git-cwd-info)%f'
+RPROMPT='%F{white} $(rbenv version-name) $(~/bin/git-cwd-info)%f'
 
 # TODO LSCOLORS and LS_COLORS don't define the same color scheme
 export LSCOLORS=gxfxcxdxbxegedabagacad
@@ -667,24 +673,17 @@ fi
 
 
 ##############################################################################
-# Programming Language environments & switchers
+# rbenv/pyenv/swiftenv
 ##############################################################################
 
-# Enable chruby
-source /usr/local/share/chruby/chruby.sh
-# Enable chruby auto-switching ruby versions
-source /usr/local/share/chruby/auto.sh
-
-# chruby: Pick up installed Rubies from rbenv
-RUBIES+=(~/.rbenv/versions/*)
-
-# # rbenv
-# if type rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# rbenv
+if type rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # pyenv
 if type pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
-# Enable swiftenv
+# swiftenv
 if which swiftenv > /dev/null; then eval "$(swiftenv init -)"; fi
+
 
 builtin rehash
 
