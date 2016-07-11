@@ -3,9 +3,10 @@ require 'find'
 class Scm < Thor
   include Thor::Actions
 
-  desc "fetch", "Fetches the newest updates for all repositories (git, svn, bzr, hg, darcs) in your current working directory and its subdirectories"
-  def fetch
-    find_scm_dirs(File.expand_path(Dir.getwd)) do |scm|
+  desc "fetch [DIRNAME]", "Fetches the newest updates for all repositories (git, svn, bzr, hg, darcs) in DIRNAME or your current working directory and its subdirectories"
+  def fetch(dirname = nil)
+    dir = dirname || Dir.getwd
+    find_scm_dirs(File.expand_path(dir)) do |scm|
       case scm
       when ".svn"
         run("svn up")
@@ -25,10 +26,11 @@ class Scm < Thor
     end
   end
 
-  desc "update", "Updates all repositories (git, svn, bzr, hg, darcs) in your current working directory and its subdirectories"
+  desc "update [DIRNAME]", "Updates all repositories (git, svn, bzr, hg, darcs) in DIRNAME or your current working directory and its subdirectories"
   method_options aliases: "up"
-  def update
-    find_scm_dirs(File.expand_path(Dir.getwd)) do |scm|
+  def update(dirname = nil)
+    dir = dirname || Dir.getwd
+    find_scm_dirs(File.expand_path(dir)) do |scm|
       case scm
       when ".svn"
         run("svn up")
@@ -56,10 +58,11 @@ class Scm < Thor
     end
   end
 
-  desc "gc", "Executes git gc on all git repos"
+  desc "gc [DIRNAME]", "Executes git gc on all git repos"
   method_options aggressive: false
-  def gc()
-    find_scm_dirs(File.expand_path(Dir.getwd)) do |scm|
+  def gc(dirname = nil)
+    dir = dirname || Dir.getwd
+    find_scm_dirs(File.expand_path(dir)) do |scm|
       if scm == ".git"
         if options[:aggressive]
           run("git gc --aggressive --prune=now")
