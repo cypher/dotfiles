@@ -693,4 +693,4 @@ builtin rehash
 ##############################################################################
 
 # use .localrc for settings specific to one system
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+[[ -f "${HOME}/.zshrc.local" ]] && source "${HOME}/.zshrc.local"
