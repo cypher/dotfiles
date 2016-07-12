@@ -132,6 +132,13 @@ highlight link SyntasticStyleWarningSign SignColumn
 let g:html_indent_tags = 'li\|p'
 
 
+" vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+
 " vim-test
 " nmap <silent> <leader>t :TestNearest<CR>
 " nmap <silent> <leader>T :TestFile<CR>
