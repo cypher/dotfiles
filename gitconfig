@@ -165,10 +165,6 @@
 	recurseSubmodules = check
 
 
-[pull]
-	rebase = true
-
-
 [help]
 	autocorrect = 0
 
