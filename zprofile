@@ -13,13 +13,6 @@ fi
 
 export NODE_PATH
 
-if [[ -d "/usr/local/lib/python2.7/site-packages" ]]
-then
-  PYTHONPATH="/usr/local/lib/python2.7/site-packages:${PYTHONPATH}"
-fi
-
-export PYTHONPATH
-
 if type xcode-select > /dev/null 2>&1
 then
   export XCODE="$(xcode-select --print-path)"
