@@ -129,7 +129,7 @@ let g:ausession=".vimsession"
 " n: Recognize numbered lists
 " j: Remove comment leader when joining line if it makes sense
 set formatoptions=crqnj
-" set autoindent                  " autoindent
+set autoindent                  " autoindent
 set smartindent                 " Use smart indenting
 " set cindent                     " Use C-style indentation
 
