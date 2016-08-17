@@ -122,9 +122,15 @@ let g:ausession=".vimsession"
 " Text Formatting/Layout
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set formatoptions=tcrqnj        " See Help (complex)
+" t: Auto-wrap text using textwidth
+" c: Auto-wrap comments using textwidth, inserting current comment leader automatically
+" r: Automatically insert the current comment leader after Enter in insert mode
+" q: Allow formatting of comments with "gq"
+" n: Recognize numbered lists
+" j: Remove comment leader when joining line if it makes sense
+set formatoptions=crqnj
 " set autoindent                  " autoindent
-set smartindent                 " Use smart indenting 
+set smartindent                 " Use smart indenting
 " set cindent                     " Use C-style indentation
 
 set tabstop=4                   " tab spacing (settings below are just to unify it)
