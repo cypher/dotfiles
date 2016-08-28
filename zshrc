@@ -487,6 +487,20 @@ man() {
 
 
 #########################################################################################
+# Static named dirs
+# (via https://twitter.com/tqbf/status/768513776664489984):
+# hash -d .github=/Users/tqbf/codebase/go/src/github.com
+# then this works: cd ~.github
+
+
+hash -d projects=~/Projects
+
+hash -d exercism=~/exercism
+
+hash -d work=~/Work
+
+
+#########################################################################################
 # Editor aliases
 
 alias e="${EDITOR}"
