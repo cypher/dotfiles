@@ -509,8 +509,8 @@ alias e.="${EDITOR} ."
 alias m='mate'
 alias m.='mate .'
 
-alias v='mvim'
-alias v.='mvim .'
+alias v='nvim'
+alias v.='nvim .'
 
 #########################################################################################
 # Ruby aliases/functions
