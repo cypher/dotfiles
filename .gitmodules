@@ -1,51 +1,51 @@
 [submodule "vim/bundle/vim-fugitive"]
 	path = vim/bundle/vim-fugitive
-	url = git@github.com/tpope/vim-fugitive.git
+	url = git@github.com:tpope/vim-fugitive.git
 [submodule "vim/bundle/vim-rails"]
 	path = vim/bundle/vim-rails
-	url = git@github.com/tpope/vim-rails.git
+	url = git@github.com:tpope/vim-rails.git
 [submodule "vim/bundle/vim-surround"]
 	path = vim/bundle/vim-surround
-	url = git@github.com/tpope/vim-surround.git
+	url = git@github.com:tpope/vim-surround.git
 [submodule "vim/bundle/vim-autoclose"]
 	path = vim/bundle/vim-autoclose
-	url = git@github.com/Townk/vim-autoclose.git
+	url = git@github.com:Townk/vim-autoclose.git
 [submodule "vim/bundle/vim-endwise"]
 	path = vim/bundle/vim-endwise
 	url = git@github.com:tpope/vim-endwise.git
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
-	url = git@github.com/altercation/vim-colors-solarized.git
+	url = git@github.com:altercation/vim-colors-solarized.git
 [submodule "vim/bundle/vim-commentary"]
 	path = vim/bundle/vim-commentary
-	url = git@github.com/tpope/vim-commentary.git
+	url = git@github.com:tpope/vim-commentary.git
 [submodule "vim/bundle/vim-markdown"]
 	path = vim/bundle/vim-markdown
-	url = git@github.com/tpope/vim-markdown.git
+	url = git@github.com:tpope/vim-markdown.git
 [submodule "vim/bundle/vim-ruby"]
 	path = vim/bundle/vim-ruby
-	url = git@github.com/vim-ruby/vim-ruby.git
+	url = git@github.com:vim-ruby/vim-ruby.git
 [submodule "vim/bundle/vim-flake8"]
 	path = vim/bundle/vim-flake8
-	url = git@github.com/nvie/vim-flake8.git
+	url = git@github.com:nvie/vim-flake8.git
 [submodule "vim/bundle/ctrlp"]
 	path = vim/bundle/ctrlp
-	url = git@github.com/kien/ctrlp.vim.git
+	url = git@github.com:kien/ctrlp.vim.git
 [submodule "vim/bundle/tabular.vim"]
 	path = vim/bundle/tabular.vim
-	url = git@github.com/godlygeek/tabular.git
+	url = git@github.com:godlygeek/tabular.git
 [submodule "vim/bundle/vim-gitgutter"]
 	path = vim/bundle/vim-gitgutter
-	url = git@github.com/airblade/vim-gitgutter.git
+	url = git@github.com:airblade/vim-gitgutter.git
 [submodule "vim/bundle/vim-html5"]
 	path = vim/bundle/vim-html5
-	url = git@github.com/kaihendry/vim-html5
+	url = git@github.com:kaihendry/vim-html5
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
-	url = git@github.com/scrooloose/syntastic.git
+	url = git@github.com:scrooloose/syntastic.git
 [submodule "vim/bundle/vim-unimpaired"]
 	path = vim/bundle/vim-unimpaired
-	url = git@github.com/tpope/vim-unimpaired.git
+	url = git@github.com:tpope/vim-unimpaired.git
 [submodule "vim/bundle/vim-elixir"]
 	path = vim/bundle/vim-elixir
 	url = git@github.com:elixir-lang/vim-elixir.git
@@ -57,7 +57,7 @@
 	url = git@github.com:croaky/vim-colors-github.git
 [submodule "vim/bundle/swift.vim"]
 	path = vim/bundle/swift.vim
-	url = git@github.com/keith/swift.vim.git
+	url = git@github.com:keith/swift.vim.git
 [submodule "vim/bundle/vim-toml"]
 	path = vim/bundle/vim-toml
 	url = git@github.com:cespare/vim-toml.git
@@ -66,19 +66,19 @@
 	url = git@github.com:kien/rainbow_parentheses.vim.git
 [submodule "vim/bundle/vim-bufferline"]
 	path = vim/bundle/vim-bufferline
-	url = git@github.com/bling/vim-bufferline
+	url = git@github.com:bling/vim-bufferline
 [submodule "vim/bundle/jellybeans.vim"]
 	path = vim/bundle/jellybeans.vim
 	url = git@github.com:nanotech/jellybeans.vim.git
 [submodule "vim/bundle/vim-align"]
 	path = vim/bundle/vim-align
-	url = git@github.com/tsaleh/vim-align.git
+	url = git@github.com:tsaleh/vim-align.git
 [submodule "vim/bundle/ag.vim"]
 	path = vim/bundle/ag.vim
 	url = git@github.com:rking/ag.vim.git
 [submodule "vim/bundle/rust.vim"]
 	path = vim/bundle/rust.vim
-	url = git@github.com/rust-lang/rust.vim
+	url = git@github.com:rust-lang/rust.vim
 [submodule "vim/bundle/vim-rspec"]
 	path = vim/bundle/vim-rspec
 	url = git@github.com:thoughtbot/vim-rspec.git
@@ -93,7 +93,7 @@
 	url = git@github.com:rhysd/vim-crystal.git
 [submodule "vim/bundle/vim-rhubarb"]
 	path = vim/bundle/vim-rhubarb
-	url = git@github.com/tpope/vim-rhubarb.git
+	url = git@github.com:tpope/vim-rhubarb.git
 [submodule "vim/bundle/vim-test"]
 	path = vim/bundle/vim-test
 	url = git@github.com:janko-m/vim-test.git
@@ -126,46 +126,46 @@
 	url = git@github.com:kien/rainbow_parentheses.vim.git
 [submodule "config/nvim/bundle/vim-fugitive"]
 	path = config/nvim/bundle/vim-fugitive
-	url = git@github.com/tpope/vim-fugitive.git
+	url = git@github.com:tpope/vim-fugitive.git
 [submodule "config/nvim/bundle/vim-surround"]
 	path = config/nvim/bundle/vim-surround
-	url = git@github.com/tpope/vim-surround.git
+	url = git@github.com:tpope/vim-surround.git
 [submodule "config/nvim/bundle/vim-autoclose"]
 	path = config/nvim/bundle/vim-autoclose
-	url = git@github.com/Townk/vim-autoclose.git
+	url = git@github.com:Townk/vim-autoclose.git
 [submodule "config/nvim/bundle/vim-endwise"]
 	path = config/nvim/bundle/vim-endwise
 	url = git@github.com:tpope/vim-endwise.git
 [submodule "config/nvim/bundle/vim-colors-solarized"]
 	path = config/nvim/bundle/vim-colors-solarized
-	url = git@github.com/altercation/vim-colors-solarized.git
+	url = git@github.com:altercation/vim-colors-solarized.git
 [submodule "config/nvim/bundle/vim-commentary"]
 	path = config/nvim/bundle/vim-commentary
-	url = git@github.com/tpope/vim-commentary.git
+	url = git@github.com:tpope/vim-commentary.git
 [submodule "config/nvim/bundle/vim-markdown"]
 	path = config/nvim/bundle/vim-markdown
-	url = git@github.com/tpope/vim-markdown.git
+	url = git@github.com:tpope/vim-markdown.git
 [submodule "config/nvim/bundle/ctrlp.vim"]
 	path = config/nvim/bundle/ctrlp.vim
-	url = git@github.com/kien/ctrlp.vim.git
+	url = git@github.com:kien/ctrlp.vim.git
 [submodule "config/nvim/bundle/tabular"]
 	path = config/nvim/bundle/tabular
-	url = git@github.com/godlygeek/tabular.git
+	url = git@github.com:godlygeek/tabular.git
 [submodule "config/nvim/bundle/vim-gitgutter"]
 	path = config/nvim/bundle/vim-gitgutter
-	url = git@github.com/airblade/vim-gitgutter.git
+	url = git@github.com:airblade/vim-gitgutter.git
 [submodule "config/nvim/bundle/syntastic"]
 	path = config/nvim/bundle/syntastic
-	url = git@github.com/scrooloose/syntastic.git
+	url = git@github.com:scrooloose/syntastic.git
 [submodule "config/nvim/bundle/vim-unimpaired"]
 	path = config/nvim/bundle/vim-unimpaired
-	url = git@github.com/tpope/vim-unimpaired.git
+	url = git@github.com:tpope/vim-unimpaired.git
 [submodule "config/nvim/bundle/vim-colors-github"]
 	path = config/nvim/bundle/vim-colors-github
 	url = git@github.com:croaky/vim-colors-github.git
 [submodule "config/nvim/bundle/vim-rhubarb"]
 	path = config/nvim/bundle/vim-rhubarb
-	url = git@github.com/tpope/vim-rhubarb.git
+	url = git@github.com:tpope/vim-rhubarb.git
 [submodule "config/nvim/bundle/vim-eunuch"]
 	path = config/nvim/bundle/vim-eunuch
 	url = git@github.com:tpope/vim-eunuch.git
