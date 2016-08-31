@@ -1,10 +1,20 @@
-vim/backup/*
-irssi/logs
+# OS X
 .DS_Store
+
+# Vim generated & temporary files
 vim/temp
 vim/.netrwhist
-cake/*
+vim/backup/*
+config/nvim/spell/*.spl
+config/nvim/spell/*.sug
+
+# Emacs
 emacs.d/elpa/
+
+# Fish Shell
 config/fish/fish_history
 config/fish/fishd.*
+
+# Misc
 atom/*
+cake/*
