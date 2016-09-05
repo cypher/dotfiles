@@ -45,6 +45,8 @@ augroup PatchDiffHighlight
     autocmd FileType  diff   syntax enable
 augroup END
 
+" Rust: automatically format on saving
+let g:rustfmt_autosave = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
