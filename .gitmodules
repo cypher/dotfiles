@@ -178,3 +178,6 @@
 [submodule "config/nvim/bundle/vim-crystal"]
 	path = config/nvim/bundle/vim-crystal
 	url = git@github.com:rhysd/vim-crystal.git
+[submodule "config/nvim/bundle/rust.vim"]
+	path = config/nvim/bundle/rust.vim
+	url = git@github.com:rust-lang/rust.vim.git
