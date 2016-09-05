@@ -175,3 +175,6 @@
 [submodule "config/nvim/bundle/vim-airline"]
 	path = config/nvim/bundle/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
+[submodule "config/nvim/bundle/vim-crystal"]
+	path = config/nvim/bundle/vim-crystal
+	url = git@github.com:rhysd/vim-crystal.git
