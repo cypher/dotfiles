@@ -187,3 +187,6 @@
 [submodule "config/nvim/bundle/rust.vim"]
 	path = config/nvim/bundle/rust.vim
 	url = git@github.com:rust-lang/rust.vim.git
+[submodule "config/nvim/bundle/vim-elixir"]
+	path = config/nvim/bundle/vim-elixir
+	url = git@github.com:elixir-lang/vim-elixir.git
