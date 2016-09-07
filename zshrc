@@ -202,11 +202,15 @@ zstyle -e ':completion::*:hosts' hosts 'reply=($(sed -e "/^#/d" -e "s/ .*\$//" -
 autoload -U colors; colors;
 
 setopt prompt_subst
+
+# Git Super Status
+source "${HOME}/.zsh/zsh-git-prompt.sh"
+
 # Combined left and right prompt configuration.
 local smiley="%(?,%F{green}😊%f,%F{red}☹%f)"
 
 PROMPT='%m %B%F{red}:: %F{green}%3~ ${smiley} %F{blue}%(0!.#.») %b%f'
-RPROMPT='%F{white} $(rbenv version-name) $(~/bin/git-cwd-info)%f'
+RPROMPT='%F{white} $(rbenv version-name) $(git_super_status)%f'
 
 # TODO LSCOLORS and LS_COLORS don't define the same color scheme
 export LSCOLORS=gxfxcxdxbxegedabagacad
