@@ -203,7 +203,7 @@ autoload -U colors; colors;
 
 setopt prompt_subst
 # Combined left and right prompt configuration.
-local smiley="%(?,%F{green}☺%f,%F{red}☹%f)"
+local smiley="%(?,%F{green}😊%f,%F{red}☹%f)"
 
 PROMPT='%m %B%F{red}:: %F{green}%3~ ${smiley} %F{blue}%(0!.#.») %b%f'
 RPROMPT='%F{white} $(rbenv version-name) $(~/bin/git-cwd-info)%f'
