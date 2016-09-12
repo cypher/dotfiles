@@ -115,9 +115,6 @@
 [submodule "vim/bundle/vim-easy-align"]
 	path = vim/bundle/vim-easy-align
 	url = git@github.com:junegunn/vim-easy-align.git
-[submodule "vim/bundle/vim-xcode"]
-	path = vim/bundle/vim-xcode
-	url = git@github.com:gfontenot/vim-xcode.git
 [submodule "config/nvim/bundle/rainbow_parentheses.vim"]
 	path = config/nvim/bundle/rainbow_parentheses.vim
 	url = git@github.com:kien/rainbow_parentheses.vim.git
