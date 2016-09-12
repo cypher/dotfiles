@@ -64,9 +64,6 @@
 [submodule "vim/bundle/vim-align"]
 	path = vim/bundle/vim-align
 	url = git@github.com:tsaleh/vim-align.git
-[submodule "vim/bundle/ag.vim"]
-	path = vim/bundle/ag.vim
-	url = git@github.com:rking/ag.vim.git
 [submodule "vim/bundle/rust.vim"]
 	path = vim/bundle/rust.vim
 	url = git@github.com:rust-lang/rust.vim
