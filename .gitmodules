@@ -61,9 +61,6 @@
 [submodule "vim/bundle/jellybeans.vim"]
 	path = vim/bundle/jellybeans.vim
 	url = git@github.com:nanotech/jellybeans.vim.git
-[submodule "vim/bundle/vim-align"]
-	path = vim/bundle/vim-align
-	url = git@github.com:tsaleh/vim-align.git
 [submodule "vim/bundle/rust.vim"]
 	path = vim/bundle/rust.vim
 	url = git@github.com:rust-lang/rust.vim
@@ -88,9 +85,6 @@
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
-[submodule "vim/bundle/vim-easy-align"]
-	path = vim/bundle/vim-easy-align
-	url = git@github.com:junegunn/vim-easy-align.git
 [submodule "config/nvim/bundle/rainbow_parentheses.vim"]
 	path = config/nvim/bundle/rainbow_parentheses.vim
 	url = git@github.com:kien/rainbow_parentheses.vim.git
