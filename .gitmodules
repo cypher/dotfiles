@@ -70,9 +70,6 @@
 [submodule "vim/bundle/rust.vim"]
 	path = vim/bundle/rust.vim
 	url = git@github.com:rust-lang/rust.vim
-[submodule "vim/bundle/vim-rspec"]
-	path = vim/bundle/vim-rspec
-	url = git@github.com:thoughtbot/vim-rspec.git
 [submodule "vim/bundle/vim-capnp"]
 	path = vim/bundle/vim-capnp
 	url = git@github.com:cstrahan/vim-capnp.git
