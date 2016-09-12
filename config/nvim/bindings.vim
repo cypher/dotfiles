@@ -165,11 +165,3 @@ map <Left>  :echoe "Use h!"<CR>
 map <Right> :echoe "Use l!"<CR>
 map <Up>    :echoe "Use k!"<CR>
 map <Down>  :echoe "Use j!"<CR>
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" DELETE AND BACKSPACE KEYS ARE UNACCEPTABLE AS WELL
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-inoremap <Del> <Nop>
-inoremap <BS>  <Nop>
