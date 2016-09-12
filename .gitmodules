@@ -91,9 +91,6 @@
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
-[submodule "vim/bundle/pony-vim-syntax"]
-	path = vim/bundle/pony-vim-syntax
-	url = git@github.com:dleonard0/pony-vim-syntax.git
 [submodule "vim/bundle/fsharp-vim"]
 	path = vim/bundle/fsharp-vim
 	url = git@github.com:kongo2002/fsharp-vim.git
