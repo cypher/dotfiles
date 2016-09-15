@@ -6,9 +6,13 @@ require 'shellwords'
 video_files = ARGV.map { |path|
   File.expand_path(path)
 }.select { |path|
-  Dir.exist?(path)
+  Dir.exist?(path) || File.exist?(path)
 }.map { |path|
-  Dir[File.join(path, '*')].sort
+  if File.directory?(path)
+    Dir[File.join(path, '*')].sort
+  else
+    path
+  end
 }.flatten
 
 video_files.shuffle! if ARGV.include?('--shuffle')
