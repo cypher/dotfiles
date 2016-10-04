@@ -224,8 +224,8 @@
 [status]
 	submodulesummary = true
 
-[init]
-	templatedir = ~/.git-template
+#[init]
+#	templatedir = ~/.git-template
 
 [diff "plist"]
 	textconv = "plutil -convert xml1 -o -"
