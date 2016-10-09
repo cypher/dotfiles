@@ -10,6 +10,10 @@ nnoremap ; :
 imap kj <ESC>
 
 
+" Map shift-K to Noop, since I keep hitting it accidentally, and I don't need it
+map <S-k> <Nop>
+
+
 " automatically insert a \v before any search string, so search uses normal regexes
 nnoremap / /\v
 vnoremap / /\v
