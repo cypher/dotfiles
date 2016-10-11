@@ -29,16 +29,12 @@
 	check = diff --check
 	cm = commit --message
 	co = checkout
-	cpc = cherry-pick
-	create-branch = !sh -c 'git push origin HEAD:refs/heads/$1 && git fetch origin && git branch --track $1 origin/$1 && cd . && git checkout $1' -
-	current-branch = rev-parse --abbrev-ref HEAD
+	cpc = cherry-pick --signoff
 	d = diff --ignore-all-space
 	dc = diff --cached --ignore-all-space
-	delete-branch = !sh -c 'git push origin :refs/heads/$1 && git remote prune origin && git branch -D $1' -
 	div = divergence
 	dt = difftool
 	h = help
-	irb = rebase --interactive
 	list-aliases = "!git config -l | grep alias | cut -c 7-"
 	la = "!git list-aliases"
 	ls-ignored = ls-files --exclude-standard --ignored --others
@@ -46,11 +42,7 @@
 	# Create an empty commit, only having a commit message
 	msg = commit --allow-empty -m
 	mt = mergetool
-	p = cherry-pick -s
 	pf = push --force-with-lease
-	pick = cherry-pick
-	pr = !hub pull-request
-	prune-remotes = "!for remote in `git remote`; do git remote prune $remote; done"
 	r = remote
 	rh = reset --hard
 	ru = remote update --prune
@@ -58,7 +50,6 @@
 	sm = submodule
 	sma = submodule add
 	smu = submodule update --init --recursive
-	undo = reset --soft HEAD@{1}
 	wd = diff --word-diff="color"
 	wdc = diff --word-diff="color" --cached
 	push = push --tags
@@ -70,6 +61,7 @@
 	stp = stash pop
 
 	# Make rebasing easier
+	irb = rebase --interactive
 	rb = rebase
 	rba = rebase --abort
 	rbc = rebase --continue
@@ -111,9 +103,9 @@
 	# Print absolute path of repo root directory
 	root = rev-parse --show-toplevel
 	# Get to a detached HEAD state on purpose! Usage: `git detach [REF]`
-	detach = !sh -c 'git checkout $(git rev-parse ${1:-HEAD})' --
+	detach = "!sh -c 'git checkout $(git rev-parse ${1:-HEAD})' --"
 	# Print short sha1; usage: `git sha1 [REF]`
-	sha1 = !sh -c 'git rev-parse --short ${1:-HEAD}' --
+	sha1 = "!sh -c 'git rev-parse --short ${1:-HEAD}' --"
 
 [advice]
 	pushNonFastForward = false
