@@ -155,7 +155,7 @@
 	AAAZAAAAAAAAAAAAAAAAAAAA2Q==
 	</data>
 	<key>Bell</key>
-	<true/>
+	<false/>
 	<key>CursorBlink</key>
 	<false/>
 	<key>CursorColor</key>
@@ -199,12 +199,16 @@
 	</data>
 	<key>ShouldLimitScrollback</key>
 	<integer>0</integer>
-	<key>ShowActiveProcessInTitle</key>
+	<key>ShowActiveProcessArgumentsInTitle</key>
 	<false/>
+	<key>ShowActiveProcessInTitle</key>
+	<true/>
 	<key>ShowCommandKeyInTitle</key>
 	<false/>
 	<key>ShowDimensionsInTitle</key>
 	<false/>
+	<key>ShowRepresentedURLPathInTitle</key>
+	<true/>
 	<key>ShowShellCommandInTitle</key>
 	<false/>
 	<key>ShowTTYNameInTitle</key>
@@ -233,6 +237,8 @@
 	<true/>
 	<key>UseBrightBold</key>
 	<true/>
+	<key>VisualBell</key>
+	<false/>
 	<key>blackColour</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
@@ -284,7 +290,7 @@
 	ZmZmAQGDzbVMPwGG
 	</data>
 	<key>columnCount</key>
-	<integer>80</integer>
+	<integer>160</integer>
 	<key>cyanColour</key>
 	<data>
 	BAtzdHJlYW10eXBlZIHoA4QBQISEhAdOU0NvbG9yAISECE5TT2JqZWN0AIWEAWMBhARm
@@ -428,7 +434,7 @@
 	ZmZmAYPZ2Ng+g8HAwD4Bhg==
 	</data>
 	<key>rowCount</key>
-	<integer>23</integer>
+	<integer>70</integer>
 	<key>shellExitAction</key>
 	<integer>1</integer>
 	<key>type</key>
