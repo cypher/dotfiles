@@ -18,7 +18,7 @@ set mousehide               " Hide the mouse when typing text
 " GUI Options
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set gfn=Meslo\ LG\ S\ DZ\ for\ Powerline:h10.00
+set gfn=Meslo\ LG\ S\ DZ\ for\ Powerline:h11.00
 
 set antialias               " MacVim: smooth fonts.
 
@@ -33,17 +33,17 @@ if has("gui_macvim")
 
     " Fullscreen takes up entire screen
     set fuoptions=maxhorz,maxvert
-    
+
     " bind command-] to shift right
     nmap <D-]> >>
     vmap <D-]> >>
     imap <D-]> <C-O>>>
-    
+
     " bind command-[ to shift left
     nmap <D-[> <<
     vmap <D-[> <<
     imap <D-[> <C-O><<
-    
+
     "custom tab stuff
     " tab navigation like safari
     " idea adopted from: [[VimTip1221]]
@@ -55,7 +55,7 @@ if has("gui_macvim")
     imap <D-]> <Esc>:tabnext<CR>i
     nmap <D-t> :tabnew<CR>
     imap <D-t> <Esc>:tabnew<CR>
-    
+
     " open tabs with command-<tab number>
     map <D-S-]> gt
     map <D-S-[> gT
@@ -69,14 +69,14 @@ if has("gui_macvim")
     map <D-8> 8gt
     map <D-9> 9gt
     map <D-0> :tablast<CR>
-    
+
     " Enable default OS X shift-movement/replacement behavior
     " let macvim_hig_shift_movement = 1
-    
+
     " Activate spelling support, via https://twitter.com/b4winckler/status/58584667200303104
     " Enables Cmd-; and Cmd-:
     set spell
-    
+
     set macmeta
 end
 
