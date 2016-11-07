@@ -208,7 +208,7 @@ capybara-*.html
 /public/system/*
 /coverage/
 /spec/tmp/*
-**.orig
+*.orig
 config/*.yml
 rerun.txt
 
