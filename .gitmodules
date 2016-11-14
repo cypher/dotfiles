@@ -36,7 +36,7 @@
 	url = git@github.com:kaihendry/vim-html5
 [submodule "vim/bundle/syntastic"]
 	path = vim/bundle/syntastic
-	url = git@github.com:scrooloose/syntastic.git
+	url = git@github.com:vim-syntastic/syntastic.git
 [submodule "vim/bundle/vim-unimpaired"]
 	path = vim/bundle/vim-unimpaired
 	url = git@github.com:tpope/vim-unimpaired.git
@@ -117,7 +117,7 @@
 	url = git@github.com:airblade/vim-gitgutter.git
 [submodule "config/nvim/bundle/syntastic"]
 	path = config/nvim/bundle/syntastic
-	url = git@github.com:scrooloose/syntastic.git
+	url = git@github.com:vim-syntastic/syntastic.git
 [submodule "config/nvim/bundle/vim-unimpaired"]
 	path = config/nvim/bundle/vim-unimpaired
 	url = git@github.com:tpope/vim-unimpaired.git
