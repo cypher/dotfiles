@@ -277,8 +277,8 @@ setopt mark_dirs            # Append a trailing `/' to all directory names resul
 # Custom aliases
 ##############################################################################
 
-# alias -s rb=vim
-# alias -s tex=vim
+# alias -s rb="${EDITOR}"
+# alias -s tex="${EDITOR}"
 # alias -s html=w3m
 # alias -s org=w3m
 
@@ -513,8 +513,8 @@ alias e.="${EDITOR} ."
 alias m='mate'
 alias m.='mate .'
 
-alias v='nvim'
-alias v.='nvim .'
+alias v=e
+alias v.='e.'
 
 #########################################################################################
 # Ruby aliases/functions

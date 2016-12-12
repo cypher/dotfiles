@@ -38,12 +38,12 @@ export LC_COLLATE="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
 # Set favourite editor
-export VISUAL="vim -f"
+export VISUAL="nvim -f"
 
 export EDITOR=$VISUAL
 export SVN_EDITOR=$VISUAL
 
-export PSQL_EDITOR="vim -c ':set ft=sql'"
+export PSQL_EDITOR="nvim -c ':set ft=sql'"
 
 export LESS="--quit-if-one-screen --RAW-CONTROL-CHARS --no-init"
 
