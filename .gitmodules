@@ -139,3 +139,15 @@
 [submodule "config/nvim/bundle/vim-elixir"]
 	path = config/nvim/bundle/vim-elixir
 	url = git@github.com:elixir-lang/vim-elixir.git
+[submodule "config/nvim/bundle/vim-rbenv"]
+	path = config/nvim/bundle/vim-rbenv
+	url = git@github.com:tpope/vim-rbenv.git
+[submodule "config/nvim/bundle/vim-bundler"]
+	path = config/nvim/bundle/vim-bundler
+	url = git@github.com:tpope/vim-bundler.git
+[submodule "config/nvim/bundle/vim-rails"]
+	path = config/nvim/bundle/vim-rails
+	url = git@github.com:tpope/vim-rails.git
+[submodule "config/nvim/bundle/vim-ruby"]
+	path = config/nvim/bundle/vim-ruby
+	url = git@github.com:vim-ruby/vim-ruby.git
