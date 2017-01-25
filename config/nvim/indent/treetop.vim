@@ -1,1 +1,0 @@
-runtime! indent/ruby.vim
