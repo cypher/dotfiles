@@ -209,7 +209,8 @@ capybara-*.html
 /coverage/
 /spec/tmp/*
 *.orig
-config/*.yml
+config/database.yml
+config/secrets.yml
 rerun.txt
 
 # Java #
