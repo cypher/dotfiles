@@ -204,7 +204,7 @@ local smiley="%(?,%F{green}😊%f,%F{red}☹%f)"
 
 PROMPT='%m %B%F{red}:: %F{green}%3~ ${smiley}  %F{blue}%(0!.#.») %b%f'
 # Put rbenv version info on the right side, if rbenv is available
-if type rbenv > dev/null; then
+if type rbenv > /dev/null; then
     RPROMPT='%F{white} $(rbenv version-name)%f';
 fi
 
