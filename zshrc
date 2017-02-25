@@ -100,13 +100,8 @@ bindkey '^x^e' edit-command-line
 # Completions
 ##############################################################################
 
-fpath=(~/.zsh/completion ~/.zsh/functions /usr/local/share/zsh-completions /usr/local/share/zsh/functions /usr/local/share/zsh/site-functions $fpath)
+fpath=(~/.zsh/completion ~/.zsh/functions /usr/local/share/zsh/site-functions $fpath)
 typeset -U fpath # Remove duplicates from $fpath
-
-
-# for function in ~/.zsh/functions/*; do
-#   source $function
-# done
 
 
 ## completions ####
