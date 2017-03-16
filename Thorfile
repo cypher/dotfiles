@@ -65,4 +65,43 @@ class Dotfiles < Thor
       File.expand_path('..', __FILE__)
     end
   end
+
+  desc "configure_macos", "Configures macOS-specific settings"
+  def configure_macos
+    # Apple Mail
+    run("defaults write com.apple.mail DisableInlineAttachmentViewing -bool yes")
+  end
+
+  desc "configure", "Set OS-specific configurations"
+  def configure
+    case RUBY_PLATFORM
+    when /darwin/
+      if defined?("configure_macos")
+        say("Found configure_macos")
+        invoke "configure_macos"
+      else
+        say("No configuration task found for platform `macos'. Please define `configure_macos' first", :red)
+      end
+    when /freebsd/
+      if defined?("configure_freebsd")
+        invoke "configure_freebsd"
+      else
+        say("No configuration task found for platform `freebsd'. Please define `configure_freebsd' first", :red)
+      end
+    when /win32|cygwin|mswin|mingw|bccwin|wince|emx/
+      if defined?("configure_windows")
+        invoke "configure_windows"
+      else
+        say("No configuration task found for platform `windows'. Please define `configure_windows' first", :red)
+      end
+    when /linux/
+      if defined?("configure_linux")
+        invoke "configure_linux"
+      else
+        say("No configuration task found for platform `linux'. Please define `configure_linux' first", :red)
+      end
+    else
+      say("Unknown OS/platform: #{RUBY_PLATFORM.inspect}", :red)
+    end
+  end
 end
