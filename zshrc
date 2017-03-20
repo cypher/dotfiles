@@ -493,6 +493,11 @@ man() {
             man "$@"
 }
 
+# Build a standalone Rust binary with no external dependencies
+# Ex.: rust-musl-builder cargo build --release
+# (via https://github.com/emk/rust-musl-builder)
+alias rust-musl-builder='docker run --rm -it -v "$(pwd)":/home/rust/src ekidd/rust-musl-builder'
+
 
 #########################################################################################
 # Static named dirs
