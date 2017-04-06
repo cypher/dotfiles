@@ -91,3 +91,6 @@
 [submodule "vim/bundle/vim-sleuth"]
 	path = vim/bundle/vim-sleuth
 	url = git://github.com/tpope/vim-sleuth.git
+[submodule "vim/bundle/vim-rake"]
+	path = vim/bundle/vim-rake
+	url = git@github.com:tpope/vim-rake.git
