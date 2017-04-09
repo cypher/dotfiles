@@ -4,7 +4,8 @@ set background=light
 
 " colorscheme solarized
 " colorscheme railscat
-colorscheme github
+" colorscheme github
+colorscheme seagull
 
 set guioptions-=T           " Hide the menu bar
 set guioptions+=c           " Use console dialgs
