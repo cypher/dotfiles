@@ -76,9 +76,6 @@
 [submodule "vim/bundle/vim-rhubarb"]
 	path = vim/bundle/vim-rhubarb
 	url = git@github.com:tpope/vim-rhubarb.git
-[submodule "vim/bundle/vim-test"]
-	path = vim/bundle/vim-test
-	url = git@github.com:janko-m/vim-test.git
 [submodule "vim/bundle/vim-jekyll"]
 	path = vim/bundle/vim-jekyll
 	url = git@github.com:csexton/jekyll.vim.git
