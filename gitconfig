@@ -1,8 +1,5 @@
-[user]
-	name = Markus Wein
-	email = markus.wein@nuclearsquid.com
-	signingkey = 245EDA9A
-
+[include]
+	path = ~/.gitconfig.private
 
 [core]
 	excludesfile = ~/.gitignore
@@ -10,7 +7,6 @@
 	quotepath = false
 	pager = less -FXR
 	editor = vim -pc ':normal gg'
-
 
 [alias]
 	a = add
@@ -203,10 +199,6 @@
 
 [diff "zip"]
 	textconv = unzip -c -a
-
-
-[github]
-	user = cypher
 
 
 [credential]
