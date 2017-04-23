@@ -9,6 +9,7 @@
 	editor = vim -pc ':normal gg'
 
 [alias]
+	clone = clone --recursive
 	a = add
 	aa = add --all --intent-to-add
 	ae = add --edit
@@ -46,6 +47,7 @@
 	sm = submodule
 	sma = submodule add
 	smu = submodule update --init --recursive
+	tags = tag -l
 	wd = diff --word-diff="color"
 	wdc = diff --word-diff="color" --cached
 	push = push --tags
