@@ -1,6 +1,5 @@
 {
     "default_options": [
-        "--style=solarized",
-        "--body"
+        "--style=solarized"
     ]
 }
