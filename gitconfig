@@ -91,11 +91,11 @@
 	fl = log -u
 
 	# Easily ignore committed, but changed files that I don't want to commit
-	assume = update-index --assume-unchanged
-	assumed = "!git ls-files -v | grep ^h | cut -c 3-"
-	assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
-	unassume = update-index --no-assume-unchanged
-	unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+	ignore = update-index --assume-unchanged
+	ignored = "!git ls-files -v | grep '^[[:lower:]]'"
+	ignoreall = "!git status -s | awk {'print $2'} | xargs git update-index --assume-unchanged"
+	unignore = update-index --no-assume-unchanged
+	unignoreall = "!git assumed | xargs git update-index --no-assume-unchanged"
 
 	# The following aliases were nabbed from http://kamalmarhubi.com/blog/2016/02/29/my-git-aliases/
 	# Print absolute path of repo root directory
