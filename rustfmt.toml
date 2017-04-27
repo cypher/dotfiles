@@ -1,0 +1,9 @@
+# See https://github.com/regexident/rustfmt-configs-guide for how the various options look like
+
+array_layout = "Block"
+chain_indent = "Visual"
+fn_args_density = "CompressedIfEmpty"
+trailing_comma = "Always"
+use_try_shorthand = true
+wrap_comments = true
+write_mode = "Overwrite"
