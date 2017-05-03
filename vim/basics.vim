@@ -10,29 +10,22 @@ nnoremap ' `
 nnoremap ` '
 
 
-set backspace=indent,eol,start  " Backspace deletes like most programs in insert mode
 set nobackup                    " Don't keep a backup file
 set writebackup                 " … but do keep a backup file during writes
 set directory-=.                " Don't store swapfiles in the current directory
 set makeef=error.err            " When using make, where should it dump the file
 set hidden                      " Allow Vim to manage hidden buffers effectively
-set history=500                 " Keep 500 lines of command line history
-set ruler                       " Show the cursor position all the time
 set showcmd                     " Display incomplete commands
 set incsearch                   " Do incremental searching
-set ruler                       " Show the cursor position all the time
 set number                      " Show line numbers
 set numberwidth=5               " How many columns to use for the line number
 set autowrite                   " Automatically :write before running commands
-set laststatus=2                " Always display the status line
 set tildeop                     " Make ~ work like a normal operator
 set gdefault                    " always apply substitutions globally on a line
 set fileformats=unix,dos,mac    " support all three, in this order
 set viminfo+=!                  " make sure it can save viminfo
 set iskeyword+=_,$,@,%,#,-      " none of these should be word dividers, so make them not be
 set title                       " show title in xterm
-set scrolloff=3                 " Start scrolling 3 lines before the border
-set autoread                    " Automatically reread files that have been changed externally
 set shortmess=atI               " shorten command-line text and other info tokens (see :help shortmess)
 set winwidth=80                 " Make sure the current split has at least 80 width
 set nojoinspaces                " Only use one space after ., ? or ! with a join command
@@ -48,16 +41,6 @@ set splitright
 set hlsearch                    " Hilight search term
 set showmatch                   " Show matching brackets
 set incsearch                   " ... dynamically as they are typed
-
-
-" runtime macros/matchit.vim    " Enable extended % matching
-
-
-" Syntax highlighting and stuff
-syntax on
-filetype on                     " detect the type of file
-filetype indent on              " Enable filetype-specific indenting
-filetype plugin on              " Enable filetype-specific plugins
 
 
 set wildmenu                    " Make completion useful: show a navigable menu for tab completion
@@ -80,7 +63,6 @@ set complete+=kspell
 " invisible spaces visually, and additionally use the # sign at the end of
 " lines to mark lines that extend off-screen. For more info, see :h listchars.
 set listchars=extends:»,precedes:«,trail:•,tab:▸\ ,eol:¶,nbsp:▫
-set listchars=extends:»,precedes:«,trail:▫,tab:▸\ ,eol:¬,nbsp:•
 set list
 
 

@@ -97,3 +97,6 @@
 [submodule "simple_rainbow_parentheses.vim"]
 	path = vim/bundle/rainbow_parentheses.vim
 	url = git@github.com:junegunn/rainbow_parentheses.vim.git
+[submodule "vim/bundle/vim-sensible"]
+	path = vim/bundle/vim-sensible
+	url = git@github.com:tpope/vim-sensible.git
