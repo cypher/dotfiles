@@ -199,7 +199,8 @@ nnoremap <leader>] :CtrlPTag<CR>
 let g:ctrlp_use_caching = 1
 
 
-" Keep cache across sessions
+" Don't keep cache across sessions, because it can lead to
+" weird inconsistencies
 let g:ctrlp_clear_cache_on_exit = 1
 
 

@@ -51,7 +51,8 @@ set incsearch                   " ... dynamically as they are typed
 
 
 set wildmenu                    " Make completion useful: show a navigable menu for tab completion
-set wildignore+=.svn,CVS,.git,*.pyc,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pdf,*.bak,*.beam,*/tmp/*,*.zip,log/**,node_modules/**,target/**,tmp/**,*.rbc    " Ignore these files when completing names and in Explorer
+" Ignore these files when completing names and in Explorer
+set wildignore+=.svn,CVS,.git,*.pyc,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pdf,*.bak,*.beam,*/tmp/*,*.zip,log/**,node_modules/**,target/**,tmp/**,*.rbc
 set wildmode=list:longest,list:full  " List all matches and complete till longest common string, or complete first match
 set complete=.,b,u,]            " Pull from keywords for completion in the current file, other buffers (closed or still open), and from the current tags file.
 set suffixes+=.old              " set of file name suffixes that will be given a lower priority when it comes to matching wildcards
