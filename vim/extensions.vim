@@ -216,9 +216,20 @@ let g:ctrlp_max_files = 50000
 " let g:ctrlp_lazy_update = 1
 
 
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
+if executable('rg')
+  set grepprg=rg\ --color=never
+
+  " let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_user_command = {
+      \'types': {
+        \1: ['.git', 'cd %s && git ls-files . --cached --others --exclude-standard'],
+        \2: ['.hg', 'hg --cwd %s status -numac -I . $(hg root)'],
+      \},
+      \'fallback': 'rg %s --files --color=never --glob ""',
+    \}
+  let g:ctrlp_use_caching = 0
+elseif executable('ag')
+  " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
