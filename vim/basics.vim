@@ -18,6 +18,7 @@ set hidden                      " Allow Vim to manage hidden buffers effectively
 set showcmd                     " Display incomplete commands
 set incsearch                   " Do incremental searching
 set number                      " Show line numbers
+set relativenumber              " Show relative line numbers
 set numberwidth=5               " How many columns to use for the line number
 set autowrite                   " Automatically :write before running commands
 set tildeop                     " Make ~ work like a normal operator
@@ -31,6 +32,12 @@ set winwidth=80                 " Make sure the current split has at least 80 wi
 set nojoinspaces                " Only use one space after ., ? or ! with a join command
 set clipboard=unnamed           " Yank and paste with the system clipboard
 set ttyfast                     " We have a fast terminal
+
+
+" Show absolute line numbers in insert mode, relative line numbers otherwise
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+
 
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
