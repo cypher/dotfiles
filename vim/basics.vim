@@ -2,8 +2,8 @@
 set encoding=utf-8 fileencodings=
 
 " Make ',' the personal leader key
-let mapleader = ","
-let maplocalleader = ","
+let mapleader = "\<Space>"
+let maplocalleader = "\<Space>"
 
 " Make ' more useful, swap it with `
 nnoremap ' `
