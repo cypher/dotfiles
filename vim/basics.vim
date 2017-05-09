@@ -108,6 +108,10 @@ set tags=./tags;
 let g:ausession=".vimsession"
 
 
+" Stop command line window from showing up when trying to :q
+map q: :q
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Text Formatting/Layout
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
