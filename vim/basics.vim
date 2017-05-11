@@ -70,7 +70,7 @@ set complete+=kspell
 " This line will make Vim set out tab characters, trailing whitespace and
 " invisible spaces visually, and additionally use the # sign at the end of
 " lines to mark lines that extend off-screen. For more info, see :h listchars.
-set listchars=extends:»,precedes:«,trail:•,tab:▸\ ,eol:¶,nbsp:▫
+set listchars=extends:»,precedes:«,trail:•,tab:▸\ ,eol:¬,nbsp:▫
 set list
 
 
