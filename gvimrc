@@ -2,9 +2,6 @@ set lines=90 columns=230
 
 set background=light
 
-" colorscheme solarized
-" colorscheme railscat
-" colorscheme github
 colorscheme seagull
 
 set guioptions-=T           " Hide the menu bar

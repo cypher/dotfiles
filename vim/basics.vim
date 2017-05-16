@@ -141,9 +141,6 @@ set smarttab                    " use tabs at the start of a line, spaces elsewh
 set t_Co=256                    " 256 colors
 set background=dark             " we are using a dark background
 
-" colorscheme asmdev
-" colorscheme github
-" colorscheme jellybeans
 colorscheme smyck
 
 " Highlight trailing whitespace
