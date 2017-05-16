@@ -169,6 +169,11 @@ nmap ga <Plug>(EasyAlign)
 " let test#python#runner = 'pytest'
 
 
+" vim-splitjoin
+nmap sj :SplitjoinSplit<cr>
+nmap sk :SplitjoinJoin<cr>
+
+
 " jekyll.vim
 map <leader>jb  :JekyllBuild<CR>
 map <leader>jn  :JekyllPost<CR>

@@ -100,3 +100,6 @@
 [submodule "vim/bundle/vim-sensible"]
 	path = vim/bundle/vim-sensible
 	url = git@github.com:tpope/vim-sensible.git
+[submodule "vim/bundle/splitjoin.vim"]
+	path = vim/bundle/splitjoin.vim
+	url = git@github.com:AndrewRadev/splitjoin.vim.git
