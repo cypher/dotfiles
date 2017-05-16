@@ -174,14 +174,6 @@ nmap sj :SplitjoinSplit<cr>
 nmap sk :SplitjoinJoin<cr>
 
 
-" jekyll.vim
-map <leader>jb  :JekyllBuild<CR>
-map <leader>jn  :JekyllPost<CR>
-map <leader>jl  :JekyllList<CR>
-map <leader>jc  :JekyllCommit<CR>
-map <leader>jp  :JekyllPublish<CR>
-
-
 " vim-airline
 " Only load the specified extensions
 " let g:airline_extensions = ['branch', 'tabline']

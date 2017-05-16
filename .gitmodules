@@ -73,9 +73,6 @@
 [submodule "vim/bundle/vim-rhubarb"]
 	path = vim/bundle/vim-rhubarb
 	url = git@github.com:tpope/vim-rhubarb.git
-[submodule "vim/bundle/vim-jekyll"]
-	path = vim/bundle/vim-jekyll
-	url = git@github.com:csexton/jekyll.vim.git
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
