@@ -140,11 +140,6 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 
-" vim-splitjoin
-nmap sj :SplitjoinSplit<cr>
-nmap sk :SplitjoinJoin<cr>
-
-
 " vim-airline
 " Only load the specified extensions
 " let g:airline_extensions = ['branch', 'tabline']
