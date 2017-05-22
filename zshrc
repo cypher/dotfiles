@@ -196,40 +196,23 @@ zstyle -e ':completion::*:hosts' hosts 'reply=($(sed -e "/^#/d" -e "s/ .*\$//" -
 
 autoload -U colors; colors;
 
+# Allow functions in (R)PROMPT
 setopt prompt_subst
-
 
 # Combined left and right prompt configuration.
 local smiley="%(?,%F{green}😊%f,%F{red}☹%f)"
 
 PROMPT='%m %B%F{red}:: %F{green}%3~ ${smiley}  %F{blue}%(0!.#.») %b%f'
 
-# %s: The current version control system, like git or svn.
-# %r: The name of the root directory of the repository
-# %S: The current path relative to the repository root directory
-# %b: Branch information, like master
-# %m: In case of Git, show information about stashes
-# %u: Show unstaged changes in the repository
-# %c: Show staged changes in the repository
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats '%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-zstyle ':vcs_info:*' formats       '%F{5}[%F{2}%b%F{5}]%f %F{grey}%m%f '
-zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
-# Enable %c and %u sequences:
-# zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' enable git cvs svn
+RPROMPT=''
 
-vcs_info_wrapper() {
-  vcs_info
-  if [ -n "$vcs_info_msg_0_" ]; then
-    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
-  fi
-}
+if type pretty-git-prompt > /dev/null; then
+  RPROMPT="\$(pretty-git-prompt) $RPROMPT"
+fi
 
-RPROMPT='%F{white}$(vcs_info_wrapper)%f';
 # Put rbenv version info on the right side, if rbenv is available
 if type rbenv > /dev/null; then
-    RPROMPT="$RPROMPT %F{white}\$(rbenv version-name)%f";
+    RPROMPT="%F{white}\$(rbenv version-name)%f $RPROMPT";
 fi
 
 # TODO LSCOLORS and LS_COLORS don't define the same color scheme
