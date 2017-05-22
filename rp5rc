@@ -1,3 +1,0 @@
-# YAML configuration file for ruby-processing
-# RP5HOME: "/Users/ruby193 ... /ruby-processing" #windows users may need to set this
-PROCESSING_ROOT: "/Applications/Processing.app/Contents/Java"

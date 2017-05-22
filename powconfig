@@ -1,5 +1,0 @@
-# export POW_DST_PORT=88
-export HOME="/Users/cypher"
-export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:/usr/local/bin:$PATH"
-export POW_TIMEOUT=300
-export POW_WORKERS=3
