@@ -11,6 +11,7 @@ source $HOME/.vim/bindings.vim
 source $HOME/.vim/editing.vim
 source $HOME/.vim/window.vim
 source $HOME/.vim/extensions.vim
+source $HOME/.vim/snippets.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Load local config
