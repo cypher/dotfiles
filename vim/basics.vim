@@ -1,7 +1,7 @@
 " Set default encoding to UTF-8.
 set encoding=utf-8 fileencodings=
 
-" Make ',' the personal leader key
+" Make ' ' the personal leader key
 let mapleader = "\<Space>"
 let maplocalleader = "\<Space>"
 
