@@ -17,6 +17,7 @@ set makeef=error.err            " When using make, where should it dump the file
 set hidden                      " Allow Vim to manage hidden buffers effectively
 set showcmd                     " Display incomplete commands
 set incsearch                   " Do incremental searching
+set number                      " Show line numbers
 set relativenumber              " Show relative line numbers
 set numberwidth=5               " How many columns to use for the line number
 set autowrite                   " Automatically :write before running commands
