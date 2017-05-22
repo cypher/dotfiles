@@ -102,6 +102,8 @@ set statusline+=%r%=[%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]\ %
 
 " tag support
 set tags=./tags;
+command! MakeTags !ctags -R .
+
 
 " file for autosaved session
 let g:ausession=".vimsession"
