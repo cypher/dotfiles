@@ -50,6 +50,7 @@ set showmatch                   " Show matching brackets
 set incsearch                   " ... dynamically as they are typed
 
 
+set path+=**                    " Search down into subfolders when tab-completing for all file-related tasks
 set wildmenu                    " Make completion useful: show a navigable menu for tab completion
 " Ignore these files when completing names and in Explorer
 set wildignore+=.svn,CVS,.git,*.pyc,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,*.pdf,*.bak,*.beam,*/tmp/*,*.zip,log/**,node_modules/**,target/**,tmp/**,*.rbc
