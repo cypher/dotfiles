@@ -114,29 +114,13 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 
-" Syntastic
-let g:syntastic_python_checkers=['flake8', 'pylama']
-let g:syntastic_python_flake8_args='--ignore=E501,E401,E221,E241'
-let g:syntastic_python_pylama_args='--ignore E501,E401,E221,E241'
-
-let g:syntastic_javascript_checkers=['eslint']
-
-let g:syntastic_css_checkers=['csslint']
-
-let g:syntastic_html_checkers=[] " ['validator', 'w3']
-" Let syntax checking to check on open as well as save
-let g:syntastic_check_on_open=1
-" If multiple checkers are defined, aggregate their output
-let g:syntastic_aggregate_errors = 1
-" Fun symbols
-let g:syntastic_error_symbol = '❌'
-let g:syntastic_style_error_symbol = '⁉️'
-let g:syntastic_warning_symbol = '⚠️'
-let g:syntastic_style_warning_symbol = '💩'
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
+" A.L.E. (Asynchronous Linting Engine)
+let g:ale_lint_delay = 1500
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_sign_warning = '⚠️'
+let g:ale_sign_error = '❌'
+let g:ale_sign_style_warning = '💩'
+let g:ale_sign_style_error = '⁉️'
 
 
 " Treat <li> and <p> tags like the block tags they are
