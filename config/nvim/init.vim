@@ -12,6 +12,8 @@ source $HOME/.vim/editing.vim
 source $HOME/.vim/window.vim
 source $HOME/.config/nvim/extensions.vim
 " source $HOME/.config/nvim/snippets.vim
+" Load nvim-specific stuff
+source $HOME/.config/nvim/nvim.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Load local config
