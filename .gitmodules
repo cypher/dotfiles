@@ -24,7 +24,7 @@
 	url = git@github.com:vim-ruby/vim-ruby.git
 [submodule "vim/bundle/ctrlp"]
 	path = vim/bundle/ctrlp
-	url = git@github.com:kien/ctrlp.vim.git
+	url = git@github.com:ctrlpvim/ctrlp.vim.git
 [submodule "vim/bundle/tabular.vim"]
 	path = vim/bundle/tabular.vim
 	url = git@github.com:godlygeek/tabular.git
