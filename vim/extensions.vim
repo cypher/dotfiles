@@ -53,11 +53,16 @@ augroup END
 
 " Configure netrw
 let g:netrw_banner=0        " disable annoying banner
-let g:netrw_browse_split=4  " open in prior window
-let g:netrw_altv=1          " open splits to the right
 let g:netrw_liststyle=3     " tree view
-let g:netrw_list_hide=netrw_gitignore#Hide()
-let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_browse_split=4  " open in previous window (1 = new horz split, 2 = new vertical split, 3 = new tab, 4 = prev window)
+let g:netrw_altv=1          " open splits to the right
+let g:netrw_winsize=15      " Make it look like a file drawer (25% width of window)
+let g:netrw_list_hide = &wildignore " Reuse wildignore for hiding files
+" Launch netrw right after opening vim
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END
 
 
 " " rainbow parentheses
@@ -84,10 +89,6 @@ let g:is_posix = 1
 
 " Don't conceal things like "->" with their Unicode representation
 let g:no_rust_conceal = 1
-
-
-" Hide .pyc in NetRW
-let g:netrw_listhide='.*\.pyc\$'
 
 
 " Strip trailing whitespace - The Plugin
