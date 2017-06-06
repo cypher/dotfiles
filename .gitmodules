@@ -97,3 +97,36 @@
 [submodule "vim/bundle/ale"]
 	path = vim/bundle/ale
 	url = git@github.com:w0rp/ale.git
+[submodule "config/nvim/bundle/vim-fugitive"]
+	path = config/nvim/bundle/vim-fugitive
+	url = git@github.com:tpope/vim-fugitive.git
+[submodule "config/nvim/bundle/ale"]
+	path = config/nvim/bundle/ale
+	url = git@github.com:w0rp/ale.git
+[submodule "config/nvim/bundle/rust.vim"]
+	path = config/nvim/bundle/rust.vim
+	url = git@github.com:rust-lang/rust.vim.git
+[submodule "config/nvim/bundle/vim-ruby"]
+	path = config/nvim/bundle/vim-ruby
+	url = git@github.com:vim-ruby/vim-ruby.git
+[submodule "config/nvim/bundle/vim-rails"]
+	path = config/nvim/bundle/vim-rails
+	url = git@github.com:tpope/vim-rails.git
+[submodule "config/nvim/bundle/vim-airline"]
+	path = config/nvim/bundle/vim-airline
+	url = git@github.com:vim-airline/vim-airline.git
+[submodule "config/nvim/bundle/ctrlp"]
+	path = config/nvim/bundle/ctrlp
+	url = git@github.com:ctrlpvim/ctrlp.vim.git
+[submodule "config/nvim/bundle/vim-commentary"]
+	path = config/nvim/bundle/vim-commentary
+	url = git@github.com:tpope/vim-commentary.git
+[submodule "config/nvim/bundle/vim-markdown"]
+	path = config/nvim/bundle/vim-markdown
+	url = git@github.com:plasticboy/vim-markdown.git
+[submodule "config/nvim/bundle/vim-unimpaired"]
+	path = config/nvim/bundle/vim-unimpaired
+	url = git@github.com:tpope/vim-unimpaired.git
+[submodule "config/nvim/bundle/vim-surround"]
+	path = config/nvim/bundle/vim-surround
+	url = git@github.com:tpope/vim-surround.git
