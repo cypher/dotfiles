@@ -1,0 +1,24 @@
+#!/bin/bash
+
+CURRENT_BRANCH=$(git branch &>/dev/null; if [ $? -eq 0 ]; then echo "$(git branch | grep '^*' |sed s/\*\ //)"; fi)
+
+if [ "${CURRENT_BRANCH}" != "" ]; then
+
+  TARGET="${1}"
+
+  if [ "${TARGET}" == "" ]; then
+    TRACKING_REPOSITORY="$(git config branch.${CURRENT_BRANCH}.remote)"
+
+    # there is a tracking repository
+    if [ "${TRACKING_REPOSITORY}" != "" ]; then
+      REMOTE_REPOSITORY="${TRACKING_REPOSITORY}"
+      REMOTE_BRANCH="$(git config branch.${CURRENT_BRANCH}.merge | sed -e 's#^[^/]*/[^/]*/##')"
+      TARGET="${REMOTE_REPOSITORY}/${REMOTE_BRANCH}"
+    fi
+  fi
+
+  echo "From: ${TARGET}"
+  echo ""
+
+  git log ..${TARGET}
+fi
