@@ -1,42 +1,51 @@
-set show-all-if-ambiguous on
-set completion-ignore-case on
-set meta-flag on
-set convert-meta off
-set output-meta on
+# Default to emacs style editing, to use vi style editing:
+# set editing-mode vi
 
-# do not make noise
+# Do not make noise
 set bell-style none
 
-# set editing-mode vi
-# tab: complete
-# set completion-ignore-case on
-# set blink-matching-paren on
+# Make Tab autocomplete regardless of filename case
+set completion-ignore-case on
 
-# By default up/down are bound to previous-history
-# and next-history respectively. The following does the
-# same but gives the extra functionality where if you
-# type any text (or more accurately, if there is any text
-# between the start of the line and the cursor),
-# the subset of the history starting with that text
-# is searched (like 4dos for e.g.).
-# Note to get rid of a line just Ctrl-C
-# "\e[B": history-search-forward
-# "\e[A": history-search-backward
+# List all matches in case multiple possible completions are possible
+set show-all-if-ambiguous on
 
-#$if Bash
-#  # F10 toggles mc on and off
-#  # Note Ctrl-o toggles panes on and off in mc
-#  "\e[21~": "mc\C-M"
-#
-#  #do history expansion when space entered
-#  Space: magic-space
-#$endif
+# Immediately add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on
 
-# Include system wide settings which are ignored
-# by default if one has their own .inputrc
-# (Don't have one on this system)
-#$include /etc/inputrc
+# Do not autocomplete hidden files unless the pattern explicitly begins with a dot
+set match-hidden-files off
 
-# These allow you to use ctrl+left/right arrow keys to jump the cursor over words
+# Show all autocomplete results at once
+set page-completions off
+
+# If there are more than 200 possible completions for a word, ask to show them all
+set completion-query-items 200
+
+# Show extra file information when completing, like `ls -F` does
+set visible-stats on
+
+# Be more intelligent when autocompleting by also looking at the text after
+# the cursor. For example, when the current line is "cd ~/src/mozil", and
+# the cursor is on the "z", pressing Tab will not autocomplete it to "cd
+# ~/src/mozillail", but to "cd ~/src/mozilla". (This is supported by the
+# Readline used by Bash 4.)
+set skip-completed-text on
+
+# Allow UTF-8 input and output, instead of showing stuff like $'\0123\0456'
+set meta-flag on
+set input-meta on
+set output-meta on
+set convert-meta off
+
+# Use the text that has already been typed as the prefix for searching through
+# commands (i.e. more intelligent Up/Down behavior)
+"\e[B": history-search-forward
+"\e[A": history-search-backward
+
+# Use Alt/Meta + Delete to delete the preceding word
+"\e[3;3~": kill-word
+
+# Use ctrl+left/right arrow keys to jump the cursor over words
 "\e[5C": forward-word
 "\e[5D": backward-word
