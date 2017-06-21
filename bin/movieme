@@ -1,0 +1,30 @@
+#!/usr/bin/env ruby
+
+# MOVIE ME as in: "MOVIE ME AN ANIMATED GIF FROM THIS MOVIE, DAMMIT"
+#
+# Creates an animated gif from a movie file. Uploads to CloudApp. You must also
+# have `gifme` and `cloudapp` in your $PATH.
+#
+#   $1 - the path to the movie we're converting.
+#   $2 - the start time of the finished product.
+#        This can be in seconds, or it also accepts the "hh:mm:ss[.xxx]" format.
+#   $3 - the duration of the video sequence.
+#        This can be in seconds, or it also accepts the "hh:mm:ss[.xxx]" format.
+#
+# Examples:
+#
+#   movieme <path> <start-time> <duration>
+#   ~/Desktop/dr-strangelove.mp4 23:12 3
+#   ~/Desktop/holman-backflip-on-fire.mov 3.9 1.75
+
+PATH_TO_MOVIE_FILE = ARGV.fetch(1)
+START_TIME = ARGV.fetch(2)
+END_TIME = ARGV.fetch(3)
+
+Dir.mktmpdir('movieme') do |tmpdir|
+  # split the movie into constituent frames
+  system %Q{ffmpeg -i "#{PATH_TO_MOVIE_FILE}" -f image2 -vf "scale=iw*sar:ih" -ss #{START_TIME} -t #{END_TIME} -r 7 #{tmpdir}/d-%05d.png}
+
+  # ANIMATE
+  system("gifme #{tmpdir}/* -d 0")
+end
