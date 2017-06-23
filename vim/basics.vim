@@ -32,6 +32,7 @@ set winwidth=80                 " Make sure the current split has at least 80 wi
 set nojoinspaces                " Only use one space after ., ? or ! with a join command
 set clipboard=unnamed           " Yank and paste with the system clipboard
 set ttyfast                     " We have a fast terminal
+set noballooneval               " Turn off tooltips/balloon evaluations
 
 
 " Show absolute line numbers in insert mode, relative line numbers otherwise
