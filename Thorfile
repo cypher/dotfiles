@@ -70,6 +70,16 @@ class Dotfiles < Thor
   def configure_macos
     # Apple Mail
     run("defaults write com.apple.mail DisableInlineAttachmentViewing -bool yes")
+
+    # Always open everything in Finder's list view. This is important.
+    run("defaults write com.apple.Finder FXPreferredViewStyle Nlsv")
+
+    # Show the ~/Library folder.
+    run("chflags nohidden ~/Library")
+
+    # Set the Finder prefs for showing a few different volumes on the Desktop.
+    run("defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true")
+    run("defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true")
   end
 
   desc "configure", "Set OS-specific configurations"
