@@ -66,30 +66,35 @@ class Dotfiles < Thor
     end
   end
 
-  desc "configure_macos", "Configures macOS-specific settings"
+  desc 'configure_macos', 'Configures macOS-specific settings'
   def configure_macos
     # Apple Mail
-    run("defaults write com.apple.mail DisableInlineAttachmentViewing -bool yes")
+    run('defaults write com.apple.mail DisableInlineAttachmentViewing -bool yes')
 
     # Always open everything in Finder's list view. This is important.
-    run("defaults write com.apple.Finder FXPreferredViewStyle Nlsv")
+    run('defaults write com.apple.Finder FXPreferredViewStyle Nlsv')
 
     # Show the ~/Library folder.
-    run("chflags nohidden ~/Library")
+    run('chflags nohidden ~/Library')
 
     # Set the Finder prefs for showing a few different volumes on the Desktop.
-    run("defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true")
-    run("defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true")
+    run('defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true')
+    run('defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true')
+
+    # Destroy File Vault Key when going to standby mode
+    run('sudo pmset -a destroyfvkeyonstandby 1')
+    # Turn off powernap
+    run('sudo pmset -a powernap 0')
 
     # Set up Safari for development.
-    # run("defaults write com.apple.Safari IncludeInternalDebugMenu -bool true")
-    # run("defaults write com.apple.Safari IncludeDevelopMenu -bool true")
-    # run("defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true")
-    # run('defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true')
-    # run("defaults write NSGlobalDomain WebKitDeveloperExtras -bool true")
+    # run('defaults write com.apple.Safari IncludeInternalDebugMenu -bool true')
+    # run('defaults write com.apple.Safari IncludeDevelopMenu -bool true')
+    # run('defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true')
+    # run('defaults write com.apple.Safari 'com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled' -bool true')
+    # run('defaults write NSGlobalDomain WebKitDeveloperExtras -bool true')
 
     # Show the full path in the Finder's title
-    # run("defaults write com.apple.finder _FXShowPosixPathInTitle -bool true")
+    # run('defaults write com.apple.finder _FXShowPosixPathInTitle -bool true')
 
     # All of the following were nabbed from github.com/mathiasbynens/dotfiles/
 
