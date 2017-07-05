@@ -86,13 +86,6 @@ class Dotfiles < Thor
     # Turn off powernap
     run('sudo pmset -a powernap 0')
 
-    # Set up Safari for development.
-    # run('defaults write com.apple.Safari IncludeInternalDebugMenu -bool true')
-    # run('defaults write com.apple.Safari IncludeDevelopMenu -bool true')
-    # run('defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true')
-    # run('defaults write com.apple.Safari 'com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled' -bool true')
-    # run('defaults write NSGlobalDomain WebKitDeveloperExtras -bool true')
-
     # Show the full path in the Finder's title
     # run('defaults write com.apple.finder _FXShowPosixPathInTitle -bool true')
 
@@ -513,13 +506,13 @@ class Dotfiles < Thor
     # run('defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2TabsToLinks -bool true')
 
     # Show the full URL in the address bar (note: this still hides the scheme)
-    # run('defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true')
+    run('defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true')
 
     # Set Safari’s home page to `about:blank` for faster loading
     # run('defaults write com.apple.Safari HomePage -string "about:blank"')
 
     # Prevent Safari from opening ‘safe’ files automatically after downloading
-    # run('defaults write com.apple.Safari AutoOpenSafeDownloads -bool false')
+    run('defaults write com.apple.Safari AutoOpenSafeDownloads -bool false')
 
     # Allow hitting the Backspace key to go to the previous page in history
     # run('defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true')
@@ -534,21 +527,21 @@ class Dotfiles < Thor
     # run('defaults write com.apple.Safari DebugSnapshotsUpdatePolicy -int 2')
 
     # Enable Safari’s debug menu
-    # run('defaults write com.apple.Safari IncludeInternalDebugMenu -bool true')
+    run('defaults write com.apple.Safari IncludeInternalDebugMenu -bool true')
 
     # Make Safari’s search banners default to Contains instead of Starts With
-    # run('defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false')
+    run('defaults write com.apple.Safari FindOnPageMatchesWordStartsOnly -bool false')
 
     # Remove useless icons from Safari’s bookmarks bar
     # run('defaults write com.apple.Safari ProxiesInBookmarksBar "()"')
 
     # Enable the Develop menu and the Web Inspector in Safari
-    # run('defaults write com.apple.Safari IncludeDevelopMenu -bool true')
-    # run('defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true')
-    # run('defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true')
+    run('defaults write com.apple.Safari IncludeDevelopMenu -bool true')
+    run('defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true')
+    run('defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true')
 
     # Add a context menu item for showing the Web Inspector in web views
-    # run('defaults write NSGlobalDomain WebKitDeveloperExtras -bool true')
+    run('defaults write NSGlobalDomain WebKitDeveloperExtras -bool true')
 
     # Enable continuous spellchecking
     # run('defaults write com.apple.Safari WebContinuousSpellCheckingEnabled -bool true')
@@ -556,21 +549,21 @@ class Dotfiles < Thor
     # run('defaults write com.apple.Safari WebAutomaticSpellingCorrectionEnabled -bool false')
 
     # Disable AutoFill
-    # run('defaults write com.apple.Safari AutoFillFromAddressBook -bool false')
-    # run('defaults write com.apple.Safari AutoFillPasswords -bool false')
-    # run('defaults write com.apple.Safari AutoFillCreditCardData -bool false')
-    # run('defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false')
+    run('defaults write com.apple.Safari AutoFillFromAddressBook -bool false')
+    run('defaults write com.apple.Safari AutoFillPasswords -bool false')
+    run('defaults write com.apple.Safari AutoFillCreditCardData -bool false')
+    run('defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false')
 
     # Warn about fraudulent websites
     # run('defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true')
 
     # Disable plug-ins
-    # run('defaults write com.apple.Safari WebKitPluginsEnabled -bool false')
-    # run('defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled -bool false')
+    run('defaults write com.apple.Safari WebKitPluginsEnabled -bool false')
+    run('defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2PluginsEnabled -bool false')
 
     # Disable Java
-    # run('defaults write com.apple.Safari WebKitJavaEnabled -bool false')
-    # run('defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false')
+    run('defaults write com.apple.Safari WebKitJavaEnabled -bool false')
+    run('defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2JavaEnabled -bool false')
 
     # Block pop-up windows
     # run('defaults write com.apple.Safari WebKitJavaScriptCanOpenWindowsAutomatically -bool false')
@@ -587,6 +580,22 @@ class Dotfiles < Thor
 
     # Update extensions automatically
     # run('defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true')
+
+    # Disable 'ping' hyperlink auditing feature
+    run('defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2HyperlinkAuditingEnabled -bool false')
+
+    # Set up Safari for development.
+    # run('defaults write com.apple.Safari IncludeInternalDebugMenu -bool true')
+    # run('defaults write com.apple.Safari IncludeDevelopMenu -bool true')
+    # run('defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true')
+    # run('defaults write com.apple.Safari 'com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled' -bool true')
+    # run('defaults write NSGlobalDomain WebKitDeveloperExtras -bool true')
+
+    ###############################################################################
+    # Safari Technology Preview
+    ###############################################################################
+
+    run('defaults write com.apple.SafariTechnologyPreview com.apple.Safari.ContentPageGroupIdentifier.WebKit2HyperlinkAuditingEnabled -bool false')
 
     ###############################################################################
     # Mail                                                                        #
