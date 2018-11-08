@@ -20,7 +20,7 @@ pull_args = ARGV.to_a
 
 rebase = File.basename($0) == 'git-reup'
 
-old_head = `git rev-parse head`.chomp
+old_head = `git rev-parse HEAD`.chomp
 
 exit($?.to_i) unless $? == 0
 
@@ -31,7 +31,7 @@ end
 
 system "git pull #{pull_args.shelljoin}"
 
-updated = (old_head != `git rev-parse head`.chomp)
+updated = (old_head != `git rev-parse HEAD`.chomp)
 
 if updated
   if rebase
